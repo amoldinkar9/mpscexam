@@ -88,7 +88,7 @@ export function Pricing() {
             
             {/* Scarcity Tag */}
             <div className="absolute -top-4 inset-x-0 mx-auto w-fit bg-amber-400 text-[#78350f] text-xs font-black px-4 py-1.5 rounded-full shadow-md uppercase tracking-wider z-10 border-2 border-white">
-              केवळ आजची विशेष ऑफर
+              पहिले 500 विद्यार्थी विशेष सवलत
             </div>
 
             <div className="bg-gradient-to-b from-white to-[#fbf4f3] rounded-2xl p-7 sm:p-9 border-2 border-[#9B3A32] shadow-2xl text-center space-y-6">
@@ -102,13 +102,22 @@ export function Pricing() {
                 <p className="text-xs sm:text-sm text-[#9B3A32] font-extrabold pt-1">
                   (80% थेट सवलत • एकरकमी फी)
                 </p>
+                <div className="pt-2">
+                  <span className="inline-block text-[11px] font-bold bg-[#fbeae8] text-[#9B3A32] px-3 py-1 rounded-full border border-[#f3c8c4] animate-pulse">
+                    🔥 442 सीट्स बुक झाल्या • केवळ 58 शिल्लक
+                  </span>
+                </div>
               </div>
 
               {/* Inclusions summary checklist with relaxed line-height */}
               <div className="bg-white p-4.5 rounded-xl border border-[#f3c8c4] text-xs sm:text-sm text-left space-y-2.5 text-[#1F2A5C]">
                 <div className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>25 परिपूर्ण मॉक टेस्ट्स (1,500+ प्रश्न)</span>
+                  <span>25 परिपूर्ण मॉक टेस्ट्स (2,000+ प्रश्न)</span>
+                </div>
+                <div className="flex items-center gap-2.5">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                  <span>प्रत्येक प्रश्नाचे 4 पर्यायांसह सविस्तर स्पष्टीकरण</span>
                 </div>
                 <div className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
@@ -116,7 +125,7 @@ export function Pricing() {
                 </div>
                 <div className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>अमर्यादित वेळा सराव उपलब्ध</span>
+                  <span>अमर्यादित वेळा सराव & PDF डाऊनलोड</span>
                 </div>
               </div>
 
@@ -125,12 +134,17 @@ export function Pricing() {
                 onClick={handleEnroll}
                 className="w-full py-4.5 px-6 bg-[#9B3A32] hover:bg-[#822f28] active:bg-[#6b251f] text-white font-extrabold text-lg rounded-xl shadow-lg shadow-[#9B3A32]/25 hover:shadow-xl hover:shadow-[#9B3A32]/30 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2.5 cursor-pointer"
               >
-                <span>आत्ताच सुरुवात करा — ₹199 मध्ये</span>
+                <span>आत्ताच ₹199 मध्ये टेस्ट सिरीज सुरू करा</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
 
+              {/* Price Lock Alert */}
+              <p className="text-[11px] text-slate-500 font-medium">
+                *58 सीट्स संपल्यानंतर मूळ किंमत ₹999 लागू होईल.
+              </p>
+
               {/* Payment Security Badges */}
-              <div className="pt-3 border-t border-slate-200">
+              <div className="pt-2 border-t border-slate-200">
                 <div className="flex items-center justify-center gap-4 text-xs text-slate-500 font-medium">
                   <span className="flex items-center gap-1.5">
                     <Lock className="w-4 h-4 text-emerald-600" />

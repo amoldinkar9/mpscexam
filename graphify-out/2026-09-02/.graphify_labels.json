@@ -1,1 +1,21 @@
-{"0": "Landing Page Components", "1": "Core Architecture & Routes", "2": "Dev Tooling Dependencies", "3": "TypeScript Compiler Config", "4": "System Architecture & Data Layer", "5": "Runtime Dependencies", "6": "Database Schema Map", "7": "TypeScript Project References", "8": "Package Scripts & Metadata", "9": "Domain Services & Entities", "10": "Project Overview & Agent Rules", "11": "MPSC Exam Brand & Core Rules", "12": "Exam Runner UI Components", "13": "Root App Layout", "14": "ESLint Config", "15": "Category & Subject Entities", "16": "Next.js Config", "17": "PostCSS Config", "18": "Gemini Project Directives"}
+{
+  "0": "page.tsx",
+  "1": "mpscexam Route Map",
+  "2": "devDependencies",
+  "3": "compilerOptions",
+  "4": "mpscexam System Architecture",
+  "5": "dependencies",
+  "6": "QUESTION Entity",
+  "7": "include",
+  "8": "package.json",
+  "9": "TestAttempt Entity",
+  "10": "Next.js Agent Rules Notice",
+  "11": "mpscexam Core Project Rules",
+  "12": "ExamContainer Component",
+  "13": "layout.tsx",
+  "14": "eslint.config.mjs",
+  "15": "Category/ExamType Entity",
+  "16": "next.config.ts",
+  "17": "postcss.config.mjs",
+  "18": "mpscexam Project Directives (GEMINI.md)"
+}

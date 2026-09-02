@@ -39,7 +39,7 @@ export function AspirantPainPoints() {
         </div>
 
         {/* 2-Column Comparison Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
           {points.map((pt, idx) => (
             <div
               key={idx}
@@ -62,6 +62,47 @@ export function AspirantPainPoints() {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* High-Impact FOMO Contrast: The 1-Year Opportunity Cost */}
+        <div className="bg-gradient-to-br from-[#1F2A5C] to-[#151d40] text-white rounded-2xl p-6 sm:p-8 shadow-xl border border-slate-700">
+          <div className="text-center max-w-2xl mx-auto mb-6">
+            <span className="bg-amber-400/20 text-amber-300 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-400/30">
+              कटऑफचा खरा फरक
+            </span>
+            <h3 className="text-xl sm:text-2xl font-black text-white mt-2">
+              फक्त वाचन करणारे vs. प्रत्यक्ष 25 टेस्ट्स सोडवणारे
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300 mt-1">
+              7.5 लाख विद्यार्थ्यांमध्ये 1-2 गुणांचा फरक ठरवतो तुमचे सिलेक्शन किंवा पुन्हा 1 वर्षाची प्रतीक्षा!
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <div className="bg-red-950/40 border border-red-500/30 rounded-xl p-5 space-y-2">
+              <div className="flex items-center gap-2 text-red-400 font-bold text-sm">
+                <XCircle className="w-4 h-4 shrink-0" />
+                <span>केवळ पुस्तके वाचणारे विद्यार्थी:</span>
+              </div>
+              <ul className="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside">
+                <li>परीक्षेत 60 मिनिटांत 100 प्रश्न न झेपल्याने शेवटचे 15 प्रश्न सुटतात</li>
+                <li>अंदाज लावल्याने निगेटिव्ह मार्किंगमध्ये (-0.25) 10-12 गुण वाया जातात</li>
+                <li>1-2 मार्कांमुळे कटऑफ हुकतो आणि संपूर्ण वर्ष वाया जाते</li>
+              </ul>
+            </div>
+
+            <div className="bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-5 space-y-2">
+              <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                <span>ही 25 टेस्ट्स सिरीज सोडवणारे विद्यार्थी:</span>
+              </div>
+              <ul className="text-xs sm:text-sm text-emerald-100 space-y-1.5 list-disc list-inside">
+                <li>2,000+ प्रश्नांच्या सरावामुळे 60 मिनिटांचे अचूक टाईम मॅनेजमेंट</li>
+                <li>निगेटिव्ह मार्किंगवर 100% ताबा आणि 85%+ अचूकता (Accuracy)</li>
+                <li>पहिल्याच झटक्यात कटऑफ सहज पार करून मेन्स परीक्षेसाठी पात्र</li>
+              </ul>
+            </div>
+          </div>
         </div>
 
       </div>

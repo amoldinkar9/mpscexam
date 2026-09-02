@@ -17,9 +17,9 @@ export function StickyMobileBar() {
             <span className="text-xs text-slate-400 line-through font-semibold english-numerals">₹999</span>
             <span className="text-2xl font-black text-[#9B3A32] leading-none english-numerals">₹199</span>
           </div>
-          <span className="text-[10px] text-emerald-700 font-bold flex items-center gap-0.5 mt-0.5">
-            <Zap className="w-3 h-3 fill-emerald-600 text-emerald-600" />
-            <span>25 टेस्ट्स • 80% सूट</span>
+          <span className="text-[10px] text-[#9B3A32] font-extrabold flex items-center gap-0.5 mt-0.5 animate-pulse">
+            <Zap className="w-3 h-3 fill-[#9B3A32] text-[#9B3A32]" />
+            <span>केवळ 58 सीट्स शिल्लक!</span>
           </span>
         </div>
 

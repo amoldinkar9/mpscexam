@@ -32,16 +32,16 @@ export function UrgencyBanner() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-5">
           
-          {/* Left: Urgency Label & Countdown */}
+          {/* Left: Exam Countdown Label */}
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 sm:gap-5">
             <div className="flex items-center gap-2 bg-[#9B3A32] text-white text-xs sm:text-sm font-bold px-3.5 py-1.5 rounded-full shadow-xs">
               <Flame className="w-4 h-4 text-amber-300 fill-amber-300 animate-pulse" />
-              <span>मर्यादित वेळेची ऑफर</span>
+              <span>MPSC Group C पूर्व परीक्षा 2026</span>
             </div>
 
             <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-[#1F2A5C]">
               <Timer className="w-5 h-5 text-[#9B3A32]" />
-              <span>ऑफर समाप्त होण्यासाठी वेळ:</span>
+              <span>प्रत्यक्ष परीक्षेसाठी शिल्लक वेळ:</span>
             </div>
 
             {/* Countdown Blocks */}
@@ -57,26 +57,26 @@ export function UrgencyBanner() {
           </div>
 
           {/* Right: Seat Scarcity Progress Bar */}
-          <div className="w-full md:w-80 bg-white/90 backdrop-blur-xs px-4 py-2.5 rounded-xl border border-amber-500/20 shadow-xs space-y-1.5">
+          <div className="w-full md:w-84 bg-white/95 backdrop-blur-xs px-4 py-2.5 rounded-xl border border-amber-500/30 shadow-xs space-y-1.5">
             <div className="flex items-center justify-between text-xs font-bold text-[#1F2A5C]">
               <span className="flex items-center gap-1.5">
                 <AlertTriangle className="w-4 h-4 text-[#9B3A32]" />
-                <span>उपलब्ध सीट्स शिल्लक</span>
+                <span>₹199 ऑफर स्लॉट्स</span>
               </span>
-              <span className="text-[#9B3A32] font-extrabold english-numerals">85% पूर्ण</span>
+              <span className="text-[#9B3A32] font-extrabold english-numerals">88% भरले (442/500)</span>
             </div>
             
             {/* Progress Track */}
             <div className="w-full h-3 bg-amber-200/80 rounded-full overflow-hidden p-0.5">
               <div
                 className="h-full bg-gradient-to-r from-[#b8463c] to-[#9B3A32] rounded-full transition-all duration-500"
-                style={{ width: "85%" }}
+                style={{ width: "88.4%" }}
               />
             </div>
             
-            <div className="flex justify-between text-[11px] text-slate-600 font-medium pt-0.5">
-              <span>एकूण 500 सीट्स</span>
-              <span className="text-[#9B3A32] font-bold">केवळ 75 शिल्लक</span>
+            <div className="flex justify-between text-[11px] text-slate-700 font-semibold pt-0.5">
+              <span>पहिल्या 500 विद्यार्थ्यांसाठी</span>
+              <span className="text-[#9B3A32] font-black animate-pulse">केवळ 58 सीट्स शिल्लक!</span>
             </div>
           </div>
 

@@ -40,9 +40,9 @@ export function HeroSection() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 bg-white px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs text-xs sm:text-sm">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-            <span className="text-[#1F2A5C] font-bold">नवीन बॅच ॲडमिशन सुरू आहे</span>
+          <div className="flex items-center gap-2.5 bg-white px-3.5 py-1.5 rounded-full border border-[#9B3A32]/30 shadow-xs text-xs sm:text-sm">
+            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
+            <span className="text-[#1F2A5C] font-bold">थेट ॲक्टिव्ह: आज 280+ टेस्ट्स सोडवल्या • ₹199 ऑफरमध्ये केवळ 58 सीट्स शिल्लक</span>
           </div>
         </div>
 
@@ -79,9 +79,9 @@ export function HeroSection() {
               MPSC Group C Pre Exam 2026 मध्ये <span className="text-[#9B3A32] underline decoration-[#9B3A32]/40 decoration-wavy underline-offset-8">पहिल्याच प्रयत्नात</span> कटऑफ पार करा!
             </h1>
 
-            {/* Subheadline */}
+            {/* Subheadline with Peer FOMO */}
             <p className="text-base sm:text-lg text-[#334155] leading-[1.8]">
-              आयोगाच्या 2024–2025 काठिण्यपातळीवर आधारित अस्सल दर्जाच्या टेस्ट्स. प्रत्येक प्रश्नाचे 4 पर्यायांसह सविस्तर मराठी विश्लेषण, शॉर्टकट ट्रिक्स आणि राज्यस्तरीय रँकिंग.
+              7.5+ लाख विद्यार्थ्यांच्या चुरशीच्या स्पर्धेत रोज एक टेस्ट सोडवून स्वतःचे 10–15 गुण वाढवा. आयोगाच्या 2024–2025 काठिण्यपातळीवर आधारित 25 अस्सल टेस्ट्स, प्रत्येक प्रश्नाचे 4 पर्यायांसह सविस्तर मराठी विश्लेषण आणि राज्यस्तरीय गुणवत्ता रँकिंग.
             </p>
 
             {/* Crisp Benefit Checklist */}
@@ -111,13 +111,13 @@ export function HeroSection() {
                   onClick={scrollToPricing}
                   className="inline-flex items-center justify-center gap-3 px-8 py-4.5 bg-[#9B3A32] hover:bg-[#822f28] active:bg-[#6b251f] text-white font-extrabold text-lg rounded-xl shadow-lg shadow-[#9B3A32]/25 hover:shadow-xl hover:shadow-[#9B3A32]/30 transition-all transform hover:-translate-y-0.5 cursor-pointer"
                 >
-                  <span>आत्ताच सुरुवात करा — ₹199 मध्ये</span>
+                  <span>आत्ताच ₹199 मध्ये टेस्ट सिरीज सुरू करा</span>
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </div>
               <p className="text-xs text-[#64748b] flex items-center gap-2 font-medium">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>100% सुरक्षित पेमेंट • त्वरित झटपट ॲक्टिव्हेशन • वैधता: 25 ऑक्टोबर 2026 पर्यंत</span>
+                <span>⚡ 80% सवलत केवळ पहिल्या 500 विद्यार्थ्यांसाठी • 100% सुरक्षित पेमेंट • झटपट ॲक्टिव्हेशन</span>
               </p>
             </div>
 

@@ -1,0 +1,74 @@
+{
+  ".agents/rules/graphify.md": {
+    "mtime": 1788170483.4919374,
+    "seen": 1788184249.72121,
+    "ast_hash": "f1e53ecc9194573d3c28fc116c743a2e",
+    "semantic_hash": ""
+  },
+  ".agents/rules/mpscexam.md": {
+    "mtime": 1788183886.054031,
+    "seen": 1788184249.7212129,
+    "ast_hash": "71f8c0499d84aa38eb416b430b0c40df",
+    "semantic_hash": ""
+  },
+  ".agents/workflows/graphify.md": {
+    "mtime": 1788170483.4920974,
+    "seen": 1788184249.721214,
+    "ast_hash": "6d73634a678cf1e1c71930adf80bd1f0",
+    "semantic_hash": ""
+  },
+  "AGENTS.md": {
+    "mtime": 1788183896.4297073,
+    "seen": 1788184249.721215,
+    "ast_hash": "7c3293bd626001e7e977f5d6d9735ccd",
+    "semantic_hash": ""
+  },
+  "GEMINI.md": {
+    "mtime": 1788183890.944153,
+    "seen": 1788184249.721215,
+    "ast_hash": "7c3293bd626001e7e977f5d6d9735ccd",
+    "semantic_hash": ""
+  },
+  "README.md": {
+    "mtime": 1788170181.9075463,
+    "seen": 1788184249.721216,
+    "ast_hash": "681fe38cad80909f75cc4156563249f3",
+    "semantic_hash": ""
+  },
+  "api-map.md": {
+    "mtime": 1788170392.9926548,
+    "seen": 1788184249.721216,
+    "ast_hash": "28620d70d96f2dd9038d9bea5201b91a",
+    "semantic_hash": ""
+  },
+  "architecture.md": {
+    "mtime": 1788170376.276011,
+    "seen": 1788184249.721217,
+    "ast_hash": "396ee19cc6d9a164b5f98ebaabd32c7d",
+    "semantic_hash": ""
+  },
+  "database-map.md": {
+    "mtime": 1788170401.3549502,
+    "seen": 1788184249.721217,
+    "ast_hash": "e961ced4d26ba9d4bfc008c0e0879493",
+    "semantic_hash": ""
+  },
+  "dependency-graph.md": {
+    "mtime": 1788170407.7201037,
+    "seen": 1788184249.721218,
+    "ast_hash": "d54f6c579c79fb7e061791f5b1293e5a",
+    "semantic_hash": ""
+  },
+  "memory.md": {
+    "mtime": 1788183905.3545375,
+    "seen": 1788184249.721219,
+    "ast_hash": "356cd1a426c2dd4bc045b9d76665fdd5",
+    "semantic_hash": ""
+  },
+  "routes.md": {
+    "mtime": 1788170383.8395557,
+    "seen": 1788184249.721219,
+    "ast_hash": "d5ade1701a31e0464167236eba1ff602",
+    "semantic_hash": ""
+  }
+}

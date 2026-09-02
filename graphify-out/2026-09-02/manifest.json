@@ -60,10 +60,10 @@
     "semantic_hash": "d54f6c579c79fb7e061791f5b1293e5a"
   },
   "memory.md": {
-    "mtime": 1788327687.0347636,
-    "seen": 1788327692.5928938,
-    "ast_hash": "34a020122445955e386800a0621ae2d6",
-    "semantic_hash": ""
+    "mtime": 1788293108.065633,
+    "seen": 1788326744.4637618,
+    "ast_hash": "b80c87131652bc34b3b826c9f553345a",
+    "semantic_hash": "b80c87131652bc34b3b826c9f553345a"
   },
   "routes.md": {
     "mtime": 1788184277.7846186,
@@ -96,10 +96,10 @@
     "semantic_hash": "239f3ebf717465dc636818a1a619398d"
   },
   "src/app/layout.tsx": {
-    "mtime": 1788327667.2974412,
-    "seen": 1788327692.5928771,
-    "ast_hash": "454d9d44593682795d70eab479f7445f",
-    "semantic_hash": ""
+    "mtime": 1788293081.9498355,
+    "seen": 1788326744.463745,
+    "ast_hash": "f89bfc223f1dc1a74c36fd1f0cc49636",
+    "semantic_hash": "f89bfc223f1dc1a74c36fd1f0cc49636"
   },
   "src/app/page.tsx": {
     "mtime": 1788293265.758202,

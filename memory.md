@@ -1,9 +1,10 @@
 # Project Overview
 
 **Project Name:** `mpscexam`  
-**Repository State:** Freshly Initialized Git Repository (Clean State / Green-field)  
+**Repository State:** Active Development  
 **Workspace Location:** `/Users/amoldinkar9/Documents/mpscexam`  
-**Git Branch:** `main` (Initial commit `9212d8c`)  
+**Git Branch:** `main`  
+**Active Checkpoints:** `C1A8` (Tagged Release Point - Next.js 16 + Tailwind v4 + Radix UI + Google Sans typography + MPSC Group C Pre Exam Landing Page)  
 **Git User Configuration:** `mpscexam` (`84007471+amoldinkar9@users.noreply.github.com`)  
 
 ---
@@ -35,8 +36,8 @@ The repository name and identity indicate an educational / exam preparation and 
 * **Framework / Language Implementations:** *Pending initial scaffolding.*
 
 ### Recommended / Standard Production Stack (Subject to User Confirmation)
-* **Frontend:** Next.js (App Router) / React with TypeScript
-* **Styling & UI:** **Radix UI** (https://www.radix-ui.com/ - Radix Themes & Radix UI Primitives) with Vanilla CSS / CSS design tokens and Lucide Icons
+* **Frontend:** Next.js 16 (App Router) / React 19 with TypeScript
+* **Styling & UI:** **Tailwind CSS v4** with custom MPSC seal color palette (Maroon & Navy), responsive design tokens, and Lucide Icons
 * **Backend / API Layer:** Next.js Server Actions & Route Handlers / Node.js API endpoints
 * **Database:** PostgreSQL (via Prisma ORM / Supabase) or MongoDB
 * **Authentication:** NextAuth.js (Auth.js) / Supabase Auth / JWT-based session management
@@ -244,7 +245,7 @@ SENTRY_DSN=
 # Third Party Integrations
 
 * **Planned / Expected:**
-  * Bilingual Marathi font providers (Google Fonts - Noto Sans Devanagari, Mukta, Tiro Devanagari Marathi).
+  * Bilingual Marathi & English typography: Google Font **Google Sans** (`next/font/google`) with Devanagari & Latin subsets.
   * Storage for question diagrams and aspirant study materials (AWS S3 / Cloudinary / Supabase Storage).
   * Payment gateway for premium mock tests (Razorpay / Stripe).
 

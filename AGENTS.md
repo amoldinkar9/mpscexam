@@ -1,10 +1,9 @@
-# Project Instructions & Directives: mpscexam
+<!-- BEGIN:nextjs-agent-rules -->
 
-This is **mpscexam** (Amol Dinkar)'s site/project.
+# This is NOT the Next.js you know
 
-## Directives
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
 
-1. **Brand Identity:** Always keep the brand name as `mpscexam`.
-2. **Styling Framework & UI Components:** Always use **Radix UI** (https://www.radix-ui.com/ - Radix Themes & Radix UI Primitives) with Vanilla CSS / custom design tokens for accessible, high-performance UI components.
-3. **Preserve Code Comments:** Never remove existing comments, docstrings, or architectural notes.
-4. **Mandatory Memory Reference:** Before making any changes or edits to the codebase, you MUST first read and refer to the codebase memory file at `/Users/amoldinkar9/Documents/mpscexam/memory.md` to understand the structure, styles, data models, and architecture.
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->

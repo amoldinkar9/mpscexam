@@ -1,16 +1,16 @@
 # Graph Report - mpscexam  (2026-09-02)
 
 ## Corpus Check
-- 32 files · ~10,980 words
+- 33 files · ~11,751 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 180 nodes · 201 edges · 19 communities (13 shown, 6 thin omitted)
+- 184 nodes · 206 edges · 19 communities (13 shown, 6 thin omitted)
 - Extraction: 84% EXTRACTED · 16% INFERRED · 0% AMBIGUOUS · INFERRED: 33 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `b3a6b3b7`
+- Built from commit: `cdd407a6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -54,10 +54,10 @@
   README.md → memory.md
 - `Structural Layer Dependencies` --semantically_similar_to--> `mpscexam System Architecture`  [INFERRED] [semantically similar]
   dependency-graph.md → architecture.md
+- `QuestionEditorPage` --conceptually_related_to--> `QUESTION Entity`  [INFERRED]
+  routes.md → database-map.md
 - `Graphify Knowledge Graph` --conceptually_related_to--> `mpscexam File Dependency Graph`  [INFERRED]
   .agents/rules/graphify.md → dependency-graph.md
-- `QuestionBankService` --shares_data_with--> `QUESTION Entity`  [INFERRED]
-  architecture.md → database-map.md
 
 ## Import Cycles
 - None detected.
@@ -72,12 +72,12 @@
 ## Communities (19 total, 6 thin omitted)
 
 ### Community 0 - "page.tsx"
-Cohesion: 0.11
-Nodes (12): AspirantPainPoints(), FAQ(), Footer(), HeroSection(), HowItWorks(), OfferBreakdown(), Pricing(), SampleProof() (+4 more)
+Cohesion: 0.09
+Nodes (15): AspirantPainPoints(), FAQ(), Footer(), HeroSection(), HowItWorks(), activities, ActivityItem, LiveActivityToast() (+7 more)
 
 ### Community 1 - "mpscexam Route Map"
 Cohesion: 0.11
-Nodes (23): Graphify Knowledge Graph, Graphify Workflow, mpscexam API Inventory, Authentication Endpoints, POST /api/tests/:id/start, Question Bank & PYQ Endpoints, Test Series & Exam Runner Endpoints, Answer Shielding (+15 more)
+Nodes (22): Graphify Knowledge Graph, Graphify Workflow, mpscexam API Inventory, Authentication Endpoints, POST /api/tests/:id/start, Question Bank & PYQ Endpoints, Test Series & Exam Runner Endpoints, Answer Shielding (+14 more)
 
 ### Community 2 - "devDependencies"
 Cohesion: 0.11
@@ -96,8 +96,8 @@ Cohesion: 0.15
 Nodes (13): lucide-react, next, dependencies, lucide-react, next, @radix-ui/react-accordion, @radix-ui/themes, react (+5 more)
 
 ### Community 6 - "QUESTION Entity"
-Cohesion: 0.27
-Nodes (10): CATEGORY Entity, mpscexam Database Entity Map, QUESTION Entity, SUBJECT Entity, TEST_ATTEMPT Entity, TEST_QUESTION_MAPPING Entity, TEST_SERIES Entity, USER Entity (+2 more)
+Cohesion: 0.31
+Nodes (9): CATEGORY Entity, mpscexam Database Entity Map, QUESTION Entity, SUBJECT Entity, TEST_ATTEMPT Entity, TEST_QUESTION_MAPPING Entity, TEST_SERIES Entity, USER Entity (+1 more)
 
 ### Community 7 - "include"
 Cohesion: 0.20
@@ -108,8 +108,8 @@ Cohesion: 0.22
 Nodes (8): name, private, scripts, build, dev, lint, start, version
 
 ### Community 9 - "TestAttempt Entity"
-Cohesion: 0.32
-Nodes (8): AnalyticsService, Question Entity, QuestionBankService, Test Attempt & Grading Flow, TestAttempt Entity, TestEngineService, TestSeries Entity, UserAnswer Entity
+Cohesion: 0.24
+Nodes (10): AnalyticsService, AuthService, Question Entity, QuestionBankService, Test Attempt & Grading Flow, TestAttempt Entity, TestEngineService, TestSeries Entity (+2 more)
 
 ### Community 10 - "Next.js Agent Rules Notice"
 Cohesion: 0.40
@@ -124,23 +124,23 @@ Cohesion: 0.50
 Nodes (4): ExamContainer Component, ExamControls Component, QuestionCard Component, QuestionPalette Component
 
 ## Knowledge Gaps
-- **73 isolated node(s):** `eslintConfig`, `nextConfig`, `name`, `version`, `private` (+68 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 80 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **75 isolated node(s):** `eslintConfig`, `nextConfig`, `name`, `version`, `private` (+70 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 82 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `package.json`?**
-  _High betweenness centrality (0.034) - this node is a cross-community bridge._
-- **Why does `mpscexam Route Map` connect `mpscexam Route Map` to `mpscexam System Architecture`, `QUESTION Entity`?**
-  _High betweenness centrality (0.031) - this node is a cross-community bridge._
+  _High betweenness centrality (0.032) - this node is a cross-community bridge._
+- **Why does `mpscexam Route Map` connect `mpscexam Route Map` to `mpscexam System Architecture`?**
+  _High betweenness centrality (0.030) - this node is a cross-community bridge._
 - **What connects `eslintConfig`, `nextConfig`, `name` to the rest of the system?**
-  _73 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _75 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `page.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.10826210826210826 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09247311827956989 - nodes in this community are weakly interconnected._
 - **Should `mpscexam Route Map` be split into smaller, more focused modules?**
-  _Cohesion score 0.1067193675889328 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.11255411255411256 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._
 - **Should `compilerOptions` be split into smaller, more focused modules?**

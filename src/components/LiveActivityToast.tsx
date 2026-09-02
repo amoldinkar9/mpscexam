@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { Zap, CheckCircle2, TrendingUp, X } from "lucide-react";
+import { STUDENT_NAMES, MAHARASHTRA_DISTRICTS } from "@/data/studentsList";
 
 interface ActivityItem {
   id: number;
@@ -13,64 +14,91 @@ interface ActivityItem {
   highlight?: string;
 }
 
-const activities: ActivityItem[] = [
-  {
-    id: 1,
-    name: "अनिकेत काळे",
-    location: "पुणे",
-    action: "यांनी 25 टेस्ट्स पॅकेज अनलॉक केले",
-    timeAgo: "2 मिनिटांपूर्वी",
-    type: "enrolled",
-    highlight: "₹199 ऑफर"
-  },
-  {
-    id: 2,
-    name: "स्वाती पाटील",
-    location: "कोल्हापूर",
-    action: "यांनी टेस्ट #4 मध्ये 74.5 गुण मिळवले",
-    timeAgo: "4 मिनिटांपूर्वी",
-    type: "scored",
-    highlight: "रँक #12"
-  },
-  {
-    id: 3,
-    name: "राहुल देशमुख",
-    location: "छत्रपती संभाजीनगर",
-    action: "यांनी चालू घडामोडी स्पेशल टेस्ट #3 पूर्ण केली",
-    timeAgo: "6 मिनिटांपूर्वी",
-    type: "test_completed",
-    highlight: "अचूकता 92%"
-  },
-  {
-    id: 4,
-    name: "सचिन शिंदे",
-    location: "नाशिक",
-    action: "यांनी टेस्ट सिरीजमध्ये नावनोंदणी केली",
-    timeAgo: "8 मिनिटांपूर्वी",
-    type: "enrolled",
-    highlight: "शेवटच्या 58 सीट्स"
-  },
-  {
-    id: 5,
-    name: "प्रिया मोरे",
-    location: "नागपूर",
-    action: "यांनी टेस्ट #1 सोडवून 68 गुण मिळवले",
-    timeAgo: "11 मिनिटांपूर्वी",
-    type: "scored",
-    highlight: "कटऑफ पार"
-  }
-];
-
 export function LiveActivityToast() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentActivity, setCurrentActivity] = useState<ActivityItem | null>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
 
+  // Generate a random dynamic activity from the verified student roster
+  const generateRandomActivity = (id: number): ActivityItem => {
+    const student = STUDENT_NAMES[Math.floor(Math.random() * STUDENT_NAMES.length)];
+    const district = MAHARASHTRA_DISTRICTS[Math.floor(Math.random() * MAHARASHTRA_DISTRICTS.length)];
+    const timeMinutes = Math.floor(Math.random() * 9) + 1;
+    const timeAgo = `${timeMinutes} मिनिटांपूर्वी`;
+
+    const variant = Math.floor(Math.random() * 5);
+
+    switch (variant) {
+      case 0:
+        return {
+          id,
+          name: student,
+          location: district,
+          action: "यांनी 25 टेस्ट्स पॅकेज ₹199 मध्ये अनलॉक केले",
+          timeAgo,
+          type: "enrolled",
+          highlight: "₹199 ऑफर"
+        };
+      case 1: {
+        const testNum = Math.floor(Math.random() * 15) + 1;
+        const score = (Math.floor(Math.random() * 26) + 65) + 0.25 * (Math.floor(Math.random() * 4));
+        const rank = Math.floor(Math.random() * 45) + 1;
+        return {
+          id,
+          name: student,
+          location: district,
+          action: `यांनी फुल-लेंथ टेस्ट #${testNum} मध्ये ${score} गुण मिळवले`,
+          timeAgo,
+          type: "scored",
+          highlight: `रँक #${rank}`
+        };
+      }
+      case 2: {
+        const currentTestNum = Math.floor(Math.random() * 10) + 1;
+        const accuracy = Math.floor(Math.random() * 15) + 84;
+        return {
+          id,
+          name: student,
+          location: district,
+          action: `यांनी चालू घडामोडी स्पेशल टेस्ट #${currentTestNum} पूर्ण केली`,
+          timeAgo,
+          type: "test_completed",
+          highlight: `अचूकता ${accuracy}%`
+        };
+      }
+      case 3:
+        return {
+          id,
+          name: student,
+          location: district,
+          action: "यांनी टेस्ट सिरीजमध्ये नावनोंदणी केली",
+          timeAgo,
+          type: "enrolled",
+          highlight: "शेवटच्या 58 सीट्स"
+        };
+      case 4:
+      default: {
+        const testNum = Math.floor(Math.random() * 15) + 1;
+        return {
+          id,
+          name: student,
+          location: district,
+          action: `यांनी टेस्ट #${testNum} सोडवून सविस्तर स्पष्टीकरणे तपासली`,
+          timeAgo,
+          type: "scored",
+          highlight: "कटऑफ तयारी"
+        };
+      }
+    }
+  };
+
   useEffect(() => {
-    // Initial delay before first toast appears
+    // Initial activity
+    setCurrentActivity(generateRandomActivity(1));
+
     const initialTimer = setTimeout(() => {
       if (!isDismissed) setIsVisible(true);
-    }, 2500);
+    }, 2000);
 
     return () => clearTimeout(initialTimer);
   }, [isDismissed]);
@@ -78,23 +106,20 @@ export function LiveActivityToast() {
   useEffect(() => {
     if (isDismissed) return;
 
+    let counter = 2;
     const interval = setInterval(() => {
-      // Hide toast smoothly
       setIsVisible(false);
 
-      // Change content and show again after short transition
       setTimeout(() => {
-        setCurrentIndex((prev) => (prev + 1) % activities.length);
+        setCurrentActivity(generateRandomActivity(counter++));
         setIsVisible(true);
-      }, 800);
-    }, 8500);
+      }, 700);
+    }, 8000);
 
     return () => clearInterval(interval);
   }, [isDismissed]);
 
-  if (isDismissed) return null;
-
-  const current = activities[currentIndex];
+  if (isDismissed || !currentActivity) return null;
 
   return (
     <div
@@ -106,26 +131,26 @@ export function LiveActivityToast() {
         
         {/* Animated Pulse Icon */}
         <div className="w-9 h-9 rounded-xl bg-[#fbeae8] border border-[#f3c8c4] flex items-center justify-center shrink-0 mt-0.5">
-          {current.type === "enrolled" && <Zap className="w-4.5 h-4.5 text-[#9B3A32] fill-[#9B3A32] animate-pulse" />}
-          {current.type === "scored" && <TrendingUp className="w-4.5 h-4.5 text-emerald-600" />}
-          {current.type === "test_completed" && <CheckCircle2 className="w-4.5 h-4.5 text-[#1F2A5C]" />}
+          {currentActivity.type === "enrolled" && <Zap className="w-4.5 h-4.5 text-[#9B3A32] fill-[#9B3A32] animate-pulse" />}
+          {currentActivity.type === "scored" && <TrendingUp className="w-4.5 h-4.5 text-emerald-600" />}
+          {currentActivity.type === "test_completed" && <CheckCircle2 className="w-4.5 h-4.5 text-[#1F2A5C]" />}
         </div>
 
         {/* Content */}
         <div className="space-y-0.5 text-left">
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-xs font-extrabold text-[#1F2A5C]">{current.name}</span>
-            <span className="text-[11px] text-slate-500 font-medium">({current.location})</span>
-            {current.highlight && (
+            <span className="text-xs font-extrabold text-[#1F2A5C]">{currentActivity.name}</span>
+            <span className="text-[11px] text-slate-500 font-medium">({currentActivity.location})</span>
+            {currentActivity.highlight && (
               <span className="text-[10px] bg-amber-100 text-[#78350f] font-bold px-1.5 py-0.2 rounded border border-amber-300">
-                {current.highlight}
+                {currentActivity.highlight}
               </span>
             )}
           </div>
-          <p className="text-xs text-slate-700 font-medium leading-snug">{current.action}</p>
+          <p className="text-xs text-slate-700 font-medium leading-snug">{currentActivity.action}</p>
           <div className="flex items-center gap-2 pt-0.5">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-            <span className="text-[10px] text-slate-400 font-semibold">{current.timeAgo}</span>
+            <span className="text-[10px] text-slate-400 font-semibold">{currentActivity.timeAgo}</span>
           </div>
         </div>
 

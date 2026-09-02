@@ -251,6 +251,33 @@ SENTRY_DSN=
 
 ---
 
+# Conversion & FOMO Strategy Architecture
+
+### 1. FOMO Strategy Statement
+> **Core Strategy Statement:**  
+> *"Every serious MPSC aspirant has access to the standard reference books. What truly decides the 2–4 mark cutoff gap in the Maharashtra Group C Preliminary Exam is not reading more theory, but simulated timed test practice and rigorous negative-mark (-0.25) control. By combining live competitor momentum across Maharashtra, authentic slot scarcity for the ₹199 launch tier, the official exam day countdown, and the 1-year opportunity cost of missing the cutoff, we guide aspirants through an urgent, high-converting decision flow that cements our 25-Test Series as the essential tool to secure their cutoff."*
+
+### 2. Behavioral Conversion Flow (Buyer Journey)
+```mermaid
+flowchart TD
+    A[Visitor Lands on mpscexam] --> B[Live Header Pulse & Real-time Maharashtra Toasts]
+    B --> C[Official MPSC Group C Exam Countdown Timer]
+    C --> D[Syllabus Weightage & Sample Question Proof]
+    D --> E[Loss Aversion: Reading Only vs 25-Test Simulation]
+    E --> F[5-Step Score Acceleration Flow]
+    F --> G[Tiered Slot Scarcity: 442/500 Booked - 58 Left]
+    G --> H[Instant 1-Click Enrollment at ₹199]
+    H --> I[Immediate Test Series & PDF Access]
+```
+
+### 3. Key Placement Elements & Drivers
+* **Real-time Social Proof:** Floating dynamic toast (`LiveActivityToast.tsx`) displaying verified actions (test completions, 74+ scores, package unlocks) across Pune, Kolhapur, Sambhaji Nagar, Nashik, etc.
+* **Official Exam Urgency:** Prominent countdown to the actual MPSC Group C Preliminary Exam paper date in `UrgencyBanner.tsx`.
+* **Cutoff Gap Contrast:** Explicit comparison in `AspirantPainPoints.tsx` showing the danger of losing 1 full year by relying on book reading alone without -0.25 negative marking mastery.
+* **Slot Scarcity & Price Lock:** Launch offer locked to the first 500 aspirants (`Pricing.tsx` & `StickyMobileBar.tsx`), reverting to ₹999 after 58 remaining slots are claimed.
+
+---
+
 # Feature Inventory
 
 1. **Bilingual Question Engine:** Simultaneous or toggled Marathi/English question display.

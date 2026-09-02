@@ -1,35 +1,35 @@
-import { ArrowRight, UserPlus, CreditCard, PlayCircle, BarChart3, Award } from "lucide-react";
+import { ArrowRight, Zap, PlayCircle, ShieldCheck, FileText, Award } from "lucide-react";
 
 export function HowItWorks() {
   const steps = [
     {
       num: "1",
-      title: "नोंदणी करा",
-      desc: "मोबाईल नंबर किंवा ईमेल वापरून 1 मिनिटात मोफत नोंदणी करा.",
-      icon: UserPlus
+      title: "स्लॉट लॉक करा (₹199)",
+      desc: "पहिल्या 500 विद्यार्थ्यांच्या विशेष 80% सवलतीमध्ये त्वरित प्रवेश मिळवा.",
+      icon: Zap
     },
     {
       num: "2",
-      title: "सुरुवात करा",
-      desc: "केवळ ₹199 चे सुरक्षित ऑनलाइन पेमेंट करा आणि टेस्ट्स ॲक्टिव्हेट करा.",
-      icon: CreditCard
-    },
-    {
-      num: "3",
-      title: "ऑनलाइन टेस्ट द्या",
-      desc: "टायमरसह 60 मिनिटांची टेस्ट देऊन अचूक परीक्षेचा अनुभव घ्या.",
+      title: "रोज 1 टाइमर टेस्ट",
+      desc: "60 मिनिटांत 100 प्रश्नांचा वेग आणि अचूक परीक्षेचा अनुभव घ्या.",
       icon: PlayCircle
     },
     {
+      num: "3",
+      title: "निगेटिव्ह मार्किंग ताबा",
+      desc: "-0.25 मार्किंगवर नियंत्रण मिळवून 10-15 वाया जाणारे गुण वाचवा.",
+      icon: ShieldCheck
+    },
+    {
       num: "4",
-      title: "विश्लेषण तपासा",
-      desc: "सविस्तर स्पष्टीकरण PDF डाऊनलोड करा व चुका समजून घ्या.",
-      icon: BarChart3
+      title: "4 पर्यायांचे विश्लेषण",
+      desc: "प्रत्येक प्रश्नाचे सविस्तर मराठी स्पष्टीकरण व शॉर्टकट ट्रिक्स शिका.",
+      icon: FileText
     },
     {
       num: "5",
-      title: "कटऑफ पार करा",
-      desc: "राज्यस्तरीय रँक तपासा आणि आत्मविश्वासाने यश संपादन करा.",
+      title: "राज्यस्तरीय रँक & कटऑफ",
+      desc: "हजारो स्पर्धकांमध्ये स्वतःची गुणवत्ता तपासून कटऑफ पार करा.",
       icon: Award
     }
   ];
@@ -41,13 +41,14 @@ export function HowItWorks() {
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#fbeae8] text-[#9B3A32] text-xs font-bold border border-[#f3c8c4]">
-            <span>सुलभ प्रक्रिया</span>
+            <Zap className="w-4 h-4" />
+            <span>स्कोअर बुस्टिंग प्रवाह (Score Acceleration Flow)</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#1F2A5C] tracking-tight">
-            तयारी सुरू कशी करावी? <span className="text-[#9B3A32]">फक्त 5 सोप्या पायऱ्या</span>
+            10–15 गुण वाढवून कटऑफ पार करण्याचा <span className="text-[#9B3A32]">अचूक प्रवाह</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
-            कोणतीही किचकट प्रक्रिया नाही. पेमेंट झाल्या झाल्या तत्काळ ॲक्सेस मिळवा.
+            केवळ पुस्तकी वाचनावर विसंबून न राहता या 5 पायऱ्यांचा अवलंब करा आणि पहिल्याच प्रयत्नात निवड यादीत नाव निश्चित करा.
           </p>
         </div>
 

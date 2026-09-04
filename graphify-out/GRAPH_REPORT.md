@@ -1,7 +1,7 @@
 # Graph Report - mpscexam  (2026-09-04)
 
 ## Corpus Check
-- 46 files · ~73,852 words
+- 46 files · ~74,074 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `7a068457`
+- Built from commit: `7d8c80d3`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -47,18 +47,18 @@
 4. `include` - 7 edges
 5. `mpscexam Route Map` - 7 edges
 6. `getSiteContent()` - 6 edges
-7. `mpscexam System Architecture` - 6 edges
-8. `QUESTION Entity` - 6 edges
+7. `QUESTION Entity` - 6 edges
+8. `mpscexam System Architecture` - 6 edges
 9. `TestAttempt Entity` - 6 edges
 10. `Business Domain Services` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Structural Layer Dependencies` --semantically_similar_to--> `mpscexam System Architecture`  [INFERRED] [semantically similar]
-  dependency-graph.md → architecture.md
 - `Next.js Agent Rules Notice` --semantically_similar_to--> `mpscexam Project Overview`  [INFERRED] [semantically similar]
   AGENTS.md → memory.md
 - `README Getting Started (create-next-app)` --semantically_similar_to--> `mpscexam Project Overview`  [INFERRED] [semantically similar]
   README.md → memory.md
+- `Structural Layer Dependencies` --semantically_similar_to--> `mpscexam System Architecture`  [INFERRED] [semantically similar]
+  dependency-graph.md → architecture.md
 - `Graphify Knowledge Graph` --conceptually_related_to--> `mpscexam File Dependency Graph`  [INFERRED]
   .agents/rules/graphify.md → dependency-graph.md
 - `QuestionBankService` --shares_data_with--> `QUESTION Entity`  [INFERRED]

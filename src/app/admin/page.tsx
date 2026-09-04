@@ -119,6 +119,7 @@ export default function AdminPage() {
     title: "",
     desc: "",
     skeletonText: "",
+    imageUrl: "",
     order: 1,
   });
   const [painPointForm, setPainPointForm] = useState({
@@ -243,6 +244,7 @@ export default function AdminPage() {
         title: "",
         desc: "",
         skeletonText: `9:16 स्क्रीनशॉट ${content.howToPurchase.length + 1}`,
+        imageUrl: "",
         order: content.howToPurchase.length + 1,
       });
     } else if (type === "painPoint") {
@@ -287,6 +289,7 @@ export default function AdminPage() {
         title: item.title,
         desc: item.desc,
         skeletonText: item.skeletonText,
+        imageUrl: item.imageUrl || "",
         order: index + 1,
       });
     } else if (type === "painPoint") {
@@ -358,6 +361,7 @@ export default function AdminPage() {
           title: purchaseStepForm.title,
           desc: purchaseStepForm.desc,
           skeletonText: purchaseStepForm.skeletonText,
+          imageUrl: purchaseStepForm.imageUrl,
         };
       } else {
         updated.push({
@@ -367,7 +371,7 @@ export default function AdminPage() {
           iconName: "ShoppingCart",
           color: "bg-zinc-100 text-black border-zinc-200",
           skeletonText: purchaseStepForm.skeletonText,
-          imageUrl: "",
+          imageUrl: purchaseStepForm.imageUrl,
         });
       }
       const newContent = { ...content, howToPurchase: updated };
@@ -820,6 +824,7 @@ export default function AdminPage() {
                   <thead className="bg-zinc-50 text-zinc-700 font-semibold border-b border-zinc-200">
                     <tr>
                       <th className="p-3 w-12 text-center">Drag</th>
+                      <th className="p-3 w-16 text-center">Image</th>
                       <th className="p-3 w-24">Step</th>
                       <th className="p-3 w-48">Title</th>
                       <th className="p-3">Description</th>
@@ -832,6 +837,17 @@ export default function AdminPage() {
                       <tr key={idx} className="hover:bg-zinc-50/60 transition-colors">
                         <td className="p-3 text-center text-zinc-400 cursor-grab">
                           <GripVertical className="w-4 h-4 mx-auto" />
+                        </td>
+                        <td className="p-3 text-center">
+                          {step.imageUrl ? (
+                            <img
+                              src={step.imageUrl}
+                              alt={step.title}
+                              className="w-8 h-14 object-cover rounded border border-zinc-200 mx-auto shadow-2xs"
+                            />
+                          ) : (
+                            <span className="text-[10px] text-zinc-400 italic">No img</span>
+                          )}
                         </td>
                         <td className="p-3 font-bold text-zinc-900">{step.step}</td>
                         <td className="p-3 font-semibold text-zinc-800">{step.title}</td>
@@ -2577,7 +2593,56 @@ export default function AdminPage() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-zinc-800 mb-1">9:16 Skeleton / Image Text</label>
+                    <label className="block text-xs font-semibold text-zinc-800 mb-1">
+                      Screenshot Image URL (9:16 Portrait)
+                    </label>
+                    <div className="flex gap-2">
+                      <input
+                        type="text"
+                        value={purchaseStepForm.imageUrl}
+                        onChange={(e) => setPurchaseStepForm({ ...purchaseStepForm, imageUrl: e.target.value })}
+                        placeholder="https://example.com/screenshot.jpg or /images/..."
+                        className="flex-1 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white font-mono"
+                      />
+                      {purchaseStepForm.imageUrl && (
+                        <button
+                          type="button"
+                          onClick={() => setPurchaseStepForm({ ...purchaseStepForm, imageUrl: "" })}
+                          className="px-2.5 py-1 text-xs text-red-600 hover:bg-red-50 border border-red-200 rounded-[4px] cursor-pointer font-medium"
+                        >
+                          Clear
+                        </button>
+                      )}
+                    </div>
+                    <p className="text-[11px] text-zinc-400 mt-1">
+                      Add a direct image URL or path for the mobile screenshot.
+                    </p>
+
+                    {/* Live Thumbnail Preview */}
+                    {purchaseStepForm.imageUrl && (
+                      <div className="mt-2.5 p-2.5 border border-zinc-200 rounded-[4px] bg-zinc-50 flex items-center gap-3">
+                        <div className="w-12 h-20 rounded border border-zinc-300 bg-white overflow-hidden shrink-0 shadow-2xs">
+                          <img
+                            src={purchaseStepForm.imageUrl}
+                            alt="Preview"
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              (e.target as HTMLElement).style.display = "none";
+                            }}
+                          />
+                        </div>
+                        <div className="text-[11px] text-zinc-600 min-w-0">
+                          <p className="font-semibold text-zinc-800">Screenshot Preview (9:16)</p>
+                          <p className="text-[10px] text-zinc-400 truncate font-mono mt-0.5">
+                            {purchaseStepForm.imageUrl}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-zinc-800 mb-1">Fallback Placeholder Text</label>
                     <input
                       type="text"
                       value={purchaseStepForm.skeletonText}
@@ -2585,6 +2650,7 @@ export default function AdminPage() {
                       placeholder="9:16 Screenshot 1"
                       className="w-full px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white"
                     />
+                    <p className="text-[11px] text-zinc-400 mt-1">Shown if no screenshot image is added.</p>
                   </div>
                 </>
               )}

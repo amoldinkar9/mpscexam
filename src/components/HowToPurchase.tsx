@@ -110,27 +110,36 @@ export function HowToPurchase({ initialData }: { initialData?: typeof siteData.h
                     : "bg-[#fafbfc] border-slate-200 shadow-sm opacity-80 hover:opacity-100"
                     }`}
                 >
-                  {/* 9:16 Image Skeleton Area */}
-                  <div className="w-full aspect-[9/16] rounded-2xl bg-gradient-to-b from-slate-100 via-slate-50 to-slate-200 border-2 border-dashed border-slate-300 flex flex-col items-center justify-center p-4 text-center relative overflow-hidden group">
+                  {/* 9:16 Image Skeleton / Screenshot Area */}
+                  <div className="w-full aspect-[9/16] rounded-2xl bg-gradient-to-b from-slate-100 via-slate-50 to-slate-200 border-2 border-dashed border-slate-300 flex flex-col items-center justify-center relative overflow-hidden group">
+                    {step.imageUrl ? (
+                      <img
+                        src={step.imageUrl}
+                        alt={step.title}
+                        className="w-full h-full object-cover rounded-2xl"
+                      />
+                    ) : (
+                      <div className="p-4 flex flex-col items-center justify-center text-center">
+                        {/* Placeholder Icon & Tag */}
+                        <div className={`w-14 h-14 rounded-2xl ${step.color} flex items-center justify-center shadow-xs mb-3 border`}>
+                          <Icon className="w-7 h-7" />
+                        </div>
 
-                    {/* Placeholder Icon & Tag */}
-                    <div className={`w-14 h-14 rounded-2xl ${step.color} flex items-center justify-center shadow-xs mb-3 border`}>
-                      <Icon className="w-7 h-7" />
-                    </div>
-
-                    <span className="text-xs font-extrabold text-[#1F2A5C] mb-1">
-                      {step.step}
-                    </span>
-                    <p className="text-sm font-bold text-slate-800 leading-snug">
-                      {step.title}
-                    </p>
-                    <span className="text-[11px] text-slate-400 font-medium mt-3 bg-white/80 px-2.5 py-1 rounded-md border border-slate-200">
-                      {step.skeletonText}
-                    </span>
+                        <span className="text-xs font-extrabold text-[#1F2A5C] mb-1">
+                          {step.step}
+                        </span>
+                        <p className="text-sm font-bold text-slate-800 leading-snug">
+                          {step.title}
+                        </p>
+                        <span className="text-[11px] text-slate-400 font-medium mt-3 bg-white/80 px-2.5 py-1 rounded-md border border-slate-200">
+                          {step.skeletonText}
+                        </span>
+                      </div>
+                    )}
 
                     {/* Active pulse ring */}
                     {isActive && (
-                      <div className="absolute top-3 right-3 flex items-center gap-1 bg-[#9B3A32] text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-xs">
+                      <div className="absolute top-3 right-3 flex items-center gap-1 bg-[#9B3A32] text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-xs z-10">
                         <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
                         <span>लाइव्ह</span>
                       </div>

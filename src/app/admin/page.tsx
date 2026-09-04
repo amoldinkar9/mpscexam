@@ -148,6 +148,13 @@ export default function AdminPage() {
   const [draggedSubjectKey, setDraggedSubjectKey] = useState<string | null>(null);
   const [dragOverSubjectKey, setDragOverSubjectKey] = useState<string | null>(null);
 
+  // Generic list drag and drop reordering states
+  const [dragSource, setDragSource] = useState<{ type: string; index: number } | null>(null);
+  const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
+  const [dragOverType, setDragOverType] = useState<string | null>(null);
+  const [dragOptionSource, setDragOptionSource] = useState<number | null>(null);
+  const [dragOverOptionIndex, setDragOverOptionIndex] = useState<number | null>(null);
+
   // Load content from API on mount
   useEffect(() => {
     async function loadContent() {
@@ -221,6 +228,73 @@ export default function AdminPage() {
 
   const isPublished = (key: string) => {
     return publishedMap[key] === undefined ? true : publishedMap[key];
+  };
+
+  // Reorder list items (FAQs, Testimonials, How to Buy, Pain Points, Syllabus)
+  const handleReorderList = (type: string, fromIndex: number, toIndex: number) => {
+    if (fromIndex === toIndex || fromIndex < 0 || toIndex < 0) return;
+
+    let newContent = { ...content };
+
+    if (type === "faq") {
+      const list = [...content.faqs];
+      const [moved] = list.splice(fromIndex, 1);
+      list.splice(toIndex, 0, moved);
+      newContent.faqs = list;
+    } else if (type === "testimonial") {
+      const list = [...content.testimonials];
+      const [moved] = list.splice(fromIndex, 1);
+      list.splice(toIndex, 0, moved);
+      newContent.testimonials = list;
+    } else if (type === "purchase") {
+      const list = [...content.howToPurchase];
+      const [moved] = list.splice(fromIndex, 1);
+      list.splice(toIndex, 0, moved);
+      newContent.howToPurchase = list;
+    } else if (type === "painPoint") {
+      const list = [...content.painPoints];
+      const [moved] = list.splice(fromIndex, 1);
+      list.splice(toIndex, 0, moved);
+      newContent.painPoints = list;
+    } else if (type === "syllabus") {
+      const list = [...((content.syllabus as any[]) || [])];
+      const [moved] = list.splice(fromIndex, 1);
+      list.splice(toIndex, 0, moved);
+      newContent.syllabus = list;
+    }
+
+    setContent(newContent);
+    handleSaveAll(newContent);
+  };
+
+  // Reorder question options
+  const handleReorderOption = (fromIdx: number, toIdx: number) => {
+    if (fromIdx === toIdx) return;
+    const proofData = (content.sampleProof || {}) as Record<string, any>;
+    const keys = Object.keys(proofData);
+    const effActive = keys.includes(activeSubject) ? activeSubject : keys[0] || "";
+    if (!effActive || !proofData[effActive]) return;
+
+    const updated = { ...proofData };
+    const cur = { ...updated[effActive] };
+    if (!cur.options) return;
+    const opts = [...cur.options];
+    const [moved] = opts.splice(fromIdx, 1);
+    opts.splice(toIdx, 0, moved);
+    cur.options = opts;
+
+    if (cur.correct === fromIdx) {
+      cur.correct = toIdx;
+    } else if (fromIdx < cur.correct && toIdx >= cur.correct) {
+      cur.correct -= 1;
+    } else if (fromIdx > cur.correct && toIdx <= cur.correct) {
+      cur.correct += 1;
+    }
+    cur.correctAnswer = opts[cur.correct];
+    updated[effActive] = cur;
+
+    setContent({ ...content, sampleProof: updated });
+    handleSaveAll({ ...content, sampleProof: updated });
   };
 
   // Open Add Modal
@@ -687,8 +761,54 @@ export default function AdminPage() {
                   </thead>
                   <tbody className="divide-y divide-zinc-200">
                     {content.faqs.map((faq, idx) => (
-                      <tr key={idx} className="hover:bg-zinc-50/60 transition-colors">
-                        <td className="p-3 text-center text-zinc-400 cursor-grab">
+                      <tr
+                        key={idx}
+                        draggable
+                        onDragStart={(e) => {
+                          setDragSource({ type: "faq", index: idx });
+                          e.dataTransfer.effectAllowed = "move";
+                          e.dataTransfer.setData("text/plain", `${idx}`);
+                        }}
+                        onDragOver={(e) => {
+                          e.preventDefault();
+                          e.dataTransfer.dropEffect = "move";
+                          if (dragOverIndex !== idx || dragOverType !== "faq") {
+                            setDragOverIndex(idx);
+                            setDragOverType("faq");
+                          }
+                        }}
+                        onDragLeave={() => {
+                          if (dragOverIndex === idx && dragOverType === "faq") {
+                            setDragOverIndex(null);
+                            setDragOverType(null);
+                          }
+                        }}
+                        onDrop={(e) => {
+                          e.preventDefault();
+                          if (dragSource && dragSource.type === "faq") {
+                            handleReorderList("faq", dragSource.index, idx);
+                          }
+                          setDragSource(null);
+                          setDragOverIndex(null);
+                          setDragOverType(null);
+                        }}
+                        onDragEnd={() => {
+                          setDragSource(null);
+                          setDragOverIndex(null);
+                          setDragOverType(null);
+                        }}
+                        className={`transition-colors ${
+                          dragSource?.type === "faq" && dragSource.index === idx
+                            ? "opacity-30 bg-zinc-100"
+                            : dragOverType === "faq" && dragOverIndex === idx
+                            ? "bg-zinc-100 border-t-2 border-black"
+                            : "hover:bg-zinc-50/60"
+                        }`}
+                      >
+                        <td
+                          className="p-3 text-center text-zinc-400 hover:text-black cursor-grab active:cursor-grabbing"
+                          title="Drag to reorder"
+                        >
                           <GripVertical className="w-4 h-4 mx-auto" />
                         </td>
                         <td className="p-3 font-semibold text-zinc-900">{faq.q}</td>
@@ -760,8 +880,54 @@ export default function AdminPage() {
                   </thead>
                   <tbody className="divide-y divide-zinc-200">
                     {content.testimonials.map((t, idx) => (
-                      <tr key={idx} className="hover:bg-zinc-50/60 transition-colors">
-                        <td className="p-3 text-center text-zinc-400 cursor-grab">
+                      <tr
+                        key={idx}
+                        draggable
+                        onDragStart={(e) => {
+                          setDragSource({ type: "testimonial", index: idx });
+                          e.dataTransfer.effectAllowed = "move";
+                          e.dataTransfer.setData("text/plain", `${idx}`);
+                        }}
+                        onDragOver={(e) => {
+                          e.preventDefault();
+                          e.dataTransfer.dropEffect = "move";
+                          if (dragOverIndex !== idx || dragOverType !== "testimonial") {
+                            setDragOverIndex(idx);
+                            setDragOverType("testimonial");
+                          }
+                        }}
+                        onDragLeave={() => {
+                          if (dragOverIndex === idx && dragOverType === "testimonial") {
+                            setDragOverIndex(null);
+                            setDragOverType(null);
+                          }
+                        }}
+                        onDrop={(e) => {
+                          e.preventDefault();
+                          if (dragSource && dragSource.type === "testimonial") {
+                            handleReorderList("testimonial", dragSource.index, idx);
+                          }
+                          setDragSource(null);
+                          setDragOverIndex(null);
+                          setDragOverType(null);
+                        }}
+                        onDragEnd={() => {
+                          setDragSource(null);
+                          setDragOverIndex(null);
+                          setDragOverType(null);
+                        }}
+                        className={`transition-colors ${
+                          dragSource?.type === "testimonial" && dragSource.index === idx
+                            ? "opacity-30 bg-zinc-100"
+                            : dragOverType === "testimonial" && dragOverIndex === idx
+                            ? "bg-zinc-100 border-t-2 border-black"
+                            : "hover:bg-zinc-50/60"
+                        }`}
+                      >
+                        <td
+                          className="p-3 text-center text-zinc-400 hover:text-black cursor-grab active:cursor-grabbing"
+                          title="Drag to reorder"
+                        >
                           <GripVertical className="w-4 h-4 mx-auto" />
                         </td>
                         <td className="p-3 font-semibold text-zinc-900">{t.name}</td>
@@ -834,8 +1000,54 @@ export default function AdminPage() {
                   </thead>
                   <tbody className="divide-y divide-zinc-200">
                     {content.howToPurchase.map((step, idx) => (
-                      <tr key={idx} className="hover:bg-zinc-50/60 transition-colors">
-                        <td className="p-3 text-center text-zinc-400 cursor-grab">
+                      <tr
+                        key={idx}
+                        draggable
+                        onDragStart={(e) => {
+                          setDragSource({ type: "purchase", index: idx });
+                          e.dataTransfer.effectAllowed = "move";
+                          e.dataTransfer.setData("text/plain", `${idx}`);
+                        }}
+                        onDragOver={(e) => {
+                          e.preventDefault();
+                          e.dataTransfer.dropEffect = "move";
+                          if (dragOverIndex !== idx || dragOverType !== "purchase") {
+                            setDragOverIndex(idx);
+                            setDragOverType("purchase");
+                          }
+                        }}
+                        onDragLeave={() => {
+                          if (dragOverIndex === idx && dragOverType === "purchase") {
+                            setDragOverIndex(null);
+                            setDragOverType(null);
+                          }
+                        }}
+                        onDrop={(e) => {
+                          e.preventDefault();
+                          if (dragSource && dragSource.type === "purchase") {
+                            handleReorderList("purchase", dragSource.index, idx);
+                          }
+                          setDragSource(null);
+                          setDragOverIndex(null);
+                          setDragOverType(null);
+                        }}
+                        onDragEnd={() => {
+                          setDragSource(null);
+                          setDragOverIndex(null);
+                          setDragOverType(null);
+                        }}
+                        className={`transition-colors ${
+                          dragSource?.type === "purchase" && dragSource.index === idx
+                            ? "opacity-30 bg-zinc-100"
+                            : dragOverType === "purchase" && dragOverIndex === idx
+                            ? "bg-zinc-100 border-t-2 border-black"
+                            : "hover:bg-zinc-50/60"
+                        }`}
+                      >
+                        <td
+                          className="p-3 text-center text-zinc-400 hover:text-black cursor-grab active:cursor-grabbing"
+                          title="Drag to reorder"
+                        >
                           <GripVertical className="w-4 h-4 mx-auto" />
                         </td>
                         <td className="p-3 text-center">
@@ -917,8 +1129,54 @@ export default function AdminPage() {
                   </thead>
                   <tbody className="divide-y divide-zinc-200">
                     {content.painPoints.map((pt, idx) => (
-                      <tr key={idx} className="hover:bg-zinc-50/60 transition-colors">
-                        <td className="p-3 text-center text-zinc-400 cursor-grab">
+                      <tr
+                        key={idx}
+                        draggable
+                        onDragStart={(e) => {
+                          setDragSource({ type: "painPoint", index: idx });
+                          e.dataTransfer.effectAllowed = "move";
+                          e.dataTransfer.setData("text/plain", `${idx}`);
+                        }}
+                        onDragOver={(e) => {
+                          e.preventDefault();
+                          e.dataTransfer.dropEffect = "move";
+                          if (dragOverIndex !== idx || dragOverType !== "painPoint") {
+                            setDragOverIndex(idx);
+                            setDragOverType("painPoint");
+                          }
+                        }}
+                        onDragLeave={() => {
+                          if (dragOverIndex === idx && dragOverType === "painPoint") {
+                            setDragOverIndex(null);
+                            setDragOverType(null);
+                          }
+                        }}
+                        onDrop={(e) => {
+                          e.preventDefault();
+                          if (dragSource && dragSource.type === "painPoint") {
+                            handleReorderList("painPoint", dragSource.index, idx);
+                          }
+                          setDragSource(null);
+                          setDragOverIndex(null);
+                          setDragOverType(null);
+                        }}
+                        onDragEnd={() => {
+                          setDragSource(null);
+                          setDragOverIndex(null);
+                          setDragOverType(null);
+                        }}
+                        className={`transition-colors ${
+                          dragSource?.type === "painPoint" && dragSource.index === idx
+                            ? "opacity-30 bg-zinc-100"
+                            : dragOverType === "painPoint" && dragOverIndex === idx
+                            ? "bg-zinc-100 border-t-2 border-black"
+                            : "hover:bg-zinc-50/60"
+                        }`}
+                      >
+                        <td
+                          className="p-3 text-center text-zinc-400 hover:text-black cursor-grab active:cursor-grabbing"
+                          title="Drag to reorder"
+                        >
                           <GripVertical className="w-4 h-4 mx-auto" />
                         </td>
                         <td className="p-3 font-semibold text-zinc-900">{pt.problem}</td>
@@ -1238,11 +1496,57 @@ export default function AdminPage() {
                   ((content.syllabus as any[]) || []).map((item: any, idx: number) => (
                     <div
                       key={idx}
-                      className="border border-zinc-200 rounded-[4px] bg-white p-4 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4"
+                      draggable
+                      onDragStart={(e) => {
+                        setDragSource({ type: "syllabus", index: idx });
+                        e.dataTransfer.effectAllowed = "move";
+                        e.dataTransfer.setData("text/plain", `${idx}`);
+                      }}
+                      onDragOver={(e) => {
+                        e.preventDefault();
+                        e.dataTransfer.dropEffect = "move";
+                        if (dragOverIndex !== idx || dragOverType !== "syllabus") {
+                          setDragOverIndex(idx);
+                          setDragOverType("syllabus");
+                        }
+                      }}
+                      onDragLeave={() => {
+                        if (dragOverIndex === idx && dragOverType === "syllabus") {
+                          setDragOverIndex(null);
+                          setDragOverType(null);
+                        }
+                      }}
+                      onDrop={(e) => {
+                        e.preventDefault();
+                        if (dragSource && dragSource.type === "syllabus") {
+                          handleReorderList("syllabus", dragSource.index, idx);
+                        }
+                        setDragSource(null);
+                        setDragOverIndex(null);
+                        setDragOverType(null);
+                      }}
+                      onDragEnd={() => {
+                        setDragSource(null);
+                        setDragOverIndex(null);
+                        setDragOverType(null);
+                      }}
+                      className={`border rounded-[4px] bg-white p-4 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all ${
+                        dragSource?.type === "syllabus" && dragSource.index === idx
+                          ? "opacity-30 bg-zinc-100 border-dashed border-zinc-400"
+                          : dragOverType === "syllabus" && dragOverIndex === idx
+                          ? "border-t-2 border-t-black bg-zinc-50 border-zinc-300"
+                          : "border-zinc-200"
+                      }`}
                     >
                       <div className="flex items-start gap-3.5 flex-1 min-w-0">
+                        <div
+                          className="p-1 text-zinc-400 hover:text-black cursor-grab active:cursor-grabbing shrink-0 self-center"
+                          title="Drag to reorder"
+                        >
+                          <GripVertical className="w-4 h-4" />
+                        </div>
                         <div className="w-8 h-8 rounded bg-zinc-100 border border-zinc-300 font-black text-xs flex items-center justify-center text-black shrink-0">
-                          {item.num}
+                          {item.num || idx + 1}
                         </div>
                         <div className="min-w-0 flex-1">
                           <div className="flex items-center gap-2 flex-wrap">
@@ -1675,12 +1979,51 @@ export default function AdminPage() {
                             return (
                               <div
                                 key={optIdx}
-                                className={`p-2.5 border rounded-[4px] flex items-center gap-2.5 transition-colors ${
-                                  isSelected
+                                draggable
+                                onDragStart={(e) => {
+                                  setDragOptionSource(optIdx);
+                                  e.dataTransfer.effectAllowed = "move";
+                                }}
+                                onDragOver={(e) => {
+                                  e.preventDefault();
+                                  e.dataTransfer.dropEffect = "move";
+                                  if (dragOverOptionIndex !== optIdx) {
+                                    setDragOverOptionIndex(optIdx);
+                                  }
+                                }}
+                                onDragLeave={() => {
+                                  if (dragOverOptionIndex === optIdx) {
+                                    setDragOverOptionIndex(null);
+                                  }
+                                }}
+                                onDrop={(e) => {
+                                  e.preventDefault();
+                                  if (dragOptionSource !== null && dragOptionSource !== optIdx) {
+                                    handleReorderOption(dragOptionSource, optIdx);
+                                  }
+                                  setDragOptionSource(null);
+                                  setDragOverOptionIndex(null);
+                                }}
+                                onDragEnd={() => {
+                                  setDragOptionSource(null);
+                                  setDragOverOptionIndex(null);
+                                }}
+                                className={`p-2.5 border rounded-[4px] flex items-center gap-2.5 transition-all ${
+                                  dragOptionSource === optIdx
+                                    ? "opacity-30 bg-zinc-100"
+                                    : dragOverOptionIndex === optIdx
+                                    ? "border-t-2 border-t-black bg-zinc-50"
+                                    : isSelected
                                     ? "border-emerald-600 bg-emerald-50/60 font-bold"
                                     : "border-zinc-200 bg-white"
                                 }`}
                               >
+                                <div
+                                  className="text-zinc-400 hover:text-black cursor-grab active:cursor-grabbing p-0.5 shrink-0"
+                                  title="Drag to reorder option"
+                                >
+                                  <GripVertical className="w-3.5 h-3.5" />
+                                </div>
                                 <input
                                   type="radio"
                                   name={`correctAnswer_${effectiveActive}`}

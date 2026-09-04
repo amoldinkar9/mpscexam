@@ -228,9 +228,9 @@
     "semantic_hash": ""
   },
   "src/app/admin/page.tsx": {
-    "mtime": 1788544916.9118466,
-    "seen": 1788544942.8143842,
-    "ast_hash": "eca81b03f3c02932586d09dcdff96fdd",
+    "mtime": 1788545299.0945487,
+    "seen": 1788545326.534517,
+    "ast_hash": "7e8ec4f3b1b83c279a4e33f8ce6b8d8c",
     "semantic_hash": ""
   },
   "src/app/api/admin/content/route.ts": {

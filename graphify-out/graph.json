@@ -381,7 +381,7 @@
       "file_type": "code",
       "norm_label": "loadcontent()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L153"
+      "source_location": "L160"
     },
     {
       "id": "src_app_admin_page_getinitialhtmlforquestion",
@@ -405,7 +405,7 @@
       "file_type": "code",
       "norm_label": "sidebarnavitem()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L2840"
+      "source_location": "L3183"
     },
     {
       "id": "src_components_admin_richtexteditor_richtexteditor",
@@ -3299,7 +3299,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L1853",
+      "source_location": "L2196",
       "weight": 1.0
     },
     {
@@ -3419,7 +3419,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L153",
+      "source_location": "L160",
       "weight": 1.0
     },
     {
@@ -4904,7 +4904,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L2840",
+      "source_location": "L3183",
       "weight": 1.0
     },
     {
@@ -6706,5 +6706,5 @@
       "source_file": "architecture.md"
     }
   ],
-  "built_at_commit": "7d8c80d3dda03ec372751ed0addc9c81692bd2c3"
+  "built_at_commit": "d1f98a1acb2a58f8748184e2f9bd00718da414ad"
 }

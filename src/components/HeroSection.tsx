@@ -114,7 +114,7 @@ export function HeroSection() {
 
             {/* H2 Sub-headline */}
             <h2 className="text-xl sm:text-2xl lg:text-[1.65rem] font-bold text-[#1F2A5C] leading-[1.5] tracking-tight">
-              <span className="text-[#9B3A32] font-extrabold">SMART</span> बना!<br />
+              <span className="text-[#9B3A32] font-extrabold">SMART</span> बना !<br />
               टेस्ट सोडवून आपला<br />
               अभ्यास पूर्ण करा,<br />
               कारण माणूस चुकांमधूनच शिकतो.

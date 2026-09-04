@@ -1,8 +1,19 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { ArrowRight, MessageCircle, Zap } from "lucide-react";
+import { getScarcityData } from "@/lib/scarcity";
 
 export function StickyMobileBar() {
+  const [scarcity, setScarcity] = useState(getScarcityData());
+
+  useEffect(() => {
+    const updateScarcity = () => setScarcity(getScarcityData());
+    updateScarcity();
+    const interval = setInterval(updateScarcity, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
   const scrollToPricing = () => {
     document.getElementById("pricing-section")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -19,7 +30,7 @@ export function StickyMobileBar() {
           </div>
           <span className="text-[10px] text-[#9B3A32] font-extrabold flex items-center gap-0.5 mt-0.5 animate-pulse">
             <Zap className="w-3 h-3 fill-[#9B3A32] text-[#9B3A32]" />
-            <span>केवळ 58 सीट्स शिल्लक!</span>
+            <span>केवळ {scarcity.remaining} सीट्स शिल्लक!</span>
           </span>
         </div>
 

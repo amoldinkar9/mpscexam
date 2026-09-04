@@ -17,6 +17,10 @@
   "routes": [
     { "pattern": "mpscexam.in", "custom_domain": true },
     { "pattern": "www.mpscexam.in", "custom_domain": true },
-    { "pattern": "friday.mpscexam.in", "custom_domain": true }
+    { "pattern": "friday.mpscexam.in", "custom_domain": true },
+    { "pattern": "grammahsuladhikari.in", "custom_domain": true },
+    { "pattern": "www.grammahsuladhikari.in", "custom_domain": true },
+    { "pattern": "talathibharti.in", "custom_domain": true },
+    { "pattern": "www.talathibharti.in", "custom_domain": true }
   ]
 }

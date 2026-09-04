@@ -1,3 +1,4 @@
+import { getSiteContent } from "@/lib/contentStore";
 import { HeroSection } from "@/components/HeroSection";
 import { UrgencyBanner } from "@/components/UrgencyBanner";
 import { SocialProof } from "@/components/SocialProof";
@@ -5,14 +6,18 @@ import { SyllabusWeightage } from "@/components/SyllabusWeightage";
 import { HowToPurchase } from "@/components/HowToPurchase";
 import { AspirantPainPoints } from "@/components/AspirantPainPoints";
 import { SampleProof } from "@/components/SampleProof";
-import { OfferBreakdown } from "@/components/OfferBreakdown";
 import { FAQ } from "@/components/FAQ";
 import { Pricing } from "@/components/Pricing";
 import { Footer } from "@/components/Footer";
 import { StickyMobileBar } from "@/components/StickyMobileBar";
 import { LiveActivityToast } from "@/components/LiveActivityToast";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default function Home() {
+  const content = getSiteContent();
+
   return (
     <main className="min-h-screen relative bg-[#fafbfc] pb-16 md:pb-0">
       {/* 1. Header & Top Bar + Hero Section */}
@@ -24,8 +29,8 @@ export default function Home() {
       {/* 3. Horizontally Scrolling Testimonials with Marathi Initials */}
       <SocialProof />
 
-      {/* 4. अभ्यासक्रम (Cards Format) */}
-      <SyllabusWeightage />
+      {/* 4. अभ्यासक्रम (Accordion Format) */}
+      <SyllabusWeightage initialData={content.syllabus} />
 
       {/* 5. How to Purchase (9:16 Auto-Slider & WhatsApp Button) */}
       <HowToPurchase />
@@ -34,12 +39,9 @@ export default function Home() {
       <AspirantPainPoints />
 
       {/* 7. प्रश्नांची व स्पष्टीकरणांची नमुना गुणवत्ता पहा */}
-      <SampleProof />
+      <SampleProof initialData={content.sampleProof} />
 
-      {/* 8. तपशीलवार टेस्ट पॅकेज ब्रेकडाउन */}
-      <OfferBreakdown />
-
-      {/* 9. वारंवार विचारले जाणारे प्रश्न */}
+      {/* 8. वारंवार विचारले जाणारे प्रश्न */}
       <FAQ />
 
       {/* 10. Final Centered CTA (परवडणाऱ्या दरात उत्कृष्ट दर्जाची तयारी) */}

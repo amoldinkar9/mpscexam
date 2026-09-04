@@ -2,10 +2,12 @@
 
 import { useEffect, useState } from "react";
 import { Timer, AlertTriangle, Flame } from "lucide-react";
+import { getScarcityData } from "@/lib/scarcity";
 
 export function UrgencyBanner() {
   const targetDate = new Date("2026-10-25T23:59:59+05:30").getTime();
   const [timeLeft, setTimeLeft] = useState({ days: 53, hours: 14, minutes: 28, seconds: 45 });
+  const [scarcity, setScarcity] = useState(getScarcityData());
 
   useEffect(() => {
     const updateCountdown = () => {
@@ -22,9 +24,20 @@ export function UrgencyBanner() {
       }
     };
 
+    const updateScarcity = () => {
+      setScarcity(getScarcityData());
+    };
+
     updateCountdown();
+    updateScarcity();
+
     const interval = setInterval(updateCountdown, 1000);
-    return () => clearInterval(interval);
+    const scarcityInterval = setInterval(updateScarcity, 60000);
+
+    return () => {
+      clearInterval(interval);
+      clearInterval(scarcityInterval);
+    };
   }, [targetDate]);
 
   return (
@@ -35,26 +48,26 @@ export function UrgencyBanner() {
           {/* Left: Bigger Timer & Clear Text Hierarchy */}
           <div className="flex flex-col sm:flex-row items-center sm:items-start lg:items-center gap-4 sm:gap-6 text-center sm:text-left">
             
-            <div className="space-y-1.5">
-              <div className="inline-flex items-center gap-2 bg-[#9B3A32] text-white text-xs sm:text-sm font-bold px-4 py-1.5 rounded-full shadow-xs">
-                <Flame className="w-4 h-4 text-amber-300 fill-amber-300 animate-bounce" />
+            <div className="space-y-1.5 flex flex-col items-center sm:items-start">
+              <div className="inline-flex items-center gap-1.5 bg-[#9B3A32] text-white text-[11px] sm:text-xs md:text-sm font-bold px-3 sm:px-4 py-1 sm:py-1.5 rounded-full shadow-xs whitespace-nowrap">
+                <Flame className="w-3.5 h-3.5 text-amber-300 fill-amber-300 animate-bounce shrink-0" />
                 <span>MPSC Group C पूर्व परीक्षा 2026</span>
               </div>
-              <div className="flex items-center justify-center sm:justify-start gap-2 text-base sm:text-lg lg:text-xl font-black text-[#1F2A5C]">
-                <Timer className="w-5 h-5 text-[#9B3A32]" />
+              <div className="flex items-center justify-center sm:justify-start gap-1.5 text-xs sm:text-base lg:text-lg font-black text-[#1F2A5C] whitespace-nowrap">
+                <Timer className="w-4 h-4 text-[#9B3A32] shrink-0" />
                 <span>प्रत्यक्ष परीक्षेसाठी शिल्लक वेळ:</span>
               </div>
             </div>
 
             {/* Much Bigger Digital Countdown Blocks */}
             <div className="flex items-center gap-2 sm:gap-3">
-              <BigTimeBox val={timeLeft.days} unit="दिवस" />
+              <BigTimeBox val={timeLeft.days} unit="Days" />
               <span className="font-black text-[#9B3A32] text-2xl sm:text-3xl">:</span>
-              <BigTimeBox val={timeLeft.hours} unit="तास" />
+              <BigTimeBox val={timeLeft.hours} unit="Hours" />
               <span className="font-black text-[#9B3A32] text-2xl sm:text-3xl">:</span>
-              <BigTimeBox val={timeLeft.minutes} unit="मि." />
+              <BigTimeBox val={timeLeft.minutes} unit="Min" />
               <span className="font-black text-[#9B3A32] text-2xl sm:text-3xl">:</span>
-              <BigTimeBox val={timeLeft.seconds} unit="से." />
+              <BigTimeBox val={timeLeft.seconds} unit="Sec" />
             </div>
 
           </div>
@@ -66,20 +79,24 @@ export function UrgencyBanner() {
                 <AlertTriangle className="w-4 h-4 text-[#9B3A32]" />
                 <span>₹199 ऑफर स्लॉट्स</span>
               </span>
-              <span className="text-[#9B3A32] font-black english-numerals">88% भरले (442/500)</span>
+              <span className="text-[#9B3A32] font-black english-numerals">
+                {scarcity.percent}% भरले ({scarcity.booked}/500)
+              </span>
             </div>
             
             {/* Progress Track */}
             <div className="w-full h-3.5 bg-amber-200/80 rounded-full overflow-hidden p-0.5">
               <div
                 className="h-full bg-gradient-to-r from-[#b8463c] via-[#9B3A32] to-[#7d2620] rounded-full transition-all duration-500"
-                style={{ width: "88.4%" }}
+                style={{ width: `${scarcity.exactPercent.toFixed(1)}%` }}
               />
             </div>
             
             <div className="flex justify-between text-xs text-slate-700 font-semibold pt-0.5">
               <span>पहिल्या 500 विद्यार्थ्यांसाठी</span>
-              <span className="text-[#9B3A32] font-black animate-pulse">केवळ 58 सीट्स शिल्लक!</span>
+              <span className="text-[#9B3A32] font-black animate-pulse">
+                केवळ {scarcity.remaining} सीट्स शिल्लक!
+              </span>
             </div>
           </div>
 

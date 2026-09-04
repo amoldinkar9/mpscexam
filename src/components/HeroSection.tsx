@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Star, Users, CheckCircle2, ShieldCheck, ArrowRight, Award, Briefcase, Timer, Flame } from "lucide-react";
+import { Star, Users, ShieldCheck, ArrowRight, Award, Flame } from "lucide-react";
 
 import siteData from "@/data/siteContent.json";
 
@@ -10,16 +10,6 @@ export function HeroSection() {
   const scrollToPricing = () => {
     document.getElementById("pricing-section")?.scrollIntoView({ behavior: "smooth" });
   };
-
-  const targetPosts = [
-    "उद्योग निरीक्षक",
-    "तांत्रिक सहायक",
-    "कर सहायक",
-    "सहायक मोटार वाहन निरीक्षक",
-    "लिपिक टंकलेखक",
-    "ग्राम महसूल अधिकारी (तलाठी)",
-    "सहायक मत्स्यव्यवसाय विकास अधिकारी"
-  ];
 
   const targetDate = new Date("2026-10-25T23:59:59+05:30").getTime();
   const [timeLeft, setTimeLeft] = useState({ days: 51, hours: 13, minutes: 14, seconds: 47 });
@@ -50,59 +40,55 @@ export function HeroSection() {
       <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#9B3A32] via-[#d97706] to-[#1F2A5C]" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Header Top Row: Logo Card + Exam Countdown Timer (Each in its own rounded rectangle) */}
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-5 sm:gap-6 mb-8 sm:mb-12">
-          
-          {/* 1. Header Logo Rounded Rectangle (20px radius) */}
-          <div className="w-fit mr-auto lg:mr-0 bg-white/95 backdrop-blur-md rounded-[20px] px-6 sm:px-8 py-4 sm:py-5 border border-slate-200/90 shadow-sm flex items-center justify-center gap-4 sm:gap-6">
+
+        {/* Header Top Row: Logo Card + Exam Countdown Timer (Side-by-side in one line) */}
+        <div className="flex flex-row items-stretch justify-between gap-3 sm:gap-6 mb-8 sm:mb-12">
+
+          {/* 1. Header Logo Rounded Rectangle (20px radius - same height as timer, equal padding on all 4 sides) */}
+          <div className="flex-1 sm:flex-initial bg-white/95 backdrop-blur-md rounded-[20px] px-3 sm:px-12 py-2.5 sm:py-4 border border-slate-200/90 shadow-sm flex items-center justify-center gap-2 sm:gap-6 min-h-[96px] sm:min-h-[128px]">
             {/* TCS9 Logo */}
             <div className="flex items-center justify-center shrink-0">
               <img
                 src="https://media.tcs9.in/current_affairs_images/tcs9logo4_4x_1788436732855_f1609608-4829-4780-a8d2-9970abd66b22.webp"
                 alt="TCS9 Logo"
-                className="h-12 sm:h-16 w-auto object-contain"
+                className="h-12 sm:h-[86px] w-auto object-contain"
                 loading="eager"
               />
             </div>
 
-            {/* "x" Divider */}
-            <span className="text-slate-300 font-bold text-xl sm:text-2xl select-none shrink-0">×</span>
+            {/* "+" Divider */}
+            <span className="text-slate-300 font-bold text-xl sm:text-3xl select-none shrink-0">
+              +
+            </span>
 
             {/* MPSC Logo with same height */}
             <div className="flex items-center justify-center shrink-0">
               <img
                 src="https://mpsc.gov.in/static/media/logo.7a984172.png"
                 alt="MPSC Logo"
-                className="h-12 sm:h-16 w-auto object-contain"
+                className="h-12 sm:h-[86px] w-auto object-contain"
                 loading="eager"
               />
             </div>
           </div>
 
-          {/* 2. Exam Countdown Timer: In another rounded rectangle (20px radius) */}
-          <div className="w-fit mr-auto lg:mr-0 lg:ml-auto bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 border-2 border-amber-500/40 rounded-[20px] px-5 sm:px-6 py-3.5 sm:py-4 shadow-sm flex flex-col items-center justify-center gap-2">
+          {/* 2. Exam Countdown Timer: In another rounded rectangle (20px radius - same height as logo card) */}
+          <div className="flex-1 sm:flex-initial bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 border-2 border-amber-500/40 rounded-[20px] px-2.5 sm:px-6 py-2.5 sm:py-3.5 shadow-sm flex flex-col items-center justify-center gap-2 sm:gap-2.5 min-h-[96px] sm:min-h-[128px]">
             {/* Pill Tag */}
-            <div className="inline-flex items-center gap-1.5 bg-[#8b2d26] text-white text-[11px] sm:text-xs font-bold px-3.5 py-1 rounded-full shadow-xs">
-              <Flame className="w-3.5 h-3.5 text-amber-300 fill-amber-300 animate-bounce" />
+            <div className="inline-flex items-center gap-1 bg-[#8b2d26] text-white text-[9px] sm:text-xs font-bold px-2.5 sm:px-4 py-0.5 sm:py-1 rounded-full shadow-xs whitespace-nowrap">
+              <Flame className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-300 fill-amber-300 animate-bounce shrink-0" />
               <span>MPSC Group C पूर्व परीक्षा 2026</span>
             </div>
 
-            {/* Sub-label */}
-            <div className="flex items-center gap-1.5 text-xs sm:text-sm font-extrabold text-[#78350f]">
-              <Timer className="w-4 h-4 text-[#78350f]" />
-              <span>प्रत्यक्ष परीक्षेसाठी शिल्लक वेळ:</span>
-            </div>
-
             {/* Digital Countdown Blocks */}
-            <div className="flex items-center gap-1.5 sm:gap-2.5">
-              <HeaderTimeBox val={timeLeft.days} unit="दिवस" />
-              <span className="font-black text-[#8b2d26] text-xl sm:text-2xl leading-none select-none">:</span>
-              <HeaderTimeBox val={timeLeft.hours} unit="तास" />
-              <span className="font-black text-[#8b2d26] text-xl sm:text-2xl leading-none select-none">:</span>
-              <HeaderTimeBox val={timeLeft.minutes} unit="मि." />
-              <span className="font-black text-[#8b2d26] text-xl sm:text-2xl leading-none select-none">:</span>
-              <HeaderTimeBox val={timeLeft.seconds} unit="से." />
+            <div className="flex items-center gap-1 sm:gap-2.5">
+              <HeaderTimeBox val={timeLeft.days} unit="Days" />
+              <span className="font-black text-[#8b2d26] text-base sm:text-2xl leading-none select-none">:</span>
+              <HeaderTimeBox val={timeLeft.hours} unit="Hours" />
+              <span className="font-black text-[#8b2d26] text-base sm:text-2xl leading-none select-none">:</span>
+              <HeaderTimeBox val={timeLeft.minutes} unit="Min" />
+              <span className="font-black text-[#8b2d26] text-base sm:text-2xl leading-none select-none">:</span>
+              <HeaderTimeBox val={timeLeft.seconds} unit="Sec" />
             </div>
           </div>
 
@@ -110,10 +96,10 @@ export function HeroSection() {
 
         {/* Hero Main Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          
+
           {/* Hero Section (Main Content Area - Left) */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            
+
             {/* H1 Main Headline */}
             <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-[#1F2A5C] leading-[1.25] tracking-tight">
               महाराष्ट्र गट-क सेवा<br />
@@ -122,30 +108,17 @@ export function HeroSection() {
 
             {/* Hero Subheading */}
             <p className="text-base sm:text-lg text-[#334155] leading-[1.8] font-medium">
-              हजारो विद्यार्थी दररोज सराव करत आहेत.<br className="hidden sm:inline" />
+              हजारो विद्यार्थी दररोज सराव करत आहेत.<br />
               तुम्ही मागे तर राहत नाही ना?
             </p>
 
-            {/* Feature Grid / Icon List (7 Posts in a structured grid) */}
-            <div className="pt-1">
-              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-1.5">
-                <Briefcase className="w-3.5 h-3.5 text-[#9B3A32]" />
-                <span>समाविष्ट लक्ष्य पदे:</span>
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                {targetPosts.map((post, idx) => (
-                  <div
-                    key={idx}
-                    className="flex items-center gap-2.5 bg-white p-2.5 px-3 rounded-xl border border-slate-200/90 shadow-2xs hover:border-[#9B3A32]/40 transition-colors"
-                  >
-                    <CheckCircle2 className="w-4 h-4 text-[#9B3A32] shrink-0" />
-                    <span className="text-xs sm:text-sm font-semibold text-[#1F2A5C] leading-snug">
-                      {idx + 1}. {post}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            {/* H2 Sub-headline */}
+            <h2 className="text-xl sm:text-2xl lg:text-[1.65rem] font-bold text-[#1F2A5C] leading-[1.5] tracking-tight">
+              <span className="text-[#9B3A32] font-extrabold">SMART</span> बना!<br />
+              टेस्ट सोडवून आपला<br />
+              अभ्यास पूर्ण करा,<br />
+              कारण माणूस चुकांमधूनच शिकतो.
+            </h2>
 
             {/* Primary CTA Block */}
             <div className="pt-2 space-y-3">
@@ -193,7 +166,7 @@ export function HeroSection() {
           {/* Hero Section (Visual Area - Right) */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             <div className="relative mx-auto max-w-md lg:max-w-none">
-              
+
               {/* Clickable Hero Image: 5:6 (Desktop Web) - 16:9 (Mobile Web) */}
               <a
                 href={heroData.targetUrl || "#pricing-section"}
@@ -245,11 +218,11 @@ export function HeroSection() {
 
 function HeaderTimeBox({ val, unit }: { val: number; unit: string }) {
   return (
-    <div className="bg-white border-2 border-amber-400/80 shadow-xs rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 min-w-[48px] sm:min-w-[56px] flex flex-col items-center justify-center">
-      <span className="text-xl sm:text-2xl font-black text-[#9B3A32] leading-none english-numerals">
+    <div className="bg-white border-2 border-amber-400/80 shadow-xs rounded-lg sm:rounded-xl px-1.5 sm:px-3 py-1 sm:py-2 min-w-[32px] sm:min-w-[56px] flex flex-col items-center justify-center">
+      <span className="text-sm sm:text-2xl font-black text-[#9B3A32] leading-none english-numerals">
         {String(val).padStart(2, "0")}
       </span>
-      <span className="text-[10px] sm:text-[11px] text-[#1F2A5C] font-bold mt-1 uppercase tracking-wider">
+      <span className="text-[8px] sm:text-[11px] text-[#1F2A5C] font-bold mt-0.5 sm:mt-1 uppercase tracking-wider">
         {unit}
       </span>
     </div>

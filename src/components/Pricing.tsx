@@ -1,10 +1,21 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { ShieldCheck, Lock, ArrowRight, Zap, CheckCircle2 } from "lucide-react";
 import siteData from "@/data/siteContent.json";
+import { getScarcityData } from "@/lib/scarcity";
 
 export function Pricing() {
   const cta = siteData.finalCta;
+  const [scarcity, setScarcity] = useState(getScarcityData());
+
+  useEffect(() => {
+    const updateScarcity = () => setScarcity(getScarcityData());
+    updateScarcity();
+    const interval = setInterval(updateScarcity, 60000);
+    return () => clearInterval(interval);
+  }, []);
+
   const handleEnroll = () => {
     alert("पेमेंट गेटवे सुरू होत आहे... कृपया प्रतीक्षा करा.");
   };
@@ -48,7 +59,7 @@ export function Pricing() {
               </p>
               <div className="pt-2">
                 <span className="inline-block text-[11px] sm:text-xs font-bold bg-[#fbeae8] text-[#9B3A32] px-3.5 py-1 rounded-full border border-[#f3c8c4] animate-pulse">
-                  🔥 {cta.bookedSeats} सीट्स बुक झाल्या • केवळ {cta.remainingSeats} शिल्लक
+                  🔥 {scarcity.booked} सीट्स बुक झाल्या • केवळ {scarcity.remaining} शिल्लक
                 </span>
               </div>
             </div>

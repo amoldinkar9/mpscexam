@@ -5,7 +5,7 @@
   "3": "compilerOptions",
   "4": "route.ts",
   "5": "dependencies",
-  "6": "include",
+  "7": "OfferBreakdown.tsx",
   "8": "scripts",
   "9": "TestAttempt Entity",
   "10": "Next.js Agent Rules Notice",
@@ -22,5 +22,7 @@
   "21": "vite.config.ts",
   "22": "admin/page.tsx",
   "23": "admin/layout.tsx",
-  "24": "middleware.ts"
+  "24": "middleware.ts",
+  "25": "LiveActivityToast.tsx",
+  "26": "QUESTION Entity"
 }

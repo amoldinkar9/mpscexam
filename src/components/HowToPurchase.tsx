@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { MessageCircle, ChevronLeft, ChevronRight, ShoppingCart, CreditCard, PlayCircle, Smartphone } from "lucide-react";
+import { MessageCircle, ChevronLeft, ChevronRight, ShoppingCart, CreditCard, PlayCircle, Smartphone, ArrowRight, ShieldCheck } from "lucide-react";
 import siteData from "@/data/siteContent.json";
 
 const ICON_MAP: Record<string, any> = {
@@ -36,10 +36,19 @@ export function HowToPurchase() {
   useEffect(() => {
     if (scrollContainerRef.current) {
       const container = scrollContainerRef.current;
+      if (currentSlide === 0) {
+        container.scrollTo({
+          left: 0,
+          behavior: "smooth"
+        });
+        return;
+      }
       const slideElement = container.children[currentSlide] as HTMLElement;
       if (slideElement) {
+        const style = window.getComputedStyle(container);
+        const paddingLeft = parseFloat(style.paddingLeft) || 0;
         container.scrollTo({
-          left: slideElement.offsetLeft - container.offsetLeft,
+          left: Math.max(0, slideElement.offsetLeft - paddingLeft),
           behavior: "smooth"
         });
       }
@@ -54,10 +63,14 @@ export function HowToPurchase() {
     setCurrentSlide((prev) => (prev + 1) % purchaseSteps.length);
   };
 
+  const scrollToPricing = () => {
+    document.getElementById("pricing-section")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section className="py-16 sm:py-20 bg-white border-b border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#fbeae8] text-[#9B3A32] text-xs font-bold border border-[#f3c8c4]">
@@ -68,7 +81,7 @@ export function HowToPurchase() {
             फक्त सोप्या स्टेप्समध्ये <span className="text-[#9B3A32]">टेस्ट सिरीज अनलॉक करा</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal">
-            खालील 9:16 मार्गदर्शक स्टेप्स पहा आणि अवघ्या 2 मिनिटांत तुमचा अभ्यास सुरू करा.
+            खालील स्टेप्स पहा आणि अवघ्या 2 मिनिटांत तुमचा अभ्यास सुरू करा.
           </p>
         </div>
 
@@ -81,7 +94,8 @@ export function HowToPurchase() {
           {/* Slider Container with 9:16 Aspect Ratio Cards */}
           <div
             ref={scrollContainerRef}
-            className="flex gap-6 overflow-x-auto pb-6 pt-2 snap-x snap-mandatory scroll-smooth no-scrollbar"
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+            className="flex gap-6 overflow-x-auto pb-6 pt-4 px-6 sm:px-10 md:px-12 scroll-pl-6 sm:scroll-pl-10 md:scroll-pl-12 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:w-0 [&::-webkit-scrollbar]:h-0 no-scrollbar"
           >
             {purchaseSteps.map((step, idx) => {
               const Icon = step.icon;
@@ -90,15 +104,14 @@ export function HowToPurchase() {
                 <div
                   key={idx}
                   onClick={() => setCurrentSlide(idx)}
-                  className={`w-64 sm:w-72 shrink-0 snap-center rounded-3xl p-4 border transition-all duration-300 cursor-pointer flex flex-col justify-between ${
-                    isActive
-                      ? "bg-white border-[#9B3A32] shadow-xl ring-2 ring-[#9B3A32]/30 scale-102"
-                      : "bg-[#fafbfc] border-slate-200 shadow-sm opacity-80 hover:opacity-100"
-                  }`}
+                  className={`w-64 sm:w-72 shrink-0 snap-start rounded-3xl p-4 border transition-all duration-300 cursor-pointer flex flex-col justify-between ${isActive
+                    ? "bg-white border-[#9B3A32] shadow-xl ring-2 ring-[#9B3A32]/30 scale-102"
+                    : "bg-[#fafbfc] border-slate-200 shadow-sm opacity-80 hover:opacity-100"
+                    }`}
                 >
                   {/* 9:16 Image Skeleton Area */}
                   <div className="w-full aspect-[9/16] rounded-2xl bg-gradient-to-b from-slate-100 via-slate-50 to-slate-200 border-2 border-dashed border-slate-300 flex flex-col items-center justify-center p-4 text-center relative overflow-hidden group">
-                    
+
                     {/* Placeholder Icon & Tag */}
                     <div className={`w-14 h-14 rounded-2xl ${step.color} flex items-center justify-center shadow-xs mb-3 border`}>
                       <Icon className="w-7 h-7" />
@@ -151,11 +164,10 @@ export function HowToPurchase() {
                   key={dotIdx}
                   onClick={() => setCurrentSlide(dotIdx)}
                   aria-label={`स्टेप ${dotIdx + 1}`}
-                  className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                    dotIdx === currentSlide
-                      ? "w-8 bg-[#9B3A32]"
-                      : "w-2.5 bg-slate-300 hover:bg-slate-400"
-                  }`}
+                  className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${dotIdx === currentSlide
+                    ? "w-8 bg-[#9B3A32]"
+                    : "w-2.5 bg-slate-300 hover:bg-slate-400"
+                    }`}
                 />
               ))}
             </div>
@@ -172,6 +184,21 @@ export function HowToPurchase() {
           <p className="text-[11px] text-slate-400 text-center mt-2 font-medium">
             (प्रत्येक 5 सेकंदांनी आपोआप स्लाइड होते)
           </p>
+        </div>
+
+        {/* Primary CTA Block */}
+        <div className="flex flex-col items-center justify-center pt-6 pb-2 space-y-3 text-center">
+          <button
+            onClick={scrollToPricing}
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#9B3A32] hover:bg-[#822f28] active:bg-[#6b251f] text-white font-extrabold text-base sm:text-lg rounded-2xl shadow-lg shadow-[#9B3A32]/25 hover:shadow-xl hover:shadow-[#9B3A32]/30 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+          >
+            <span>आत्ताच ₹199 मध्ये टेस्ट सिरीज सुरू करा</span>
+            <ArrowRight className="w-5 h-5" />
+          </button>
+          <div className="text-xs sm:text-sm text-slate-500 flex items-center justify-center gap-1.5 font-medium flex-wrap px-4">
+            <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 inline-block" />
+            <span>⚡ 80% सवलत केवळ पहिल्या 500 विद्यार्थ्यांसाठी • 100% सुरक्षित पेमेंट • झटपट ॲक्टिव्हेशन</span>
+          </div>
         </div>
 
         {/* WhatsApp Theme Support Action Button Under How to Purchase */}

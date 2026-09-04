@@ -68,7 +68,7 @@ export function SocialProof() {
                   </div>
 
                   {/* Quote text */}
-                  <p className="text-xs sm:text-sm text-[#334155] leading-[1.8] italic font-normal">
+                  <p className="text-xs sm:text-sm text-[#334155] leading-[1.8] font-normal">
                     "{t.quote}"
                   </p>
                 </div>

@@ -91,6 +91,19 @@
       "source_location": "L7"
     },
     {
+      "id": "src_components_syllabusweightage_syllabusitem",
+      "label": "SyllabusItem",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "syllabusitem",
+      "source_file": "src/components/SyllabusWeightage.tsx",
+      "source_location": "L8"
+    },
+    {
       "id": "src_app_admin_page_sitecontent",
       "label": "SiteContent",
       "_callable": true,
@@ -101,7 +114,20 @@
       "file_type": "code",
       "norm_label": "sitecontent",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L45"
+      "source_location": "L50"
+    },
+    {
+      "id": "src_components_admin_richtexteditor_richtexteditorprops",
+      "label": "RichTextEditorProps",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "admin/page.tsx",
+      "file_type": "code",
+      "norm_label": "richtexteditorprops",
+      "source_file": "src/components/admin/RichTextEditor.tsx",
+      "source_location": "L31"
     },
     {
       "id": "src_lib_contentstore_sitecontent",
@@ -115,18 +141,6 @@
       "norm_label": "sitecontent",
       "source_file": "src/lib/contentStore.ts",
       "source_location": "L5"
-    },
-    {
-      "id": "src_app_page_home",
-      "label": "Home()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "home()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L15"
     },
     {
       "id": "src_components_aspirantpainpoints_aspirantpainpoints",
@@ -174,7 +188,7 @@
       "file_type": "code",
       "norm_label": "headertimebox()",
       "source_file": "src/components/HeroSection.tsx",
-      "source_location": "L246"
+      "source_location": "L219"
     },
     {
       "id": "src_components_herosection_herosection",
@@ -213,18 +227,6 @@
       "source_location": "L17"
     },
     {
-      "id": "src_components_offerbreakdown_offerbreakdown",
-      "label": "OfferBreakdown()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "offerbreakdown()",
-      "source_file": "src/components/OfferBreakdown.tsx",
-      "source_location": "L19"
-    },
-    {
       "id": "src_components_pricing_pricing",
       "label": "Pricing()",
       "_callable": true,
@@ -234,7 +236,7 @@
       "file_type": "code",
       "norm_label": "pricing()",
       "source_file": "src/components/Pricing.tsx",
-      "source_location": "L6"
+      "source_location": "L8"
     },
     {
       "id": "src_components_sampleproof_sampleproof",
@@ -270,7 +272,7 @@
       "file_type": "code",
       "norm_label": "stickymobilebar()",
       "source_file": "src/components/StickyMobileBar.tsx",
-      "source_location": "L5"
+      "source_location": "L7"
     },
     {
       "id": "src_components_syllabusweightage_syllabusweightage",
@@ -282,7 +284,7 @@
       "file_type": "code",
       "norm_label": "syllabusweightage()",
       "source_file": "src/components/SyllabusWeightage.tsx",
-      "source_location": "L3"
+      "source_location": "L16"
     },
     {
       "id": "src_components_urgencybanner_bigtimebox",
@@ -294,7 +296,7 @@
       "file_type": "code",
       "norm_label": "bigtimebox()",
       "source_file": "src/components/UrgencyBanner.tsx",
-      "source_location": "L92"
+      "source_location": "L109"
     },
     {
       "id": "src_components_urgencybanner_urgencybanner",
@@ -306,6 +308,18 @@
       "file_type": "code",
       "norm_label": "urgencybanner()",
       "source_file": "src/components/UrgencyBanner.tsx",
+      "source_location": "L7"
+    },
+    {
+      "id": "src_lib_scarcity_getscarcitydata",
+      "label": "getScarcityData()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "getscarcitydata()",
+      "source_file": "src/lib/scarcity.ts",
       "source_location": "L6"
     },
     {
@@ -342,7 +356,7 @@
       "file_type": "code",
       "norm_label": "adminpage()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L47"
+      "source_location": "L93"
     },
     {
       "id": "src_app_admin_page_adminpage_loadcontent",
@@ -354,7 +368,19 @@
       "file_type": "code",
       "norm_label": "loadcontent()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L92"
+      "source_location": "L152"
+    },
+    {
+      "id": "src_app_admin_page_getinitialhtmlforquestion",
+      "label": "getInitialHtmlForQuestion()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "admin/page.tsx",
+      "file_type": "code",
+      "norm_label": "getinitialhtmlforquestion()",
+      "source_file": "src/app/admin/page.tsx",
+      "source_location": "L55"
     },
     {
       "id": "src_app_admin_page_sidebarnavitem",
@@ -366,7 +392,19 @@
       "file_type": "code",
       "norm_label": "sidebarnavitem()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L1669"
+      "source_location": "L2774"
+    },
+    {
+      "id": "src_components_admin_richtexteditor_richtexteditor",
+      "label": "RichTextEditor()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "admin/page.tsx",
+      "file_type": "code",
+      "norm_label": "richtexteditor()",
+      "source_file": "src/components/admin/RichTextEditor.tsx",
+      "source_location": "L57"
     },
     {
       "id": "src_app_admin_layout_adminlayout",
@@ -417,6 +455,18 @@
       "source_location": "L18"
     },
     {
+      "id": "src_app_page_home",
+      "label": "Home()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "route.ts",
+      "file_type": "code",
+      "norm_label": "home()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L18"
+    },
+    {
       "id": "src_lib_contentstore_getdefaultsitecontent",
       "label": "getDefaultSiteContent()",
       "_callable": true,
@@ -453,6 +503,18 @@
       "source_location": "L24"
     },
     {
+      "id": "src_components_offerbreakdown_offerbreakdown",
+      "label": "OfferBreakdown()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "OfferBreakdown.tsx",
+      "file_type": "code",
+      "norm_label": "offerbreakdown()",
+      "source_file": "src/components/OfferBreakdown.tsx",
+      "source_location": "L19"
+    },
+    {
       "id": "src_app_page",
       "label": "app/page.tsx",
       "_origin": "ast",
@@ -462,6 +524,28 @@
       "norm_label": "app/page.tsx",
       "source_file": "src/app/page.tsx",
       "source_location": "L1"
+    },
+    {
+      "id": "src_app_page_dynamic",
+      "label": "dynamic",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "dynamic",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L15"
+    },
+    {
+      "id": "src_app_page_revalidate",
+      "label": "revalidate",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "revalidate",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L16"
     },
     {
       "id": "src_components_aspirantpainpoints",
@@ -538,17 +622,6 @@
       "file_type": "code",
       "norm_label": "liveactivitytoast.tsx",
       "source_file": "src/components/LiveActivityToast.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_offerbreakdown",
-      "label": "OfferBreakdown.tsx",
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "offerbreakdown.tsx",
-      "source_file": "src/components/OfferBreakdown.tsx",
       "source_location": "L1"
     },
     {
@@ -648,6 +721,17 @@
       "file_type": "code",
       "norm_label": "student_names",
       "source_file": "src/data/studentsList.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_lib_scarcity",
+      "label": "scarcity.ts",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "scarcity.ts",
+      "source_file": "src/lib/scarcity.ts",
       "source_location": "L1"
     },
     {
@@ -1159,6 +1243,39 @@
       "norm_label": "admin/page.tsx",
       "source_file": "src/app/admin/page.tsx",
       "source_location": "L1"
+    },
+    {
+      "id": "src_components_admin_richtexteditor",
+      "label": "RichTextEditor.tsx",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "admin/page.tsx",
+      "file_type": "code",
+      "norm_label": "richtexteditor.tsx",
+      "source_file": "src/components/admin/RichTextEditor.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_admin_richtexteditor_color_palette_rows",
+      "label": "COLOR_PALETTE_ROWS",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "admin/page.tsx",
+      "file_type": "code",
+      "norm_label": "color_palette_rows",
+      "source_file": "src/components/admin/RichTextEditor.tsx",
+      "source_location": "L39"
+    },
+    {
+      "id": "src_components_admin_richtexteditor_math_symbols",
+      "label": "MATH_SYMBOLS",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "admin/page.tsx",
+      "file_type": "code",
+      "norm_label": "math_symbols",
+      "source_file": "src/components/admin/RichTextEditor.tsx",
+      "source_location": "L52"
     },
     {
       "id": "src_app_admin_layout",
@@ -1821,6 +1938,17 @@
       "source_location": "L25"
     },
     {
+      "id": "src_components_offerbreakdown",
+      "label": "OfferBreakdown.tsx",
+      "_origin": "ast",
+      "community": 7,
+      "community_name": "OfferBreakdown.tsx",
+      "file_type": "code",
+      "norm_label": "offerbreakdown.tsx",
+      "source_file": "src/components/OfferBreakdown.tsx",
+      "source_location": "L1"
+    },
+    {
       "id": "package",
       "label": "package.json",
       "_origin": "ast",
@@ -2275,126 +2403,6 @@
       "source_url": null
     },
     {
-      "id": "database_map_category",
-      "label": "CATEGORY Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "category entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_question",
-      "label": "QUESTION Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "question entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_subject",
-      "label": "SUBJECT Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "subject entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_test_attempt",
-      "label": "TEST_ATTEMPT Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "test_attempt entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_test_question_mapping",
-      "label": "TEST_QUESTION_MAPPING Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "test_question_mapping entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_test_series",
-      "label": "TEST_SERIES Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "test_series entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_user",
-      "label": "USER Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "user entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_user_answer",
-      "label": "USER_ANSWER Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "user_answer entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
       "id": "dependency_graph_auth_middleware_rbac_guard",
       "label": "AuthMiddleware & RBAC Guard",
       "_origin": "semantic",
@@ -2500,8 +2508,8 @@
       "source_url": null
     },
     {
-      "id": "routes_question_editor_page",
-      "label": "QuestionEditorPage",
+      "id": "routes_route_protection_middleware_flow",
+      "label": "Route Protection & Middleware Flow",
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
@@ -2509,7 +2517,7 @@
       "community_name": "mpscexam Route Map",
       "contributor": null,
       "file_type": "concept",
-      "norm_label": "questioneditorpage",
+      "norm_label": "route protection & middleware flow",
       "source_file": "routes.md",
       "source_location": null,
       "source_url": null
@@ -2556,21 +2564,6 @@
       "file_type": "document",
       "norm_label": "mpscexam system architecture",
       "source_file": "architecture.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_entity_map",
-      "label": "mpscexam Database Entity Map",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "mpscexam database entity map",
-      "source_file": "database-map.md",
       "source_location": null,
       "source_url": null
     },
@@ -2890,6 +2883,156 @@
       "source_url": null
     },
     {
+      "id": "database_map_category",
+      "label": "CATEGORY Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "category entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_question",
+      "label": "QUESTION Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "question entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_subject",
+      "label": "SUBJECT Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "subject entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_test_attempt",
+      "label": "TEST_ATTEMPT Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "test_attempt entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_test_question_mapping",
+      "label": "TEST_QUESTION_MAPPING Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "test_question_mapping entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_test_series",
+      "label": "TEST_SERIES Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "test_series entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_user",
+      "label": "USER Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "user entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_user_answer",
+      "label": "USER_ANSWER Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "user_answer entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "routes_question_editor_page",
+      "label": "QuestionEditorPage",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "questioneditorpage",
+      "source_file": "routes.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_entity_map",
+      "label": "mpscexam Database Entity Map",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "mpscexam database entity map",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
       "id": "memory_analyticsservice",
       "label": "AnalyticsService",
       "_origin": "semantic",
@@ -3053,24 +3196,21 @@
       "source_file": "memory.md",
       "source_location": null,
       "source_url": null
-    },
-    {
-      "id": "routes_route_protection_middleware_flow",
-      "label": "Route Protection & Middleware Flow",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 9,
-      "community_name": "TestAttempt Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "route protection & middleware flow",
-      "source_file": "routes.md",
-      "source_location": null,
-      "source_url": null
     }
   ],
   "links": [
+    {
+      "source": "src_app_admin_page_adminpage",
+      "target": "src_app_admin_page_getinitialhtmlforquestion",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/admin/page.tsx",
+      "source_location": "L1837",
+      "weight": 1.0
+    },
     {
       "source": "src_app_api_admin_content_route_get",
       "target": "src_lib_contentstore_getsitecontent",
@@ -3108,6 +3248,54 @@
       "weight": 1.0
     },
     {
+      "source": "src_app_page_home",
+      "target": "src_lib_contentstore_getsitecontent",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_pricing_pricing",
+      "target": "src_lib_scarcity_getscarcitydata",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/Pricing.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_stickymobilebar_stickymobilebar",
+      "target": "src_lib_scarcity_getscarcitydata",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/StickyMobileBar.tsx",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_urgencybanner_urgencybanner",
+      "target": "src_lib_scarcity_getscarcitydata",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/UrgencyBanner.tsx",
+      "source_location": "L10",
+      "weight": 1.0
+    },
+    {
       "source": "src_app_admin_page_adminpage",
       "target": "src_app_admin_page_adminpage_loadcontent",
       "relation": "contains",
@@ -3116,7 +3304,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L92",
+      "source_location": "L152",
       "weight": 1.0
     },
     {
@@ -3552,6 +3740,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_app_admin_page",
+      "target": "src_components_admin_richtexteditor_richtexteditor",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/app/admin/page.tsx",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
       "source": "src_app_api_admin_content_route",
       "target": "src_lib_contentstore_getdefaultsitecontent",
       "relation": "imports",
@@ -3589,7 +3789,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_components_herosection_herosection",
+      "target": "src_lib_contentstore_getsitecontent",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3649,7 +3849,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_components_urgencybanner_urgencybanner",
+      "target": "src_components_herosection_herosection",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3661,7 +3861,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_components_socialproof_socialproof",
+      "target": "src_components_urgencybanner_urgencybanner",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3673,7 +3873,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_components_syllabusweightage_syllabusweightage",
+      "target": "src_components_socialproof_socialproof",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3685,7 +3885,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_components_howtopurchase_howtopurchase",
+      "target": "src_components_syllabusweightage_syllabusweightage",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3697,7 +3897,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_components_aspirantpainpoints_aspirantpainpoints",
+      "target": "src_components_howtopurchase_howtopurchase",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3709,7 +3909,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_components_sampleproof_sampleproof",
+      "target": "src_components_aspirantpainpoints_aspirantpainpoints",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3721,7 +3921,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_components_offerbreakdown_offerbreakdown",
+      "target": "src_components_sampleproof_sampleproof",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3768,6 +3968,54 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_pricing",
+      "target": "src_lib_scarcity_getscarcitydata",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/Pricing.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_stickymobilebar",
+      "target": "src_lib_scarcity_getscarcitydata",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/StickyMobileBar.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_urgencybanner",
+      "target": "src_lib_scarcity_getscarcitydata",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/UrgencyBanner.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_admin_page",
+      "target": "src_components_admin_richtexteditor",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/app/admin/page.tsx",
+      "source_location": "L48",
+      "weight": 1.0
+    },
+    {
       "source": "src_app_api_admin_content_route",
       "target": "src_lib_contentstore",
       "relation": "imports_from",
@@ -3781,7 +4029,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_components_herosection",
+      "target": "src_lib_contentstore",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3841,7 +4089,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_components_urgencybanner",
+      "target": "src_components_herosection",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3853,7 +4101,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_components_socialproof",
+      "target": "src_components_urgencybanner",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3865,7 +4113,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_components_syllabusweightage",
+      "target": "src_components_socialproof",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3877,7 +4125,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_components_howtopurchase",
+      "target": "src_components_syllabusweightage",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3889,7 +4137,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_components_aspirantpainpoints",
+      "target": "src_components_howtopurchase",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3901,7 +4149,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_components_sampleproof",
+      "target": "src_components_aspirantpainpoints",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3913,7 +4161,7 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_components_offerbreakdown",
+      "target": "src_components_sampleproof",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -3944,6 +4192,42 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/components/LiveActivityToast.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_pricing",
+      "target": "src_lib_scarcity",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/Pricing.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_stickymobilebar",
+      "target": "src_lib_scarcity",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/StickyMobileBar.tsx",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_urgencybanner",
+      "target": "src_lib_scarcity",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/UrgencyBanner.tsx",
       "source_location": "L5",
       "weight": 1.0
     },
@@ -4461,7 +4745,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L1669",
+      "source_location": "L2774",
       "weight": 1.0
     },
     {
@@ -4472,7 +4756,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L45",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_admin_page",
+      "target": "src_app_admin_page_getinitialhtmlforquestion",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/admin/page.tsx",
+      "source_location": "L55",
       "weight": 1.0
     },
     {
@@ -4483,7 +4778,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L47",
+      "source_location": "L93",
       "weight": 1.0
     },
     {
@@ -4554,13 +4849,79 @@
     },
     {
       "source": "src_app_page",
-      "target": "src_app_page_home",
+      "target": "src_app_page_dynamic",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/page.tsx",
       "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page",
+      "target": "src_app_page_revalidate",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/page.tsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_page",
+      "target": "src_app_page_home",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/page.tsx",
+      "source_location": "L18",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_admin_richtexteditor",
+      "target": "src_components_admin_richtexteditor_richtexteditorprops",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/admin/RichTextEditor.tsx",
+      "source_location": "L31",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_admin_richtexteditor",
+      "target": "src_components_admin_richtexteditor_color_palette_rows",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/admin/RichTextEditor.tsx",
+      "source_location": "L39",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_admin_richtexteditor",
+      "target": "src_components_admin_richtexteditor_math_symbols",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/admin/RichTextEditor.tsx",
+      "source_location": "L52",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_admin_richtexteditor",
+      "target": "src_components_admin_richtexteditor_richtexteditor",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/admin/RichTextEditor.tsx",
+      "source_location": "L57",
       "weight": 1.0
     },
     {
@@ -4604,7 +4965,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/HeroSection.tsx",
-      "source_location": "L246",
+      "source_location": "L219",
       "weight": 1.0
     },
     {
@@ -4692,7 +5053,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/Pricing.tsx",
-      "source_location": "L6",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -4725,7 +5086,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/StickyMobileBar.tsx",
-      "source_location": "L5",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -4736,18 +5097,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/SyllabusWeightage.tsx",
-      "source_location": "L3",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
-      "source": "src_components_urgencybanner",
-      "target": "src_components_urgencybanner_urgencybanner",
+      "source": "src_components_syllabusweightage",
+      "target": "src_components_syllabusweightage_syllabusitem",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
-      "source_file": "src/components/UrgencyBanner.tsx",
-      "source_location": "L6",
+      "source_file": "src/components/SyllabusWeightage.tsx",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -4758,7 +5119,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/UrgencyBanner.tsx",
-      "source_location": "L92",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_urgencybanner",
+      "target": "src_components_urgencybanner_urgencybanner",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/UrgencyBanner.tsx",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -4825,6 +5197,17 @@
       "confidence_score": 1.0,
       "source_file": "src/lib/contentStore.ts",
       "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_lib_scarcity",
+      "target": "src_lib_scarcity_getscarcitydata",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/scarcity.ts",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -6133,5 +6516,5 @@
       "source_file": "architecture.md"
     }
   ],
-  "built_at_commit": "3ebcc3bbb8960c6b380fa1c4d4a6d4c86da6ff16"
+  "built_at_commit": "3c333e504437fa001d6c7c0b9e0ebe2ab96a69c9"
 }

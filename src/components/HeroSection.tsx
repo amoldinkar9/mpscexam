@@ -5,8 +5,8 @@ import { Star, Users, ShieldCheck, ArrowRight, Award, Flame } from "lucide-react
 
 import siteData from "@/data/siteContent.json";
 
-export function HeroSection() {
-  const heroData = siteData.hero;
+export function HeroSection({ initialData }: { initialData?: typeof siteData.hero } = {}) {
+  const heroData = initialData || siteData.hero;
   const scrollToPricing = () => {
     document.getElementById("pricing-section")?.scrollIntoView({ behavior: "smooth" });
   };

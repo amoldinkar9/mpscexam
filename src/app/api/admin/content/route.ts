@@ -5,7 +5,7 @@ const DEFAULT_ADMIN_PASSCODE = process.env.ADMIN_PASSCODE || "admin123";
 
 export async function GET() {
   try {
-    const content = getSiteContent();
+    const content = await getSiteContent();
     return NextResponse.json({ success: true, content });
   } catch (error: any) {
     return NextResponse.json(
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
 
     if (action === "reset") {
       const defaultContent = getDefaultSiteContent();
-      const saved = saveSiteContent(defaultContent);
+      const saved = await saveSiteContent(defaultContent);
       return NextResponse.json({ success: saved, content: defaultContent, message: "मजकूर मूळ स्थितीत रिसेट करण्यात आला!" });
     }
 
@@ -41,17 +41,17 @@ export async function POST(request: Request) {
       );
     }
 
-    const saved = saveSiteContent(content);
+    const saved = await saveSiteContent(content);
     if (!saved) {
       return NextResponse.json(
-        { success: false, error: "डेटा सेव्ह करताना त्रुटी आली (Failed to write content to disk)" },
+        { success: false, error: "डेटा सेव्ह करताना त्रुटी आली (Failed to save content)" },
         { status: 500 }
       );
     }
 
     return NextResponse.json({
       success: true,
-      message: "बदल यशस्वीरीत्या सेव्ह झाले! (Changes successfully saved)",
+      message: "बदल यशस्वीरीत्या सेव्ह झाले! (Changes successfully saved to Cloudflare Database)",
       content
     });
   } catch (error: any) {

@@ -1,8 +1,8 @@
 import { Star, CheckCircle2, Award } from "lucide-react";
 import siteData from "@/data/siteContent.json";
 
-export function SocialProof() {
-  const testimonials = siteData.testimonials;
+export function SocialProof({ initialData }: { initialData?: typeof siteData.testimonials } = {}) {
+  const testimonials = initialData || siteData.testimonials;
 
   return (
     <section className="py-16 sm:py-20 bg-[#fafbfc] border-b border-slate-200">

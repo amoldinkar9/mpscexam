@@ -54,8 +54,13 @@ const samaDevanagari = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "mpscexam | MPSC Group C Pre Exam Test Series 2026",
+  title: "MPSC Group C Test Series",
   description: "MPSC Group C पूर्व परीक्षा 2026 साठी परिपूर्ण टेस्ट सिरीज. 15 फुल-लेंथ + 10 चालू घडामोडी टेस्ट्स.",
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
@@ -65,6 +70,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="mr" className={`${googleSans.variable} ${samaDevanagari.variable}`}>
+      <head>
+        <link rel="icon" href="/favicon.png" type="image/png" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+      </head>
       <body className="bg-[#fafbfc] text-[#1f2a5c] antialiased">
         {children}
       </body>

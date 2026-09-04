@@ -4,9 +4,9 @@ import { useState } from "react";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import siteData from "@/data/siteContent.json";
 
-export function FAQ() {
+export function FAQ({ initialData }: { initialData?: typeof siteData.faqs } = {}) {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
-  const faqs = siteData.faqs;
+  const faqs = initialData || siteData.faqs;
 
   const toggle = (idx: number) => {
     setOpenIndex(openIndex === idx ? null : idx);

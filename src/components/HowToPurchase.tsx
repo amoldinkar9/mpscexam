@@ -11,12 +11,13 @@ const ICON_MAP: Record<string, any> = {
   PlayCircle,
 };
 
-export function HowToPurchase() {
+export function HowToPurchase({ initialData }: { initialData?: typeof siteData.howToPurchase } = {}) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
-  const purchaseSteps = siteData.howToPurchase.map((step) => ({
+  const stepsData = initialData || siteData.howToPurchase;
+  const purchaseSteps = stepsData.map((step) => ({
     ...step,
     icon: ICON_MAP[step.iconName] || ShoppingCart,
   }));

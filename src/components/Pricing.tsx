@@ -5,8 +5,8 @@ import { ShieldCheck, Lock, ArrowRight, Zap, CheckCircle2 } from "lucide-react";
 import siteData from "@/data/siteContent.json";
 import { getScarcityData } from "@/lib/scarcity";
 
-export function Pricing() {
-  const cta = siteData.finalCta;
+export function Pricing({ initialData }: { initialData?: typeof siteData.finalCta } = {}) {
+  const cta = initialData || siteData.finalCta;
   const [scarcity, setScarcity] = useState(getScarcityData());
 
   useEffect(() => {

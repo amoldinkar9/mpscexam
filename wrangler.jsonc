@@ -22,5 +22,12 @@
     { "pattern": "www.grammahsuladhikari.in", "custom_domain": true },
     { "pattern": "talathibharti.in", "custom_domain": true },
     { "pattern": "www.talathibharti.in", "custom_domain": true }
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "mpscexam-db",
+      "database_id": "c81409fd-6f8f-475f-914b-39b9a0af7269"
+    }
   ]
 }

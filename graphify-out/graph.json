@@ -78,6 +78,19 @@
   },
   "nodes": [
     {
+      "id": "src_components_aspirantpainpoints_cutoffcontrastdata",
+      "label": "CutoffContrastData",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "cutoffcontrastdata",
+      "source_file": "src/components/AspirantPainPoints.tsx",
+      "source_location": "L4"
+    },
+    {
       "id": "src_components_liveactivitytoast_activityitem",
       "label": "ActivityItem",
       "_callable": true,
@@ -136,7 +149,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "route.ts",
+      "community_name": "contentStore.ts",
       "file_type": "code",
       "norm_label": "sitecontent",
       "source_file": "src/lib/contentStore.ts",
@@ -152,7 +165,7 @@
       "file_type": "code",
       "norm_label": "aspirantpainpoints()",
       "source_file": "src/components/AspirantPainPoints.tsx",
-      "source_location": "L4"
+      "source_location": "L9"
     },
     {
       "id": "src_components_faq_faq",
@@ -332,7 +345,7 @@
       "file_type": "code",
       "norm_label": "rootlayout()",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L61"
+      "source_location": "L66"
     },
     {
       "id": "src_components_howitworks_howitworks",
@@ -436,7 +449,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "route.ts",
+      "community_name": "contentStore.ts",
       "file_type": "code",
       "norm_label": "get()",
       "source_file": "src/app/api/admin/content/route.ts",
@@ -448,7 +461,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "route.ts",
+      "community_name": "contentStore.ts",
       "file_type": "code",
       "norm_label": "post()",
       "source_file": "src/app/api/admin/content/route.ts",
@@ -460,11 +473,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "route.ts",
+      "community_name": "contentStore.ts",
       "file_type": "code",
       "norm_label": "home()",
       "source_file": "src/app/page.tsx",
       "source_location": "L18"
+    },
+    {
+      "id": "src_lib_contentstore_getd1database",
+      "label": "getD1Database()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "contentStore.ts",
+      "file_type": "code",
+      "norm_label": "getd1database()",
+      "source_file": "src/lib/contentStore.ts",
+      "source_location": "L16"
     },
     {
       "id": "src_lib_contentstore_getdefaultsitecontent",
@@ -472,11 +497,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "route.ts",
+      "community_name": "contentStore.ts",
       "file_type": "code",
       "norm_label": "getdefaultsitecontent()",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L7"
+      "source_location": "L9"
     },
     {
       "id": "src_lib_contentstore_getsitecontent",
@@ -484,11 +509,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "route.ts",
+      "community_name": "contentStore.ts",
       "file_type": "code",
       "norm_label": "getsitecontent()",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L11"
+      "source_location": "L35"
     },
     {
       "id": "src_lib_contentstore_savesitecontent",
@@ -496,11 +521,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 4,
-      "community_name": "route.ts",
+      "community_name": "contentStore.ts",
       "file_type": "code",
       "norm_label": "savesitecontent()",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L24"
+      "source_location": "L76"
     },
     {
       "id": "src_components_offerbreakdown_offerbreakdown",
@@ -1322,6 +1347,61 @@
       "source_location": "L32"
     },
     {
+      "id": "scripts_seed_d1",
+      "label": "seed-d1.mjs",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "seed-d1.mjs",
+      "file_type": "code",
+      "norm_label": "seed-d1.mjs",
+      "source_file": "scripts/seed-d1.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_seed_d1_content",
+      "label": "content",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "seed-d1.mjs",
+      "file_type": "code",
+      "norm_label": "content",
+      "source_file": "scripts/seed-d1.mjs",
+      "source_location": "L6"
+    },
+    {
+      "id": "scripts_seed_d1_escaped",
+      "label": "escaped",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "seed-d1.mjs",
+      "file_type": "code",
+      "norm_label": "escaped",
+      "source_file": "scripts/seed-d1.mjs",
+      "source_location": "L9"
+    },
+    {
+      "id": "scripts_seed_d1_jsonpath",
+      "label": "jsonPath",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "seed-d1.mjs",
+      "file_type": "code",
+      "norm_label": "jsonpath",
+      "source_file": "scripts/seed-d1.mjs",
+      "source_location": "L5"
+    },
+    {
+      "id": "scripts_seed_d1_sqlfile",
+      "label": "sqlFile",
+      "_origin": "ast",
+      "community": 25,
+      "community_name": "seed-d1.mjs",
+      "file_type": "code",
+      "norm_label": "sqlfile",
+      "source_file": "scripts/seed-d1.mjs",
+      "source_location": "L13"
+    },
+    {
       "id": "tsconfig_compileroptions",
       "label": "compilerOptions",
       "_origin": "ast",
@@ -1531,11 +1611,22 @@
       "source_location": "L4"
     },
     {
+      "id": "cloudflare_workers",
+      "label": "cloudflare:workers",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "contentStore.ts",
+      "confidence": "EXTRACTED",
+      "file_type": "code",
+      "norm_label": "cloudflare:workers",
+      "source_file": "cloudflare:workers"
+    },
+    {
       "id": "src_app_api_admin_content_route",
       "label": "route.ts",
       "_origin": "ast",
       "community": 4,
-      "community_name": "route.ts",
+      "community_name": "contentStore.ts",
       "file_type": "code",
       "norm_label": "route.ts",
       "source_file": "src/app/api/admin/content/route.ts",
@@ -1546,7 +1637,7 @@
       "label": "contentStore.ts",
       "_origin": "ast",
       "community": 4,
-      "community_name": "route.ts",
+      "community_name": "contentStore.ts",
       "file_type": "code",
       "norm_label": "contentstore.ts",
       "source_file": "src/lib/contentStore.ts",
@@ -3296,6 +3387,30 @@
       "weight": 1.0
     },
     {
+      "source": "src_lib_contentstore_getsitecontent",
+      "target": "src_lib_contentstore_getd1database",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/lib/contentStore.ts",
+      "source_location": "L38",
+      "weight": 1.0
+    },
+    {
+      "source": "src_lib_contentstore_savesitecontent",
+      "target": "src_lib_contentstore_getd1database",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/lib/contentStore.ts",
+      "source_location": "L82",
+      "weight": 1.0
+    },
+    {
       "source": "src_app_admin_page_adminpage",
       "target": "src_app_admin_page_adminpage_loadcontent",
       "relation": "contains",
@@ -4716,6 +4831,50 @@
       "weight": 1.0
     },
     {
+      "source": "scripts_seed_d1",
+      "target": "scripts_seed_d1_sqlfile",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/seed-d1.mjs",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_seed_d1",
+      "target": "scripts_seed_d1_jsonpath",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/seed-d1.mjs",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_seed_d1",
+      "target": "scripts_seed_d1_content",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/seed-d1.mjs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_seed_d1",
+      "target": "scripts_seed_d1_escaped",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/seed-d1.mjs",
+      "source_location": "L9",
+      "weight": 1.0
+    },
+    {
       "source": "src_app_admin_layout",
       "target": "src_app_admin_layout_adminlayout",
       "relation": "contains",
@@ -4844,7 +5003,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/layout.tsx",
-      "source_location": "L61",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -4926,13 +5085,24 @@
     },
     {
       "source": "src_components_aspirantpainpoints",
-      "target": "src_components_aspirantpainpoints_aspirantpainpoints",
+      "target": "src_components_aspirantpainpoints_cutoffcontrastdata",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/AspirantPainPoints.tsx",
       "source_location": "L4",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_aspirantpainpoints",
+      "target": "src_components_aspirantpainpoints_aspirantpainpoints",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/AspirantPainPoints.tsx",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -5157,24 +5327,24 @@
     },
     {
       "source": "src_lib_contentstore",
+      "target": "src_lib_contentstore_getd1database",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/contentStore.ts",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_lib_contentstore",
       "target": "src_lib_contentstore_getsitecontent",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L11",
-      "weight": 1.0
-    },
-    {
-      "source": "src_lib_contentstore",
-      "target": "src_lib_contentstore_savesitecontent",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/lib/contentStore.ts",
-      "source_location": "L24",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -5190,13 +5360,24 @@
     },
     {
       "source": "src_lib_contentstore",
+      "target": "src_lib_contentstore_savesitecontent",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/contentStore.ts",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "src_lib_contentstore",
       "target": "src_lib_contentstore_getdefaultsitecontent",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L7",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -5462,6 +5643,15 @@
       "source_file": "tsconfig.json",
       "source_location": "L9",
       "weight": 1.0
+    },
+    {
+      "source": "src_lib_contentstore",
+      "target": "cloudflare_workers",
+      "relation": "dynamic_import",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/contentStore.ts"
     },
     {
       "source": "_agents_rules_mpscexam_core_rules",
@@ -6516,5 +6706,5 @@
       "source_file": "architecture.md"
     }
   ],
-  "built_at_commit": "3c333e504437fa001d6c7c0b9e0ebe2ab96a69c9"
+  "built_at_commit": "7a06845762f987e28b51c7bc2f75ec518f778794"
 }

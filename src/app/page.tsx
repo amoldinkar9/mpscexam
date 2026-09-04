@@ -15,37 +15,43 @@ import { LiveActivityToast } from "@/components/LiveActivityToast";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-export default function Home() {
-  const content = getSiteContent();
+export default async function Home() {
+  const content = await getSiteContent();
 
   return (
     <main className="min-h-screen relative bg-[#fafbfc] pb-16 md:pb-0">
       {/* 1. Header & Top Bar + Hero Section */}
-      <HeroSection />
+      <HeroSection initialData={content.hero} />
 
       {/* 2. Bigger Countdown Timer */}
       <UrgencyBanner />
 
       {/* 3. Horizontally Scrolling Testimonials with Marathi Initials */}
-      <SocialProof />
+      <SocialProof initialData={content.testimonials} />
 
       {/* 4. अभ्यासक्रम (Accordion Format) */}
       <SyllabusWeightage initialData={content.syllabus} />
 
       {/* 5. How to Purchase (9:16 Auto-Slider & WhatsApp Button) */}
-      <HowToPurchase />
+      <HowToPurchase initialData={content.howToPurchase} />
 
       {/* 6. अभ्यास करताना या अडचणी येतात का? + फक्त वाचन करणारे vs. प्रत्यक्ष 25 टेस्ट्स सोडवणारे */}
-      <AspirantPainPoints />
+      <AspirantPainPoints
+        initialData={{
+          painPoints: content.painPoints,
+          cutoffGap: (content as any).cutoffGap,
+          cutoffContrast: (content as any).cutoffContrast,
+        }}
+      />
 
       {/* 7. प्रश्नांची व स्पष्टीकरणांची नमुना गुणवत्ता पहा */}
       <SampleProof initialData={content.sampleProof} />
 
       {/* 8. वारंवार विचारले जाणारे प्रश्न */}
-      <FAQ />
+      <FAQ initialData={content.faqs} />
 
       {/* 10. Final Centered CTA (परवडणाऱ्या दरात उत्कृष्ट दर्जाची तयारी) */}
-      <Pricing />
+      <Pricing initialData={content.finalCta} />
 
       {/* 11. Footer */}
       <Footer />

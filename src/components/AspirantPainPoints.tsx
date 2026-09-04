@@ -1,9 +1,26 @@
 import { CheckCircle2, XCircle, Zap } from "lucide-react";
 import siteData from "@/data/siteContent.json";
 
-export function AspirantPainPoints() {
-  const points = siteData.painPoints;
-  const cutoffContrast = siteData.cutoffContrast;
+interface CutoffContrastData {
+  bookReaders: string[];
+  testSeries: string[];
+}
+
+export function AspirantPainPoints({
+  initialData,
+}: {
+  initialData?: {
+    painPoints?: typeof siteData.painPoints;
+    cutoffContrast?: CutoffContrastData;
+    cutoffGap?: CutoffContrastData;
+  };
+} = {}) {
+  const points = initialData?.painPoints || siteData.painPoints;
+  const fallbackCutoff = ((siteData as any).cutoffGap || siteData.cutoffContrast) as CutoffContrastData;
+  const cutoffContrast: CutoffContrastData =
+    initialData?.cutoffContrast ||
+    initialData?.cutoffGap ||
+    fallbackCutoff || { bookReaders: [], testSeries: [] };
 
   return (
     <section className="py-16 bg-white border-b border-slate-200">

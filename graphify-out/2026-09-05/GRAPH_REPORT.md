@@ -52,12 +52,12 @@
 10. `Business Domain Services` - 5 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `Structural Layer Dependencies` --semantically_similar_to--> `mpscexam System Architecture`  [INFERRED] [semantically similar]
-  dependency-graph.md → architecture.md
 - `Next.js Agent Rules Notice` --semantically_similar_to--> `mpscexam Project Overview`  [INFERRED] [semantically similar]
   AGENTS.md → memory.md
 - `README Getting Started (create-next-app)` --semantically_similar_to--> `mpscexam Project Overview`  [INFERRED] [semantically similar]
   README.md → memory.md
+- `Structural Layer Dependencies` --semantically_similar_to--> `mpscexam System Architecture`  [INFERRED] [semantically similar]
+  dependency-graph.md → architecture.md
 - `Graphify Knowledge Graph` --conceptually_related_to--> `mpscexam File Dependency Graph`  [INFERRED]
   .agents/rules/graphify.md → dependency-graph.md
 - `QuestionEditorPage` --conceptually_related_to--> `QUESTION Entity`  [INFERRED]

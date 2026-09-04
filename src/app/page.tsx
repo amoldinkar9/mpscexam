@@ -1,4 +1,5 @@
 import { getSiteContent } from "@/lib/contentStore";
+import { Header } from "@/components/Header";
 import { HeroSection } from "@/components/HeroSection";
 import { UrgencyBanner } from "@/components/UrgencyBanner";
 import { SocialProof } from "@/components/SocialProof";
@@ -20,7 +21,10 @@ export default async function Home() {
 
   return (
     <main className="min-h-screen relative bg-[#fafbfc] pb-16 md:pb-0">
-      {/* 1. Header & Top Bar + Hero Section */}
+      {/* 1. Sticky Header with Logos & Countdown Timer */}
+      <Header />
+
+      {/* 2. Hero Section */}
       <HeroSection initialData={content.hero} />
 
       {/* 2. Bigger Countdown Timer */}

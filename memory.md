@@ -324,3 +324,23 @@ flowchart TD
 1. **Devanagari Font Rendering:** Ensure consistent typography rendering across mobile devices and older browsers for complex Marathi ligatures.
 2. **Offline Resilience during Exams:** Implement local storage syncing so candidate answers are preserved if internet connectivity drops temporarily during an active mock test.
 3. **Data Integrity:** Prevent client-side answer tampering by never transmitting correct answer keys in the initial test start payload.
+
+---
+
+# UI & Navigation Architecture Updates
+
+### Sticky Header (`src/components/Header.tsx`)
+- **Positioning:** Fixed sticky at viewport top (`sticky top-0 z-50`) across all landing sections.
+- **Constant Sizing:** Preserves the exact height, padding, and logo dimensions without any shrinkage or layout shift during scrolling.
+- **Scroll Feedback:** Soft shadow transition (`shadow-xs` -> `shadow-md`) over content while maintaining its background blur (`bg-[#fbf4f3]/95 backdrop-blur-md`).
+- **Components:** TCS9 Logo + MPSC Seal with unified height, exam pill badge ("MPSC Group C पूर्व परीक्षा 2026"), and live countdown timer.
+- **Page Structure:** Elevated out of `HeroSection.tsx` into `src/app/page.tsx` as a direct descendant of `<main>` to bypass CSS `overflow-hidden` constraints.
+
+### Mobile Sticky Footer Bar (`src/components/StickyMobileBar.tsx`)
+- **Inverted Palette:** Transformed from light white container to rich deep maroon (`bg-[#8b261e]/98 backdrop-blur-md border-t border-[#a6362d]`).
+- **High-Contrast Elements:**
+  - Price: Glowing crisp white `₹199` and translucent strikethrough `₹999` (`text-white/60`).
+  - Scarcity Urgency: Glowing amber icon and text (`text-amber-300 fill-amber-300`).
+  - WhatsApp: Translucent glass pill (`bg-white/10 border-white/20 text-emerald-300`).
+  - Primary Action Button: Inverted to crisp white button with maroon text (`bg-white text-[#8b261e] font-black shadow-lg`).
+  - Periodic Click Micro-Animation: Automatic simulated tap-and-click gesture (`animate-tap-click` + `animate-tap-ripple`) that periodically depresses the button, triggers a radiating tap wave, bounces back, and settles smoothly.

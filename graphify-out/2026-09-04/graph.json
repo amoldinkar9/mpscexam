@@ -318,7 +318,7 @@
       "file_type": "code",
       "norm_label": "rootlayout()",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L61"
+      "source_location": "L55"
     },
     {
       "id": "src_components_howitworks_howitworks",
@@ -681,7 +681,7 @@
       "file_type": "code",
       "norm_label": "metadata",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L56"
+      "source_location": "L50"
     },
     {
       "id": "src_app_layout_samadevanagari",
@@ -4527,7 +4527,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/layout.tsx",
-      "source_location": "L56",
+      "source_location": "L50",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_layout",
+      "target": "src_app_layout_rootlayout",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L55",
       "weight": 1.0
     },
     {
@@ -4539,17 +4550,6 @@
       "confidence_score": 1.0,
       "source_file": "src/app/layout.tsx",
       "source_location": "L6",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_layout",
-      "target": "src_app_layout_rootlayout",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/layout.tsx",
-      "source_location": "L61",
       "weight": 1.0
     },
     {

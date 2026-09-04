@@ -1,7 +1,7 @@
 # Graph Report - mpscexam  (2026-09-04)
 
 ## Corpus Check
-- 43 files · ~23,816 words
+- 43 files · ~23,801 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary

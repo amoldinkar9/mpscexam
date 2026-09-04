@@ -1,11 +1,11 @@
 import { HeroSection } from "@/components/HeroSection";
 import { UrgencyBanner } from "@/components/UrgencyBanner";
-import { SyllabusWeightage } from "@/components/SyllabusWeightage";
-import { OfferBreakdown } from "@/components/OfferBreakdown";
-import { SampleProof } from "@/components/SampleProof";
-import { AspirantPainPoints } from "@/components/AspirantPainPoints";
-import { HowItWorks } from "@/components/HowItWorks";
 import { SocialProof } from "@/components/SocialProof";
+import { SyllabusWeightage } from "@/components/SyllabusWeightage";
+import { HowToPurchase } from "@/components/HowToPurchase";
+import { AspirantPainPoints } from "@/components/AspirantPainPoints";
+import { SampleProof } from "@/components/SampleProof";
+import { OfferBreakdown } from "@/components/OfferBreakdown";
 import { FAQ } from "@/components/FAQ";
 import { Pricing } from "@/components/Pricing";
 import { Footer } from "@/components/Footer";
@@ -15,17 +15,40 @@ import { LiveActivityToast } from "@/components/LiveActivityToast";
 export default function Home() {
   return (
     <main className="min-h-screen relative bg-[#fafbfc] pb-16 md:pb-0">
+      {/* 1. Header & Top Bar + Hero Section */}
       <HeroSection />
+
+      {/* 2. Bigger Countdown Timer */}
       <UrgencyBanner />
-      <SyllabusWeightage />
-      <OfferBreakdown />
-      <SampleProof />
-      <AspirantPainPoints />
-      <HowItWorks />
+
+      {/* 3. Horizontally Scrolling Testimonials with Marathi Initials */}
       <SocialProof />
+
+      {/* 4. अभ्यासक्रम (Cards Format) */}
+      <SyllabusWeightage />
+
+      {/* 5. How to Purchase (9:16 Auto-Slider & WhatsApp Button) */}
+      <HowToPurchase />
+
+      {/* 6. अभ्यास करताना या अडचणी येतात का? + फक्त वाचन करणारे vs. प्रत्यक्ष 25 टेस्ट्स सोडवणारे */}
+      <AspirantPainPoints />
+
+      {/* 7. प्रश्नांची व स्पष्टीकरणांची नमुना गुणवत्ता पहा */}
+      <SampleProof />
+
+      {/* 8. तपशीलवार टेस्ट पॅकेज ब्रेकडाउन */}
+      <OfferBreakdown />
+
+      {/* 9. वारंवार विचारले जाणारे प्रश्न */}
       <FAQ />
+
+      {/* 10. Final Centered CTA (परवडणाऱ्या दरात उत्कृष्ट दर्जाची तयारी) */}
       <Pricing />
+
+      {/* 11. Footer */}
       <Footer />
+
+      {/* 12. Sticky Mobile Dock & Full-Width Animated Live Activity Toast */}
       <StickyMobileBar />
       <LiveActivityToast />
     </main>

@@ -4,7 +4,7 @@
 **Repository State:** Active Development  
 **Workspace Location:** `/Users/amoldinkar9/Documents/mpscexam`  
 **Git Branch:** `main`  
-**Active Checkpoints:** `C1A8` (Tagged Release Point - Next.js 16 + Tailwind v4 + Radix UI + Google Sans typography + MPSC Group C Pre Exam Landing Page)  
+**Active Checkpoints:** `C1C3` (Tagged Release Point - Rolled back 2 checkpoints: restored Primary CTA button block and Trust Badges button under hero image, with optimized symmetrical header padding)  
 **Git User Configuration:** `mpscexam` (`84007471+amoldinkar9@users.noreply.github.com`)  
 
 ---
@@ -245,7 +245,7 @@ SENTRY_DSN=
 # Third Party Integrations
 
 * **Planned / Expected:**
-  * Bilingual Marathi & English typography: Google Font **Google Sans** (`next/font/google`) with Devanagari & Latin subsets.
+  * Bilingual Marathi & English typography: Self-hosted **Sama Devanagari** (`next/font/local` across 6 weights: 400 to 800) prioritized with `unicode-range: U+0900-097F, U+A8E0-A8FF, U+1CD0-1CFF, U+200C-200D, U+20B9` strictly for all Marathi/Devanagari text, with **Google Sans** (`next/font/google` latin subset) specifically for all English/Latin words and numerals.
   * Storage for question diagrams and aspirant study materials (AWS S3 / Cloudinary / Supabase Storage).
   * Payment gateway for premium mock tests (Razorpay / Stripe).
 

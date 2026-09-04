@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 import { Zap, CheckCircle2, TrendingUp, X } from "lucide-react";
 import { STUDENT_NAMES, MAHARASHTRA_DISTRICTS } from "@/data/studentsList";
 
@@ -123,11 +123,13 @@ export function LiveActivityToast() {
 
   return (
     <div
-      className={`fixed bottom-20 sm:bottom-6 left-4 sm:left-6 z-40 max-w-sm transition-all duration-500 transform ${
-        isVisible ? "translate-y-0 opacity-100 scale-100" : "translate-y-4 opacity-0 scale-95 pointer-events-none"
+      className={`fixed bottom-20 sm:bottom-6 inset-x-4 sm:inset-x-auto sm:left-6 z-40 sm:max-w-md transition-all duration-700 ease-in-out transform ${
+        isVisible
+          ? "translate-y-0 opacity-100 scale-100 pointer-events-auto"
+          : "translate-y-3 opacity-0 scale-98 pointer-events-none"
       }`}
     >
-      <div className="bg-white/95 backdrop-blur-md border border-[#9B3A32]/25 rounded-2xl p-3.5 shadow-xl shadow-[#1F2A5C]/10 flex items-start gap-3 relative pr-8">
+      <div className="bg-white/95 backdrop-blur-md border border-[#9B3A32]/25 rounded-2xl p-3.5 sm:p-4 shadow-xl shadow-[#1F2A5C]/10 flex items-start gap-3 relative pr-8">
         
         {/* Animated Pulse Icon */}
         <div className="w-9 h-9 rounded-xl bg-[#fbeae8] border border-[#f3c8c4] flex items-center justify-center shrink-0 mt-0.5">
@@ -137,9 +139,9 @@ export function LiveActivityToast() {
         </div>
 
         {/* Content */}
-        <div className="space-y-0.5 text-left">
+        <div className="space-y-0.5 text-left flex-1 min-w-0">
           <div className="flex items-center gap-1.5 flex-wrap">
-            <span className="text-xs font-extrabold text-[#1F2A5C]">{currentActivity.name}</span>
+            <span className="text-xs sm:text-sm font-extrabold text-[#1F2A5C] truncate">{currentActivity.name}</span>
             <span className="text-[11px] text-slate-500 font-medium">({currentActivity.location})</span>
             {currentActivity.highlight && (
               <span className="text-[10px] bg-amber-100 text-[#78350f] font-bold px-1.5 py-0.2 rounded border border-amber-300">
@@ -147,7 +149,7 @@ export function LiveActivityToast() {
               </span>
             )}
           </div>
-          <p className="text-xs text-slate-700 font-medium leading-snug">{currentActivity.action}</p>
+          <p className="text-xs sm:text-[13px] text-slate-700 font-medium leading-snug">{currentActivity.action}</p>
           <div className="flex items-center gap-2 pt-0.5">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
             <span className="text-[10px] text-slate-400 font-semibold">{currentActivity.timeAgo}</span>
@@ -157,7 +159,7 @@ export function LiveActivityToast() {
         {/* Close Button */}
         <button
           onClick={() => setIsDismissed(true)}
-          className="absolute top-2 right-2 p-1 text-slate-400 hover:text-slate-600 rounded-md transition-colors cursor-pointer"
+          className="absolute top-2.5 right-2.5 p-1 text-slate-400 hover:text-slate-600 rounded-md transition-colors cursor-pointer"
           title="बंद करा"
         >
           <X className="w-3.5 h-3.5" />

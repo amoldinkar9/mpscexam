@@ -1,24 +1,9 @@
-import { CheckCircle2, XCircle, Zap, ShieldAlert } from "lucide-react";
+import { CheckCircle2, XCircle, Zap } from "lucide-react";
+import siteData from "@/data/siteContent.json";
 
 export function AspirantPainPoints() {
-  const points = [
-    {
-      problem: "परीक्षेत वेळेचे नियोजन न झाल्यामुळे शेवटचे 15-20 प्रश्न वाचायचे राहून जातात?",
-      solution: "आमच्या अचूक 60 मिनिटांच्या ऑनलाइन टाइमर सिम्युलेटरद्वारे 15 वेळा वेगाचा सराव करा आणि वेळेचे अचूक नियोजन शिका."
-    },
-    {
-      problem: "अंदाजे उत्तरे दिल्यामुळे निगेटिव्ह मार्किंगमध्ये (-0.25) गुण कट होतात आणि 2-3 गुणांनी कटऑफ हुकतो?",
-      solution: "कोणते प्रश्न सोडवायचे आणि कोणते सोडायचे (Skip) याची अचूक स्ट्रॅटेजी प्रत्येक टेस्टच्या ॲनालिटिक्समधून शिका."
-    },
-    {
-      problem: "चालू घडामोडींचा अथांग पसारा कुठून आणि किती वाचायचा याचा ताळमेळ लागत नाही?",
-      solution: "मागील 1 वर्षाच्या केवळ परीक्षाभिमुख व थेट येण्याची शक्यता असलेल्या 500 प्रश्नांचा विशेष सराव संच मिळवा."
-    },
-    {
-      problem: "पुस्तकी स्पष्टीकरणे क्लिष्ट असल्यामुळे चुकीचे उत्तर का आले हे समजत नाही?",
-      solution: "प्रत्येक प्रश्नासोबत चारही पर्यायांचे सोप्या व अस्खलित मराठीत मुद्देसूद स्पष्टीकरण आणि शॉर्टकट ट्रिक्स मिळवा."
-    }
-  ];
+  const points = siteData.painPoints;
+  const cutoffContrast = siteData.cutoffContrast;
 
   return (
     <section className="py-16 bg-white border-b border-slate-200">
@@ -85,9 +70,9 @@ export function AspirantPainPoints() {
                 <span>केवळ पुस्तके वाचणारे विद्यार्थी:</span>
               </div>
               <ul className="text-xs sm:text-sm text-slate-300 space-y-1.5 list-disc list-inside">
-                <li>परीक्षेत 60 मिनिटांत 100 प्रश्न न झेपल्याने शेवटचे 15 प्रश्न सुटतात</li>
-                <li>अंदाज लावल्याने निगेटिव्ह मार्किंगमध्ये (-0.25) 10-12 गुण वाया जातात</li>
-                <li>1-2 मार्कांमुळे कटऑफ हुकतो आणि संपूर्ण वर्ष वाया जाते</li>
+                {cutoffContrast.bookReaders.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
               </ul>
             </div>
 
@@ -97,9 +82,9 @@ export function AspirantPainPoints() {
                 <span>ही 25 टेस्ट्स सिरीज सोडवणारे विद्यार्थी:</span>
               </div>
               <ul className="text-xs sm:text-sm text-emerald-100 space-y-1.5 list-disc list-inside">
-                <li>2,000+ प्रश्नांच्या सरावामुळे 60 मिनिटांचे अचूक टाईम मॅनेजमेंट</li>
-                <li>निगेटिव्ह मार्किंगवर 100% ताबा आणि 85%+ अचूकता (Accuracy)</li>
-                <li>पहिल्याच झटक्यात कटऑफ सहज पार करून मेन्स परीक्षेसाठी पात्र</li>
+                {cutoffContrast.testSeries.map((item, idx) => (
+                  <li key={idx}>{item}</li>
+                ))}
               </ul>
             </div>
           </div>

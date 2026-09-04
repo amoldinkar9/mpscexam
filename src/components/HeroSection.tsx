@@ -1,115 +1,158 @@
 "use client";
 
-import { Star, Users, Clock, CheckCircle2, ShieldCheck, ArrowRight, BookOpen, Target, Sparkles, Award } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Star, Users, CheckCircle2, ShieldCheck, ArrowRight, Award, Briefcase, Timer, Flame } from "lucide-react";
+
+import siteData from "@/data/siteContent.json";
 
 export function HeroSection() {
+  const heroData = siteData.hero;
   const scrollToPricing = () => {
     document.getElementById("pricing-section")?.scrollIntoView({ behavior: "smooth" });
   };
 
   const targetPosts = [
-    "लिपिक-टंकलेखक (Clerk Typist)",
-    "कर सहाय्यक (Tax Assistant)",
-    "दुय्यम निरीक्षक (Excise SI)",
-    "उद्योग निरीक्षक (Industry Inspector)",
-    "तांत्रिक सहाय्यक (Technical Asst)"
+    "उद्योग निरीक्षक",
+    "तांत्रिक सहायक",
+    "कर सहायक",
+    "सहायक मोटार वाहन निरीक्षक",
+    "लिपिक टंकलेखक",
+    "ग्राम महसूल अधिकारी (तलाठी)",
+    "सहायक मत्स्यव्यवसाय विकास अधिकारी"
   ];
 
+  const targetDate = new Date("2026-10-25T23:59:59+05:30").getTime();
+  const [timeLeft, setTimeLeft] = useState({ days: 51, hours: 13, minutes: 14, seconds: 47 });
+
+  useEffect(() => {
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const difference = targetDate - now;
+
+      if (difference > 0) {
+        setTimeLeft({
+          days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((difference % (1000 * 60)) / 1000),
+        });
+      }
+    };
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+    return () => clearInterval(interval);
+  }, [targetDate]);
+
   return (
-    <section className="relative overflow-hidden bg-gradient-to-b from-[#fbf4f3] via-[#fdfaf9] to-white pt-10 pb-20 border-b border-[#f3dedc]">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#fbf4f3] via-[#fdfaf9] to-white pt-6 sm:pt-8 pb-16 md:pb-20 border-b border-[#f3dedc]">
       {/* Top decorative gradient bar */}
       <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-[#9B3A32] via-[#d97706] to-[#1F2A5C]" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Top Header Bar / Trust Anchor */}
-        <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-10 border-b border-[#f2dedb]/90">
-          <div className="flex items-center gap-3.5">
-            {/* Custom TCS9 Trust Ring Badge */}
-            <div className="w-11 h-11 rounded-full border-2 border-[#9B3A32] bg-[#fbf2f1] flex items-center justify-center shadow-xs">
-              <span className="text-[#9B3A32] font-black text-xs sm:text-sm tracking-tighter">TCS9</span>
+        {/* Header Top Row: Logo Card + Exam Countdown Timer (Each in its own rounded rectangle) */}
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-5 sm:gap-6 mb-8 sm:mb-12">
+          
+          {/* 1. Header Logo Rounded Rectangle (20px radius) */}
+          <div className="w-fit mr-auto lg:mr-0 bg-white/95 backdrop-blur-md rounded-[20px] px-6 sm:px-8 py-4 sm:py-5 border border-slate-200/90 shadow-sm flex items-center justify-center gap-4 sm:gap-6">
+            {/* TCS9 Logo */}
+            <div className="flex items-center justify-center shrink-0">
+              <img
+                src="https://media.tcs9.in/current_affairs_images/tcs9logo4_4x_1788436732855_f1609608-4829-4780-a8d2-9970abd66b22.webp"
+                alt="TCS9 Logo"
+                className="h-12 sm:h-16 w-auto object-contain"
+                loading="eager"
+              />
             </div>
-            <div className="space-y-0.5">
-              <div className="flex items-center gap-2.5">
-                <span className="font-extrabold text-[#1F2A5C] text-lg sm:text-xl tracking-tight">mpscexam</span>
-                <span className="bg-[#9B3A32]/10 text-[#9B3A32] text-xs px-2.5 py-0.5 rounded-full font-bold border border-[#9B3A32]/25">
-                  MPSC पॅटर्न 2026
-                </span>
-              </div>
-              <p className="text-xs text-[#525f7f] font-medium">महाराष्ट्र अराजपत्रित गट-क सेवा संयुक्त पूर्व परीक्षा</p>
+
+            {/* "x" Divider */}
+            <span className="text-slate-300 font-bold text-xl sm:text-2xl select-none shrink-0">×</span>
+
+            {/* MPSC Logo with same height */}
+            <div className="flex items-center justify-center shrink-0">
+              <img
+                src="https://mpsc.gov.in/static/media/logo.7a984172.png"
+                alt="MPSC Logo"
+                className="h-12 sm:h-16 w-auto object-contain"
+                loading="eager"
+              />
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 bg-white px-3.5 py-1.5 rounded-full border border-[#9B3A32]/30 shadow-xs text-xs sm:text-sm">
-            <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
-            <span className="text-[#1F2A5C] font-bold">थेट ॲक्टिव्ह: आज 280+ टेस्ट्स सोडवल्या • ₹199 ऑफरमध्ये केवळ 58 सीट्स शिल्लक</span>
-          </div>
-        </div>
+          {/* 2. Exam Countdown Timer: In another rounded rectangle (20px radius) */}
+          <div className="w-fit mr-auto lg:mr-0 lg:ml-auto bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 border-2 border-amber-500/40 rounded-[20px] px-5 sm:px-6 py-3.5 sm:py-4 shadow-sm flex flex-col items-center justify-center gap-2">
+            {/* Pill Tag */}
+            <div className="inline-flex items-center gap-1.5 bg-[#8b2d26] text-white text-[11px] sm:text-xs font-bold px-3.5 py-1 rounded-full shadow-xs">
+              <Flame className="w-3.5 h-3.5 text-amber-300 fill-amber-300 animate-bounce" />
+              <span>MPSC Group C पूर्व परीक्षा 2026</span>
+            </div>
 
-        {/* Target Posts Badge Strip (Highly Aspirant-Friendly) */}
-        <div className="mb-8 flex flex-wrap items-center gap-2">
-          <span className="text-xs font-bold text-slate-500 flex items-center gap-1 shrink-0 mr-1">
-            <Target className="w-3.5 h-3.5 text-[#9B3A32]" />
-            <span>लक्ष्य पदे:</span>
-          </span>
-          {targetPosts.map((post, idx) => (
-            <span
-              key={idx}
-              className="text-xs font-semibold bg-white text-[#1F2A5C] px-3 py-1 rounded-lg border border-slate-200 shadow-2xs hover:border-[#9B3A32]/40 transition-colors"
-            >
-              {post}
-            </span>
-          ))}
+            {/* Sub-label */}
+            <div className="flex items-center gap-1.5 text-xs sm:text-sm font-extrabold text-[#78350f]">
+              <Timer className="w-4 h-4 text-[#78350f]" />
+              <span>प्रत्यक्ष परीक्षेसाठी शिल्लक वेळ:</span>
+            </div>
+
+            {/* Digital Countdown Blocks */}
+            <div className="flex items-center gap-1.5 sm:gap-2.5">
+              <HeaderTimeBox val={timeLeft.days} unit="दिवस" />
+              <span className="font-black text-[#8b2d26] text-xl sm:text-2xl leading-none select-none">:</span>
+              <HeaderTimeBox val={timeLeft.hours} unit="तास" />
+              <span className="font-black text-[#8b2d26] text-xl sm:text-2xl leading-none select-none">:</span>
+              <HeaderTimeBox val={timeLeft.minutes} unit="मि." />
+              <span className="font-black text-[#8b2d26] text-xl sm:text-2xl leading-none select-none">:</span>
+              <HeaderTimeBox val={timeLeft.seconds} unit="से." />
+            </div>
+          </div>
+
         </div>
 
         {/* Hero Main Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
-          {/* Left Column: Copy & CTAs */}
-          <div className="lg:col-span-7 space-y-7 text-left">
+          {/* Hero Section (Main Content Area - Left) */}
+          <div className="lg:col-span-7 space-y-6 text-left">
             
-            {/* Scannable Highlights Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#fbeae8] border border-[#f3c8c4] text-[#9B3A32] text-xs sm:text-sm font-bold tracking-wide shadow-2xs">
-              <Sparkles className="w-4 h-4 text-[#9B3A32]" />
-              <span>15 फुल-लेंथ + 10 चालू घडामोडी टेस्ट्स (एकूण 2,000+ प्रश्न)</span>
-            </div>
-
-            {/* Headline */}
-            <h1 className="text-3xl sm:text-4xl lg:text-[2.65rem] font-extrabold text-[#1F2A5C] leading-[1.3] tracking-tight">
-              MPSC Group C Pre Exam 2026 मध्ये <span className="text-[#9B3A32] underline decoration-[#9B3A32]/40 decoration-wavy underline-offset-8">पहिल्याच प्रयत्नात</span> कटऑफ पार करा!
+            {/* H1 Main Headline */}
+            <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] font-extrabold text-[#1F2A5C] leading-[1.25] tracking-tight">
+              महाराष्ट्र गट-क सेवा<br />
+              <span className="text-[#9B3A32]">संयुक्त पूर्व परीक्षा - 2026</span>
             </h1>
 
-            {/* Subheadline with Peer FOMO */}
-            <p className="text-base sm:text-lg text-[#334155] leading-[1.8]">
-              7.5+ लाख विद्यार्थ्यांच्या चुरशीच्या स्पर्धेत रोज एक टेस्ट सोडवून स्वतःचे 10–15 गुण वाढवा. आयोगाच्या 2024–2025 काठिण्यपातळीवर आधारित 25 अस्सल टेस्ट्स, प्रत्येक प्रश्नाचे 4 पर्यायांसह सविस्तर मराठी विश्लेषण आणि राज्यस्तरीय गुणवत्ता रँकिंग.
+            {/* Hero Subheading */}
+            <p className="text-base sm:text-lg text-[#334155] leading-[1.8] font-medium">
+              हजारो विद्यार्थी दररोज सराव करत आहेत.<br className="hidden sm:inline" />
+              तुम्ही मागे तर राहत नाही ना?
             </p>
 
-            {/* Crisp Benefit Checklist */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-1 text-sm text-[#1F2A5C]">
-              <div className="flex items-center gap-3 bg-white/80 p-2.5 rounded-xl border border-slate-200/80 shadow-2xs">
-                <CheckCircle2 className="w-5 h-5 text-[#9B3A32] shrink-0" />
-                <span className="font-semibold">100 प्रश्न • 100 गुण • 60 मिनिटे</span>
-              </div>
-              <div className="flex items-center gap-3 bg-white/80 p-2.5 rounded-xl border border-slate-200/80 shadow-2xs">
-                <CheckCircle2 className="w-5 h-5 text-[#9B3A32] shrink-0" />
-                <span className="font-semibold">-0.25 अचूक निगेटिव्ह मार्किंग</span>
-              </div>
-              <div className="flex items-center gap-3 bg-white/80 p-2.5 rounded-xl border border-slate-200/80 shadow-2xs">
-                <CheckCircle2 className="w-5 h-5 text-[#9B3A32] shrink-0" />
-                <span className="font-semibold">सविस्तर स्पष्टीकरण PDF डाऊनलोड</span>
-              </div>
-              <div className="flex items-center gap-3 bg-white/80 p-2.5 rounded-xl border border-slate-200/80 shadow-2xs">
-                <CheckCircle2 className="w-5 h-5 text-[#9B3A32] shrink-0" />
-                <span className="font-semibold">मोबाईल व PC वर अमर्यादित सराव</span>
+            {/* Feature Grid / Icon List (7 Posts in a structured grid) */}
+            <div className="pt-1">
+              <p className="text-xs font-bold text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-1.5">
+                <Briefcase className="w-3.5 h-3.5 text-[#9B3A32]" />
+                <span>समाविष्ट लक्ष्य पदे:</span>
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                {targetPosts.map((post, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-2.5 bg-white p-2.5 px-3 rounded-xl border border-slate-200/90 shadow-2xs hover:border-[#9B3A32]/40 transition-colors"
+                  >
+                    <CheckCircle2 className="w-4 h-4 text-[#9B3A32] shrink-0" />
+                    <span className="text-xs sm:text-sm font-semibold text-[#1F2A5C] leading-snug">
+                      {idx + 1}. {post}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
 
             {/* Primary CTA Block */}
-            <div className="pt-3 space-y-3.5">
+            <div className="pt-2 space-y-3">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
                 <button
                   onClick={scrollToPricing}
-                  className="inline-flex items-center justify-center gap-3 px-8 py-4.5 bg-[#9B3A32] hover:bg-[#822f28] active:bg-[#6b251f] text-white font-extrabold text-lg rounded-xl shadow-lg shadow-[#9B3A32]/25 hover:shadow-xl hover:shadow-[#9B3A32]/30 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#9B3A32] hover:bg-[#822f28] active:bg-[#6b251f] text-white font-extrabold text-base sm:text-lg rounded-xl shadow-lg shadow-[#9B3A32]/25 hover:shadow-xl hover:shadow-[#9B3A32]/30 transition-all transform hover:-translate-y-0.5 cursor-pointer"
                 >
                   <span>आत्ताच ₹199 मध्ये टेस्ट सिरीज सुरू करा</span>
                   <ArrowRight className="w-5 h-5" />
@@ -122,7 +165,7 @@ export function HeroSection() {
             </div>
 
             {/* Trust Indicator Row */}
-            <div className="flex flex-wrap items-center gap-6 pt-5 border-t border-[#f0dedc]">
+            <div className="flex flex-wrap items-center gap-6 pt-4 border-t border-[#f0dedc]">
               <div className="flex items-center gap-2">
                 <div className="flex text-amber-500">
                   {[...Array(5)].map((_, i) => (
@@ -147,53 +190,48 @@ export function HeroSection() {
 
           </div>
 
-          {/* Right Column: Hero Visual with Real Student Photo & Bold Price Badge */}
+          {/* Hero Section (Visual Area - Right) */}
           <div className="lg:col-span-5 relative mt-4 lg:mt-0">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               
-              {/* Outer decorative card frame */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100">
+              {/* Clickable Hero Image: 5:6 (Desktop Web) - 16:9 (Mobile Web) */}
+              <a
+                href={heroData.targetUrl || "#pricing-section"}
+                className="group block relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100 aspect-[16/9] lg:aspect-[5/6] cursor-pointer hover:shadow-3xl transition-shadow"
+                title="अधिक माहिती व ऑफरसाठी क्लिक करा"
+              >
+                {/* Desktop Image (5:6 aspect) */}
                 <img
-                  src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80"
-                  alt="MPSC Aspirant Student Preparing"
-                  className="w-full h-88 sm:h-96 object-cover"
+                  src={heroData.desktopHeroImage || (heroData as any).heroImage}
+                  alt={heroData.heroImageAlt}
+                  className="hidden lg:block w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
                   loading="eager"
                 />
-                
-                {/* Subtle gradient overlay at bottom of image */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1F2A5C]/90 via-[#1F2A5C]/20 to-transparent" />
-                
-                <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <div className="bg-[#1F2A5C]/90 backdrop-blur-md p-3.5 rounded-xl border border-white/20 space-y-1">
-                    <p className="text-xs font-bold text-amber-300">महाराष्ट्र गट-क संयुक्त पूर्व परीक्षा 2026</p>
-                    <p className="text-sm font-bold text-white leading-snug">15 Full Length + 10 चालू घडामोडी स्पेशल टेस्ट्स</p>
-                  </div>
-                </div>
-              </div>
 
-              {/* Bold Circular Price Badge with Strikethrough */}
+                {/* Mobile Image (16:9 aspect) */}
+                <img
+                  src={heroData.mobileHeroImage || heroData.desktopHeroImage || (heroData as any).heroImage}
+                  alt={heroData.heroImageAlt}
+                  className="block lg:hidden w-full h-full object-cover group-hover:scale-102 transition-transform duration-300"
+                  loading="eager"
+                />
+              </a>
+
+              {/* Bold Circular Price Badge */}
               <div className="absolute -top-5 -right-3 sm:-top-6 sm:-right-5 z-10">
-                <div className="w-30 h-30 sm:w-34 sm:h-34 rounded-full bg-gradient-to-br from-amber-300 via-amber-400 to-amber-500 p-1.5 shadow-xl border-2 border-white flex flex-col items-center justify-center text-center transform rotate-6 hover:rotate-0 transition-transform">
+                <div className="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-gradient-to-br from-amber-300 via-amber-400 to-amber-500 p-1.5 shadow-xl border-2 border-white flex flex-col items-center justify-center text-center transform rotate-6 hover:rotate-0 transition-transform">
                   <span className="text-[10px] sm:text-[11px] font-extrabold text-[#78350f] uppercase tracking-wider">विशेष ऑफर</span>
                   <div className="flex items-center gap-1 my-0.5">
                     <span className="text-xs sm:text-sm text-slate-700 line-through font-semibold english-numerals">₹999</span>
                   </div>
                   <span className="text-2xl sm:text-3xl font-black text-[#9B3A32] leading-none english-numerals">₹199</span>
-                  <span className="text-[10px] font-extrabold text-[#78350f] mt-1">80% सूट</span>
+                  <span className="text-[10px] font-extrabold text-[#78350f] mt-0.5">80% सूट</span>
                 </div>
               </div>
 
-              {/* Bottom Guarantee Badge */}
-              <div className="absolute -bottom-5 -left-3 sm:-left-5 z-10">
-                <div className="bg-white px-4 py-2.5 rounded-xl shadow-lg border border-slate-200 flex items-center gap-3">
-                  <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold text-sm">
-                    ✓
-                  </div>
-                  <div className="space-y-0.5">
-                    <p className="text-xs font-bold text-[#1F2A5C]">MPSC 2026 पॅटर्न</p>
-                    <p className="text-[11px] text-slate-500">100% अभ्यासक्रम कव्हरेज</p>
-                  </div>
-                </div>
+              {/* Trust Badges: located just underneath the Hero Image */}
+              <div className="mt-4 p-3.5 bg-white/95 rounded-xl border border-slate-200 text-xs sm:text-sm font-bold text-[#1F2A5C] text-center shadow-xs">
+                ( Current + Static GS • मराठीत स्पष्टीकरण • Static GS शी जोडलेले • सविस्तर विश्लेषण )
               </div>
 
             </div>
@@ -204,3 +242,17 @@ export function HeroSection() {
     </section>
   );
 }
+
+function HeaderTimeBox({ val, unit }: { val: number; unit: string }) {
+  return (
+    <div className="bg-white border-2 border-amber-400/80 shadow-xs rounded-xl px-2.5 sm:px-3 py-1.5 sm:py-2 min-w-[48px] sm:min-w-[56px] flex flex-col items-center justify-center">
+      <span className="text-xl sm:text-2xl font-black text-[#9B3A32] leading-none english-numerals">
+        {String(val).padStart(2, "0")}
+      </span>
+      <span className="text-[10px] sm:text-[11px] text-[#1F2A5C] font-bold mt-1 uppercase tracking-wider">
+        {unit}
+      </span>
+    </div>
+  );
+}
+

@@ -2,45 +2,11 @@
 
 import { useState } from "react";
 import { CheckCircle2, ChevronRight, HelpCircle, Lightbulb } from "lucide-react";
+import siteData from "@/data/siteContent.json";
 
 export function SampleProof() {
   const [activeSubject, setActiveSubject] = useState<"gk" | "math" | "marathi" | "reasoning">("gk");
-
-  const sampleData = {
-    gk: {
-      question: "महाराष्ट्र लोकसेवा हक्क कायदा, 2015 अंतर्गत प्रथम अपिलीय प्राधिकरणाकडे किती दिवसांत अपील करता येते?",
-      options: ["15 दिवस", "30 दिवस", "45 दिवस", "60 दिवस"],
-      correct: 1, // index 1 = 30 दिवस
-      explanation: "स्पष्टीकरण:\nमहाराष्ट्र लोकसेवा हक्क अधिनियम 2015 च्या कलम 8(1) नुसार, विहित कालावधीत सेवा न मिळाल्यास किंवा अर्ज फेटाळल्यास ३० (30) दिवसांच्या आत प्रथम अपिलीय प्राधिकरणाकडे अपील दाखल करता येते. दुसऱ्या अपिलाची मुदत देखील 30 दिवस आहे.",
-      subjectName: "सामान्य ज्ञान (GS & Polity)",
-      tag: "MPSC Group C वारंवार विचारलेला पॅटर्न"
-    },
-    math: {
-      question: "एका रकमेचे चक्रवाढ व्याजाने 2 वर्षांत ₹2,420 आणि 3 वर्षांत ₹2,662 होते, तर व्याजाचा दर दरसाल दर शेकडा (द.सा.द.शे.) किती असेल?",
-      options: ["8%", "10%", "12%", "15%"],
-      correct: 1, // 10%
-      explanation: "स्पष्टीकरण:\n1 वर्षाचे व्याज = ₹2,662 - ₹2,420 = ₹242.\nव्याज दर (R) = (242 × 100) / 2420 = 10% द.सा.द.शे.\nकेवळ 20 सेकंदात सुटणारी शॉर्टकट ट्रिक स्पष्टीकरणात दिली आहे.",
-      subjectName: "अंकगणित (Quantitative Aptitude)",
-      tag: "शॉर्टकट ट्रिकसह स्टेप-बाय-स्टेप उत्तर"
-    },
-    marathi: {
-      question: "'समुद्र' या शब्दाचा योग्य समानार्थी नसलेला शब्द कोणता?",
-      options: ["रत्नाकर", "सिंधू", "पयोधी", "सरिता"],
-      correct: 3, // सरिता = नदी
-      explanation: "स्पष्टीकरण:\n'सरिता' म्हणजे नदी (तटिनी, तरंगिणी).\nसमुद्र या शब्दाचे समानार्थी शब्द: रत्नाकर, सिंधू, पयोधी, सागर, अर्णव, जलधी, उदधी.\nम्हणून पर्याय 4 योग्य उत्तर आहे.",
-      subjectName: "मराठी व्याकरण (Marathi Grammar)",
-      tag: "समानार्थी व व्याकरण विश्लेषण"
-    },
-    reasoning: {
-      question: "जर एका विशिष्ट सांकेतिक भाषेत 'MPSC' हा शब्द 'NQTF' असा लिहिला, तर 'EXAM' हा शब्द कसा लिहिला जाईल?",
-      options: ["FYBN", "FYCO", "EZCP", "FZBN"],
-      correct: 0,
-      explanation: "स्पष्टीकरण:\nअक्षरांचे स्थानमान तपासून:\nE (+1) = F\nX (+1) = Y\nA (+1) = B\nM (+1) = N\nम्हणून उत्तर पर्याय 1 'FYBN' असा येतो.",
-      subjectName: "बुद्धिमत्ता चाचणी (Reasoning Ability)",
-      tag: "लॉजिक व कोडिंग-डिकोडिंग सोल्यूशन"
-    }
-  };
-
+  const sampleData = siteData.sampleProof;
   const current = sampleData[activeSubject];
 
   return (

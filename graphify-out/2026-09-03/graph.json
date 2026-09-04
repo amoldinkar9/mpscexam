@@ -101,7 +101,7 @@
       "file_type": "code",
       "norm_label": "sitecontent",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L45"
+      "source_location": "L29"
     },
     {
       "id": "src_lib_contentstore_sitecontent",
@@ -165,18 +165,6 @@
       "source_location": "L3"
     },
     {
-      "id": "src_components_herosection_headertimebox",
-      "label": "HeaderTimeBox()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "headertimebox()",
-      "source_file": "src/components/HeroSection.tsx",
-      "source_location": "L246"
-    },
-    {
       "id": "src_components_herosection_herosection",
       "label": "HeroSection()",
       "_callable": true,
@@ -186,7 +174,7 @@
       "file_type": "code",
       "norm_label": "herosection()",
       "source_file": "src/components/HeroSection.tsx",
-      "source_location": "L8"
+      "source_location": "L7"
     },
     {
       "id": "src_components_howtopurchase_howtopurchase",
@@ -314,11 +302,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 13,
-      "community_name": "app/layout.tsx",
+      "community_name": "layout.tsx",
       "file_type": "code",
       "norm_label": "rootlayout()",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L61"
+      "source_location": "L17"
     },
     {
       "id": "src_components_howitworks_howitworks",
@@ -342,7 +330,7 @@
       "file_type": "code",
       "norm_label": "adminpage()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L47"
+      "source_location": "L31"
     },
     {
       "id": "src_app_admin_page_adminpage_loadcontent",
@@ -354,19 +342,19 @@
       "file_type": "code",
       "norm_label": "loadcontent()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L92"
+      "source_location": "L46"
     },
     {
-      "id": "src_app_admin_page_sidebarnavitem",
-      "label": "SidebarNavItem()",
+      "id": "src_app_admin_page_radixtabletrigger",
+      "label": "RadixTableTrigger()",
       "_callable": true,
       "_origin": "ast",
       "community": 22,
       "community_name": "admin/page.tsx",
       "file_type": "code",
-      "norm_label": "sidebarnavitem()",
+      "norm_label": "radixtabletrigger()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L1669"
+      "source_location": "L1337"
     },
     {
       "id": "src_app_admin_layout_adminlayout",
@@ -655,7 +643,7 @@
       "label": "app/layout.tsx",
       "_origin": "ast",
       "community": 13,
-      "community_name": "app/layout.tsx",
+      "community_name": "layout.tsx",
       "file_type": "code",
       "norm_label": "app/layout.tsx",
       "source_file": "src/app/layout.tsx",
@@ -666,33 +654,22 @@
       "label": "googleSans",
       "_origin": "ast",
       "community": 13,
-      "community_name": "app/layout.tsx",
+      "community_name": "layout.tsx",
       "file_type": "code",
       "norm_label": "googlesans",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L6"
+      "source_location": "L5"
     },
     {
       "id": "src_app_layout_metadata",
       "label": "metadata",
       "_origin": "ast",
       "community": 13,
-      "community_name": "app/layout.tsx",
+      "community_name": "layout.tsx",
       "file_type": "code",
       "norm_label": "metadata",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L56"
-    },
-    {
-      "id": "src_app_layout_samadevanagari",
-      "label": "samaDevanagari",
-      "_origin": "ast",
-      "community": 13,
-      "community_name": "app/layout.tsx",
-      "file_type": "code",
-      "norm_label": "samadevanagari",
-      "source_file": "src/app/layout.tsx",
-      "source_location": "L13"
+      "source_location": "L12"
     },
     {
       "id": "eslint_config",
@@ -817,7 +794,7 @@
       "file_type": "code",
       "norm_label": "devdependencies",
       "source_file": "package.json",
-      "source_location": "L29"
+      "source_location": "L27"
     },
     {
       "id": "package_devdependencies_cloudflare_vite_plugin",
@@ -828,7 +805,7 @@
       "file_type": "code",
       "norm_label": "@cloudflare/vite-plugin",
       "source_file": "package.json",
-      "source_location": "L30"
+      "source_location": "L28"
     },
     {
       "id": "package_devdependencies_eslint",
@@ -839,7 +816,7 @@
       "file_type": "code",
       "norm_label": "eslint",
       "source_file": "package.json",
-      "source_location": "L37"
+      "source_location": "L35"
     },
     {
       "id": "package_devdependencies_eslint_config_next",
@@ -850,7 +827,7 @@
       "file_type": "code",
       "norm_label": "eslint-config-next",
       "source_file": "package.json",
-      "source_location": "L38"
+      "source_location": "L36"
     },
     {
       "id": "package_devdependencies_postcss",
@@ -861,7 +838,7 @@
       "file_type": "code",
       "norm_label": "postcss",
       "source_file": "package.json",
-      "source_location": "L39"
+      "source_location": "L37"
     },
     {
       "id": "package_devdependencies_tailwindcss",
@@ -872,7 +849,7 @@
       "file_type": "code",
       "norm_label": "tailwindcss",
       "source_file": "package.json",
-      "source_location": "L40"
+      "source_location": "L38"
     },
     {
       "id": "package_devdependencies_tailwindcss_postcss",
@@ -883,7 +860,7 @@
       "file_type": "code",
       "norm_label": "@tailwindcss/postcss",
       "source_file": "package.json",
-      "source_location": "L31"
+      "source_location": "L29"
     },
     {
       "id": "package_devdependencies_types_node",
@@ -894,7 +871,7 @@
       "file_type": "code",
       "norm_label": "@types/node",
       "source_file": "package.json",
-      "source_location": "L32"
+      "source_location": "L30"
     },
     {
       "id": "package_devdependencies_types_react",
@@ -905,7 +882,7 @@
       "file_type": "code",
       "norm_label": "@types/react",
       "source_file": "package.json",
-      "source_location": "L33"
+      "source_location": "L31"
     },
     {
       "id": "package_devdependencies_types_react_dom",
@@ -916,7 +893,7 @@
       "file_type": "code",
       "norm_label": "@types/react-dom",
       "source_file": "package.json",
-      "source_location": "L34"
+      "source_location": "L32"
     },
     {
       "id": "package_devdependencies_typescript",
@@ -927,7 +904,7 @@
       "file_type": "code",
       "norm_label": "typescript",
       "source_file": "package.json",
-      "source_location": "L41"
+      "source_location": "L39"
     },
     {
       "id": "package_devdependencies_vite",
@@ -938,7 +915,7 @@
       "file_type": "code",
       "norm_label": "vite",
       "source_file": "package.json",
-      "source_location": "L42"
+      "source_location": "L40"
     },
     {
       "id": "package_devdependencies_vitejs_plugin_react",
@@ -949,7 +926,7 @@
       "file_type": "code",
       "norm_label": "@vitejs/plugin-react",
       "source_file": "package.json",
-      "source_location": "L35"
+      "source_location": "L33"
     },
     {
       "id": "package_devdependencies_vitejs_plugin_rsc",
@@ -960,7 +937,7 @@
       "file_type": "code",
       "norm_label": "@vitejs/plugin-rsc",
       "source_file": "package.json",
-      "source_location": "L36"
+      "source_location": "L34"
     },
     {
       "id": "package_devdependencies_wrangler",
@@ -971,7 +948,7 @@
       "file_type": "code",
       "norm_label": "wrangler",
       "source_file": "package.json",
-      "source_location": "L43"
+      "source_location": "L41"
     },
     {
       "id": "cloudflare_vite_plugin",
@@ -982,7 +959,7 @@
       "file_type": "concept",
       "norm_label": "@cloudflare/vite-plugin",
       "source_file": "package.json",
-      "source_location": "L30"
+      "source_location": "L28"
     },
     {
       "id": "eslint",
@@ -993,7 +970,7 @@
       "file_type": "concept",
       "norm_label": "eslint",
       "source_file": "package.json",
-      "source_location": "L37"
+      "source_location": "L35"
     },
     {
       "id": "eslint_config_next",
@@ -1004,7 +981,7 @@
       "file_type": "concept",
       "norm_label": "eslint-config-next",
       "source_file": "package.json",
-      "source_location": "L38"
+      "source_location": "L36"
     },
     {
       "id": "postcss",
@@ -1015,7 +992,7 @@
       "file_type": "concept",
       "norm_label": "postcss",
       "source_file": "package.json",
-      "source_location": "L39"
+      "source_location": "L37"
     },
     {
       "id": "tailwindcss",
@@ -1026,7 +1003,7 @@
       "file_type": "concept",
       "norm_label": "tailwindcss",
       "source_file": "package.json",
-      "source_location": "L40"
+      "source_location": "L38"
     },
     {
       "id": "tailwindcss_postcss",
@@ -1037,7 +1014,7 @@
       "file_type": "concept",
       "norm_label": "@tailwindcss/postcss",
       "source_file": "package.json",
-      "source_location": "L31"
+      "source_location": "L29"
     },
     {
       "id": "types_node",
@@ -1048,7 +1025,7 @@
       "file_type": "concept",
       "norm_label": "@types/node",
       "source_file": "package.json",
-      "source_location": "L32"
+      "source_location": "L30"
     },
     {
       "id": "types_react",
@@ -1059,7 +1036,7 @@
       "file_type": "concept",
       "norm_label": "@types/react",
       "source_file": "package.json",
-      "source_location": "L33"
+      "source_location": "L31"
     },
     {
       "id": "types_react_dom",
@@ -1070,7 +1047,7 @@
       "file_type": "concept",
       "norm_label": "@types/react-dom",
       "source_file": "package.json",
-      "source_location": "L34"
+      "source_location": "L32"
     },
     {
       "id": "typescript",
@@ -1081,7 +1058,7 @@
       "file_type": "concept",
       "norm_label": "typescript",
       "source_file": "package.json",
-      "source_location": "L41"
+      "source_location": "L39"
     },
     {
       "id": "vite",
@@ -1092,7 +1069,7 @@
       "file_type": "concept",
       "norm_label": "vite",
       "source_file": "package.json",
-      "source_location": "L42"
+      "source_location": "L40"
     },
     {
       "id": "vitejs_plugin_react",
@@ -1103,7 +1080,7 @@
       "file_type": "concept",
       "norm_label": "@vitejs/plugin-react",
       "source_file": "package.json",
-      "source_location": "L35"
+      "source_location": "L33"
     },
     {
       "id": "vitejs_plugin_rsc",
@@ -1114,7 +1091,7 @@
       "file_type": "concept",
       "norm_label": "@vitejs/plugin-rsc",
       "source_file": "package.json",
-      "source_location": "L36"
+      "source_location": "L34"
     },
     {
       "id": "wrangler",
@@ -1125,7 +1102,7 @@
       "file_type": "concept",
       "norm_label": "wrangler",
       "source_file": "package.json",
-      "source_location": "L43"
+      "source_location": "L41"
     },
     {
       "id": "src_components_howitworks",
@@ -1455,7 +1432,7 @@
       "file_type": "code",
       "norm_label": "lucide-react",
       "source_file": "package.json",
-      "source_location": "L22"
+      "source_location": "L20"
     },
     {
       "id": "package_dependencies_next",
@@ -1466,7 +1443,7 @@
       "file_type": "code",
       "norm_label": "next",
       "source_file": "package.json",
-      "source_location": "L23"
+      "source_location": "L21"
     },
     {
       "id": "package_dependencies_radix_ui_react_accordion",
@@ -1480,28 +1457,6 @@
       "source_location": "L16"
     },
     {
-      "id": "package_dependencies_radix_ui_react_dialog",
-      "label": "@radix-ui/react-dialog",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "dependencies",
-      "file_type": "code",
-      "norm_label": "@radix-ui/react-dialog",
-      "source_file": "package.json",
-      "source_location": "L17"
-    },
-    {
-      "id": "package_dependencies_radix_ui_react_switch",
-      "label": "@radix-ui/react-switch",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "dependencies",
-      "file_type": "code",
-      "norm_label": "@radix-ui/react-switch",
-      "source_file": "package.json",
-      "source_location": "L18"
-    },
-    {
       "id": "package_dependencies_radix_ui_react_tabs",
       "label": "@radix-ui/react-tabs",
       "_origin": "ast",
@@ -1510,7 +1465,7 @@
       "file_type": "code",
       "norm_label": "@radix-ui/react-tabs",
       "source_file": "package.json",
-      "source_location": "L19"
+      "source_location": "L17"
     },
     {
       "id": "package_dependencies_radix_ui_themes",
@@ -1521,7 +1476,7 @@
       "file_type": "code",
       "norm_label": "@radix-ui/themes",
       "source_file": "package.json",
-      "source_location": "L20"
+      "source_location": "L18"
     },
     {
       "id": "package_dependencies_react",
@@ -1532,7 +1487,7 @@
       "file_type": "code",
       "norm_label": "react",
       "source_file": "package.json",
-      "source_location": "L24"
+      "source_location": "L22"
     },
     {
       "id": "package_dependencies_react_dom",
@@ -1543,7 +1498,7 @@
       "file_type": "code",
       "norm_label": "react-dom",
       "source_file": "package.json",
-      "source_location": "L25"
+      "source_location": "L23"
     },
     {
       "id": "package_dependencies_react_server_dom_webpack",
@@ -1554,7 +1509,7 @@
       "file_type": "code",
       "norm_label": "react-server-dom-webpack",
       "source_file": "package.json",
-      "source_location": "L26"
+      "source_location": "L24"
     },
     {
       "id": "package_dependencies_vinext",
@@ -1565,7 +1520,7 @@
       "file_type": "code",
       "norm_label": "vinext",
       "source_file": "package.json",
-      "source_location": "L27"
+      "source_location": "L25"
     },
     {
       "id": "package_dependencies_vinext_cloudflare",
@@ -1576,7 +1531,7 @@
       "file_type": "code",
       "norm_label": "@vinext/cloudflare",
       "source_file": "package.json",
-      "source_location": "L21"
+      "source_location": "L19"
     },
     {
       "id": "lucide_react",
@@ -1587,7 +1542,7 @@
       "file_type": "concept",
       "norm_label": "lucide-react",
       "source_file": "package.json",
-      "source_location": "L22"
+      "source_location": "L20"
     },
     {
       "id": "next",
@@ -1598,7 +1553,7 @@
       "file_type": "concept",
       "norm_label": "next",
       "source_file": "package.json",
-      "source_location": "L23"
+      "source_location": "L21"
     },
     {
       "id": "radix_ui_react_accordion",
@@ -1612,28 +1567,6 @@
       "source_location": "L16"
     },
     {
-      "id": "radix_ui_react_dialog",
-      "label": "@radix-ui/react-dialog",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "dependencies",
-      "file_type": "concept",
-      "norm_label": "@radix-ui/react-dialog",
-      "source_file": "package.json",
-      "source_location": "L17"
-    },
-    {
-      "id": "radix_ui_react_switch",
-      "label": "@radix-ui/react-switch",
-      "_origin": "ast",
-      "community": 5,
-      "community_name": "dependencies",
-      "file_type": "concept",
-      "norm_label": "@radix-ui/react-switch",
-      "source_file": "package.json",
-      "source_location": "L18"
-    },
-    {
       "id": "radix_ui_react_tabs",
       "label": "@radix-ui/react-tabs",
       "_origin": "ast",
@@ -1642,7 +1575,7 @@
       "file_type": "concept",
       "norm_label": "@radix-ui/react-tabs",
       "source_file": "package.json",
-      "source_location": "L19"
+      "source_location": "L17"
     },
     {
       "id": "radix_ui_themes",
@@ -1653,7 +1586,7 @@
       "file_type": "concept",
       "norm_label": "@radix-ui/themes",
       "source_file": "package.json",
-      "source_location": "L20"
+      "source_location": "L18"
     },
     {
       "id": "react",
@@ -1664,7 +1597,7 @@
       "file_type": "concept",
       "norm_label": "react",
       "source_file": "package.json",
-      "source_location": "L24"
+      "source_location": "L22"
     },
     {
       "id": "react_dom",
@@ -1675,7 +1608,7 @@
       "file_type": "concept",
       "norm_label": "react-dom",
       "source_file": "package.json",
-      "source_location": "L25"
+      "source_location": "L23"
     },
     {
       "id": "react_server_dom_webpack",
@@ -1686,7 +1619,7 @@
       "file_type": "concept",
       "norm_label": "react-server-dom-webpack",
       "source_file": "package.json",
-      "source_location": "L26"
+      "source_location": "L24"
     },
     {
       "id": "vinext",
@@ -1697,7 +1630,7 @@
       "file_type": "concept",
       "norm_label": "vinext",
       "source_file": "package.json",
-      "source_location": "L27"
+      "source_location": "L25"
     },
     {
       "id": "vinext_cloudflare",
@@ -1708,13 +1641,13 @@
       "file_type": "concept",
       "norm_label": "@vinext/cloudflare",
       "source_file": "package.json",
-      "source_location": "L21"
+      "source_location": "L19"
     },
     {
       "id": "tsconfig",
       "label": "tsconfig.json",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "community_name": "include",
       "file_type": "code",
       "norm_label": "tsconfig.json",
@@ -1725,7 +1658,7 @@
       "id": "tsconfig_exclude",
       "label": "exclude",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "community_name": "include",
       "file_type": "code",
       "norm_label": "exclude",
@@ -1736,7 +1669,7 @@
       "id": "tsconfig_include",
       "label": "include",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "community_name": "include",
       "file_type": "code",
       "norm_label": "include",
@@ -1747,7 +1680,7 @@
       "id": "ref_mts",
       "label": "**/*.mts",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "community_name": "include",
       "file_type": "concept",
       "norm_label": "**/*.mts",
@@ -1758,7 +1691,7 @@
       "id": "ref_next_dev_types_ts",
       "label": ".next/dev/types/**/*.ts",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "community_name": "include",
       "file_type": "concept",
       "norm_label": ".next/dev/types/**/*.ts",
@@ -1769,7 +1702,7 @@
       "id": "ref_next_env_d_ts",
       "label": "next-env.d.ts",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "community_name": "include",
       "file_type": "concept",
       "norm_label": "next-env.d.ts",
@@ -1780,7 +1713,7 @@
       "id": "ref_next_types_ts",
       "label": ".next/types/**/*.ts",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "community_name": "include",
       "file_type": "concept",
       "norm_label": ".next/types/**/*.ts",
@@ -1791,7 +1724,7 @@
       "id": "ref_node_modules",
       "label": "node_modules",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "community_name": "include",
       "file_type": "concept",
       "norm_label": "node_modules",
@@ -1802,7 +1735,7 @@
       "id": "ref_ts",
       "label": "**/*.ts",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "community_name": "include",
       "file_type": "concept",
       "norm_label": "**/*.ts",
@@ -1813,7 +1746,7 @@
       "id": "ref_tsx",
       "label": "**/*.tsx",
       "_origin": "ast",
-      "community": 6,
+      "community": 7,
       "community_name": "include",
       "file_type": "concept",
       "norm_label": "**/*.tsx",
@@ -1961,7 +1894,7 @@
       "file_type": "code",
       "norm_label": "type",
       "source_file": "package.json",
-      "source_location": "L45"
+      "source_location": "L43"
     },
     {
       "id": "package_version",
@@ -2275,126 +2208,6 @@
       "source_url": null
     },
     {
-      "id": "database_map_category",
-      "label": "CATEGORY Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "category entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_question",
-      "label": "QUESTION Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "question entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_subject",
-      "label": "SUBJECT Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "subject entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_test_attempt",
-      "label": "TEST_ATTEMPT Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "test_attempt entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_test_question_mapping",
-      "label": "TEST_QUESTION_MAPPING Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "test_question_mapping entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_test_series",
-      "label": "TEST_SERIES Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "test_series entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_user",
-      "label": "USER Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "user entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_user_answer",
-      "label": "USER_ANSWER Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "user_answer entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
       "id": "dependency_graph_auth_middleware_rbac_guard",
       "label": "AuthMiddleware & RBAC Guard",
       "_origin": "semantic",
@@ -2451,6 +2264,21 @@
       "file_type": "concept",
       "norm_label": "structural layer dependencies",
       "source_file": "dependency-graph.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "memory_authentication_flow",
+      "label": "Authentication Flow",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "authentication flow",
+      "source_file": "memory.md",
       "source_location": null,
       "source_url": null
     },
@@ -2515,6 +2343,21 @@
       "source_url": null
     },
     {
+      "id": "routes_route_protection_middleware_flow",
+      "label": "Route Protection & Middleware Flow",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "route protection & middleware flow",
+      "source_file": "routes.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
       "id": "routes_test_result_page",
       "label": "TestResultPage",
       "_origin": "semantic",
@@ -2556,21 +2399,6 @@
       "file_type": "document",
       "norm_label": "mpscexam system architecture",
       "source_file": "architecture.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_entity_map",
-      "label": "mpscexam Database Entity Map",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "mpscexam database entity map",
-      "source_file": "database-map.md",
       "source_location": null,
       "source_url": null
     },
@@ -2890,6 +2718,141 @@
       "source_url": null
     },
     {
+      "id": "database_map_category",
+      "label": "CATEGORY Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 6,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "category entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_question",
+      "label": "QUESTION Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 6,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "question entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_subject",
+      "label": "SUBJECT Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 6,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "subject entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_test_attempt",
+      "label": "TEST_ATTEMPT Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 6,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "test_attempt entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_test_question_mapping",
+      "label": "TEST_QUESTION_MAPPING Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 6,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "test_question_mapping entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_test_series",
+      "label": "TEST_SERIES Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 6,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "test_series entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_user",
+      "label": "USER Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 6,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "user entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_user_answer",
+      "label": "USER_ANSWER Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 6,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "user_answer entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_entity_map",
+      "label": "mpscexam Database Entity Map",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 6,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "mpscexam database entity map",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
       "id": "memory_analyticsservice",
       "label": "AnalyticsService",
       "_origin": "semantic",
@@ -2900,21 +2863,6 @@
       "contributor": null,
       "file_type": "concept",
       "norm_label": "analyticsservice",
-      "source_file": "memory.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "memory_authentication_flow",
-      "label": "Authentication Flow",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 9,
-      "community_name": "TestAttempt Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "authentication flow",
       "source_file": "memory.md",
       "source_location": null,
       "source_url": null
@@ -3053,21 +3001,6 @@
       "source_file": "memory.md",
       "source_location": null,
       "source_url": null
-    },
-    {
-      "id": "routes_route_protection_middleware_flow",
-      "label": "Route Protection & Middleware Flow",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 9,
-      "community_name": "TestAttempt Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "route protection & middleware flow",
-      "source_file": "routes.md",
-      "source_location": null,
-      "source_url": null
     }
   ],
   "links": [
@@ -3116,7 +3049,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L92",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -3248,7 +3181,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -3260,7 +3193,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -3276,30 +3209,6 @@
       "weight": 1.0
     },
     {
-      "source": "package_dependencies_radix_ui_react_dialog",
-      "target": "radix_ui_react_dialog",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "package.json",
-      "source_location": "L17",
-      "weight": 1.0
-    },
-    {
-      "source": "package_dependencies_radix_ui_react_switch",
-      "target": "radix_ui_react_switch",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "package.json",
-      "source_location": "L18",
-      "weight": 1.0
-    },
-    {
       "source": "package_dependencies_radix_ui_react_tabs",
       "target": "radix_ui_react_tabs",
       "relation": "imports",
@@ -3308,7 +3217,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -3320,7 +3229,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -3332,7 +3241,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -3344,7 +3253,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -3356,7 +3265,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -3368,7 +3277,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -3380,7 +3289,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -3392,7 +3301,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -3404,7 +3313,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L37",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -3416,7 +3325,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L38",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -3428,7 +3337,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L39",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -3440,7 +3349,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L40",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -3452,7 +3361,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -3464,7 +3373,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -3476,7 +3385,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -3488,7 +3397,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -3500,7 +3409,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L41",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -3512,7 +3421,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L42",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -3524,7 +3433,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -3536,7 +3445,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L36",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -3548,7 +3457,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L43",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -3999,7 +3908,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -4032,7 +3941,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L45",
+      "source_location": "L43",
       "weight": 1.0
     },
     {
@@ -4059,7 +3968,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_radix_ui_react_dialog",
+      "target": "package_dependencies_radix_ui_react_tabs",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4070,7 +3979,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_radix_ui_react_switch",
+      "target": "package_dependencies_radix_ui_themes",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4081,7 +3990,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_radix_ui_react_tabs",
+      "target": "package_dependencies_vinext_cloudflare",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4092,7 +4001,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_radix_ui_themes",
+      "target": "package_dependencies_lucide_react",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4103,7 +4012,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_vinext_cloudflare",
+      "target": "package_dependencies_next",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4114,7 +4023,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_lucide_react",
+      "target": "package_dependencies_react",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4125,7 +4034,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_next",
+      "target": "package_dependencies_react_dom",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4136,7 +4045,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_react",
+      "target": "package_dependencies_react_server_dom_webpack",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4147,35 +4056,13 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_react_dom",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "package.json",
-      "source_location": "L25",
-      "weight": 1.0
-    },
-    {
-      "source": "package_dependencies",
-      "target": "package_dependencies_react_server_dom_webpack",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "package.json",
-      "source_location": "L26",
-      "weight": 1.0
-    },
-    {
-      "source": "package_dependencies",
       "target": "package_dependencies_vinext",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -4186,7 +4073,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -4197,7 +4084,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -4208,7 +4095,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -4219,7 +4106,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -4230,7 +4117,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -4241,7 +4128,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -4252,7 +4139,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L36",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -4263,7 +4150,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L37",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -4274,7 +4161,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L38",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -4285,7 +4172,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L39",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -4296,7 +4183,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L40",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -4307,7 +4194,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L41",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -4318,7 +4205,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L42",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -4329,7 +4216,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L43",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -4455,13 +4342,13 @@
     },
     {
       "source": "src_app_admin_page",
-      "target": "src_app_admin_page_sidebarnavitem",
+      "target": "src_app_admin_page_radixtabletrigger",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L1669",
+      "source_location": "L1337",
       "weight": 1.0
     },
     {
@@ -4472,7 +4359,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L45",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -4483,7 +4370,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L47",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -4510,35 +4397,13 @@
     },
     {
       "source": "src_app_layout",
-      "target": "src_app_layout_samadevanagari",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/layout.tsx",
-      "source_location": "L13",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_layout",
       "target": "src_app_layout_metadata",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/layout.tsx",
-      "source_location": "L56",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_layout",
-      "target": "src_app_layout_googlesans",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/layout.tsx",
-      "source_location": "L6",
+      "source_location": "L12",
       "weight": 1.0
     },
     {
@@ -4549,7 +4414,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/layout.tsx",
-      "source_location": "L61",
+      "source_location": "L17",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_layout",
+      "target": "src_app_layout_googlesans",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -4598,24 +4474,13 @@
     },
     {
       "source": "src_components_herosection",
-      "target": "src_components_herosection_headertimebox",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/components/HeroSection.tsx",
-      "source_location": "L246",
-      "weight": 1.0
-    },
-    {
-      "source": "src_components_herosection",
       "target": "src_components_herosection_herosection",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/HeroSection.tsx",
-      "source_location": "L8",
+      "source_location": "L7",
       "weight": 1.0
     },
     {

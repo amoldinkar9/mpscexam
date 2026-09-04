@@ -127,7 +127,7 @@ export function HeroSection() {
                   onClick={scrollToPricing}
                   className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#9B3A32] hover:bg-[#822f28] active:bg-[#6b251f] text-white font-extrabold text-base sm:text-lg rounded-xl shadow-lg shadow-[#9B3A32]/25 hover:shadow-xl hover:shadow-[#9B3A32]/30 transition-all transform hover:-translate-y-0.5 cursor-pointer"
                 >
-                  <span>आत्ताच ₹199 मध्ये टेस्ट सिरीज सुरू करा</span>
+                  <span>Start Test</span>
                   <ArrowRight className="w-5 h-5" />
                 </button>
               </div>

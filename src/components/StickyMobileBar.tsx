@@ -37,7 +37,7 @@ export function StickyMobileBar() {
         {/* Action Buttons */}
         <div className="flex items-center gap-2">
           <a
-            href="https://wa.me/919876543210?text=Hello%20MPSC%20Group%20C%20Test%20Series%20बद्दल%20माहिती%20हवी%20आहे"
+            href="https://wa.me/919579616908?text=Hello%20MPSC%20Group%20C%20Test%20Series%20बद्दल%20माहिती%20हवी%20आहे"
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-xl bg-emerald-50 text-emerald-700 border border-emerald-200 flex items-center justify-center hover:bg-emerald-100 transition-colors"

@@ -36,10 +36,10 @@
     "semantic_hash": "5128710875d3b96934aeac7368727982"
   },
   "api-map.md": {
-    "mtime": 1788184277.7823088,
-    "seen": 1788326744.46376,
-    "ast_hash": "28620d70d96f2dd9038d9bea5201b91a",
-    "semantic_hash": "28620d70d96f2dd9038d9bea5201b91a"
+    "mtime": 1788544172.0181262,
+    "seen": 1788544197.744585,
+    "ast_hash": "dbb8640f764569f920eced2f5aacf707",
+    "semantic_hash": ""
   },
   "architecture.md": {
     "mtime": 1788184277.7825232,
@@ -120,10 +120,10 @@
     "semantic_hash": ""
   },
   "src/components/Footer.tsx": {
-    "mtime": 1788429945.706188,
-    "seen": 1788448573.287703,
-    "ast_hash": "222ed38eee6dac42d083841516a880be",
-    "semantic_hash": "222ed38eee6dac42d083841516a880be"
+    "mtime": 1788544155.1025238,
+    "seen": 1788544197.7445672,
+    "ast_hash": "ad301c0cb9e58da08c031692c6871fac",
+    "semantic_hash": ""
   },
   "src/components/HeroSection.tsx": {
     "mtime": 1788543347.6019602,
@@ -162,9 +162,9 @@
     "semantic_hash": ""
   },
   "src/components/StickyMobileBar.tsx": {
-    "mtime": 1788520842.009391,
-    "seen": 1788520863.473349,
-    "ast_hash": "1db4222566b16724c395fb1d5987248d",
+    "mtime": 1788544160.397719,
+    "seen": 1788544197.7445729,
+    "ast_hash": "fbfa2fd850d884a7288605d915a2d754",
     "semantic_hash": ""
   },
   "src/components/SyllabusWeightage.tsx": {
@@ -210,9 +210,9 @@
     "semantic_hash": ""
   },
   "src/components/HowToPurchase.tsx": {
-    "mtime": 1788543363.0534801,
-    "seen": 1788543463.3569438,
-    "ast_hash": "e2ec60932efacf09f356c15faad7a47d",
+    "mtime": 1788544165.926041,
+    "seen": 1788544197.744569,
+    "ast_hash": "6db87a4d3cc7d1da49c2e452e74e25dd",
     "semantic_hash": ""
   },
   "vite.config.ts": {

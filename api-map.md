@@ -13,7 +13,7 @@ This document defines all RESTful / Server Action API endpoint contracts for the
   {
     "name": "Aniket Patil",
     "email": "aniket@example.com",
-    "phone": "+919876543210",
+    "phone": "+919579616908",
     "password": "StrongPassword123",
     "targetExam": "MPSC_RAJYASEVA_2026"
   }

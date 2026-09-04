@@ -15,13 +15,13 @@ export function Footer() {
               </div>
               <div className="space-y-0.5">
                 <p className="text-xs sm:text-sm text-slate-500 font-medium">काही अडचण किंवा प्रश्न असल्यास थेट बोला:</p>
-                <p className="text-base sm:text-lg font-extrabold text-[#1F2A5C] english-numerals">+91 98765 43210 (सकाळी 9 ते रात्री 9)</p>
+                <p className="text-base sm:text-lg font-extrabold text-[#1F2A5C] english-numerals">+91 95796 16908 (सकाळी 9 ते रात्री 9)</p>
               </div>
             </div>
 
             {/* Direct WhatsApp Action Button */}
             <a
-              href="https://wa.me/919876543210?text=Hello%20TCS9%20MPSC%20Group%20C%20Test%20Series%20बद्दल%20माहिती%20हवी%20आहे"
+              href="https://wa.me/919579616908?text=Hello%20TCS9%20MPSC%20Group%20C%20Test%20Series%20बद्दल%20माहिती%20हवी%20आहे"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm sm:text-base shadow-sm hover:shadow-md transition-all shrink-0"

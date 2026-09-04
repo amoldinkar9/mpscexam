@@ -205,7 +205,7 @@ export function HowToPurchase({ initialData }: { initialData?: typeof siteData.h
         {/* WhatsApp Theme Support Action Button Under How to Purchase */}
         <div className="flex justify-center pt-2">
           <a
-            href="https://wa.me/919876543210?text=Hello%20MPSC%20Group%20C%20Test%20Series%20खरेदी%20करण्याबाबत%20काही%20शंका%20आहेत"
+            href="https://wa.me/919579616908?text=Hello%20MPSC%20Group%20C%20Test%20Series%20खरेदी%20करण्याबाबत%20काही%20शंका%20आहेत"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] active:bg-[#1caa51] text-white font-extrabold text-base sm:text-lg shadow-lg shadow-[#25D366]/30 hover:shadow-xl hover:shadow-[#25D366]/40 transition-all transform hover:-translate-y-0.5 cursor-pointer"

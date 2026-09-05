@@ -213,7 +213,7 @@
       "file_type": "code",
       "norm_label": "headertimebox()",
       "source_file": "src/components/Header.tsx",
-      "source_location": "L128"
+      "source_location": "L106"
     },
     {
       "id": "src_components_herosection_herosection",
@@ -5182,7 +5182,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/Header.tsx",
-      "source_location": "L128",
+      "source_location": "L106",
       "weight": 1.0
     },
     {

@@ -344,3 +344,27 @@ flowchart TD
   - WhatsApp: Translucent glass pill (`bg-white/10 border-white/20 text-emerald-300`).
   - Primary Action Button: Inverted to crisp white button with maroon text (`bg-white text-[#8b261e] font-black shadow-lg`).
   - Periodic Click Micro-Animation: Automatic simulated tap-and-click gesture (`animate-tap-click` + `animate-tap-ripple`) that periodically depresses the button, triggers a radiating tap wave, bounces back, and settles smoothly.
+
+### Landing Page Section Drag-and-Drop & Visibility Manager
+- **Section Order & State Storage:** Configured in `src/data/siteContent.json` under `sections: SectionConfig[]` with IDs:
+  1. `hero`: Hero Section
+  2. `urgency`: Urgency / Countdown Banner
+  3. `testimonials`: Social Proof & Reviews
+  4. `syllabus`: Syllabus Breakdown Accordion
+  5. `howToPurchase`: Purchase Guide & Slider
+  6. `painPoints`: Aspirant Pain Points & Cutoff Contrast
+  7. `sampleProof`: Sample Questions & Explanations
+  8. `faqs`: Frequently Asked Questions
+  9. `pricing`: Pricing & Final CTA Card
+- **Admin Management Panel (`src/app/admin/page.tsx`):**
+  - Dedicated "Sections Order" tab with `Layers` icon.
+  - Native HTML5 Drag & Drop reordering via grip handle (`GripVertical`).
+  - Single-click Move Up (`ChevronUp`) and Move Down (`ChevronDown`) arrow buttons.
+  - Accessible Radix UI Switch (`Switch.Root` & `Switch.Thumb`) for instant live Enable / Disable toggling.
+  - Visual status pill badges ("सक्रिय / Live" in emerald vs "लपवलेला / Off" in zinc).
+  - Direct deep-links to jump into specific content editing tabs.
+  - One-click "मूळ क्रम (Reset Order)" button to restore default conversion flow.
+- **Dynamic Main Page Renderer (`src/app/page.tsx`):**
+  - Consumes `content.sections` dynamically, skips disabled sections (`s.enabled !== false`), and renders remaining sections in the exact saved sequence.
+  - Preserves persistent top sticky `Header` and floating `Footer`, `StickyMobileBar`, and `LiveActivityToast`.
+

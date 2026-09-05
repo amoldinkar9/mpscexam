@@ -140,12 +140,7 @@
       "title": "इतिहास",
       "subtitle": "आधुनिक भारत व महाराष्ट्र",
       "content": "आधुनिक भारताचा विशेषतः महाराष्ट्राचा इतिहास.",
-      "topics": [
-        "1857 चा राष्ट्रीय उठाव",
-        "महाराष्ट्रातील समाजसुधारक",
-        "भारतीय राष्ट्रीय चळवळ",
-        "स्वातंत्र्योत्तर महाराष्ट्र व संयुक्त महाराष्ट्र चळवळ"
-      ]
+      "topics": []
     },
     {
       "num": "2",
@@ -474,5 +469,70 @@
       "अमर्यादित वेळा सराव & PDF डाऊनलोड"
     ],
     "buttonText": "आत्ताच ₹199 मध्ये टेस्ट सिरीज सुरू करा"
-  }
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "name": "Hero Section",
+      "nameMr": "मुख्य विभाग (Hero)",
+      "description": "बॅनर आणि मुख्य माहिती",
+      "enabled": true
+    },
+    {
+      "id": "urgency",
+      "name": "Urgency Countdown",
+      "nameMr": "उलटी गिनती बॅनर (Countdown)",
+      "description": "परीक्षेसाठी शिल्लक वेळ व अर्जन्सी बॅनर",
+      "enabled": true
+    },
+    {
+      "id": "testimonials",
+      "name": "Student Testimonials",
+      "nameMr": "विद्यार्थी प्रतिक्रिया (Testimonials)",
+      "description": "यशस्वी विद्यार्थ्यांचे मनोगत व रिव्ह्यू",
+      "enabled": true
+    },
+    {
+      "id": "sampleProof",
+      "name": "Sample Question & Explanations",
+      "nameMr": "नमुना प्रश्न व दर्जा (Sample Proof)",
+      "description": "सविस्तर स्पष्टीकरणासह नमुना प्रश्न",
+      "enabled": true
+    },
+    {
+      "id": "syllabus",
+      "name": "Syllabus Breakdown",
+      "nameMr": "अभ्यासक्रम विश्लेषण (Syllabus)",
+      "description": "विषयनिहाय घटक व मार्क वेटेज एकॉर्डियन",
+      "enabled": true
+    },
+    {
+      "id": "howToPurchase",
+      "name": "How to Buy Steps",
+      "nameMr": "खरेदी प्रक्रिया (How to Buy)",
+      "description": "व्हिडिओ/स्लाईडर व 4 पायऱ्या",
+      "enabled": true
+    },
+    {
+      "id": "painPoints",
+      "name": "Pain Points & Cutoff Contrast",
+      "nameMr": "अडचणी व कटऑफ फरक (Pain Points)",
+      "description": "विद्यार्थ्यांच्या अडचणी व प्रत्यक्ष तुलना",
+      "enabled": true
+    },
+    {
+      "id": "faqs",
+      "name": "Frequently Asked Questions",
+      "nameMr": "वारंवार विचारले जाणारे प्रश्न (FAQs)",
+      "description": "शंका निरसन प्रश्नोत्तरे",
+      "enabled": true
+    },
+    {
+      "id": "pricing",
+      "name": "Pricing & Final CTA",
+      "nameMr": "किंमत व अंतिम नोंदणी (Pricing)",
+      "description": "ऑफर किंमत आणि नोंदणी बटण",
+      "enabled": true
+    }
+  ]
 }

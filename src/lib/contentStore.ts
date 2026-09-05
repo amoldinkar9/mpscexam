@@ -2,7 +2,17 @@ import defaultData from "@/data/siteContent.json";
 import fs from "fs";
 import path from "path";
 
-export type SiteContent = typeof defaultData;
+export interface SectionConfig {
+  id: string;
+  name: string;
+  nameMr: string;
+  description: string;
+  enabled: boolean;
+}
+
+export type SiteContent = typeof defaultData & {
+  sections?: SectionConfig[];
+};
 
 let inMemoryCache: SiteContent | null = null;
 
@@ -29,6 +39,17 @@ async function getD1Database(): Promise<any> {
 }
 
 /**
+ * Ensures sections array is populated with default configuration if missing
+ */
+function ensureSections(content: any): SiteContent {
+  if (!content) return defaultData as SiteContent;
+  if (!content.sections || !Array.isArray(content.sections) || content.sections.length === 0) {
+    content.sections = defaultData.sections;
+  }
+  return content as SiteContent;
+}
+
+/**
  * Retrieves the current site content from Cloudflare D1 database, falling back to in-memory cache,
  * local JSON file on disk, or bundled default data.
  */
@@ -40,8 +61,9 @@ export async function getSiteContent(): Promise<SiteContent> {
       const row = await db.prepare("SELECT data FROM site_content WHERE key = 'main'").first();
       if (row && row.data) {
         const parsed = typeof row.data === "string" ? JSON.parse(row.data) : row.data;
-        inMemoryCache = parsed;
-        return parsed as SiteContent;
+        const normalized = ensureSections(parsed);
+        inMemoryCache = normalized;
+        return normalized;
       }
     }
   } catch (d1Err) {
@@ -50,7 +72,7 @@ export async function getSiteContent(): Promise<SiteContent> {
 
   // 2. Return in-memory cached content if available
   if (inMemoryCache) {
-    return inMemoryCache;
+    return ensureSections(inMemoryCache);
   }
 
   // 3. Fall back to local file on disk if filesystem is readable
@@ -59,8 +81,9 @@ export async function getSiteContent(): Promise<SiteContent> {
     if (fs.existsSync(filePath)) {
       const fileContents = fs.readFileSync(filePath, "utf8");
       const parsed = JSON.parse(fileContents);
-      inMemoryCache = parsed;
-      return parsed as SiteContent;
+      const normalized = ensureSections(parsed);
+      inMemoryCache = normalized;
+      return normalized;
     }
   } catch (fsErr) {
     // Expected on environments without Node fs access

@@ -19,48 +19,66 @@ export const revalidate = 0;
 export default async function Home() {
   const content = await getSiteContent();
 
+  const sections = content.sections && content.sections.length > 0
+    ? content.sections
+    : [
+        { id: "hero", enabled: true },
+        { id: "urgency", enabled: true },
+        { id: "testimonials", enabled: true },
+        { id: "syllabus", enabled: true },
+        { id: "howToPurchase", enabled: true },
+        { id: "painPoints", enabled: true },
+        { id: "sampleProof", enabled: true },
+        { id: "faqs", enabled: true },
+        { id: "pricing", enabled: true },
+      ];
+
+  const renderSection = (id: string) => {
+    switch (id) {
+      case "hero":
+        return <HeroSection key="hero" initialData={content.hero} />;
+      case "urgency":
+        return <UrgencyBanner key="urgency" />;
+      case "testimonials":
+        return <SocialProof key="testimonials" initialData={content.testimonials} />;
+      case "syllabus":
+        return <SyllabusWeightage key="syllabus" initialData={content.syllabus} />;
+      case "howToPurchase":
+        return <HowToPurchase key="howToPurchase" initialData={content.howToPurchase} />;
+      case "painPoints":
+        return (
+          <AspirantPainPoints
+            key="painPoints"
+            initialData={{
+              painPoints: content.painPoints,
+              cutoffGap: (content as any).cutoffGap,
+              cutoffContrast: (content as any).cutoffContrast,
+            }}
+          />
+        );
+      case "sampleProof":
+        return <SampleProof key="sampleProof" initialData={content.sampleProof} />;
+      case "faqs":
+        return <FAQ key="faqs" initialData={content.faqs} />;
+      case "pricing":
+        return <Pricing key="pricing" initialData={content.finalCta} />;
+      default:
+        return null;
+    }
+  };
+
   return (
     <main className="min-h-screen relative bg-[#fafbfc] pb-16 md:pb-0">
       {/* 1. Sticky Header with Logos & Countdown Timer */}
       <Header />
 
-      {/* 2. Hero Section */}
-      <HeroSection initialData={content.hero} />
+      {/* Dynamic Main Body Sections (Reorderable & Toggleable via Admin Panel) */}
+      {sections.filter((s) => s.enabled !== false).map((s) => renderSection(s.id))}
 
-      {/* 2. Bigger Countdown Timer */}
-      <UrgencyBanner />
-
-      {/* 3. Horizontally Scrolling Testimonials with Marathi Initials */}
-      <SocialProof initialData={content.testimonials} />
-
-      {/* 4. अभ्यासक्रम (Accordion Format) */}
-      <SyllabusWeightage initialData={content.syllabus} />
-
-      {/* 5. How to Purchase (9:16 Auto-Slider & WhatsApp Button) */}
-      <HowToPurchase initialData={content.howToPurchase} />
-
-      {/* 6. अभ्यास करताना या अडचणी येतात का? + फक्त वाचन करणारे vs. प्रत्यक्ष 25 टेस्ट्स सोडवणारे */}
-      <AspirantPainPoints
-        initialData={{
-          painPoints: content.painPoints,
-          cutoffGap: (content as any).cutoffGap,
-          cutoffContrast: (content as any).cutoffContrast,
-        }}
-      />
-
-      {/* 7. प्रश्नांची व स्पष्टीकरणांची नमुना गुणवत्ता पहा */}
-      <SampleProof initialData={content.sampleProof} />
-
-      {/* 8. वारंवार विचारले जाणारे प्रश्न */}
-      <FAQ initialData={content.faqs} />
-
-      {/* 10. Final Centered CTA (परवडणाऱ्या दरात उत्कृष्ट दर्जाची तयारी) */}
-      <Pricing initialData={content.finalCta} />
-
-      {/* 11. Footer */}
+      {/* Footer */}
       <Footer />
 
-      {/* 12. Sticky Mobile Dock & Full-Width Animated Live Activity Toast */}
+      {/* Sticky Mobile Dock & Full-Width Animated Live Activity Toast */}
       <StickyMobileBar />
       <LiveActivityToast />
     </main>

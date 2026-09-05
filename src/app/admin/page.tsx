@@ -38,6 +38,7 @@ import {
   Redo,
   RefreshCw,
   Eye,
+  EyeOff,
   Sliders,
   BookOpen,
   ChevronDown,
@@ -50,6 +51,7 @@ import { RichTextEditor } from "@/components/admin/RichTextEditor";
 type SiteContent = Omit<typeof defaultSiteData, "sampleProof" | "syllabus"> & {
   sampleProof: Record<string, any>;
   syllabus?: any[];
+  sections?: any[];
 };
 
 function getInitialHtmlForQuestion(item: any): string {
@@ -92,7 +94,7 @@ function getInitialHtmlForQuestion(item: any): string {
 
 export default function AdminPage() {
   const [content, setContent] = useState<SiteContent>(defaultSiteData);
-  const [activeSection, setActiveSection] = useState<string>("faqs");
+  const [activeSection, setActiveSection] = useState<string>("sections");
   
   // Auth state
   const [passcode, setPasscode] = useState("admin123");
@@ -261,8 +263,45 @@ export default function AdminPage() {
       const [moved] = list.splice(fromIndex, 1);
       list.splice(toIndex, 0, moved);
       newContent.syllabus = list;
+    } else if (type === "section") {
+      const list = [...((content.sections as any[]) || defaultSiteData.sections)];
+      const [moved] = list.splice(fromIndex, 1);
+      list.splice(toIndex, 0, moved);
+      newContent.sections = list;
     }
 
+    setContent(newContent);
+    handleSaveAll(newContent);
+  };
+
+  // Toggle section enabled/disabled status
+  const handleToggleSectionEnabled = (sectionId: string) => {
+    const list = [...((content.sections as any[]) || defaultSiteData.sections)];
+    const targetIdx = list.findIndex((s: any) => s.id === sectionId);
+    if (targetIdx >= 0) {
+      list[targetIdx] = { ...list[targetIdx], enabled: list[targetIdx].enabled === false ? true : false };
+      const newContent = { ...content, sections: list };
+      setContent(newContent);
+      handleSaveAll(newContent);
+    }
+  };
+
+  // Move section one position up or down
+  const handleMoveSection = (index: number, direction: "up" | "down") => {
+    const list = [...((content.sections as any[]) || defaultSiteData.sections)];
+    const targetIndex = direction === "up" ? index - 1 : index + 1;
+    if (targetIndex < 0 || targetIndex >= list.length) return;
+    const [moved] = list.splice(index, 1);
+    list.splice(targetIndex, 0, moved);
+    const newContent = { ...content, sections: list };
+    setContent(newContent);
+    handleSaveAll(newContent);
+  };
+
+  // Reset section ordering to default
+  const handleResetSectionsOrder = () => {
+    if (!confirm("तुम्हाला सर्व विभागांचा क्रम मूळ स्थितीवर आणायचा आहे का? (Reset all sections to default order?)")) return;
+    const newContent = { ...content, sections: defaultSiteData.sections };
     setContent(newContent);
     handleSaveAll(newContent);
   };
@@ -589,6 +628,12 @@ export default function AdminPage() {
           {/* Navigation Links */}
           <nav className="space-y-1">
             <SidebarNavItem
+              active={activeSection === "sections"}
+              onClick={() => setActiveSection("sections")}
+              icon={Layers}
+              label="Sections Order"
+            />
+            <SidebarNavItem
               active={activeSection === "hero"}
               onClick={() => setActiveSection("hero")}
               icon={ImageIcon}
@@ -729,6 +774,289 @@ export default function AdminPage() {
 
         {/* Section View Container */}
         <div className="p-8 space-y-6 max-w-6xl w-full">
+
+          {/* SECTION: SECTIONS DRAG & VISIBILITY MANAGER */}
+          {activeSection === "sections" && (
+            <div className="space-y-6">
+              {/* Header */}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div>
+                  <h2 className="text-xl font-bold text-black tracking-tight flex items-center gap-2">
+                    <Layers className="w-5 h-5 text-black" />
+                    <span>विभाग क्रम व दृश्यमानता (Section Drag & Visibility)</span>
+                  </h2>
+                  <p className="text-xs text-zinc-500 mt-1">
+                    वेबसाइटवरील विभागांचा क्रम बदलण्यासाठी ड्रॅग (Drag up/down) करा किंवा बाण वापरा. आवश्यकतेनुसार चालू किंवा बंद करा.
+                  </p>
+                </div>
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={handleResetSectionsOrder}
+                    className="inline-flex items-center gap-1.5 px-3 py-2 bg-white border border-zinc-200 hover:bg-zinc-50 text-zinc-700 text-xs font-semibold rounded-[4px] shadow-xs transition-colors cursor-pointer"
+                    title="मूळ क्रम पूर्ववत करा"
+                  >
+                    <RotateCcw className="w-3.5 h-3.5" />
+                    <span>मूळ क्रम (Reset)</span>
+                  </button>
+                  <button
+                    onClick={() => handleSaveAll()}
+                    disabled={isSaving}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-black hover:bg-zinc-800 disabled:opacity-50 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer transition-colors"
+                  >
+                    <Save className="w-3.5 h-3.5" />
+                    <span>{isSaving ? "सेव्ह होत आहे..." : "बदल सेव्ह करा"}</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Status Stats and Tip Bar */}
+              {(() => {
+                const currentSections = (content.sections && content.sections.length > 0)
+                  ? content.sections
+                  : defaultSiteData.sections;
+                const totalCount = currentSections.length;
+                const activeCount = currentSections.filter((s: any) => s.enabled !== false).length;
+                const hiddenCount = totalCount - activeCount;
+
+                return (
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                    <div className="bg-white border border-zinc-200 rounded-[4px] p-3 flex items-center justify-between shadow-xs">
+                      <div>
+                        <p className="text-[11px] text-zinc-400 font-medium">एकूण विभाग (Total Sections)</p>
+                        <p className="text-base font-bold text-zinc-900 mt-0.5">{totalCount}</p>
+                      </div>
+                      <span className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-600 font-bold text-xs">
+                        {totalCount}
+                      </span>
+                    </div>
+
+                    <div className="bg-white border border-emerald-200 rounded-[4px] p-3 flex items-center justify-between shadow-xs">
+                      <div>
+                        <p className="text-[11px] text-emerald-600 font-medium">सक्रिय विभाग (Live on Website)</p>
+                        <p className="text-base font-bold text-emerald-700 mt-0.5">{activeCount}</p>
+                      </div>
+                      <span className="w-8 h-8 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold text-xs border border-emerald-200">
+                        <Eye className="w-4 h-4" />
+                      </span>
+                    </div>
+
+                    <div className="bg-white border border-zinc-200 rounded-[4px] p-3 flex items-center justify-between shadow-xs">
+                      <div>
+                        <p className="text-[11px] text-zinc-500 font-medium">लपवलेले विभाग (Disabled / Hidden)</p>
+                        <p className="text-base font-bold text-zinc-600 mt-0.5">{hiddenCount}</p>
+                      </div>
+                      <span className="w-8 h-8 rounded-full bg-zinc-100 text-zinc-500 flex items-center justify-center font-bold text-xs">
+                        <EyeOff className="w-4 h-4" />
+                      </span>
+                    </div>
+                  </div>
+                );
+              })()}
+
+              {/* Instructions banner */}
+              <div className="bg-amber-50/80 border border-amber-200/90 rounded-[4px] p-3 text-xs text-amber-900 flex items-start gap-2.5">
+                <GripVertical className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+                <div className="space-y-0.5">
+                  <p className="font-semibold">कसे वापरावे (How to use):</p>
+                  <p className="text-amber-800 text-[11px]">
+                    1. <strong>वर-खाली हलवा:</strong> डावीकडील ग्रिप (⋮⋮) धरून ओढा किंवा ▲ / ▼ बाण क्लिक करा.
+                    <br />
+                    2. <strong>चालू/बंद (Enable/Disable):</strong> उजवीकडील टॉगल स्विचने विभाग लगेच सुरू किंवा बंद करा.
+                    <br />
+                    3. <strong>मजकूर संपादन:</strong> संबंधित विभागाचा मजकूर बदलण्यासाठी "संपादित करा" बटनावर क्लिक करा.
+                  </p>
+                </div>
+              </div>
+
+              {/* Sections Table */}
+              <div className="border border-zinc-200 rounded-[4px] bg-white overflow-hidden shadow-xs">
+                <table className="w-full text-left text-xs border-collapse">
+                  <thead className="bg-zinc-50 text-zinc-700 font-semibold border-b border-zinc-200">
+                    <tr>
+                      <th className="p-3 w-12 text-center" title="Drag to reorder">ड्रॅग</th>
+                      <th className="p-3 w-14 text-center">क्रम</th>
+                      <th className="p-3 w-20 text-center">हलवा</th>
+                      <th className="p-3">विभागाचे नाव (Section Name & Info)</th>
+                      <th className="p-3 w-28 text-center">स्थिती (Status)</th>
+                      <th className="p-3 w-20 text-center">दृश्यमानता</th>
+                      <th className="p-3 w-28 text-center">मजकूर संपादन</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-zinc-200">
+                    {(((content.sections && content.sections.length > 0)
+                      ? content.sections
+                      : defaultSiteData.sections) as any[]).map((sec, idx, arr) => {
+                      const isFirst = idx === 0;
+                      const isLast = idx === arr.length - 1;
+                      const isLive = sec.enabled !== false;
+
+                      // Map section ID to corresponding admin tab
+                      const tabTarget: Record<string, string> = {
+                        hero: "hero",
+                        testimonials: "testimonials",
+                        syllabus: "syllabus",
+                        howToPurchase: "purchase",
+                        painPoints: "painPoints",
+                        cutoff: "cutoff",
+                        sampleProof: "sampleProof",
+                        faqs: "faqs",
+                        pricing: "finalCta",
+                      };
+                      const hasDirectTab = tabTarget[sec.id] !== undefined;
+
+                      return (
+                        <tr
+                          key={sec.id}
+                          draggable
+                          onDragStart={(e) => {
+                            setDragSource({ type: "section", index: idx });
+                            e.dataTransfer.effectAllowed = "move";
+                            e.dataTransfer.setData("text/plain", `${idx}`);
+                          }}
+                          onDragOver={(e) => {
+                            e.preventDefault();
+                            e.dataTransfer.dropEffect = "move";
+                            if (dragOverIndex !== idx || dragOverType !== "section") {
+                              setDragOverIndex(idx);
+                              setDragOverType("section");
+                            }
+                          }}
+                          onDragLeave={() => {
+                            if (dragOverIndex === idx && dragOverType === "section") {
+                              setDragOverIndex(null);
+                              setDragOverType(null);
+                            }
+                          }}
+                          onDrop={(e) => {
+                            e.preventDefault();
+                            if (dragSource && dragSource.type === "section") {
+                              handleReorderList("section", dragSource.index, idx);
+                            }
+                            setDragSource(null);
+                            setDragOverIndex(null);
+                            setDragOverType(null);
+                          }}
+                          onDragEnd={() => {
+                            setDragSource(null);
+                            setDragOverIndex(null);
+                            setDragOverType(null);
+                          }}
+                          className={`transition-colors ${
+                            dragSource?.type === "section" && dragSource.index === idx
+                              ? "opacity-30 bg-zinc-100"
+                              : dragOverType === "section" && dragOverIndex === idx
+                              ? "bg-zinc-100 border-t-2 border-black"
+                              : !isLive
+                              ? "bg-zinc-50/50 hover:bg-zinc-100/60"
+                              : "hover:bg-zinc-50/70"
+                          }`}
+                        >
+                          {/* Drag Handle */}
+                          <td
+                            className="p-3 text-center text-zinc-400 hover:text-black cursor-grab active:cursor-grabbing select-none"
+                            title="Drag to reorder"
+                          >
+                            <GripVertical className="w-4 h-4 mx-auto" />
+                          </td>
+
+                          {/* Order Index */}
+                          <td className="p-3 text-center">
+                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-[4px] bg-zinc-100 text-zinc-700 font-bold text-[11px]">
+                              #{idx + 1}
+                            </span>
+                          </td>
+
+                          {/* Move Up/Down arrows */}
+                          <td className="p-3 text-center">
+                            <div className="flex items-center justify-center gap-1">
+                              <button
+                                onClick={() => handleMoveSection(idx, "up")}
+                                disabled={isFirst}
+                                className="p-1 rounded-[3px] text-zinc-500 hover:text-black hover:bg-zinc-200/80 disabled:opacity-20 disabled:hover:bg-transparent disabled:hover:text-zinc-500 cursor-pointer disabled:cursor-not-allowed transition-colors"
+                                title="Move Up"
+                              >
+                                <ChevronUp className="w-4 h-4" />
+                              </button>
+                              <button
+                                onClick={() => handleMoveSection(idx, "down")}
+                                disabled={isLast}
+                                className="p-1 rounded-[3px] text-zinc-500 hover:text-black hover:bg-zinc-200/80 disabled:opacity-20 disabled:hover:bg-transparent disabled:hover:text-zinc-500 cursor-pointer disabled:cursor-not-allowed transition-colors"
+                                title="Move Down"
+                              >
+                                <ChevronDown className="w-4 h-4" />
+                              </button>
+                            </div>
+                          </td>
+
+                          {/* Section details */}
+                          <td className="p-3">
+                            <div className="space-y-0.5">
+                              <div className="flex items-center gap-2">
+                                <span className={`font-bold text-xs ${isLive ? "text-zinc-900" : "text-zinc-400 line-through"}`}>
+                                  {sec.nameMr || sec.name}
+                                </span>
+                                <span className="text-[10px] px-1.5 py-0.5 bg-zinc-100 text-zinc-600 rounded font-mono">
+                                  {sec.id}
+                                </span>
+                              </div>
+                              <p className="text-[11px] text-zinc-500">
+                                {sec.description || sec.name}
+                              </p>
+                            </div>
+                          </td>
+
+                          {/* Status Badge */}
+                          <td className="p-3 text-center">
+                            {isLive ? (
+                              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full">
+                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                <span>सक्रिय (Live)</span>
+                              </span>
+                            ) : (
+                              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-bold bg-zinc-100 text-zinc-500 border border-zinc-200 rounded-full">
+                                <span className="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
+                                <span>लपवलेला (Off)</span>
+                              </span>
+                            )}
+                          </td>
+
+                          {/* Visibility Switch */}
+                          <td className="p-3 text-center">
+                            <div className="flex items-center justify-center">
+                              <Switch.Root
+                                checked={isLive}
+                                onCheckedChange={() => handleToggleSectionEnabled(sec.id)}
+                                className="w-9 h-5 bg-zinc-300 data-[state=checked]:bg-black rounded-full relative outline-none cursor-pointer transition-colors"
+                                title={isLive ? "विभागाला बंद करा" : "विभागाला चालू करा"}
+                              >
+                                <Switch.Thumb className="block w-4 h-4 bg-white rounded-full transition-transform transform translate-x-0.5 data-[state=checked]:translate-x-4.5 will-change-transform shadow-xs" />
+                              </Switch.Root>
+                            </div>
+                          </td>
+
+                          {/* Quick Content Edit button */}
+                          <td className="p-3 text-center">
+                            {hasDirectTab ? (
+                              <button
+                                onClick={() => setActiveSection(tabTarget[sec.id])}
+                                className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-semibold text-zinc-700 hover:text-black bg-zinc-100 hover:bg-zinc-200 rounded-[4px] transition-colors cursor-pointer"
+                                title="या विभागाचा मजकूर संपादित करा"
+                              >
+                                <Edit2 className="w-3 h-3" />
+                                <span>संपादित करा</span>
+                              </button>
+                            ) : (
+                              <span className="text-[11px] text-zinc-400 font-normal">स्वयंचलित</span>
+                            )}
+                          </td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
 
           {/* SECTION: FAQ's (Matches Image 1 & 5) */}
           {activeSection === "faqs" && (

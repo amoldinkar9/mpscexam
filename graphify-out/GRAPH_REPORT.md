@@ -1,16 +1,16 @@
 # Graph Report - mpscexam  (2026-09-05)
 
 ## Corpus Check
-- 47 files · ~75,366 words
+- 47 files · ~77,046 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 262 nodes · 298 edges · 27 communities (17 shown, 7 thin omitted)
+- 265 nodes · 302 edges · 27 communities (17 shown, 7 thin omitted)
 - Extraction: 89% EXTRACTED · 11% INFERRED · 0% AMBIGUOUS · INFERRED: 33 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `9d7c9513`
+- Built from commit: `a33854e9`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -43,12 +43,12 @@
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 16 edges
 2. `scripts` - 9 edges
-3. `getScarcityData()` - 7 edges
-4. `include` - 7 edges
-5. `mpscexam Route Map` - 7 edges
-6. `getSiteContent()` - 6 edges
-7. `QUESTION Entity` - 6 edges
-8. `mpscexam System Architecture` - 6 edges
+3. `getSiteContent()` - 7 edges
+4. `getScarcityData()` - 7 edges
+5. `include` - 7 edges
+6. `mpscexam Route Map` - 7 edges
+7. `mpscexam System Architecture` - 6 edges
+8. `QUESTION Entity` - 6 edges
 9. `TestAttempt Entity` - 6 edges
 10. `Business Domain Services` - 5 edges
 
@@ -78,7 +78,7 @@
 
 ### Community 0 - "app/page.tsx"
 Cohesion: 0.08
-Nodes (22): dynamic, revalidate, AspirantPainPoints(), CutoffContrastData, FAQ(), Footer(), Header(), HeroSection() (+14 more)
+Nodes (23): dynamic, Home(), revalidate, AspirantPainPoints(), CutoffContrastData, FAQ(), Footer(), Header() (+15 more)
 
 ### Community 1 - "mpscexam Route Map"
 Cohesion: 0.07
@@ -93,8 +93,8 @@ Cohesion: 0.11
 Nodes (19): dom, dom.iterable, esnext, compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules (+11 more)
 
 ### Community 4 - "contentStore.ts"
-Cohesion: 0.38
-Nodes (8): GET(), POST(), Home(), getD1Database(), getDefaultSiteContent(), getSiteContent(), saveSiteContent(), SiteContent
+Cohesion: 0.30
+Nodes (9): GET(), POST(), ensureSections(), getD1Database(), getDefaultSiteContent(), getSiteContent(), saveSiteContent(), SectionConfig (+1 more)
 
 ### Community 5 - "dependencies"
 Cohesion: 0.08
@@ -145,21 +145,21 @@ Cohesion: 0.27
 Nodes (10): CATEGORY Entity, mpscexam Database Entity Map, QUESTION Entity, SUBJECT Entity, TEST_ATTEMPT Entity, TEST_QUESTION_MAPPING Entity, TEST_SERIES Entity, USER Entity (+2 more)
 
 ## Knowledge Gaps
-- **108 isolated node(s):** `dynamic`, `revalidate`, `CutoffContrastData`, `ActivityItem`, `SyllabusItem` (+103 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 125 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **109 isolated node(s):** `SiteContent`, `dynamic`, `revalidate`, `SectionConfig`, `SiteContent` (+104 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 127 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `scripts`?**
-  _High betweenness centrality (0.043) - this node is a cross-community bridge._
+  _High betweenness centrality (0.042) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `scripts`?**
-  _High betweenness centrality (0.038) - this node is a cross-community bridge._
-- **What connects `dynamic`, `revalidate`, `CutoffContrastData` to the rest of the system?**
-  _108 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.037) - this node is a cross-community bridge._
+- **What connects `SiteContent`, `dynamic`, `revalidate` to the rest of the system?**
+  _109 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `app/page.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.07948717948717948 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07682926829268293 - nodes in this community are weakly interconnected._
 - **Should `mpscexam Route Map` be split into smaller, more focused modules?**
   _Cohesion score 0.07017543859649122 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**

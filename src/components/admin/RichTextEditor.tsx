@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useRef, useState, useEffect, useCallback } from "react";
+import katex from "katex";
 import {
   Bold,
   Italic,
@@ -25,7 +26,11 @@ import {
   Eye,
   FileCode,
   Check,
-  X
+  X,
+  Sigma,
+  Sparkles,
+  Trash2,
+  HelpCircle
 } from "lucide-react";
 
 interface RichTextEditorProps {
@@ -54,6 +59,68 @@ const MATH_SYMBOLS = [
   "₹", "%", "✓", "★", "🏛", "✈️", "👉", "📌", "१.", "२.", "३.", "४."
 ];
 
+export const LATEX_PRESETS = [
+  {
+    category: "अपूर्णांक व घात (Fractions & Powers)",
+    items: [
+      { label: "a/b", latex: "\\frac{a}{b}", name: "अपूर्णांक (Fraction)" },
+      { label: "x²", latex: "x^2", name: "वर्ग (Square)" },
+      { label: "xⁿ", latex: "x^{n}", name: "घात (Exponent)" },
+      { label: "xᵢ", latex: "x_{i}", name: "पाद (Subscript)" },
+      { label: "x₁²", latex: "x_{1}^{2}", name: "पाद व घात" },
+      { label: "√x", latex: "\\sqrt{x}", name: "वर्गमूळ (Square Root)" },
+      { label: "∛x", latex: "\\sqrt[3]{x}", name: "घनमूळ (Cube Root)" },
+      { label: "d/dx", latex: "\\frac{d}{dx}", name: "अवकलन (Derivative)" },
+    ]
+  },
+  {
+    category: "चिन्हे व संबंध (Symbols & Operators)",
+    items: [
+      { label: "±", latex: "\\pm", name: "अधिक-उणे (Plus-Minus)" },
+      { label: "×", latex: "\\times", name: "गुणाकार" },
+      { label: "÷", latex: "\\div", name: "भागाकार" },
+      { label: "≠", latex: "\\neq", name: "समान नाही" },
+      { label: "≈", latex: "\\approx", name: "अंदाजे" },
+      { label: "≤", latex: "\\le", name: "कमी किंवा समान" },
+      { label: "≥", latex: "\\ge", name: "जास्त किंवा समान" },
+      { label: "∞", latex: "\\infty", name: "अनंत (Infinity)" },
+      { label: "%", latex: "\\%", name: "टक्केवारी" },
+      { label: "∑", latex: "\\sum_{i=1}^{n} x_i", name: "बेरीज (Summation)" },
+      { label: "∫", latex: "\\int_{a}^{b} f(x) dx", name: "समाकलन (Integral)" },
+    ]
+  },
+  {
+    category: "ग्रीक अक्षरे (Greek Letters)",
+    items: [
+      { label: "α", latex: "\\alpha", name: "Alpha" },
+      { label: "β", latex: "\\beta", name: "Beta" },
+      { label: "θ", latex: "\\theta", name: "Theta" },
+      { label: "π", latex: "\\pi", name: "Pi" },
+      { label: "Δ", latex: "\\Delta", name: "Delta" },
+      { label: "λ", latex: "\\lambda", name: "Lambda" },
+      { label: "σ", latex: "\\sigma", name: "Sigma" },
+      { label: "μ", latex: "\\mu", name: "Mu" },
+      { label: "ω", latex: "\\omega", name: "Omega" },
+      { label: "γ", latex: "\\gamma", name: "Gamma" },
+    ]
+  },
+  {
+    category: "MPSC परीक्षा सूत्रे (Exam Formulas)",
+    items: [
+      { label: "वर्गसमीकरण (Quadratic)", latex: "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}", name: "Quadratic Formula" },
+      { label: "पायथागोरस (Pythagoras)", latex: "a^2 + b^2 = c^2", name: "Pythagorean Theorem" },
+      { label: "वर्तुळ क्षेत्रफळ (Circle Area)", latex: "A = \\pi r^2", name: "Circle Area" },
+      { label: "त्रिकोण क्षेत्रफळ (Triangle)", latex: "A = \\frac{1}{2} b h", name: "Triangle Area" },
+      { label: "चक्रवाढ व्याज (CI)", latex: "A = P \\left(1 + \\frac{r}{100}\\right)^n", name: "Compound Interest" },
+      { label: "वेग व अंतर (Speed)", latex: "\\text{वेग} = \\frac{\\text{अंतर}}{\\text{वेळ}}", name: "Speed Formula" },
+      { label: "टक्केवारी नफा (Profit %)", latex: "\\text{नफा} \\% = \\frac{\\text{नफा}}{\\text{खरेदी किंमत}} \\times 100", name: "Profit Percentage" },
+      { label: "सरासरी (Average)", latex: "\\bar{x} = \\frac{x_1 + x_2 + \\dots + x_n}{n}", name: "Average Formula" },
+      { label: "पाणी रेणू (Water)", latex: "\\text{H}_2\\text{O}", name: "Water Formula" },
+      { label: "सल्फ्यूरिक आम्ल (Acid)", latex: "\\text{H}_2\\text{SO}_4", name: "Sulfuric Acid" },
+    ]
+  }
+];
+
 export function RichTextEditor({
   value,
   onChange,
@@ -76,6 +143,13 @@ export function RichTextEditor({
   const [selectedHighlightColor, setSelectedHighlightColor] = useState<string>("#b4a7d6");
   const [isHtmlView, setIsHtmlView] = useState(false);
   const [rawHtml, setRawHtml] = useState(value || "");
+
+  // LaTeX Math Equation Dialog states
+  const [showLatexDialog, setShowLatexDialog] = useState(false);
+  const [latexCode, setLatexCode] = useState("\\frac{a}{b}");
+  const [latexIsBlock, setLatexIsBlock] = useState(false);
+  const [editingLatexNode, setEditingLatexNode] = useState<HTMLElement | null>(null);
+  const [activePresetCategory, setActivePresetCategory] = useState<number>(0);
 
   // Sync value to editor content if external change
   useEffect(() => {
@@ -205,6 +279,98 @@ export function RichTextEditor({
     document.execCommand("formatBlock", false, "<p>");
     setActiveFormat("Normal");
     handleInput();
+  };
+
+  const handleOpenLatexDialog = () => {
+    saveCurrentSelection();
+    setEditingLatexNode(null);
+
+    const sel = window.getSelection();
+    const selectedText = sel ? sel.toString().trim() : "";
+    if (selectedText) {
+      setLatexCode(selectedText);
+    } else if (!latexCode) {
+      setLatexCode("\\frac{a}{b}");
+    }
+    setShowLatexDialog(true);
+  };
+
+  const handleApplyLatex = () => {
+    if (!latexCode.trim()) {
+      setShowLatexDialog(false);
+      return;
+    }
+
+    editorRef.current?.focus();
+    restoreSelection();
+
+    const cleanLatex = latexCode.trim();
+    let renderedHtml = "";
+    try {
+      renderedHtml = katex.renderToString(cleanLatex, {
+        throwOnError: false,
+        displayMode: latexIsBlock,
+      });
+    } catch {
+      renderedHtml = cleanLatex;
+    }
+
+    const encodedLatex = encodeURIComponent(cleanLatex);
+
+    if (editingLatexNode && editingLatexNode.parentElement) {
+      // Edit existing formula node in-place
+      editingLatexNode.setAttribute("data-latex", encodedLatex);
+      editingLatexNode.setAttribute("data-is-block", latexIsBlock ? "true" : "false");
+      editingLatexNode.setAttribute("title", `LaTeX: ${cleanLatex} (क्लिक करून बदला)`);
+      editingLatexNode.innerHTML = renderedHtml;
+      setEditingLatexNode(null);
+    } else {
+      // Insert new LaTeX node
+      const wrapperHtml = latexIsBlock
+        ? `<div class="katex-eq-block my-3 text-center select-none" data-latex="${encodedLatex}" data-is-block="true" contenteditable="false" style="padding: 10px 16px; background-color: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; cursor: pointer; display: block;" title="LaTeX: ${cleanLatex.replace(/"/g, '&quot;')} (क्लिक करून बदला)">${renderedHtml}</div><p><br></p>`
+        : `<span class="katex-eq-inline inline-block mx-1 select-none" data-latex="${encodedLatex}" data-is-block="false" contenteditable="false" style="padding: 2px 6px; background-color: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 4px; vertical-align: middle; cursor: pointer;" title="LaTeX: ${cleanLatex.replace(/"/g, '&quot;')} (क्लिक करून बदला)">${renderedHtml}</span>&nbsp;`;
+
+      document.execCommand("insertHTML", false, wrapperHtml);
+    }
+
+    setShowLatexDialog(false);
+    handleInput();
+  };
+
+  const handleDeleteLatex = () => {
+    if (editingLatexNode && editingLatexNode.parentElement) {
+      editingLatexNode.parentElement.removeChild(editingLatexNode);
+      setEditingLatexNode(null);
+      setShowLatexDialog(false);
+      handleInput();
+    }
+  };
+
+  const handleEditorClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const target = e.target as HTMLElement;
+    const latexWrapper = target.closest(".katex-eq-inline, .katex-eq-block") as HTMLElement | null;
+    if (latexWrapper) {
+      const rawEncoded = latexWrapper.getAttribute("data-latex");
+      const isBlockAttr = latexWrapper.getAttribute("data-is-block") === "true";
+      if (rawEncoded) {
+        try {
+          const decoded = decodeURIComponent(rawEncoded);
+          setLatexCode(decoded);
+          setLatexIsBlock(isBlockAttr);
+          setEditingLatexNode(latexWrapper);
+          setShowLatexDialog(true);
+        } catch {
+          // fallback
+        }
+      }
+    }
+  };
+
+  const insertSnippetIntoLatex = (snippet: string) => {
+    setLatexCode((prev) => {
+      if (!prev || prev.trim() === "\\frac{a}{b}") return snippet;
+      return `${prev} ${snippet}`;
+    });
   };
 
   // Close menus on click outside
@@ -649,6 +815,21 @@ export function RichTextEditor({
           )}
         </div>
 
+        {/* 17. LaTeX Equation Tool (√x TeX) */}
+        <button
+          type="button"
+          onClick={handleOpenLatexDialog}
+          className={`rte-trigger px-2 h-7 flex items-center gap-1.5 rounded transition-colors cursor-pointer border ${
+            showLatexDialog
+              ? "bg-black text-white border-black"
+              : "bg-amber-50 hover:bg-amber-100 active:bg-amber-200 border-amber-300 text-amber-950 shadow-2xs"
+          }`}
+          title="LaTeX Math Equation (गणितीय सूत्र व समीकरणे)"
+        >
+          <span className="font-serif font-bold text-xs italic tracking-tight">T<sub className="font-sans font-extrabold text-[8px] not-italic">E</sub>X</span>
+          <span className="text-[11px] font-bold">LaTeX</span>
+        </button>
+
         {/* View Mode Toggle: Visual vs Raw HTML */}
         <div className="ml-auto flex items-center gap-1 pl-2">
           <button
@@ -695,6 +876,10 @@ export function RichTextEditor({
             onBlur={handleInput}
             onKeyUp={saveCurrentSelection}
             onMouseUp={saveCurrentSelection}
+            onClick={(e) => {
+              saveCurrentSelection();
+              handleEditorClick(e);
+            }}
             className="outline-none min-h-[140px] focus:ring-0 [&_h1]:text-lg [&_h1]:font-extrabold [&_h1]:text-slate-900 [&_h1]:mb-2 [&_h2]:text-base [&_h2]:font-bold [&_h2]:text-slate-900 [&_h2]:mb-1.5 [&_h3]:text-sm [&_h3]:font-bold [&_h3]:text-slate-800 [&_h3]:mb-1 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-0.5 [&_blockquote]:border-l-3 [&_blockquote]:border-[#9B3A32] [&_blockquote]:pl-3 [&_blockquote]:italic [&_blockquote]:text-slate-600 [&_blockquote]:my-2 [&_p]:my-1 leading-relaxed"
             style={{ minHeight: "140px" }}
           />
@@ -742,11 +927,231 @@ export function RichTextEditor({
           >
             🏛 Ref
           </button>
+          <button
+            type="button"
+            onClick={handleOpenLatexDialog}
+            className="px-2 py-0.5 rounded bg-amber-50 border border-amber-300 hover:bg-amber-100 text-amber-900 cursor-pointer font-bold flex items-center gap-1 transition-colors"
+            title="LaTeX Math Formula (गणितीय सूत्र)"
+          >
+            <span className="font-serif italic font-bold text-xs">T<sub className="font-sans text-[8px] not-italic">E</sub>X</span>
+            <span>+ LaTeX सूत्र</span>
+          </button>
         </div>
         <span className="font-mono text-[10px] text-zinc-400">
           Rich HTML Engine
         </span>
       </div>
+
+      {/* LaTeX Math Formula Dialog Modal */}
+      {showLatexDialog && (
+        <div className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 flex items-center justify-center p-3 sm:p-4 animate-in fade-in duration-150">
+          <div className="bg-white rounded-xl shadow-2xl max-w-2xl w-full border border-zinc-200 overflow-hidden flex flex-col max-h-[90vh]">
+            
+            {/* Modal Header */}
+            <div className="px-5 py-3.5 bg-gradient-to-r from-amber-50 via-white to-zinc-50 border-b border-zinc-200 flex items-center justify-between">
+              <div className="flex items-center gap-2.5">
+                <div className="w-8 h-8 rounded-lg bg-amber-500 text-white flex items-center justify-center font-serif font-bold italic shadow-xs">
+                  <span>T<sub className="font-sans text-[9px] not-italic">E</sub>X</span>
+                </div>
+                <div>
+                  <h3 className="text-sm font-bold text-zinc-900 tracking-tight flex items-center gap-2">
+                    <span>{editingLatexNode ? "LaTeX सूत्र संपादित करा (Edit Formula)" : "LaTeX गणितीय सूत्र संपादक (LaTeX Formula Editor)"}</span>
+                  </h3>
+                  <p className="text-[11px] text-zinc-500">
+                    अपूर्णांक, वर्गमूळ, घातांक, समीकरणे व चिन्हे अचूक फॉरमॅटमध्ये लिहा.
+                  </p>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => setShowLatexDialog(false)}
+                className="w-7 h-7 rounded-lg text-zinc-400 hover:text-black hover:bg-zinc-100 flex items-center justify-center cursor-pointer transition-colors"
+                title="बंद करा (Close)"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            {/* Modal Scrollable Body */}
+            <div className="p-5 space-y-4 overflow-y-auto max-h-[calc(90vh-140px)]">
+              
+              {/* Display Mode Selector (Inline vs Block) */}
+              <div className="flex items-center gap-3 p-2.5 bg-zinc-50 border border-zinc-200 rounded-lg">
+                <span className="text-xs font-semibold text-zinc-700">समीकरण प्रकार (Type):</span>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setLatexIsBlock(false)}
+                    className={`px-3 py-1 text-xs font-bold rounded-md transition-all cursor-pointer ${
+                      !latexIsBlock
+                        ? "bg-black text-white shadow-xs"
+                        : "bg-white text-zinc-600 border border-zinc-300 hover:bg-zinc-100"
+                    }`}
+                  >
+                    इनलाईन (Inline $...$)
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setLatexIsBlock(true)}
+                    className={`px-3 py-1 text-xs font-bold rounded-md transition-all cursor-pointer ${
+                      latexIsBlock
+                        ? "bg-black text-white shadow-xs"
+                        : "bg-white text-zinc-600 border border-zinc-300 hover:bg-zinc-100"
+                    }`}
+                  >
+                    ब्लॉक / मध्यभागी (Block $$...$$)
+                  </button>
+                </div>
+                <span className="text-[11px] text-zinc-400 ml-auto hidden sm:inline">
+                  {!latexIsBlock ? "वाक्यातील मजकुरासोबत दिसेल" : "स्वतंत्र ओळीवर मध्यभागी दिसेल"}
+                </span>
+              </div>
+
+              {/* LaTeX Code Input Textarea */}
+              <div className="space-y-1.5">
+                <div className="flex items-center justify-between">
+                  <label className="text-xs font-bold text-zinc-800 flex items-center gap-1.5">
+                    <span>LaTeX कोड (LaTeX Code):</span>
+                  </label>
+                  <button
+                    type="button"
+                    onClick={() => setLatexCode("")}
+                    className="text-[11px] text-zinc-400 hover:text-red-600 cursor-pointer"
+                  >
+                    साफ करा (Clear)
+                  </button>
+                </div>
+                <textarea
+                  rows={3}
+                  value={latexCode}
+                  onChange={(e) => setLatexCode(e.target.value)}
+                  placeholder="उदा. \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} किंवा x^2 + y^2 = r^2"
+                  className="w-full px-3 py-2 bg-zinc-900 text-emerald-400 font-mono text-xs sm:text-sm rounded-lg border border-zinc-700 focus:border-amber-400 focus:outline-none resize-y leading-relaxed"
+                  autoFocus
+                />
+              </div>
+
+              {/* Real-time KaTeX Live Preview Box */}
+              <div className="space-y-1.5">
+                <span className="text-xs font-bold text-zinc-800 flex items-center gap-1">
+                  <Sparkles className="w-3.5 h-3.5 text-amber-500" />
+                  <span>थेट पूर्वावलोकन (Live KaTeX Preview):</span>
+                </span>
+                <div className="min-h-[70px] p-4 bg-white border border-zinc-300 rounded-lg flex items-center justify-center shadow-inner overflow-x-auto">
+                  {(() => {
+                    if (!latexCode || !latexCode.trim()) {
+                      return <span className="text-zinc-400 italic text-xs">समीकरणाचे पूर्वावलोकन येथे दिसेल...</span>;
+                    }
+                    try {
+                      const html = katex.renderToString(latexCode.trim(), {
+                        throwOnError: false,
+                        displayMode: latexIsBlock,
+                      });
+                      return (
+                        <div
+                          className="text-base sm:text-lg text-zinc-900"
+                          dangerouslySetInnerHTML={{ __html: html }}
+                        />
+                      );
+                    } catch (e: any) {
+                      return (
+                        <span className="text-red-600 font-mono text-xs">
+                          त्रुटी: {e.message || "अवैध LaTeX वाक्यरचना"}
+                        </span>
+                      );
+                    }
+                  })()}
+                </div>
+              </div>
+
+              {/* Quick Formula Presets & Templates */}
+              <div className="space-y-2 pt-1 border-t border-zinc-200">
+                <div className="flex items-center justify-between">
+                  <span className="text-xs font-bold text-zinc-800">वारंवार लागणारी सूत्रे व चिन्हे (Quick Presets):</span>
+                  <span className="text-[10px] text-zinc-400">क्लिक करून जोडा</span>
+                </div>
+
+                {/* Category Navigation Pills */}
+                <div className="flex flex-wrap items-center gap-1">
+                  {LATEX_PRESETS.map((cat, cIdx) => (
+                    <button
+                      key={cIdx}
+                      type="button"
+                      onClick={() => setActivePresetCategory(cIdx)}
+                      className={`px-2.5 py-1 text-[11px] font-semibold rounded-md transition-colors cursor-pointer ${
+                        activePresetCategory === cIdx
+                          ? "bg-amber-100 text-amber-900 border border-amber-300"
+                          : "bg-zinc-100 hover:bg-zinc-200 text-zinc-600"
+                      }`}
+                    >
+                      {cat.category.split(" ")[0]}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Preset Snippet Buttons */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 p-2 bg-zinc-50 border border-zinc-200 rounded-lg max-h-40 overflow-y-auto">
+                  {LATEX_PRESETS[activePresetCategory]?.items.map((item, pIdx) => (
+                    <button
+                      key={pIdx}
+                      type="button"
+                      onClick={() => insertSnippetIntoLatex(item.latex)}
+                      className="px-2 py-1.5 bg-white hover:bg-amber-50 border border-zinc-200 hover:border-amber-400 rounded-md text-left flex flex-col gap-0.5 transition-all cursor-pointer shadow-2xs group"
+                      title={`LaTeX: ${item.latex}`}
+                    >
+                      <span className="text-xs font-bold text-zinc-900 group-hover:text-amber-900 font-mono">
+                        {item.label}
+                      </span>
+                      <span className="text-[9px] text-zinc-400 group-hover:text-amber-700 truncate">
+                        {item.name}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+            </div>
+
+            {/* Modal Bottom Action Footer */}
+            <div className="px-5 py-3 bg-[#fafbfc] border-t border-zinc-200 flex items-center justify-between">
+              {editingLatexNode ? (
+                <button
+                  type="button"
+                  onClick={handleDeleteLatex}
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md border border-red-200 cursor-pointer transition-colors"
+                >
+                  <Trash2 className="w-3.5 h-3.5" />
+                  <span>काढून टाका (Delete)</span>
+                </button>
+              ) : (
+                <div className="text-[11px] text-zinc-400 flex items-center gap-1">
+                  <span>💡 सूत्र निवडल्यावर थेट एडिट करता येईल</span>
+                </div>
+              )}
+
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => setShowLatexDialog(false)}
+                  className="px-3.5 py-1.5 text-xs text-zinc-600 hover:bg-zinc-200 rounded-md font-medium cursor-pointer transition-colors"
+                >
+                  रद्द करा (Cancel)
+                </button>
+                <button
+                  type="button"
+                  onClick={handleApplyLatex}
+                  disabled={!latexCode.trim()}
+                  className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-black hover:bg-zinc-800 disabled:opacity-40 text-white text-xs font-bold rounded-md shadow-xs cursor-pointer transition-colors"
+                >
+                  <Check className="w-3.5 h-3.5" />
+                  <span>{editingLatexNode ? "बदल सेव्ह करा (Update)" : "सूत्र जोडा (Insert Formula)"}</span>
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      )}
 
     </div>
   );

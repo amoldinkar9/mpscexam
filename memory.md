@@ -368,3 +368,14 @@ flowchart TD
   - Consumes `content.sections` dynamically, skips disabled sections (`s.enabled !== false`), and renders remaining sections in the exact saved sequence.
   - Preserves persistent top sticky `Header` and floating `Footer`, `StickyMobileBar`, and `LiveActivityToast`.
 
+### LaTeX Math & Formula Engine in Rich Text Editor (`src/components/admin/RichTextEditor.tsx`)
+- **Integration:** Powered by `katex` for high-performance server/client math typesetting.
+- **Global Styles:** `katex/dist/katex.min.css` imported in `src/app/layout.tsx` for universal rendering across admin and public landing pages (`SampleProof.tsx`).
+- **Toolbar & Modal Controls:**
+  - Dedicated `TeX LaTeX` button in WYSIWYG toolbar and `+ LaTeX सूत्र` shortcut in editor footer.
+  - Mode selector: **Inline Formula** (`$...$`) for embedding within sentences vs **Display Block** (`$$...$$`) for centered standout equations.
+  - Real-time live KaTeX preview updating synchronously as the author types LaTeX.
+  - MPSC-tailored Quick Presets: fractions (`\frac{a}{b}`), powers/roots (`\sqrt{x}`, `x^2`, `x_i`), operators (`\pm`, `\times`, `\div`, `\neq`, `\le`, `\ge`, `\sum`, `\int`), Greek letters (`\alpha`, `\beta`, `\theta`, `\pi`, `\Delta`, `\sigma`), and exam formulas (Quadratic equation, Pythagoras theorem, Circle/Triangle area, Compound Interest, Speed/Distance, chemistry molecules).
+  - Two-way click-to-edit: clicking any rendered LaTeX formula inside the editor immediately re-opens the LaTeX dialog pre-populated with its formula code.
+
+

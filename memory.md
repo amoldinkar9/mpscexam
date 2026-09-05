@@ -375,7 +375,13 @@ flowchart TD
   - Dedicated `TeX LaTeX` button in WYSIWYG toolbar and `+ LaTeX सूत्र` shortcut in editor footer.
   - Mode selector: **Inline Formula** (`$...$`) for embedding within sentences vs **Display Block** (`$$...$$`) for centered standout equations.
   - Real-time live KaTeX preview updating synchronously as the author types LaTeX.
-  - MPSC-tailored Quick Presets: fractions (`\frac{a}{b}`), powers/roots (`\sqrt{x}`, `x^2`, `x_i`), operators (`\pm`, `\times`, `\div`, `\neq`, `\le`, `\ge`, `\sum`, `\int`), Greek letters (`\alpha`, `\beta`, `\theta`, `\pi`, `\Delta`, `\sigma`), and exam formulas (Quadratic equation, Pythagoras theorem, Circle/Triangle area, Compound Interest, Speed/Distance, chemistry molecules).
-  - Two-way click-to-edit: clicking any rendered LaTeX formula inside the editor immediately re-opens the LaTeX dialog pre-populated with its formula code.
+### Admin Authentication & Passcode Protection (`src/app/admin/page.tsx` & `/api/admin/content`)
+- **Passcode Protection:** The admin panel requires passcode authentication before any content or management controls are accessible.
+- **Configured Passcode:** Set to `3103@moL..**` via `ADMIN_PASSCODE` in `.env.local`, `wrangler.jsonc` vars for Cloudflare Workers, and server fallback.
+- **No Default Pre-fill:** The password input field begins empty (`""`) by default.
+- **Zero Hint Disclosure:** All hints disclosing default credentials have been completely removed from the UI and error messages.
+- **Server Verification:** Passwords are authenticated via `POST /api/admin/content` (`{ action: "verify", passcode }`) against `ADMIN_PASSCODE` environment variable.
+- **Session Continuity:** Authenticated sessions are held in browser `sessionStorage` (`admin_auth_passcode`) so active sessions persist during browser navigation and clear completely upon logout.
+
 
 

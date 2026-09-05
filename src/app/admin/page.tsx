@@ -97,8 +97,10 @@ export default function AdminPage() {
   const [activeSection, setActiveSection] = useState<string>("sections");
   
   // Auth state
-  const [passcode, setPasscode] = useState("admin123");
+  const [passcode, setPasscode] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loginError, setLoginError] = useState<string | null>(null);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [statusMessage, setStatusMessage] = useState<{ type: "success" | "error" | "info"; text: string } | null>(null);
   const [isSaving, setIsSaving] = useState(false);
 
@@ -157,9 +159,31 @@ export default function AdminPage() {
   const [dragOptionSource, setDragOptionSource] = useState<number | null>(null);
   const [dragOverOptionIndex, setDragOverOptionIndex] = useState<number | null>(null);
 
-  // Load content from API on mount
+  // Load content from API on mount and check existing session
   useEffect(() => {
-    async function loadContent() {
+    async function initAuthAndContent() {
+      if (typeof window !== "undefined") {
+        const savedPass = sessionStorage.getItem("admin_auth_passcode");
+        if (savedPass) {
+          try {
+            const authRes = await fetch("/api/admin/content", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify({ passcode: savedPass, action: "verify" }),
+            });
+            const authData = await authRes.json();
+            if (authData.success) {
+              setPasscode(savedPass);
+              setIsAuthenticated(true);
+            } else {
+              sessionStorage.removeItem("admin_auth_passcode");
+            }
+          } catch {
+            sessionStorage.removeItem("admin_auth_passcode");
+          }
+        }
+      }
+
       try {
         const res = await fetch("/api/admin/content");
         const data = await res.json();
@@ -170,8 +194,46 @@ export default function AdminPage() {
         console.error("Failed to load content:", err);
       }
     }
-    loadContent();
+    initAuthAndContent();
   }, []);
+
+  const handleLogin = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!passcode.trim()) {
+      setLoginError("कृपया पासवर्ड टाका (Please enter passcode)");
+      return;
+    }
+    setIsLoggingIn(true);
+    setLoginError(null);
+    try {
+      const res = await fetch("/api/admin/content", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ passcode: passcode.trim(), action: "verify" }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setIsAuthenticated(true);
+        if (typeof window !== "undefined") {
+          sessionStorage.setItem("admin_auth_passcode", passcode.trim());
+        }
+      } else {
+        setLoginError(data.error || "चुकीचा पासवर्ड! (Incorrect password)");
+      }
+    } catch {
+      setLoginError("सर्व्हरशी संपर्क होऊ शकला नाही. (Connection error)");
+    } finally {
+      setIsLoggingIn(false);
+    }
+  };
+
+  const handleLogout = () => {
+    setIsAuthenticated(false);
+    setPasscode("");
+    if (typeof window !== "undefined") {
+      sessionStorage.removeItem("admin_auth_passcode");
+    }
+  };
 
   // Save to backend API
   const handleSaveAll = async (overrideContent?: SiteContent) => {
@@ -564,49 +626,46 @@ export default function AdminPage() {
     }
   };
 
-  // Monochrome Passcode Login Screen
+  // Passcode Login Screen
   if (!isAuthenticated) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center p-4 selection:bg-white selection:text-black">
-        <div className="bg-white rounded-[6px] p-8 max-w-sm w-full border border-zinc-800 shadow-2xl space-y-6 text-center">
-          <div className="w-12 h-12 rounded-[4px] bg-black text-white flex items-center justify-center mx-auto shadow-sm">
+      <div className="min-h-screen bg-[#0f1117] flex items-center justify-center p-4 selection:bg-white selection:text-black">
+        <div className="bg-white rounded-xl p-8 max-w-sm w-full border border-zinc-200 shadow-2xl space-y-6 text-center">
+          <div className="w-12 h-12 rounded-lg bg-black text-white flex items-center justify-center mx-auto shadow-sm">
             <Lock className="w-6 h-6 stroke-[2]" />
           </div>
           <div className="space-y-1">
-            <h1 className="text-xl font-bold tracking-tight text-black">friday.mpscexam.in</h1>
-            <p className="text-xs text-zinc-500 font-medium">Enter passcode for Content Admin Panel.</p>
+            <h1 className="text-xl font-bold tracking-tight text-black">mpscexam Admin</h1>
+            <p className="text-xs text-zinc-500 font-medium">Enter passcode to access Admin Panel.</p>
           </div>
-          <form
-            onSubmit={(e) => {
-              e.preventDefault();
-              if (passcode === "admin123") {
-                setIsAuthenticated(true);
-              } else {
-                alert("Invalid passcode! (Default passcode: admin123)");
-              }
-            }}
-            className="space-y-4"
-          >
+
+          {loginError && (
+            <div className="p-3 bg-red-50 border border-red-200 rounded-lg text-xs text-red-600 font-medium text-left">
+              {loginError}
+            </div>
+          )}
+
+          <form onSubmit={handleLogin} className="space-y-4">
             <input
               type="password"
               value={passcode}
-              onChange={(e) => setPasscode(e.target.value)}
+              onChange={(e) => {
+                setPasscode(e.target.value);
+                setLoginError(null);
+              }}
               placeholder="••••••••"
-              className="w-full px-4 py-2 bg-zinc-50 border border-zinc-300 rounded-[4px] text-center text-base font-semibold tracking-widest text-black focus:bg-white focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
+              className="w-full px-4 py-2.5 bg-zinc-50 border border-zinc-300 rounded-lg text-center text-base font-semibold tracking-widest text-black focus:bg-white focus:border-black focus:ring-1 focus:ring-black outline-none transition-all"
               required
+              autoFocus
             />
             <button
               type="submit"
-              className="w-full py-2.5 bg-black hover:bg-zinc-800 text-white font-bold text-sm rounded-[4px] shadow-sm transition-all cursor-pointer"
+              disabled={isLoggingIn}
+              className="w-full py-2.5 bg-black hover:bg-zinc-800 disabled:opacity-50 text-white font-bold text-sm rounded-lg shadow-sm transition-all cursor-pointer"
             >
-              Login
+              {isLoggingIn ? "Verifying..." : "Login"}
             </button>
           </form>
-          <div className="pt-2 border-t border-zinc-100">
-            <p className="text-[13px] text-zinc-400 font-mono">
-              Default passcode: <span className="text-black font-semibold">admin123</span>
-            </p>
-          </div>
         </div>
       </div>
     );
@@ -702,7 +761,7 @@ export default function AdminPage() {
             <span>View Website</span>
           </a>
           <button
-            onClick={() => setIsAuthenticated(false)}
+            onClick={handleLogout}
             className="w-full flex items-center gap-2 px-3 py-2 text-zinc-600 hover:text-red-600 hover:bg-zinc-100 rounded-[4px] transition-colors cursor-pointer text-left"
           >
             <LogOut className="w-4 h-4" />

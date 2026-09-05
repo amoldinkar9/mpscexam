@@ -127,7 +127,7 @@
       "file_type": "code",
       "norm_label": "sitecontent",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L51"
+      "source_location": "L52"
     },
     {
       "id": "src_components_admin_richtexteditor_richtexteditorprops",
@@ -140,7 +140,7 @@
       "file_type": "code",
       "norm_label": "richtexteditorprops",
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L31"
+      "source_location": "L36"
     },
     {
       "id": "src_lib_contentstore_sectionconfig",
@@ -167,18 +167,6 @@
       "norm_label": "sitecontent",
       "source_file": "src/lib/contentStore.ts",
       "source_location": "L13"
-    },
-    {
-      "id": "src_app_page_home",
-      "label": "Home()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 0,
-      "community_name": "app/page.tsx",
-      "file_type": "code",
-      "norm_label": "home()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L19"
     },
     {
       "id": "src_components_aspirantpainpoints_aspirantpainpoints",
@@ -382,7 +370,7 @@
       "file_type": "code",
       "norm_label": "rootlayout()",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L66"
+      "source_location": "L67"
     },
     {
       "id": "src_components_howitworks_howitworks",
@@ -406,19 +394,19 @@
       "file_type": "code",
       "norm_label": "adminpage()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L95"
+      "source_location": "L109"
     },
     {
-      "id": "src_app_admin_page_adminpage_loadcontent",
-      "label": "loadContent()",
+      "id": "src_app_admin_page_adminpage_initauthandcontent",
+      "label": "initAuthAndContent()",
       "_callable": true,
       "_origin": "ast",
       "community": 22,
       "community_name": "admin/page.tsx",
       "file_type": "code",
-      "norm_label": "loadcontent()",
+      "norm_label": "initauthandcontent()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L162"
+      "source_location": "L179"
     },
     {
       "id": "src_app_admin_page_getinitialhtmlforquestion",
@@ -430,7 +418,7 @@
       "file_type": "code",
       "norm_label": "getinitialhtmlforquestion()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L57"
+      "source_location": "L58"
     },
     {
       "id": "src_app_admin_page_sidebarnavitem",
@@ -442,7 +430,7 @@
       "file_type": "code",
       "norm_label": "sidebarnavitem()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L3511"
+      "source_location": "L3647"
     },
     {
       "id": "src_components_admin_richtexteditor_richtexteditor",
@@ -454,7 +442,7 @@
       "file_type": "code",
       "norm_label": "richtexteditor()",
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L57"
+      "source_location": "L124"
     },
     {
       "id": "src_app_admin_layout_adminlayout",
@@ -490,7 +478,19 @@
       "file_type": "code",
       "norm_label": "get()",
       "source_file": "src/app/api/admin/content/route.ts",
-      "source_location": "L6"
+      "source_location": "L20"
+    },
+    {
+      "id": "src_app_api_admin_content_route_getadminpasscode",
+      "label": "getAdminPasscode()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "contentStore.ts",
+      "file_type": "code",
+      "norm_label": "getadminpasscode()",
+      "source_file": "src/app/api/admin/content/route.ts",
+      "source_location": "L4"
     },
     {
       "id": "src_app_api_admin_content_route_post",
@@ -502,7 +502,19 @@
       "file_type": "code",
       "norm_label": "post()",
       "source_file": "src/app/api/admin/content/route.ts",
-      "source_location": "L18"
+      "source_location": "L32"
+    },
+    {
+      "id": "src_app_page_home",
+      "label": "Home()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "contentStore.ts",
+      "file_type": "code",
+      "norm_label": "home()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L19"
     },
     {
       "id": "src_lib_contentstore_ensuresections",
@@ -827,7 +839,7 @@
       "file_type": "code",
       "norm_label": "googlesans",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L6"
+      "source_location": "L7"
     },
     {
       "id": "src_app_layout_metadata",
@@ -838,7 +850,7 @@
       "file_type": "code",
       "norm_label": "metadata",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L56"
+      "source_location": "L57"
     },
     {
       "id": "src_app_layout_samadevanagari",
@@ -849,7 +861,7 @@
       "file_type": "code",
       "norm_label": "samadevanagari",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L13"
+      "source_location": "L14"
     },
     {
       "id": "eslint_config",
@@ -974,7 +986,7 @@
       "file_type": "code",
       "norm_label": "devdependencies",
       "source_file": "package.json",
-      "source_location": "L29"
+      "source_location": "L30"
     },
     {
       "id": "package_devdependencies_cloudflare_vite_plugin",
@@ -985,7 +997,7 @@
       "file_type": "code",
       "norm_label": "@cloudflare/vite-plugin",
       "source_file": "package.json",
-      "source_location": "L30"
+      "source_location": "L31"
     },
     {
       "id": "package_devdependencies_eslint",
@@ -996,7 +1008,7 @@
       "file_type": "code",
       "norm_label": "eslint",
       "source_file": "package.json",
-      "source_location": "L37"
+      "source_location": "L39"
     },
     {
       "id": "package_devdependencies_eslint_config_next",
@@ -1007,7 +1019,7 @@
       "file_type": "code",
       "norm_label": "eslint-config-next",
       "source_file": "package.json",
-      "source_location": "L38"
+      "source_location": "L40"
     },
     {
       "id": "package_devdependencies_postcss",
@@ -1018,7 +1030,7 @@
       "file_type": "code",
       "norm_label": "postcss",
       "source_file": "package.json",
-      "source_location": "L39"
+      "source_location": "L41"
     },
     {
       "id": "package_devdependencies_tailwindcss",
@@ -1029,7 +1041,7 @@
       "file_type": "code",
       "norm_label": "tailwindcss",
       "source_file": "package.json",
-      "source_location": "L40"
+      "source_location": "L42"
     },
     {
       "id": "package_devdependencies_tailwindcss_postcss",
@@ -1040,7 +1052,18 @@
       "file_type": "code",
       "norm_label": "@tailwindcss/postcss",
       "source_file": "package.json",
-      "source_location": "L31"
+      "source_location": "L32"
+    },
+    {
+      "id": "package_devdependencies_types_katex",
+      "label": "@types/katex",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "devDependencies",
+      "file_type": "code",
+      "norm_label": "@types/katex",
+      "source_file": "package.json",
+      "source_location": "L33"
     },
     {
       "id": "package_devdependencies_types_node",
@@ -1051,7 +1074,7 @@
       "file_type": "code",
       "norm_label": "@types/node",
       "source_file": "package.json",
-      "source_location": "L32"
+      "source_location": "L34"
     },
     {
       "id": "package_devdependencies_types_react",
@@ -1062,7 +1085,7 @@
       "file_type": "code",
       "norm_label": "@types/react",
       "source_file": "package.json",
-      "source_location": "L33"
+      "source_location": "L35"
     },
     {
       "id": "package_devdependencies_types_react_dom",
@@ -1073,7 +1096,7 @@
       "file_type": "code",
       "norm_label": "@types/react-dom",
       "source_file": "package.json",
-      "source_location": "L34"
+      "source_location": "L36"
     },
     {
       "id": "package_devdependencies_typescript",
@@ -1084,7 +1107,7 @@
       "file_type": "code",
       "norm_label": "typescript",
       "source_file": "package.json",
-      "source_location": "L41"
+      "source_location": "L43"
     },
     {
       "id": "package_devdependencies_vite",
@@ -1095,7 +1118,7 @@
       "file_type": "code",
       "norm_label": "vite",
       "source_file": "package.json",
-      "source_location": "L42"
+      "source_location": "L44"
     },
     {
       "id": "package_devdependencies_vitejs_plugin_react",
@@ -1106,7 +1129,7 @@
       "file_type": "code",
       "norm_label": "@vitejs/plugin-react",
       "source_file": "package.json",
-      "source_location": "L35"
+      "source_location": "L37"
     },
     {
       "id": "package_devdependencies_vitejs_plugin_rsc",
@@ -1117,7 +1140,7 @@
       "file_type": "code",
       "norm_label": "@vitejs/plugin-rsc",
       "source_file": "package.json",
-      "source_location": "L36"
+      "source_location": "L38"
     },
     {
       "id": "package_devdependencies_wrangler",
@@ -1128,7 +1151,7 @@
       "file_type": "code",
       "norm_label": "wrangler",
       "source_file": "package.json",
-      "source_location": "L43"
+      "source_location": "L45"
     },
     {
       "id": "cloudflare_vite_plugin",
@@ -1139,7 +1162,7 @@
       "file_type": "concept",
       "norm_label": "@cloudflare/vite-plugin",
       "source_file": "package.json",
-      "source_location": "L30"
+      "source_location": "L31"
     },
     {
       "id": "eslint",
@@ -1150,7 +1173,7 @@
       "file_type": "concept",
       "norm_label": "eslint",
       "source_file": "package.json",
-      "source_location": "L37"
+      "source_location": "L39"
     },
     {
       "id": "eslint_config_next",
@@ -1161,7 +1184,7 @@
       "file_type": "concept",
       "norm_label": "eslint-config-next",
       "source_file": "package.json",
-      "source_location": "L38"
+      "source_location": "L40"
     },
     {
       "id": "postcss",
@@ -1172,7 +1195,7 @@
       "file_type": "concept",
       "norm_label": "postcss",
       "source_file": "package.json",
-      "source_location": "L39"
+      "source_location": "L41"
     },
     {
       "id": "tailwindcss",
@@ -1183,7 +1206,7 @@
       "file_type": "concept",
       "norm_label": "tailwindcss",
       "source_file": "package.json",
-      "source_location": "L40"
+      "source_location": "L42"
     },
     {
       "id": "tailwindcss_postcss",
@@ -1194,7 +1217,18 @@
       "file_type": "concept",
       "norm_label": "@tailwindcss/postcss",
       "source_file": "package.json",
-      "source_location": "L31"
+      "source_location": "L32"
+    },
+    {
+      "id": "types_katex",
+      "label": "@types/katex",
+      "_origin": "ast",
+      "community": 2,
+      "community_name": "devDependencies",
+      "file_type": "concept",
+      "norm_label": "@types/katex",
+      "source_file": "package.json",
+      "source_location": "L33"
     },
     {
       "id": "types_node",
@@ -1205,7 +1239,7 @@
       "file_type": "concept",
       "norm_label": "@types/node",
       "source_file": "package.json",
-      "source_location": "L32"
+      "source_location": "L34"
     },
     {
       "id": "types_react",
@@ -1216,7 +1250,7 @@
       "file_type": "concept",
       "norm_label": "@types/react",
       "source_file": "package.json",
-      "source_location": "L33"
+      "source_location": "L35"
     },
     {
       "id": "types_react_dom",
@@ -1227,7 +1261,7 @@
       "file_type": "concept",
       "norm_label": "@types/react-dom",
       "source_file": "package.json",
-      "source_location": "L34"
+      "source_location": "L36"
     },
     {
       "id": "typescript",
@@ -1238,7 +1272,7 @@
       "file_type": "concept",
       "norm_label": "typescript",
       "source_file": "package.json",
-      "source_location": "L41"
+      "source_location": "L43"
     },
     {
       "id": "vite",
@@ -1249,7 +1283,7 @@
       "file_type": "concept",
       "norm_label": "vite",
       "source_file": "package.json",
-      "source_location": "L42"
+      "source_location": "L44"
     },
     {
       "id": "vitejs_plugin_react",
@@ -1260,7 +1294,7 @@
       "file_type": "concept",
       "norm_label": "@vitejs/plugin-react",
       "source_file": "package.json",
-      "source_location": "L35"
+      "source_location": "L37"
     },
     {
       "id": "vitejs_plugin_rsc",
@@ -1271,7 +1305,7 @@
       "file_type": "concept",
       "norm_label": "@vitejs/plugin-rsc",
       "source_file": "package.json",
-      "source_location": "L36"
+      "source_location": "L38"
     },
     {
       "id": "wrangler",
@@ -1282,7 +1316,7 @@
       "file_type": "concept",
       "norm_label": "wrangler",
       "source_file": "package.json",
-      "source_location": "L43"
+      "source_location": "L45"
     },
     {
       "id": "src_components_howitworks",
@@ -1318,6 +1352,17 @@
       "source_location": "L1"
     },
     {
+      "id": "src_app_admin_page_nav_items",
+      "label": "NAV_ITEMS",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "admin/page.tsx",
+      "file_type": "code",
+      "norm_label": "nav_items",
+      "source_file": "src/app/admin/page.tsx",
+      "source_location": "L96"
+    },
+    {
       "id": "src_components_admin_richtexteditor",
       "label": "RichTextEditor.tsx",
       "_origin": "ast",
@@ -1337,7 +1382,18 @@
       "file_type": "code",
       "norm_label": "color_palette_rows",
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L39"
+      "source_location": "L44"
+    },
+    {
+      "id": "src_components_admin_richtexteditor_latex_presets",
+      "label": "LATEX_PRESETS",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "admin/page.tsx",
+      "file_type": "code",
+      "norm_label": "latex_presets",
+      "source_file": "src/components/admin/RichTextEditor.tsx",
+      "source_location": "L62"
     },
     {
       "id": "src_components_admin_richtexteditor_math_symbols",
@@ -1348,7 +1404,7 @@
       "file_type": "code",
       "norm_label": "math_symbols",
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L52"
+      "source_location": "L57"
     },
     {
       "id": "src_app_admin_layout",
@@ -1703,6 +1759,17 @@
       "source_location": "L15"
     },
     {
+      "id": "package_dependencies_katex",
+      "label": "katex",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "dependencies",
+      "file_type": "code",
+      "norm_label": "katex",
+      "source_file": "package.json",
+      "source_location": "L22"
+    },
+    {
       "id": "package_dependencies_lucide_react",
       "label": "lucide-react",
       "_origin": "ast",
@@ -1711,7 +1778,7 @@
       "file_type": "code",
       "norm_label": "lucide-react",
       "source_file": "package.json",
-      "source_location": "L22"
+      "source_location": "L23"
     },
     {
       "id": "package_dependencies_next",
@@ -1722,7 +1789,7 @@
       "file_type": "code",
       "norm_label": "next",
       "source_file": "package.json",
-      "source_location": "L23"
+      "source_location": "L24"
     },
     {
       "id": "package_dependencies_radix_ui_react_accordion",
@@ -1788,7 +1855,7 @@
       "file_type": "code",
       "norm_label": "react",
       "source_file": "package.json",
-      "source_location": "L24"
+      "source_location": "L25"
     },
     {
       "id": "package_dependencies_react_dom",
@@ -1799,7 +1866,7 @@
       "file_type": "code",
       "norm_label": "react-dom",
       "source_file": "package.json",
-      "source_location": "L25"
+      "source_location": "L26"
     },
     {
       "id": "package_dependencies_react_server_dom_webpack",
@@ -1810,7 +1877,7 @@
       "file_type": "code",
       "norm_label": "react-server-dom-webpack",
       "source_file": "package.json",
-      "source_location": "L26"
+      "source_location": "L27"
     },
     {
       "id": "package_dependencies_vinext",
@@ -1821,7 +1888,7 @@
       "file_type": "code",
       "norm_label": "vinext",
       "source_file": "package.json",
-      "source_location": "L27"
+      "source_location": "L28"
     },
     {
       "id": "package_dependencies_vinext_cloudflare",
@@ -1835,6 +1902,17 @@
       "source_location": "L21"
     },
     {
+      "id": "katex",
+      "label": "katex",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "dependencies",
+      "file_type": "concept",
+      "norm_label": "katex",
+      "source_file": "package.json",
+      "source_location": "L22"
+    },
+    {
       "id": "lucide_react",
       "label": "lucide-react",
       "_origin": "ast",
@@ -1843,7 +1921,7 @@
       "file_type": "concept",
       "norm_label": "lucide-react",
       "source_file": "package.json",
-      "source_location": "L22"
+      "source_location": "L23"
     },
     {
       "id": "next",
@@ -1854,7 +1932,7 @@
       "file_type": "concept",
       "norm_label": "next",
       "source_file": "package.json",
-      "source_location": "L23"
+      "source_location": "L24"
     },
     {
       "id": "radix_ui_react_accordion",
@@ -1920,7 +1998,7 @@
       "file_type": "concept",
       "norm_label": "react",
       "source_file": "package.json",
-      "source_location": "L24"
+      "source_location": "L25"
     },
     {
       "id": "react_dom",
@@ -1931,7 +2009,7 @@
       "file_type": "concept",
       "norm_label": "react-dom",
       "source_file": "package.json",
-      "source_location": "L25"
+      "source_location": "L26"
     },
     {
       "id": "react_server_dom_webpack",
@@ -1942,7 +2020,7 @@
       "file_type": "concept",
       "norm_label": "react-server-dom-webpack",
       "source_file": "package.json",
-      "source_location": "L26"
+      "source_location": "L27"
     },
     {
       "id": "vinext",
@@ -1953,7 +2031,7 @@
       "file_type": "concept",
       "norm_label": "vinext",
       "source_file": "package.json",
-      "source_location": "L27"
+      "source_location": "L28"
     },
     {
       "id": "vinext_cloudflare",
@@ -2228,7 +2306,7 @@
       "file_type": "code",
       "norm_label": "type",
       "source_file": "package.json",
-      "source_location": "L45"
+      "source_location": "L47"
     },
     {
       "id": "package_version",
@@ -2542,6 +2620,126 @@
       "source_url": null
     },
     {
+      "id": "database_map_category",
+      "label": "CATEGORY Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "category entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_question",
+      "label": "QUESTION Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "question entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_subject",
+      "label": "SUBJECT Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "subject entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_test_attempt",
+      "label": "TEST_ATTEMPT Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "test_attempt entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_test_question_mapping",
+      "label": "TEST_QUESTION_MAPPING Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "test_question_mapping entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_test_series",
+      "label": "TEST_SERIES Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "test_series entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_user",
+      "label": "USER Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "user entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_user_answer",
+      "label": "USER_ANSWER Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "user_answer entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
       "id": "dependency_graph_auth_middleware_rbac_guard",
       "label": "AuthMiddleware & RBAC Guard",
       "_origin": "semantic",
@@ -2602,51 +2800,6 @@
       "source_url": null
     },
     {
-      "id": "memory_authentication_flow",
-      "label": "Authentication Flow",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "authentication flow",
-      "source_file": "memory.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "memory_authservice",
-      "label": "AuthService",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "authservice",
-      "source_file": "memory.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "memory_user_entity",
-      "label": "User Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "user entity",
-      "source_file": "memory.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
       "id": "routes_admin_dashboard_page",
       "label": "AdminDashboardPage",
       "_origin": "semantic",
@@ -2692,8 +2845,8 @@
       "source_url": null
     },
     {
-      "id": "routes_route_protection_middleware_flow",
-      "label": "Route Protection & Middleware Flow",
+      "id": "routes_question_editor_page",
+      "label": "QuestionEditorPage",
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
@@ -2701,7 +2854,7 @@
       "community_name": "mpscexam Route Map",
       "contributor": null,
       "file_type": "concept",
-      "norm_label": "route protection & middleware flow",
+      "norm_label": "questioneditorpage",
       "source_file": "routes.md",
       "source_location": null,
       "source_url": null
@@ -2748,6 +2901,21 @@
       "file_type": "document",
       "norm_label": "mpscexam system architecture",
       "source_file": "architecture.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_entity_map",
+      "label": "mpscexam Database Entity Map",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "mpscexam database entity map",
+      "source_file": "database-map.md",
       "source_location": null,
       "source_url": null
     },
@@ -3067,156 +3235,6 @@
       "source_url": null
     },
     {
-      "id": "database_map_category",
-      "label": "CATEGORY Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "QUESTION Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "category entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_question",
-      "label": "QUESTION Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "QUESTION Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "question entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_subject",
-      "label": "SUBJECT Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "QUESTION Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "subject entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_test_attempt",
-      "label": "TEST_ATTEMPT Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "QUESTION Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "test_attempt entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_test_question_mapping",
-      "label": "TEST_QUESTION_MAPPING Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "QUESTION Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "test_question_mapping entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_test_series",
-      "label": "TEST_SERIES Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "QUESTION Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "test_series entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_user",
-      "label": "USER Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "QUESTION Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "user entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_user_answer",
-      "label": "USER_ANSWER Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "QUESTION Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "user_answer entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "routes_question_editor_page",
-      "label": "QuestionEditorPage",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "QUESTION Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "questioneditorpage",
-      "source_file": "routes.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_entity_map",
-      "label": "mpscexam Database Entity Map",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "QUESTION Entity",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "mpscexam database entity map",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
       "id": "memory_analyticsservice",
       "label": "AnalyticsService",
       "_origin": "semantic",
@@ -3227,6 +3245,36 @@
       "contributor": null,
       "file_type": "concept",
       "norm_label": "analyticsservice",
+      "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "memory_authentication_flow",
+      "label": "Authentication Flow",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 9,
+      "community_name": "TestAttempt Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "authentication flow",
+      "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "memory_authservice",
+      "label": "AuthService",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 9,
+      "community_name": "TestAttempt Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "authservice",
       "source_file": "memory.md",
       "source_location": null,
       "source_url": null
@@ -3322,6 +3370,21 @@
       "source_url": null
     },
     {
+      "id": "memory_user_entity",
+      "label": "User Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 9,
+      "community_name": "TestAttempt Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "user entity",
+      "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
       "id": "memory_useranswer_entity",
       "label": "UserAnswer Entity",
       "_origin": "semantic",
@@ -3333,6 +3396,21 @@
       "file_type": "concept",
       "norm_label": "useranswer entity",
       "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "routes_route_protection_middleware_flow",
+      "label": "Route Protection & Middleware Flow",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 9,
+      "community_name": "TestAttempt Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "route protection & middleware flow",
+      "source_file": "routes.md",
       "source_location": null,
       "source_url": null
     }
@@ -3347,7 +3425,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L2524",
+      "source_location": "L2660",
       "weight": 1.0
     },
     {
@@ -3359,7 +3437,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/api/admin/content/route.ts",
-      "source_location": "L8",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_api_admin_content_route_post",
+      "target": "src_app_api_admin_content_route_getadminpasscode",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/api/admin/content/route.ts",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -3371,7 +3461,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/api/admin/content/route.ts",
-      "source_location": "L32",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -3383,7 +3473,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/api/admin/content/route.ts",
-      "source_location": "L33",
+      "source_location": "L53",
       "weight": 1.0
     },
     {
@@ -3472,14 +3562,14 @@
     },
     {
       "source": "src_app_admin_page_adminpage",
-      "target": "src_app_admin_page_adminpage_loadcontent",
+      "target": "src_app_admin_page_adminpage_initauthandcontent",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L162",
+      "source_location": "L179",
       "weight": 1.0
     },
     {
@@ -3603,6 +3693,18 @@
       "weight": 1.0
     },
     {
+      "source": "package_dependencies_katex",
+      "target": "katex",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
       "source": "package_dependencies_lucide_react",
       "target": "lucide_react",
       "relation": "imports",
@@ -3611,7 +3713,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -3623,7 +3725,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -3695,7 +3797,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -3707,7 +3809,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -3719,7 +3821,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -3731,7 +3833,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -3755,7 +3857,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -3767,7 +3869,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L37",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -3779,7 +3881,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L38",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -3791,7 +3893,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L39",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -3803,7 +3905,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L40",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -3815,7 +3917,19 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "package_devdependencies_types_katex",
+      "target": "types_katex",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "package.json",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -3827,7 +3941,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -3839,7 +3953,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -3851,7 +3965,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -3863,7 +3977,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L41",
+      "source_location": "L43",
       "weight": 1.0
     },
     {
@@ -3875,7 +3989,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L42",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -3887,7 +4001,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -3899,7 +4013,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L36",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -3911,7 +4025,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L43",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -3923,7 +4037,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L49",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -4199,7 +4313,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L49",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -4476,17 +4590,6 @@
     },
     {
       "source": "package",
-      "target": "package_devdependencies",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "package.json",
-      "source_location": "L29",
-      "weight": 1.0
-    },
-    {
-      "source": "package",
       "target": "package_version",
       "relation": "contains",
       "_origin": "ast",
@@ -4494,6 +4597,17 @@
       "confidence_score": 1.0,
       "source_file": "package.json",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "package",
+      "target": "package_devdependencies",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L30",
       "weight": 1.0
     },
     {
@@ -4515,7 +4629,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L45",
+      "source_location": "L47",
       "weight": 1.0
     },
     {
@@ -4597,7 +4711,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_lucide_react",
+      "target": "package_dependencies_katex",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4608,7 +4722,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_next",
+      "target": "package_dependencies_lucide_react",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4619,7 +4733,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_react",
+      "target": "package_dependencies_next",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4630,7 +4744,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_react_dom",
+      "target": "package_dependencies_react",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4641,7 +4755,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_react_server_dom_webpack",
+      "target": "package_dependencies_react_dom",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4652,13 +4766,24 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_vinext",
+      "target": "package_dependencies_react_server_dom_webpack",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
       "source_location": "L27",
+      "weight": 1.0
+    },
+    {
+      "source": "package_dependencies",
+      "target": "package_dependencies_vinext",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -4669,7 +4794,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -4680,23 +4805,12 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L31",
-      "weight": 1.0
-    },
-    {
-      "source": "package_devdependencies",
-      "target": "package_devdependencies_types_node",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "package.json",
       "source_location": "L32",
       "weight": 1.0
     },
     {
       "source": "package_devdependencies",
-      "target": "package_devdependencies_types_react",
+      "target": "package_devdependencies_types_katex",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4707,7 +4821,7 @@
     },
     {
       "source": "package_devdependencies",
-      "target": "package_devdependencies_types_react_dom",
+      "target": "package_devdependencies_types_node",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4718,7 +4832,7 @@
     },
     {
       "source": "package_devdependencies",
-      "target": "package_devdependencies_vitejs_plugin_react",
+      "target": "package_devdependencies_types_react",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4729,7 +4843,7 @@
     },
     {
       "source": "package_devdependencies",
-      "target": "package_devdependencies_vitejs_plugin_rsc",
+      "target": "package_devdependencies_types_react_dom",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4740,7 +4854,7 @@
     },
     {
       "source": "package_devdependencies",
-      "target": "package_devdependencies_eslint",
+      "target": "package_devdependencies_vitejs_plugin_react",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4751,7 +4865,7 @@
     },
     {
       "source": "package_devdependencies",
-      "target": "package_devdependencies_eslint_config_next",
+      "target": "package_devdependencies_vitejs_plugin_rsc",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4762,7 +4876,7 @@
     },
     {
       "source": "package_devdependencies",
-      "target": "package_devdependencies_postcss",
+      "target": "package_devdependencies_eslint",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4773,7 +4887,7 @@
     },
     {
       "source": "package_devdependencies",
-      "target": "package_devdependencies_tailwindcss",
+      "target": "package_devdependencies_eslint_config_next",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4784,7 +4898,7 @@
     },
     {
       "source": "package_devdependencies",
-      "target": "package_devdependencies_typescript",
+      "target": "package_devdependencies_postcss",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4795,7 +4909,7 @@
     },
     {
       "source": "package_devdependencies",
-      "target": "package_devdependencies_vite",
+      "target": "package_devdependencies_tailwindcss",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -4806,13 +4920,35 @@
     },
     {
       "source": "package_devdependencies",
-      "target": "package_devdependencies_wrangler",
+      "target": "package_devdependencies_typescript",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
       "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_vite",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L44",
+      "weight": 1.0
+    },
+    {
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_wrangler",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -4982,13 +5118,24 @@
     },
     {
       "source": "src_app_admin_page",
+      "target": "src_app_admin_page_adminpage",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/admin/page.tsx",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_admin_page",
       "target": "src_app_admin_page_sidebarnavitem",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L3511",
+      "source_location": "L3647",
       "weight": 1.0
     },
     {
@@ -4999,7 +5146,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L51",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -5010,29 +5157,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L57",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
       "source": "src_app_admin_page",
-      "target": "src_app_admin_page_adminpage",
+      "target": "src_app_admin_page_nav_items",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L95",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_admin_content_route",
-      "target": "src_app_api_admin_content_route_post",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/api/admin/content/route.ts",
-      "source_location": "L18",
+      "source_location": "L96",
       "weight": 1.0
     },
     {
@@ -5043,7 +5179,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/api/admin/content/route.ts",
-      "source_location": "L6",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_api_admin_content_route",
+      "target": "src_app_api_admin_content_route_post",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/admin/content/route.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_api_admin_content_route",
+      "target": "src_app_api_admin_content_route_getadminpasscode",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/admin/content/route.ts",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -5054,7 +5212,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/layout.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -5065,18 +5223,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/layout.tsx",
-      "source_location": "L56",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_layout",
-      "target": "src_app_layout_googlesans",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/layout.tsx",
-      "source_location": "L6",
+      "source_location": "L57",
       "weight": 1.0
     },
     {
@@ -5087,7 +5234,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/layout.tsx",
-      "source_location": "L66",
+      "source_location": "L67",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_layout",
+      "target": "src_app_layout_googlesans",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/layout.tsx",
+      "source_location": "L7",
       "weight": 1.0
     },
     {
@@ -5125,13 +5283,24 @@
     },
     {
       "source": "src_components_admin_richtexteditor",
+      "target": "src_components_admin_richtexteditor_richtexteditor",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/components/admin/RichTextEditor.tsx",
+      "source_location": "L124",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_admin_richtexteditor",
       "target": "src_components_admin_richtexteditor_richtexteditorprops",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L31",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -5142,7 +5311,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L39",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -5153,18 +5322,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L52",
+      "source_location": "L57",
       "weight": 1.0
     },
     {
       "source": "src_components_admin_richtexteditor",
-      "target": "src_components_admin_richtexteditor_richtexteditor",
+      "target": "src_components_admin_richtexteditor_latex_presets",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L57",
+      "source_location": "L62",
       "weight": 1.0
     },
     {
@@ -5760,6 +5929,15 @@
       "source_file": "tsconfig.json",
       "source_location": "L9",
       "weight": 1.0
+    },
+    {
+      "source": "src_app_api_admin_content_route",
+      "target": "cloudflare_workers",
+      "relation": "dynamic_import",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/admin/content/route.ts"
     },
     {
       "source": "src_lib_contentstore",
@@ -6823,5 +7001,5 @@
       "source_file": "architecture.md"
     }
   ],
-  "built_at_commit": "a33854e921addb5949030488e63902027ba3361d"
+  "built_at_commit": "f1b4d0b6c9705c6c1e802c459caf6f3b8961df4e"
 }

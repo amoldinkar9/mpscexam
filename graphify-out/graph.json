@@ -91,6 +91,19 @@
       "source_location": "L4"
     },
     {
+      "id": "src_components_liveactivitytoast_activityitem",
+      "label": "ActivityItem",
+      "_callable": true,
+      "_callable_class": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "activityitem",
+      "source_file": "src/components/LiveActivityToast.tsx",
+      "source_location": "L7"
+    },
+    {
       "id": "src_components_syllabusweightage_syllabusitem",
       "label": "SyllabusItem",
       "_callable": true,
@@ -114,7 +127,7 @@
       "file_type": "code",
       "norm_label": "sitecontent",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L51"
+      "source_location": "L52"
     },
     {
       "id": "src_components_admin_richtexteditor_richtexteditorprops",
@@ -128,19 +141,6 @@
       "norm_label": "richtexteditorprops",
       "source_file": "src/components/admin/RichTextEditor.tsx",
       "source_location": "L36"
-    },
-    {
-      "id": "src_components_liveactivitytoast_activityitem",
-      "label": "ActivityItem",
-      "_callable": true,
-      "_callable_class": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "LiveActivityToast.tsx",
-      "file_type": "code",
-      "norm_label": "activityitem",
-      "source_file": "src/components/LiveActivityToast.tsx",
-      "source_location": "L7"
     },
     {
       "id": "src_lib_contentstore_sectionconfig",
@@ -251,6 +251,18 @@
       "norm_label": "howtopurchase()",
       "source_file": "src/components/HowToPurchase.tsx",
       "source_location": "L14"
+    },
+    {
+      "id": "src_components_liveactivitytoast_liveactivitytoast",
+      "label": "LiveActivityToast()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "liveactivitytoast()",
+      "source_file": "src/components/LiveActivityToast.tsx",
+      "source_location": "L17"
     },
     {
       "id": "src_components_pricing_pricing",
@@ -382,19 +394,19 @@
       "file_type": "code",
       "norm_label": "adminpage()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L95"
+      "source_location": "L109"
     },
     {
-      "id": "src_app_admin_page_adminpage_loadcontent",
-      "label": "loadContent()",
+      "id": "src_app_admin_page_adminpage_initauthandcontent",
+      "label": "initAuthAndContent()",
       "_callable": true,
       "_origin": "ast",
       "community": 22,
       "community_name": "admin/page.tsx",
       "file_type": "code",
-      "norm_label": "loadcontent()",
+      "norm_label": "initauthandcontent()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L162"
+      "source_location": "L179"
     },
     {
       "id": "src_app_admin_page_getinitialhtmlforquestion",
@@ -406,7 +418,7 @@
       "file_type": "code",
       "norm_label": "getinitialhtmlforquestion()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L57"
+      "source_location": "L58"
     },
     {
       "id": "src_app_admin_page_sidebarnavitem",
@@ -418,7 +430,7 @@
       "file_type": "code",
       "norm_label": "sidebarnavitem()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L3511"
+      "source_location": "L3766"
     },
     {
       "id": "src_components_admin_richtexteditor_richtexteditor",
@@ -457,18 +469,6 @@
       "source_location": "L4"
     },
     {
-      "id": "src_components_liveactivitytoast_liveactivitytoast",
-      "label": "LiveActivityToast()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "LiveActivityToast.tsx",
-      "file_type": "code",
-      "norm_label": "liveactivitytoast()",
-      "source_file": "src/components/LiveActivityToast.tsx",
-      "source_location": "L17"
-    },
-    {
       "id": "src_app_api_admin_content_route_get",
       "label": "GET()",
       "_callable": true,
@@ -478,7 +478,19 @@
       "file_type": "code",
       "norm_label": "get()",
       "source_file": "src/app/api/admin/content/route.ts",
-      "source_location": "L6"
+      "source_location": "L20"
+    },
+    {
+      "id": "src_app_api_admin_content_route_getadminpasscode",
+      "label": "getAdminPasscode()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "contentStore.ts",
+      "file_type": "code",
+      "norm_label": "getadminpasscode()",
+      "source_file": "src/app/api/admin/content/route.ts",
+      "source_location": "L4"
     },
     {
       "id": "src_app_api_admin_content_route_post",
@@ -490,7 +502,7 @@
       "file_type": "code",
       "norm_label": "post()",
       "source_file": "src/app/api/admin/content/route.ts",
-      "source_location": "L18"
+      "source_location": "L32"
     },
     {
       "id": "src_app_page_home",
@@ -687,6 +699,17 @@
       "source_location": "L7"
     },
     {
+      "id": "src_components_liveactivitytoast",
+      "label": "LiveActivityToast.tsx",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "liveactivitytoast.tsx",
+      "source_file": "src/components/LiveActivityToast.tsx",
+      "source_location": "L1"
+    },
+    {
       "id": "src_components_pricing",
       "label": "Pricing.tsx",
       "_origin": "ast",
@@ -750,6 +773,39 @@
       "file_type": "code",
       "norm_label": "urgencybanner.tsx",
       "source_file": "src/components/UrgencyBanner.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_data_studentslist",
+      "label": "studentsList.ts",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "studentslist.ts",
+      "source_file": "src/data/studentsList.ts",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_data_studentslist_maharashtra_districts",
+      "label": "MAHARASHTRA_DISTRICTS",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "maharashtra_districts",
+      "source_file": "src/data/studentsList.ts",
+      "source_location": "L167"
+    },
+    {
+      "id": "src_data_studentslist_student_names",
+      "label": "STUDENT_NAMES",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "app/page.tsx",
+      "file_type": "code",
+      "norm_label": "student_names",
+      "source_file": "src/data/studentsList.ts",
       "source_location": "L1"
     },
     {
@@ -1296,6 +1352,17 @@
       "source_location": "L1"
     },
     {
+      "id": "src_app_admin_page_nav_items",
+      "label": "NAV_ITEMS",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "admin/page.tsx",
+      "file_type": "code",
+      "norm_label": "nav_items",
+      "source_file": "src/app/admin/page.tsx",
+      "source_location": "L96"
+    },
+    {
       "id": "src_components_admin_richtexteditor",
       "label": "RichTextEditor.tsx",
       "_origin": "ast",
@@ -1437,50 +1504,6 @@
       "norm_label": "sqlfile",
       "source_file": "scripts/seed-d1.mjs",
       "source_location": "L13"
-    },
-    {
-      "id": "src_components_liveactivitytoast",
-      "label": "LiveActivityToast.tsx",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "LiveActivityToast.tsx",
-      "file_type": "code",
-      "norm_label": "liveactivitytoast.tsx",
-      "source_file": "src/components/LiveActivityToast.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_data_studentslist",
-      "label": "studentsList.ts",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "LiveActivityToast.tsx",
-      "file_type": "code",
-      "norm_label": "studentslist.ts",
-      "source_file": "src/data/studentsList.ts",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_data_studentslist_maharashtra_districts",
-      "label": "MAHARASHTRA_DISTRICTS",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "LiveActivityToast.tsx",
-      "file_type": "code",
-      "norm_label": "maharashtra_districts",
-      "source_file": "src/data/studentsList.ts",
-      "source_location": "L167"
-    },
-    {
-      "id": "src_data_studentslist_student_names",
-      "label": "STUDENT_NAMES",
-      "_origin": "ast",
-      "community": 27,
-      "community_name": "LiveActivityToast.tsx",
-      "file_type": "code",
-      "norm_label": "student_names",
-      "source_file": "src/data/studentsList.ts",
-      "source_location": "L1"
     },
     {
       "id": "tsconfig_compileroptions",
@@ -1690,6 +1713,17 @@
       "norm_label": "esnext",
       "source_file": "tsconfig.json",
       "source_location": "L4"
+    },
+    {
+      "id": "cloudflare_workers",
+      "label": "cloudflare:workers",
+      "_origin": "ast",
+      "community": 4,
+      "community_name": "contentStore.ts",
+      "confidence": "EXTRACTED",
+      "file_type": "code",
+      "norm_label": "cloudflare:workers",
+      "source_file": "cloudflare:workers"
     },
     {
       "id": "src_app_api_admin_content_route",
@@ -2421,6 +2455,21 @@
       "source_url": null
     },
     {
+      "id": "architecture_application_api_layer",
+      "label": "Application & API Layer",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "application & api layer",
+      "source_file": "architecture.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
       "id": "architecture_bilingual_content_subsystem",
       "label": "Bilingual Content Subsystem",
       "_origin": "semantic",
@@ -2466,6 +2515,21 @@
       "source_url": null
     },
     {
+      "id": "architecture_edge_presentation_layer",
+      "label": "Edge & Presentation Layer",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "edge & presentation layer",
+      "source_file": "architecture.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
       "id": "architecture_exam_engine_grading_subsystem",
       "label": "Exam Engine & Grading Subsystem",
       "_origin": "semantic",
@@ -2476,6 +2540,36 @@
       "contributor": null,
       "file_type": "concept",
       "norm_label": "exam engine & grading subsystem",
+      "source_file": "architecture.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "architecture_persistence_data_layer",
+      "label": "Persistence & Data Layer",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "persistence & data layer",
+      "source_file": "architecture.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "architecture_postgresql",
+      "label": "PostgreSQL Relational Database",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "postgresql relational database",
       "source_file": "architecture.md",
       "source_location": null,
       "source_url": null
@@ -2661,8 +2755,8 @@
       "source_url": null
     },
     {
-      "id": "memory_authentication_flow",
-      "label": "Authentication Flow",
+      "id": "dependency_graph_data_access_layer",
+      "label": "Data Access Layer / ORM (Prisma)",
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
@@ -2670,14 +2764,14 @@
       "community_name": "mpscexam Route Map",
       "contributor": null,
       "file_type": "concept",
-      "norm_label": "authentication flow",
-      "source_file": "memory.md",
+      "norm_label": "data access layer / orm (prisma)",
+      "source_file": "dependency-graph.md",
       "source_location": null,
       "source_url": null
     },
     {
-      "id": "memory_authservice",
-      "label": "AuthService",
+      "id": "dependency_graph_exam_runner_container",
+      "label": "ExamRunnerContainer (Client State)",
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
@@ -2685,14 +2779,14 @@
       "community_name": "mpscexam Route Map",
       "contributor": null,
       "file_type": "concept",
-      "norm_label": "authservice",
-      "source_file": "memory.md",
+      "norm_label": "examrunnercontainer (client state)",
+      "source_file": "dependency-graph.md",
       "source_location": null,
       "source_url": null
     },
     {
-      "id": "memory_user_entity",
-      "label": "User Entity",
+      "id": "dependency_graph_structural_layer_dependencies",
+      "label": "Structural Layer Dependencies",
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
@@ -2700,8 +2794,8 @@
       "community_name": "mpscexam Route Map",
       "contributor": null,
       "file_type": "concept",
-      "norm_label": "user entity",
-      "source_file": "memory.md",
+      "norm_label": "structural layer dependencies",
+      "source_file": "dependency-graph.md",
       "source_location": null,
       "source_url": null
     },
@@ -2766,21 +2860,6 @@
       "source_url": null
     },
     {
-      "id": "routes_route_protection_middleware_flow",
-      "label": "Route Protection & Middleware Flow",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "route protection & middleware flow",
-      "source_file": "routes.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
       "id": "routes_test_result_page",
       "label": "TestResultPage",
       "_origin": "semantic",
@@ -2807,6 +2886,21 @@
       "file_type": "document",
       "norm_label": "mpscexam api inventory",
       "source_file": "api-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "architecture_system_architecture",
+      "label": "mpscexam System Architecture",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "mpscexam system architecture",
+      "source_file": "architecture.md",
       "source_location": null,
       "source_url": null
     },
@@ -3141,126 +3235,6 @@
       "source_url": null
     },
     {
-      "id": "architecture_application_api_layer",
-      "label": "Application & API Layer",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "mpscexam System Architecture",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "application & api layer",
-      "source_file": "architecture.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "architecture_edge_presentation_layer",
-      "label": "Edge & Presentation Layer",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "mpscexam System Architecture",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "edge & presentation layer",
-      "source_file": "architecture.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "architecture_persistence_data_layer",
-      "label": "Persistence & Data Layer",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "mpscexam System Architecture",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "persistence & data layer",
-      "source_file": "architecture.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "architecture_postgresql",
-      "label": "PostgreSQL Relational Database",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "mpscexam System Architecture",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "postgresql relational database",
-      "source_file": "architecture.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "dependency_graph_data_access_layer",
-      "label": "Data Access Layer / ORM (Prisma)",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "mpscexam System Architecture",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "data access layer / orm (prisma)",
-      "source_file": "dependency-graph.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "dependency_graph_exam_runner_container",
-      "label": "ExamRunnerContainer (Client State)",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "mpscexam System Architecture",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "examrunnercontainer (client state)",
-      "source_file": "dependency-graph.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "dependency_graph_structural_layer_dependencies",
-      "label": "Structural Layer Dependencies",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "mpscexam System Architecture",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "structural layer dependencies",
-      "source_file": "dependency-graph.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "architecture_system_architecture",
-      "label": "mpscexam System Architecture",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 26,
-      "community_name": "mpscexam System Architecture",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "mpscexam system architecture",
-      "source_file": "architecture.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
       "id": "memory_analyticsservice",
       "label": "AnalyticsService",
       "_origin": "semantic",
@@ -3271,6 +3245,36 @@
       "contributor": null,
       "file_type": "concept",
       "norm_label": "analyticsservice",
+      "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "memory_authentication_flow",
+      "label": "Authentication Flow",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 9,
+      "community_name": "TestAttempt Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "authentication flow",
+      "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "memory_authservice",
+      "label": "AuthService",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 9,
+      "community_name": "TestAttempt Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "authservice",
       "source_file": "memory.md",
       "source_location": null,
       "source_url": null
@@ -3366,6 +3370,21 @@
       "source_url": null
     },
     {
+      "id": "memory_user_entity",
+      "label": "User Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 9,
+      "community_name": "TestAttempt Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "user entity",
+      "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
       "id": "memory_useranswer_entity",
       "label": "UserAnswer Entity",
       "_origin": "semantic",
@@ -3377,6 +3396,21 @@
       "file_type": "concept",
       "norm_label": "useranswer entity",
       "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "routes_route_protection_middleware_flow",
+      "label": "Route Protection & Middleware Flow",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 9,
+      "community_name": "TestAttempt Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "route protection & middleware flow",
+      "source_file": "routes.md",
       "source_location": null,
       "source_url": null
     }
@@ -3391,7 +3425,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L2524",
+      "source_location": "L2660",
       "weight": 1.0
     },
     {
@@ -3403,7 +3437,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/api/admin/content/route.ts",
-      "source_location": "L8",
+      "source_location": "L22",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_api_admin_content_route_post",
+      "target": "src_app_api_admin_content_route_getadminpasscode",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/app/api/admin/content/route.ts",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -3415,7 +3461,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/api/admin/content/route.ts",
-      "source_location": "L32",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -3427,7 +3473,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/api/admin/content/route.ts",
-      "source_location": "L33",
+      "source_location": "L53",
       "weight": 1.0
     },
     {
@@ -3516,14 +3562,14 @@
     },
     {
       "source": "src_app_admin_page_adminpage",
-      "target": "src_app_admin_page_adminpage_loadcontent",
+      "target": "src_app_admin_page_adminpage_initauthandcontent",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L162",
+      "source_location": "L179",
       "weight": 1.0
     },
     {
@@ -3991,7 +4037,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L49",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -4267,7 +4313,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L49",
+      "source_location": "L50",
       "weight": 1.0
     },
     {
@@ -5072,13 +5118,24 @@
     },
     {
       "source": "src_app_admin_page",
+      "target": "src_app_admin_page_adminpage",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/admin/page.tsx",
+      "source_location": "L109",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_admin_page",
       "target": "src_app_admin_page_sidebarnavitem",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L3511",
+      "source_location": "L3766",
       "weight": 1.0
     },
     {
@@ -5089,7 +5146,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L51",
+      "source_location": "L52",
       "weight": 1.0
     },
     {
@@ -5100,29 +5157,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L57",
+      "source_location": "L58",
       "weight": 1.0
     },
     {
       "source": "src_app_admin_page",
-      "target": "src_app_admin_page_adminpage",
+      "target": "src_app_admin_page_nav_items",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L95",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_api_admin_content_route",
-      "target": "src_app_api_admin_content_route_post",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/api/admin/content/route.ts",
-      "source_location": "L18",
+      "source_location": "L96",
       "weight": 1.0
     },
     {
@@ -5133,7 +5179,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/api/admin/content/route.ts",
-      "source_location": "L6",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_api_admin_content_route",
+      "target": "src_app_api_admin_content_route_post",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/admin/content/route.ts",
+      "source_location": "L32",
+      "weight": 1.0
+    },
+    {
+      "source": "src_app_api_admin_content_route",
+      "target": "src_app_api_admin_content_route_getadminpasscode",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/admin/content/route.ts",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -5861,6 +5929,24 @@
       "source_file": "tsconfig.json",
       "source_location": "L9",
       "weight": 1.0
+    },
+    {
+      "source": "src_app_api_admin_content_route",
+      "target": "cloudflare_workers",
+      "relation": "dynamic_import",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/app/api/admin/content/route.ts"
+    },
+    {
+      "source": "src_lib_contentstore",
+      "target": "cloudflare_workers",
+      "relation": "dynamic_import",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/contentStore.ts"
     },
     {
       "source": "_agents_rules_mpscexam_core_rules",
@@ -6915,5 +7001,5 @@
       "source_file": "architecture.md"
     }
   ],
-  "built_at_commit": "a7f99d244c8ff6b80e95acb9bad986903dec1440"
+  "built_at_commit": "f1b4d0b6c9705c6c1e802c459caf6f3b8961df4e"
 }

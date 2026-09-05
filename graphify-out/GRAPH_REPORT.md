@@ -1,16 +1,16 @@
 # Graph Report - mpscexam  (2026-09-05)
 
 ## Corpus Check
-- 47 files · ~78,999 words
+- 47 files · ~80,334 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 269 nodes · 306 edges · 28 communities (18 shown, 7 thin omitted)
+- 272 nodes · 311 edges · 26 communities (16 shown, 7 thin omitted)
 - Extraction: 89% EXTRACTED · 11% INFERRED · 0% AMBIGUOUS · INFERRED: 33 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a7f99d24`
+- Built from commit: `f1b4d0b6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -38,18 +38,16 @@
 - admin/layout.tsx
 - middleware.ts
 - seed-d1.mjs
-- mpscexam System Architecture
-- LiveActivityToast.tsx
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 16 edges
 2. `scripts` - 9 edges
-3. `getScarcityData()` - 7 edges
-4. `getSiteContent()` - 7 edges
+3. `getSiteContent()` - 7 edges
+4. `getScarcityData()` - 7 edges
 5. `include` - 7 edges
 6. `mpscexam Route Map` - 7 edges
-7. `mpscexam System Architecture` - 6 edges
-8. `QUESTION Entity` - 6 edges
+7. `QUESTION Entity` - 6 edges
+8. `mpscexam System Architecture` - 6 edges
 9. `TestAttempt Entity` - 6 edges
 10. `Business Domain Services` - 5 edges
 
@@ -75,15 +73,15 @@
 - **Exam Test Runner Component Hierarchy** — memory_examcontainer, memory_questionpalette, memory_questioncard, memory_examcontrols [EXTRACTED 1.00]
 - **Exam Endpoint Protection** — dependency_graph_auth_middleware_rbac_guard, architecture_rbac, routes_route_protection_middleware_flow, architecture_answer_shielding [INFERRED 0.75]
 
-## Communities (28 total, 7 thin omitted)
+## Communities (26 total, 7 thin omitted)
 
 ### Community 0 - "app/page.tsx"
-Cohesion: 0.09
-Nodes (18): dynamic, revalidate, AspirantPainPoints(), CutoffContrastData, FAQ(), Footer(), Header(), HeroSection() (+10 more)
+Cohesion: 0.08
+Nodes (22): dynamic, revalidate, AspirantPainPoints(), CutoffContrastData, FAQ(), Footer(), Header(), HeroSection() (+14 more)
 
 ### Community 1 - "mpscexam Route Map"
-Cohesion: 0.07
-Nodes (41): Graphify Knowledge Graph, Graphify Workflow, mpscexam API Inventory, Authentication Endpoints, POST /api/tests/:id/start, POST /api/tests/:id/submit, Question Bank & PYQ Endpoints, Test Series & Exam Runner Endpoints (+33 more)
+Cohesion: 0.06
+Nodes (45): Graphify Knowledge Graph, Graphify Workflow, mpscexam API Inventory, Authentication Endpoints, POST /api/tests/:id/start, POST /api/tests/:id/submit, Question Bank & PYQ Endpoints, Test Series & Exam Runner Endpoints (+37 more)
 
 ### Community 2 - "devDependencies"
 Cohesion: 0.06
@@ -94,8 +92,8 @@ Cohesion: 0.11
 Nodes (19): dom, dom.iterable, esnext, compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules (+11 more)
 
 ### Community 4 - "contentStore.ts"
-Cohesion: 0.30
-Nodes (10): GET(), POST(), Home(), ensureSections(), getD1Database(), getDefaultSiteContent(), getSiteContent(), saveSiteContent() (+2 more)
+Cohesion: 0.26
+Nodes (11): GET(), getAdminPasscode(), POST(), Home(), ensureSections(), getD1Database(), getDefaultSiteContent(), getSiteContent() (+3 more)
 
 ### Community 5 - "dependencies"
 Cohesion: 0.07
@@ -110,8 +108,8 @@ Cohesion: 0.14
 Nodes (13): name, private, scripts, build, build:vinext, deploy:vinext, dev, dev:vinext (+5 more)
 
 ### Community 9 - "TestAttempt Entity"
-Cohesion: 0.32
-Nodes (8): AnalyticsService, Question Entity, QuestionBankService, Test Attempt & Grading Flow, TestAttempt Entity, TestEngineService, TestSeries Entity, UserAnswer Entity
+Cohesion: 0.20
+Nodes (12): AnalyticsService, Authentication Flow, AuthService, Question Entity, QuestionBankService, Test Attempt & Grading Flow, TestAttempt Entity, TestEngineService (+4 more)
 
 ### Community 10 - "Next.js Agent Rules Notice"
 Cohesion: 0.40
@@ -134,39 +132,31 @@ Cohesion: 0.50
 Nodes (3): MPSC Exam Aspirants & Active Students Roster, Roster Index, Verified Student Roster
 
 ### Community 22 - "admin/page.tsx"
-Cohesion: 0.20
-Nodes (8): AdminPage(), getInitialHtmlForQuestion(), SiteContent, COLOR_PALETTE_ROWS, LATEX_PRESETS, MATH_SYMBOLS, RichTextEditor(), RichTextEditorProps
+Cohesion: 0.18
+Nodes (9): AdminPage(), getInitialHtmlForQuestion(), NAV_ITEMS, SiteContent, COLOR_PALETTE_ROWS, LATEX_PRESETS, MATH_SYMBOLS, RichTextEditor() (+1 more)
 
 ### Community 25 - "seed-d1.mjs"
 Cohesion: 0.40
 Nodes (4): content, escaped, jsonPath, sqlFile
 
-### Community 26 - "mpscexam System Architecture"
-Cohesion: 0.32
-Nodes (8): Application & API Layer, Edge & Presentation Layer, Persistence & Data Layer, PostgreSQL Relational Database, mpscexam System Architecture, Data Access Layer / ORM (Prisma), ExamRunnerContainer (Client State), Structural Layer Dependencies
-
-### Community 27 - "LiveActivityToast.tsx"
-Cohesion: 0.47
-Nodes (4): ActivityItem, LiveActivityToast(), MAHARASHTRA_DISTRICTS, STUDENT_NAMES
-
 ## Knowledge Gaps
-- **112 isolated node(s):** `name`, `version`, `private`, `dev`, `build` (+107 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 129 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **113 isolated node(s):** `eslintConfig`, `nextConfig`, `name`, `version`, `private` (+108 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 130 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `scripts`?**
-  _High betweenness centrality (0.046) - this node is a cross-community bridge._
+  _High betweenness centrality (0.045) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `scripts`?**
   _High betweenness centrality (0.041) - this node is a cross-community bridge._
-- **What connects `name`, `version`, `private` to the rest of the system?**
-  _112 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **What connects `eslintConfig`, `nextConfig`, `name` to the rest of the system?**
+  _113 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `app/page.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.0944741532976827 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07948717948717948 - nodes in this community are weakly interconnected._
 - **Should `mpscexam Route Map` be split into smaller, more focused modules?**
-  _Cohesion score 0.06707317073170732 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06363636363636363 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected._
 - **Should `compilerOptions` be split into smaller, more focused modules?**

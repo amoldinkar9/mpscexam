@@ -1,16 +1,16 @@
 # Graph Report - mpscexam  (2026-09-05)
 
 ## Corpus Check
-- 47 files · ~77,046 words
+- 47 files · ~79,828 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 265 nodes · 302 edges · 27 communities (17 shown, 7 thin omitted)
+- 272 nodes · 311 edges · 26 communities (16 shown, 7 thin omitted)
 - Extraction: 89% EXTRACTED · 11% INFERRED · 0% AMBIGUOUS · INFERRED: 33 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a33854e9`
+- Built from commit: `f1b4d0b6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -38,7 +38,6 @@
 - admin/layout.tsx
 - middleware.ts
 - seed-d1.mjs
-- QUESTION Entity
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 16 edges
@@ -47,8 +46,8 @@
 4. `getScarcityData()` - 7 edges
 5. `include` - 7 edges
 6. `mpscexam Route Map` - 7 edges
-7. `mpscexam System Architecture` - 6 edges
-8. `QUESTION Entity` - 6 edges
+7. `QUESTION Entity` - 6 edges
+8. `mpscexam System Architecture` - 6 edges
 9. `TestAttempt Entity` - 6 edges
 10. `Business Domain Services` - 5 edges
 
@@ -61,8 +60,8 @@
   README.md → memory.md
 - `Graphify Knowledge Graph` --conceptually_related_to--> `mpscexam File Dependency Graph`  [INFERRED]
   .agents/rules/graphify.md → dependency-graph.md
-- `QuestionBankService` --shares_data_with--> `QUESTION Entity`  [INFERRED]
-  architecture.md → database-map.md
+- `QuestionEditorPage` --conceptually_related_to--> `QUESTION Entity`  [INFERRED]
+  routes.md → database-map.md
 
 ## Import Cycles
 - None detected.
@@ -74,31 +73,31 @@
 - **Exam Test Runner Component Hierarchy** — memory_examcontainer, memory_questionpalette, memory_questioncard, memory_examcontrols [EXTRACTED 1.00]
 - **Exam Endpoint Protection** — dependency_graph_auth_middleware_rbac_guard, architecture_rbac, routes_route_protection_middleware_flow, architecture_answer_shielding [INFERRED 0.75]
 
-## Communities (27 total, 7 thin omitted)
+## Communities (26 total, 7 thin omitted)
 
 ### Community 0 - "app/page.tsx"
 Cohesion: 0.08
-Nodes (23): dynamic, Home(), revalidate, AspirantPainPoints(), CutoffContrastData, FAQ(), Footer(), Header() (+15 more)
+Nodes (22): dynamic, revalidate, AspirantPainPoints(), CutoffContrastData, FAQ(), Footer(), Header(), HeroSection() (+14 more)
 
 ### Community 1 - "mpscexam Route Map"
-Cohesion: 0.07
-Nodes (39): Graphify Knowledge Graph, Graphify Workflow, mpscexam API Inventory, Authentication Endpoints, POST /api/tests/:id/start, POST /api/tests/:id/submit, Question Bank & PYQ Endpoints, Test Series & Exam Runner Endpoints (+31 more)
+Cohesion: 0.06
+Nodes (45): Graphify Knowledge Graph, Graphify Workflow, mpscexam API Inventory, Authentication Endpoints, POST /api/tests/:id/start, POST /api/tests/:id/submit, Question Bank & PYQ Endpoints, Test Series & Exam Runner Endpoints (+37 more)
 
 ### Community 2 - "devDependencies"
-Cohesion: 0.07
-Nodes (29): @cloudflare/vite-plugin, eslint, eslint-config-next, devDependencies, @cloudflare/vite-plugin, eslint, eslint-config-next, postcss (+21 more)
+Cohesion: 0.06
+Nodes (31): @cloudflare/vite-plugin, eslint, eslint-config-next, devDependencies, @cloudflare/vite-plugin, eslint, eslint-config-next, postcss (+23 more)
 
 ### Community 3 - "compilerOptions"
 Cohesion: 0.11
 Nodes (19): dom, dom.iterable, esnext, compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules (+11 more)
 
 ### Community 4 - "contentStore.ts"
-Cohesion: 0.30
-Nodes (9): GET(), POST(), ensureSections(), getD1Database(), getDefaultSiteContent(), getSiteContent(), saveSiteContent(), SectionConfig (+1 more)
+Cohesion: 0.26
+Nodes (11): GET(), getAdminPasscode(), POST(), Home(), ensureSections(), getD1Database(), getDefaultSiteContent(), getSiteContent() (+3 more)
 
 ### Community 5 - "dependencies"
-Cohesion: 0.08
-Nodes (25): lucide-react, next, dependencies, lucide-react, next, @radix-ui/react-accordion, @radix-ui/react-dialog, @radix-ui/react-switch (+17 more)
+Cohesion: 0.07
+Nodes (27): katex, lucide-react, next, dependencies, katex, lucide-react, next, @radix-ui/react-accordion (+19 more)
 
 ### Community 6 - "include"
 Cohesion: 0.20
@@ -109,8 +108,8 @@ Cohesion: 0.14
 Nodes (13): name, private, scripts, build, build:vinext, deploy:vinext, dev, dev:vinext (+5 more)
 
 ### Community 9 - "TestAttempt Entity"
-Cohesion: 0.32
-Nodes (8): AnalyticsService, Question Entity, QuestionBankService, Test Attempt & Grading Flow, TestAttempt Entity, TestEngineService, TestSeries Entity, UserAnswer Entity
+Cohesion: 0.20
+Nodes (12): AnalyticsService, Authentication Flow, AuthService, Question Entity, QuestionBankService, Test Attempt & Grading Flow, TestAttempt Entity, TestEngineService (+4 more)
 
 ### Community 10 - "Next.js Agent Rules Notice"
 Cohesion: 0.40
@@ -133,36 +132,32 @@ Cohesion: 0.50
 Nodes (3): MPSC Exam Aspirants & Active Students Roster, Roster Index, Verified Student Roster
 
 ### Community 22 - "admin/page.tsx"
-Cohesion: 0.22
-Nodes (7): AdminPage(), getInitialHtmlForQuestion(), SiteContent, COLOR_PALETTE_ROWS, MATH_SYMBOLS, RichTextEditor(), RichTextEditorProps
+Cohesion: 0.18
+Nodes (9): AdminPage(), getInitialHtmlForQuestion(), NAV_ITEMS, SiteContent, COLOR_PALETTE_ROWS, LATEX_PRESETS, MATH_SYMBOLS, RichTextEditor() (+1 more)
 
 ### Community 25 - "seed-d1.mjs"
 Cohesion: 0.40
 Nodes (4): content, escaped, jsonPath, sqlFile
 
-### Community 26 - "QUESTION Entity"
-Cohesion: 0.27
-Nodes (10): CATEGORY Entity, mpscexam Database Entity Map, QUESTION Entity, SUBJECT Entity, TEST_ATTEMPT Entity, TEST_QUESTION_MAPPING Entity, TEST_SERIES Entity, USER Entity (+2 more)
-
 ## Knowledge Gaps
-- **109 isolated node(s):** `SiteContent`, `dynamic`, `revalidate`, `SectionConfig`, `SiteContent` (+104 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 127 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **113 isolated node(s):** `eslintConfig`, `nextConfig`, `name`, `version`, `private` (+108 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 130 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `devDependencies` connect `devDependencies` to `scripts`?**
-  _High betweenness centrality (0.042) - this node is a cross-community bridge._
+  _High betweenness centrality (0.045) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `scripts`?**
-  _High betweenness centrality (0.037) - this node is a cross-community bridge._
-- **What connects `SiteContent`, `dynamic`, `revalidate` to the rest of the system?**
-  _109 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _High betweenness centrality (0.041) - this node is a cross-community bridge._
+- **What connects `eslintConfig`, `nextConfig`, `name` to the rest of the system?**
+  _113 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `app/page.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.07682926829268293 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07948717948717948 - nodes in this community are weakly interconnected._
 - **Should `mpscexam Route Map` be split into smaller, more focused modules?**
-  _Cohesion score 0.07017543859649122 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06363636363636363 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
-  _Cohesion score 0.06896551724137931 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected._
 - **Should `compilerOptions` be split into smaller, more focused modules?**
   _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._

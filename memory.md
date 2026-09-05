@@ -383,5 +383,30 @@ flowchart TD
 - **Server Verification:** Passwords are authenticated via `POST /api/admin/content` (`{ action: "verify", passcode }`) against `ADMIN_PASSCODE` environment variable.
 - **Session Continuity:** Authenticated sessions are held in browser `sessionStorage` (`admin_auth_passcode`) so active sessions persist during browser navigation and clear completely upon logout.
 
+### Mobile-Friendly Responsive Admin Panel (`src/app/admin/page.tsx`)
+- **Responsive Navigation Architecture:**
+  - Desktop Sidebar: Remains a 240px (`w-60`) fixed/sticky sidebar on medium+ viewports (`hidden md:flex`).
+  - Mobile Sticky Top Bar (`header.md:hidden`): Displays hamburger menu button (`Menu`), brand identity (`mpscexam`), current active section indicator, Reset button, and prominent Save button (`Save`).
+  - Mobile Slide-Over Drawer: Tap-to-open drawer overlay (`fixed inset-0 z-50 md:hidden`) with backdrop blur, brand header, close button (`X`), navigation item links (`SidebarNavItem`), website preview link (`ExternalLink`), and logout button (`LogOut`).
+  - Automatic Drawer Dismiss: Selecting any section navigation link automatically selects that tab and smoothly dismisses the drawer.
+- **Horizontal Scrollable Tables (`overflow-x-auto`):**
+  - All admin management tables (`Sections Order`, `FAQs`, `Testimonials`, `How to Buy`, `Pain Points`) are housed in `overflow-x-auto shadow-xs` wrappers with `min-w-[620px]` / `min-w-[640px]` tables.
+  - Ensures drag handles, order indices, move up/down arrows, toggle switches, text content, and edit/delete action buttons remain fully proportioned and accessible without horizontal clipping on small screens.
+- **Touch Targets & Dialog Responsiveness:**
+  - Container padding adjusts smoothly from `p-3.5` on mobile to `sm:p-6 lg:p-8` on desktops.
+  - Dialog modal containers use responsive widths `w-[calc(100%-2rem)] max-w-lg p-4 sm:p-6` to guarantee comfortable 16px safety margins on mobile viewports.
+
+### Dynamic Pricing CTA Checklist Inclusions (`src/app/admin/page.tsx` & `src/components/Pricing.tsx`)
+- **Dynamic Inclusions List:**
+  - Full CRUD & Reordering: Replaced static array iteration with fully dynamic management in the Pricing tab.
+  - Add New Inclusion (`+ Add Inclusion`): Instantly appends a new item to `content.finalCta.checklist`.
+  - Reorder Controls (`ChevronUp` / `ChevronDown`): Single-click Move Up / Move Down buttons with auto-disabled boundaries for first and last items.
+  - Delete Button (`Trash2`): Direct item deletion with red hover feedback.
+  - Order Badges: Clean `#1`, `#2`, ... index indicators for clarity.
+  - Zero-Item Empty State: Fallback prompt with "+ Add First Inclusion" when list is empty.
+  - Defensive Public Rendering: `src/components/Pricing.tsx` gracefully renders `(cta.checklist || [])` with green checkmarks (`CheckCircle2`).
+
+
+
 
 

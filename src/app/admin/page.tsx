@@ -43,7 +43,8 @@ import {
   BookOpen,
   ChevronDown,
   ChevronUp,
-  Layers
+  Layers,
+  Menu
 } from "lucide-react";
 import defaultSiteData from "@/data/siteContent.json";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
@@ -92,9 +93,23 @@ function getInitialHtmlForQuestion(item: any): string {
   return "";
 }
 
+const NAV_ITEMS = [
+  { id: "sections", label: "Sections Order", icon: Layers },
+  { id: "hero", label: "Hero", icon: ImageIcon },
+  { id: "testimonials", label: "Testimonials", icon: MessageSquare },
+  { id: "syllabus", label: "Syllabus", icon: BookOpen },
+  { id: "purchase", label: "How to Buy", icon: ShoppingCart },
+  { id: "painPoints", label: "Pain Points", icon: AlertTriangle },
+  { id: "cutoff", label: "Cutoff Gap", icon: Scale },
+  { id: "sampleProof", label: "Questions", icon: FileText },
+  { id: "faqs", label: "FAQs", icon: HelpCircle },
+  { id: "finalCta", label: "Pricing", icon: Tag },
+];
+
 export default function AdminPage() {
   const [content, setContent] = useState<SiteContent>(defaultSiteData);
   const [activeSection, setActiveSection] = useState<string>("sections");
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
   // Auth state
   const [passcode, setPasscode] = useState("");
@@ -674,8 +689,8 @@ export default function AdminPage() {
   return (
     <div className="min-h-screen bg-[#fafafa] flex text-black font-sans antialiased">
       
-      {/* 1. LEFT SIDEBAR (Matching uploaded screenshots) */}
-      <aside className="w-60 bg-white border-r border-zinc-200 flex flex-col justify-between shrink-0 min-h-screen sticky top-0">
+      {/* 1. LEFT SIDEBAR (Desktop) */}
+      <aside className="hidden md:flex md:w-60 bg-white border-r border-zinc-200 flex-col justify-between shrink-0 min-h-screen sticky top-0">
         <div className="p-5 space-y-6">
           
           {/* Brand header */}
@@ -686,66 +701,15 @@ export default function AdminPage() {
 
           {/* Navigation Links */}
           <nav className="space-y-1">
-            <SidebarNavItem
-              active={activeSection === "sections"}
-              onClick={() => setActiveSection("sections")}
-              icon={Layers}
-              label="Sections Order"
-            />
-            <SidebarNavItem
-              active={activeSection === "hero"}
-              onClick={() => setActiveSection("hero")}
-              icon={ImageIcon}
-              label="Hero"
-            />
-            <SidebarNavItem
-              active={activeSection === "testimonials"}
-              onClick={() => setActiveSection("testimonials")}
-              icon={MessageSquare}
-              label="Testimonials"
-            />
-            <SidebarNavItem
-              active={activeSection === "syllabus"}
-              onClick={() => setActiveSection("syllabus")}
-              icon={BookOpen}
-              label="Syllabus"
-            />
-            <SidebarNavItem
-              active={activeSection === "purchase"}
-              onClick={() => setActiveSection("purchase")}
-              icon={ShoppingCart}
-              label="How to Buy"
-            />
-            <SidebarNavItem
-              active={activeSection === "painPoints"}
-              onClick={() => setActiveSection("painPoints")}
-              icon={AlertTriangle}
-              label="Pain Points"
-            />
-            <SidebarNavItem
-              active={activeSection === "cutoff"}
-              onClick={() => setActiveSection("cutoff")}
-              icon={Scale}
-              label="Cutoff Gap"
-            />
-            <SidebarNavItem
-              active={activeSection === "sampleProof"}
-              onClick={() => setActiveSection("sampleProof")}
-              icon={FileText}
-              label="Questions"
-            />
-            <SidebarNavItem
-              active={activeSection === "faqs"}
-              onClick={() => setActiveSection("faqs")}
-              icon={HelpCircle}
-              label="FAQs"
-            />
-            <SidebarNavItem
-              active={activeSection === "finalCta"}
-              onClick={() => setActiveSection("finalCta")}
-              icon={Tag}
-              label="Pricing"
-            />
+            {NAV_ITEMS.map((item) => (
+              <SidebarNavItem
+                key={item.id}
+                active={activeSection === item.id}
+                onClick={() => setActiveSection(item.id)}
+                icon={item.icon}
+                label={item.label}
+              />
+            ))}
           </nav>
         </div>
 
@@ -770,11 +734,124 @@ export default function AdminPage() {
         </div>
       </aside>
 
+      {/* 1b. MOBILE NAVIGATION DRAWER */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-50 md:hidden flex">
+          {/* Backdrop overlay */}
+          <div
+            className="fixed inset-0 bg-black/60 backdrop-blur-xs transition-opacity"
+            onClick={() => setIsMobileMenuOpen(false)}
+            aria-hidden="true"
+          />
+
+          {/* Slide-in Drawer Container */}
+          <div className="relative w-72 max-w-[85vw] bg-white h-full flex flex-col justify-between shadow-2xl z-10 animate-in slide-in-from-left duration-200">
+            <div className="p-5 space-y-6 overflow-y-auto">
+              {/* Brand Header with Close Button */}
+              <div className="flex items-center justify-between border-b border-zinc-100 pb-4">
+                <div>
+                  <h1 className="text-base font-bold text-black tracking-tight">mpscexam</h1>
+                  <p className="text-xs text-zinc-400 font-normal">Admin Dashboard</p>
+                </div>
+                <button
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-1.5 rounded-[4px] text-zinc-500 hover:text-black hover:bg-zinc-100 transition-colors cursor-pointer"
+                  aria-label="Close menu"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </div>
+
+              {/* Navigation Items */}
+              <nav className="space-y-1">
+                {NAV_ITEMS.map((item) => (
+                  <SidebarNavItem
+                    key={item.id}
+                    active={activeSection === item.id}
+                    onClick={() => {
+                      setActiveSection(item.id);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    icon={item.icon}
+                    label={item.label}
+                  />
+                ))}
+              </nav>
+            </div>
+
+            {/* Drawer Footer */}
+            <div className="p-4 border-t border-zinc-200 space-y-1 text-xs bg-zinc-50/50">
+              <a
+                href="/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 px-3 py-2 text-zinc-600 hover:text-black hover:bg-zinc-100 rounded-[4px] transition-colors"
+              >
+                <ExternalLink className="w-4 h-4" />
+                <span>View Website</span>
+              </a>
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  handleLogout();
+                }}
+                className="w-full flex items-center gap-2 px-3 py-2 text-zinc-600 hover:text-red-600 hover:bg-zinc-100 rounded-[4px] transition-colors cursor-pointer text-left"
+              >
+                <LogOut className="w-4 h-4" />
+                <span>Logout</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* 2. MAIN CONTENT AREA */}
       <main className="flex-1 flex flex-col min-w-0 bg-[#fafafa]">
         
-        {/* Top Control Bar */}
-        <div className="bg-white border-b border-zinc-200 px-8 py-3 flex items-center justify-between">
+        {/* Mobile Sticky Top Header Bar */}
+        <header className="md:hidden sticky top-0 z-30 bg-white border-b border-zinc-200 px-3.5 py-2.5 flex items-center justify-between gap-2 shadow-xs">
+          <div className="flex items-center gap-2 min-w-0">
+            <button
+              onClick={() => setIsMobileMenuOpen(true)}
+              className="p-1.5 -ml-1 rounded-[4px] text-zinc-700 hover:text-black hover:bg-zinc-100 transition-colors cursor-pointer shrink-0"
+              aria-label="Open menu"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+            <div className="min-w-0">
+              <div className="flex items-center gap-1.5 truncate">
+                <span className="font-bold text-xs text-black">mpscexam</span>
+                <span className="text-zinc-300">/</span>
+                <span className="capitalize text-zinc-600 font-medium text-xs truncate">
+                  {NAV_ITEMS.find((n) => n.id === activeSection)?.label || activeSection}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-1.5 shrink-0">
+            <button
+              onClick={handleReset}
+              disabled={isSaving}
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold text-zinc-600 bg-white hover:bg-zinc-100 rounded-[4px] border border-zinc-300 transition-colors cursor-pointer"
+              title="Reset changes"
+            >
+              <RotateCcw className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">Reset</span>
+            </button>
+            <button
+              onClick={() => handleSaveAll()}
+              disabled={isSaving}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-white bg-black hover:bg-zinc-800 rounded-[4px] shadow-xs transition-all cursor-pointer"
+            >
+              {isSaving ? <RefreshCw className="w-3.5 h-3.5 animate-spin" /> : <Save className="w-3.5 h-3.5" />}
+              <span>{isSaving ? "Saving..." : "Save"}</span>
+            </button>
+          </div>
+        </header>
+
+        {/* Desktop Top Control Bar */}
+        <div className="bg-white border-b border-zinc-200 px-8 py-3 hidden md:flex items-center justify-between">
           <div className="flex items-center gap-2 text-xs text-zinc-500">
             <span className="font-semibold text-black">friday.mpscexam.in</span>
             <span>/</span>
@@ -803,7 +880,7 @@ export default function AdminPage() {
 
         {/* Status Toast Banner */}
         {statusMessage && (
-          <div className="px-8 pt-4">
+          <div className="px-3.5 sm:px-6 lg:px-8 pt-4">
             <div
               className={`p-3 rounded-[4px] flex items-center justify-between border text-xs font-semibold ${
                 statusMessage.type === "success"
@@ -832,7 +909,7 @@ export default function AdminPage() {
         )}
 
         {/* Section View Container */}
-        <div className="p-8 space-y-6 max-w-6xl w-full">
+        <div className="p-3.5 sm:p-6 lg:p-8 space-y-6 max-w-6xl w-full min-w-0">
 
           {/* SECTION: SECTIONS DRAG & VISIBILITY MANAGER */}
           {activeSection === "sections" && (
@@ -928,8 +1005,8 @@ export default function AdminPage() {
               </div>
 
               {/* Sections Table */}
-              <div className="border border-zinc-200 rounded-[4px] bg-white overflow-hidden shadow-xs">
-                <table className="w-full text-left text-xs border-collapse">
+              <div className="border border-zinc-200 rounded-[4px] bg-white overflow-x-auto shadow-xs">
+                <table className="w-full min-w-[640px] text-left text-xs border-collapse">
                   <thead className="bg-zinc-50 text-zinc-700 font-semibold border-b border-zinc-200">
                     <tr>
                       <th className="p-3 w-12 text-center" title="Drag to reorder">ड्रॅग</th>
@@ -1135,8 +1212,8 @@ export default function AdminPage() {
               </div>
 
               {/* Table */}
-              <div className="border border-zinc-200 rounded-[4px] bg-white overflow-hidden shadow-xs">
-                <table className="w-full text-left text-xs border-collapse">
+              <div className="border border-zinc-200 rounded-[4px] bg-white overflow-x-auto shadow-xs">
+                <table className="w-full min-w-[620px] text-left text-xs border-collapse">
                   <thead className="bg-zinc-50 text-zinc-700 font-semibold border-b border-zinc-200">
                     <tr>
                       <th className="p-3 w-12 text-center">Drag</th>
@@ -1253,8 +1330,8 @@ export default function AdminPage() {
               </div>
 
               {/* Table */}
-              <div className="border border-zinc-200 rounded-[4px] bg-white overflow-hidden shadow-xs">
-                <table className="w-full text-left text-xs border-collapse">
+              <div className="border border-zinc-200 rounded-[4px] bg-white overflow-x-auto shadow-xs">
+                <table className="w-full min-w-[640px] text-left text-xs border-collapse">
                   <thead className="bg-zinc-50 text-zinc-700 font-semibold border-b border-zinc-200">
                     <tr>
                       <th className="p-3 w-12 text-center">Drag</th>
@@ -1372,8 +1449,8 @@ export default function AdminPage() {
                 </button>
               </div>
 
-              <div className="border border-zinc-200 rounded-[4px] bg-white overflow-hidden shadow-xs">
-                <table className="w-full text-left text-xs border-collapse">
+              <div className="border border-zinc-200 rounded-[4px] bg-white overflow-x-auto shadow-xs">
+                <table className="w-full min-w-[640px] text-left text-xs border-collapse">
                   <thead className="bg-zinc-50 text-zinc-700 font-semibold border-b border-zinc-200">
                     <tr>
                       <th className="p-3 w-12 text-center">Drag</th>
@@ -1503,8 +1580,8 @@ export default function AdminPage() {
                 </button>
               </div>
 
-              <div className="border border-zinc-200 rounded-[4px] bg-white overflow-hidden shadow-xs">
-                <table className="w-full text-left text-xs border-collapse">
+              <div className="border border-zinc-200 rounded-[4px] bg-white overflow-x-auto shadow-xs">
+                <table className="w-full min-w-[620px] text-left text-xs border-collapse">
                   <thead className="bg-zinc-50 text-zinc-700 font-semibold border-b border-zinc-200">
                     <tr>
                       <th className="p-3 w-12 text-center">Drag</th>
@@ -3038,26 +3115,145 @@ export default function AdminPage() {
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <label className="block text-xs font-semibold text-zinc-700">Checklist Inclusions</label>
-                  {content.finalCta.checklist.map((chk, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      <span className="text-zinc-400 text-xs font-bold">{idx + 1}.</span>
-                      <input
-                        type="text"
-                        value={chk}
-                        onChange={(e) => {
-                          const updated = [...content.finalCta.checklist];
-                          updated[idx] = e.target.value;
+                <div className="space-y-3 pt-2 border-t border-zinc-200">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                      <label className="block text-xs font-bold text-zinc-900">
+                        Checklist Inclusions (काय समाविष्ट आहे?)
+                      </label>
+                      <p className="text-[11px] text-zinc-500">
+                        किमतीच्या कार्डमधील वैशिष्ट्ये, नोट्स किंवा टेस्ट्सची यादी (Checklist points).
+                      </p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const currentList = content.finalCta?.checklist || [];
+                        const updated = [...currentList, ""];
+                        setContent({
+                          ...content,
+                          finalCta: { ...content.finalCta, checklist: updated },
+                        });
+                      }}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black hover:bg-zinc-800 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer transition-colors shrink-0 self-start sm:self-auto"
+                      title="नवीन इनक्लुजन जोडा"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      <span>+ Add Inclusion</span>
+                    </button>
+                  </div>
+
+                  {(!content.finalCta?.checklist || content.finalCta.checklist.length === 0) ? (
+                    <div className="p-4 border border-dashed border-zinc-300 rounded-[4px] text-center bg-zinc-50">
+                      <p className="text-xs text-zinc-500 mb-2">कोणतेही इनक्लुजन जोडलेले नाही.</p>
+                      <button
+                        type="button"
+                        onClick={() => {
                           setContent({
                             ...content,
-                            finalCta: { ...content.finalCta, checklist: updated },
+                            finalCta: { ...content.finalCta, checklist: ["नवीन वैशिष्ट्य किंवा ऑफर"] },
                           });
                         }}
-                        className="w-full px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white"
-                      />
+                        className="inline-flex items-center gap-1 px-3 py-1.5 bg-white border border-zinc-300 hover:bg-zinc-100 text-xs font-semibold text-zinc-700 rounded-[4px] cursor-pointer shadow-xs"
+                      >
+                        <Plus className="w-3.5 h-3.5" />
+                        <span>पहिले इनक्लुजन जोडा (Add First Inclusion)</span>
+                      </button>
                     </div>
-                  ))}
+                  ) : (
+                    <div className="space-y-2">
+                      {content.finalCta.checklist.map((chk, idx) => {
+                        const isFirst = idx === 0;
+                        const isLast = idx === content.finalCta.checklist.length - 1;
+
+                        return (
+                          <div
+                            key={idx}
+                            className="flex items-center gap-2 p-2 bg-zinc-50 hover:bg-zinc-100/70 border border-zinc-200 rounded-[4px] transition-colors"
+                          >
+                            {/* Move Up/Down Controls */}
+                            <div className="flex items-center gap-0.5 shrink-0">
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  if (isFirst) return;
+                                  const updated = [...content.finalCta.checklist];
+                                  const temp = updated[idx];
+                                  updated[idx] = updated[idx - 1];
+                                  updated[idx - 1] = temp;
+                                  setContent({
+                                    ...content,
+                                    finalCta: { ...content.finalCta, checklist: updated },
+                                  });
+                                }}
+                                disabled={isFirst}
+                                className="p-1 text-zinc-400 hover:text-black hover:bg-zinc-200/80 rounded disabled:opacity-20 disabled:hover:bg-transparent disabled:hover:text-zinc-400 cursor-pointer disabled:cursor-not-allowed transition-colors"
+                                title="Move Up"
+                              >
+                                <ChevronUp className="w-3.5 h-3.5" />
+                              </button>
+                              <button
+                                type="button"
+                                onClick={() => {
+                                  if (isLast) return;
+                                  const updated = [...content.finalCta.checklist];
+                                  const temp = updated[idx];
+                                  updated[idx] = updated[idx + 1];
+                                  updated[idx + 1] = temp;
+                                  setContent({
+                                    ...content,
+                                    finalCta: { ...content.finalCta, checklist: updated },
+                                  });
+                                }}
+                                disabled={isLast}
+                                className="p-1 text-zinc-400 hover:text-black hover:bg-zinc-200/80 rounded disabled:opacity-20 disabled:hover:bg-transparent disabled:hover:text-zinc-400 cursor-pointer disabled:cursor-not-allowed transition-colors"
+                                title="Move Down"
+                              >
+                                <ChevronDown className="w-3.5 h-3.5" />
+                              </button>
+                            </div>
+
+                            {/* Order Badge */}
+                            <span className="inline-flex items-center justify-center w-5 h-5 rounded bg-zinc-200 text-zinc-700 text-[11px] font-bold shrink-0">
+                              {idx + 1}
+                            </span>
+
+                            {/* Input Field */}
+                            <input
+                              type="text"
+                              value={chk}
+                              onChange={(e) => {
+                                const updated = [...content.finalCta.checklist];
+                                updated[idx] = e.target.value;
+                                setContent({
+                                  ...content,
+                                  finalCta: { ...content.finalCta, checklist: updated },
+                                });
+                              }}
+                              placeholder={`उदा. 25 परिपूर्ण टेस्ट्स किंवा वैशिष्ट्य #${idx + 1}`}
+                              className="flex-1 min-w-0 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white focus:border-black focus:ring-1 focus:ring-black outline-none font-medium"
+                            />
+
+                            {/* Delete Button */}
+                            <button
+                              type="button"
+                              onClick={() => {
+                                const updated = content.finalCta.checklist.filter((_, i) => i !== idx);
+                                setContent({
+                                  ...content,
+                                  finalCta: { ...content.finalCta, checklist: updated },
+                                });
+                              }}
+                              className="p-1.5 text-zinc-400 hover:text-red-600 hover:bg-red-50 rounded-[4px] transition-colors cursor-pointer shrink-0"
+                              title="हे इनक्लुजन हटवा (Delete)"
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </button>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  )}
                 </div>
 
                 <button
@@ -3079,7 +3275,7 @@ export default function AdminPage() {
       <Dialog.Root open={modalType !== null} onOpenChange={(open) => !open && setModalType(null)}>
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black/40 backdrop-blur-xs z-50 animate-in fade-in duration-150" />
-          <Dialog.Content className="admin-panel fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-[6px] shadow-2xl border border-zinc-200 w-full max-w-lg z-50 p-6 max-h-[90vh] overflow-y-auto outline-none animate-in zoom-in-95 duration-150">
+          <Dialog.Content className="admin-panel fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-[6px] shadow-2xl border border-zinc-200 w-[calc(100%-2rem)] max-w-lg z-50 p-4 sm:p-6 max-h-[90vh] overflow-y-auto outline-none animate-in zoom-in-95 duration-150">
             
             {/* Modal Header */}
             <div className="flex items-center justify-between pb-3 border-b border-zinc-100">

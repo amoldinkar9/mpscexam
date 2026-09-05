@@ -66,7 +66,7 @@ export function Pricing({ initialData }: { initialData?: typeof siteData.finalCt
 
             {/* Inclusions checklist */}
             <div className="bg-white p-5 rounded-2xl border border-[#f3c8c4] text-xs sm:text-sm text-left space-y-3 text-[#1F2A5C]">
-              {cta.checklist.map((item, idx) => (
+              {(cta.checklist || []).map((item, idx) => (
                 <div key={idx} className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span>{item}</span>

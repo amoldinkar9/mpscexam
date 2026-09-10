@@ -168,3 +168,60 @@
   animation: tapRipple 3.4s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
+/* Rich Text Editor Table Styles */
+.rte-table-wrapper {
+  overflow-x: auto;
+  margin: 1rem 0;
+  border-radius: 6px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.rte-table,
+table.rte-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: left;
+  border: 1px solid #cbd5e1;
+  background-color: #ffffff;
+  border-radius: 4px;
+}
+
+.rte-table th,
+table.rte-table th {
+  border: 1px solid #cbd5e1;
+  background-color: #f1f5f9;
+  padding: 8px 12px;
+  font-weight: 700;
+  color: #0f172a;
+  text-align: left;
+  min-width: 60px;
+}
+
+.rte-table td,
+table.rte-table td {
+  border: 1px solid #cbd5e1;
+  padding: 8px 12px;
+  color: #334155;
+  min-width: 60px;
+}
+
+.rte-table tbody tr:nth-child(even),
+table.rte-table tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.rte-table tbody tr:hover,
+table.rte-table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+/* Focus indicator when editing a table cell */
+[contenteditable="true"] .rte-table td:focus,
+[contenteditable="true"] .rte-table th:focus {
+  outline: 2px solid #3b82f6 !important;
+  outline-offset: -2px;
+  background-color: #eff6ff !important;
+}
+

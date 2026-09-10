@@ -406,7 +406,28 @@ flowchart TD
   - Zero-Item Empty State: Fallback prompt with "+ Add First Inclusion" when list is empty.
   - Defensive Public Rendering: `src/components/Pricing.tsx` gracefully renders `(cta.checklist || [])` with green checkmarks (`CheckCircle2`).
 
+### Rich Text Editor Table Feature (`src/components/admin/RichTextEditor.tsx`, `globals.css`, `SampleProof.tsx`)
+- **Interactive Table Creation:**
+  - Visual 8×6 Grid Selector: Hovering highlights dimension (e.g., `3 × 3`), single-click insertion.
+  - Custom Size Form: Configure custom rows (1-30), columns (1-15), header row toggle, and Bordered vs Striped styles.
+  - Shortcut Button in Editor Footer: Quick insert `+ तक्ता (Table)`.
+- **In-Table Context Ribbon & Actions:**
+  - Contextual action ribbon automatically displays above editable area whenever a table cell is focused.
+  - Quick Row Tools: `+ वर ओळ (Row Above)`, `+ खाली ओळ (Row Below)`, `🗑️ ओळ हटवा (Delete Row)`.
+  - Quick Column Tools: `+ डावीकडे स्तंभ (Col Left)`, `+ उजवीकडे स्तंभ (Col Right)`, `🗑️ स्तंभ हटवा (Delete Col)`.
+  - Table Deletion: `🗑️ तक्ता हटवा (Delete Entire Table)` with clean cleanup.
+- **Smart Tab Navigation:**
+  - `Tab`: Jump to next cell across rows and headers.
+  - `Shift + Tab`: Jump to previous cell.
+  - Auto-row Append: Pressing `Tab` in the final cell automatically creates and moves cursor to a new row.
+- **Public Display & Styling:**
+  - Universal `.rte-table`, `table.rte-table`, `.rte-table-wrapper` styling in `globals.css`.
+  - Responsive horizontal scrolling (`overflow-x-auto`) for mobile devices.
+  - Public rendering in `SampleProof.tsx` with alternating striped row support and accessible borders.
 
-
-
-
+### Exam Postponement & Countdown Timer Synchronization (3rd Jan 2027)
+- **New Target Exam Date:** `2027-01-03T23:59:59+05:30` (postponed from 25th October 2026).
+- **Synchronized Components:**
+  - `src/components/Header.tsx`: Sticky header countdown timer target date updated to `2027-01-03T23:59:59+05:30`.
+  - `src/components/UrgencyBanner.tsx`: Urgency banner countdown timer target date updated to `2027-01-03T23:59:59+05:30`.
+  - `src/data/siteContent.json`: Test series validity in FAQ and Pricing checklist updated to "3 जानेवारी 2027 पर्यंत".

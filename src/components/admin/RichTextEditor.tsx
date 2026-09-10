@@ -30,7 +30,16 @@ import {
   Sigma,
   Sparkles,
   Trash2,
-  HelpCircle
+  HelpCircle,
+  Table as TableIcon,
+  Columns3,
+  Rows3,
+  Plus,
+  ArrowUp,
+  ArrowDown,
+  ArrowLeft,
+  ArrowRight,
+  Grid
 } from "lucide-react";
 
 interface RichTextEditorProps {
@@ -151,6 +160,16 @@ export function RichTextEditor({
   const [editingLatexNode, setEditingLatexNode] = useState<HTMLElement | null>(null);
   const [activePresetCategory, setActivePresetCategory] = useState<number>(0);
 
+  // Table Feature states
+  const [showTablePicker, setShowTablePicker] = useState(false);
+  const [hoveredGrid, setHoveredGrid] = useState<{ rows: number; cols: number }>({ rows: 3, cols: 3 });
+  const [customTableRows, setCustomTableRows] = useState<number>(3);
+  const [customTableCols, setCustomTableCols] = useState<number>(3);
+  const [tableIncludeHeader, setTableIncludeHeader] = useState<boolean>(true);
+  const [tableStyle, setTableStyle] = useState<"bordered" | "striped">("bordered");
+  const [activeTableElement, setActiveTableElement] = useState<HTMLTableElement | null>(null);
+  const [activeCellElement, setActiveCellElement] = useState<HTMLTableCellElement | null>(null);
+
   // Sync value to editor content if external change
   useEffect(() => {
     if (editorRef.current && !isInternalUpdate.current) {
@@ -162,11 +181,34 @@ export function RichTextEditor({
     isInternalUpdate.current = false;
   }, [value]);
 
+  const updateActiveTableState = (targetNode?: Node | null) => {
+    let target = targetNode;
+    if (!target) {
+      const sel = window.getSelection();
+      if (sel && sel.rangeCount > 0) {
+        target = sel.anchorNode;
+      }
+    }
+    if (target && target.nodeType === 3) {
+      target = target.parentElement;
+    }
+    if (target instanceof HTMLElement && editorRef.current?.contains(target)) {
+      const cell = target.closest("td, th") as HTMLTableCellElement | null;
+      const table = target.closest("table") as HTMLTableElement | null;
+      setActiveCellElement(cell);
+      setActiveTableElement(table);
+      return;
+    }
+    setActiveCellElement(null);
+    setActiveTableElement(null);
+  };
+
   const saveCurrentSelection = () => {
     const sel = window.getSelection();
     if (sel && sel.rangeCount > 0) {
       savedSelection.current = sel.getRangeAt(0).cloneRange();
     }
+    updateActiveTableState();
   };
 
   const restoreSelection = () => {
@@ -346,8 +388,305 @@ export function RichTextEditor({
     }
   };
 
+  const insertSnippetIntoLatex = (snippet: string) => {
+    setLatexCode((prev) => {
+      if (!prev || prev.trim() === "\\frac{a}{b}") return snippet;
+      return `${prev} ${snippet}`;
+    });
+  };
+
+  // Table manipulation and creation handlers
+  const handleInsertTable = (
+    rows: number,
+    cols: number,
+    hasHeader: boolean = true,
+    style: "bordered" | "striped" = "bordered"
+  ) => {
+    if (rows < 1 || cols < 1) return;
+    editorRef.current?.focus();
+    restoreSelection();
+
+    const table = document.createElement("table");
+    table.className = "rte-table";
+    table.style.cssText = "width: 100%; border-collapse: collapse; margin: 12px 0; border: 1px solid #cbd5e1;";
+
+    if (hasHeader) {
+      const thead = document.createElement("thead");
+      const headRow = document.createElement("tr");
+      headRow.style.cssText = "background-color: #f1f5f9;";
+      for (let c = 0; c < cols; c++) {
+        const th = document.createElement("th");
+        th.style.cssText = "border: 1px solid #cbd5e1; background-color: #f1f5f9; padding: 8px 12px; font-weight: 700; color: #0f172a; text-align: left;";
+        th.textContent = `शीर्षक ${c + 1}`;
+        headRow.appendChild(th);
+      }
+      thead.appendChild(headRow);
+      table.appendChild(thead);
+    }
+
+    const tbody = document.createElement("tbody");
+    const bodyRows = hasHeader ? Math.max(1, rows - 1) : rows;
+    for (let r = 0; r < bodyRows; r++) {
+      const tr = document.createElement("tr");
+      if (style === "striped" && r % 2 === 1) {
+        tr.style.cssText = "background-color: #f8fafc;";
+      }
+      for (let c = 0; c < cols; c++) {
+        const td = document.createElement("td");
+        td.style.cssText = "border: 1px solid #cbd5e1; padding: 8px 12px; color: #334155;";
+        td.innerHTML = `मजकूर ${r + 1}.${c + 1}`;
+        tr.appendChild(td);
+      }
+      tbody.appendChild(tr);
+    }
+    table.appendChild(tbody);
+
+    const wrapper = document.createElement("div");
+    wrapper.className = "rte-table-wrapper";
+    wrapper.style.cssText = "overflow-x: auto; margin: 12px 0;";
+    wrapper.appendChild(table);
+
+    const paragraph = document.createElement("p");
+    paragraph.innerHTML = "<br>";
+
+    // Insert wrapper into current selection or editor
+    const sel = window.getSelection();
+    if (sel && sel.rangeCount > 0 && editorRef.current?.contains(sel.anchorNode)) {
+      const range = sel.getRangeAt(0);
+      range.deleteContents();
+      range.insertNode(paragraph);
+      range.insertNode(wrapper);
+      const firstCell = table.querySelector("th, td") as HTMLElement | null;
+      if (firstCell) {
+        const newRange = document.createRange();
+        newRange.selectNodeContents(firstCell);
+        newRange.collapse(false);
+        sel.removeAllRanges();
+        sel.addRange(newRange);
+        setActiveCellElement(firstCell as HTMLTableCellElement);
+        setActiveTableElement(table);
+      }
+    } else if (editorRef.current) {
+      editorRef.current.appendChild(wrapper);
+      editorRef.current.appendChild(paragraph);
+      setActiveTableElement(table);
+    }
+
+    setShowTablePicker(false);
+    handleInput();
+  };
+
+  const handleInsertRowAbove = () => {
+    if (!activeCellElement || !activeTableElement) return;
+    const currentRow = activeCellElement.closest("tr");
+    if (!currentRow) return;
+    const colCount = currentRow.cells.length;
+    const isHeader = currentRow.parentElement?.tagName.toLowerCase() === "thead";
+    const newRow = document.createElement("tr");
+    if (isHeader) {
+      newRow.style.cssText = "background-color: #f1f5f9;";
+    }
+    for (let i = 0; i < colCount; i++) {
+      const cell = document.createElement(isHeader ? "th" : "td");
+      cell.style.cssText = isHeader
+        ? "border: 1px solid #cbd5e1; background-color: #f1f5f9; padding: 8px 12px; font-weight: 700; color: #0f172a;"
+        : "border: 1px solid #cbd5e1; padding: 8px 12px; color: #334155;";
+      cell.innerHTML = "<br>";
+      newRow.appendChild(cell);
+    }
+    currentRow.parentElement?.insertBefore(newRow, currentRow);
+    handleInput();
+    const cellToFocus = newRow.cells[activeCellElement.cellIndex || 0];
+    if (cellToFocus) {
+      cellToFocus.focus();
+      setActiveCellElement(cellToFocus);
+    }
+  };
+
+  const handleInsertRowBelow = () => {
+    if (!activeCellElement || !activeTableElement) return;
+    const currentRow = activeCellElement.closest("tr");
+    if (!currentRow) return;
+    const colCount = currentRow.cells.length;
+    const newRow = document.createElement("tr");
+    for (let i = 0; i < colCount; i++) {
+      const cell = document.createElement("td");
+      cell.style.cssText = "border: 1px solid #cbd5e1; padding: 8px 12px; color: #334155;";
+      cell.innerHTML = "<br>";
+      newRow.appendChild(cell);
+    }
+    if (currentRow.parentElement?.tagName.toLowerCase() === "thead") {
+      const tbody = activeTableElement.querySelector("tbody") || activeTableElement;
+      tbody.insertBefore(newRow, tbody.firstChild);
+    } else {
+      currentRow.parentElement?.insertBefore(newRow, currentRow.nextSibling);
+    }
+    handleInput();
+    const cellToFocus = newRow.cells[activeCellElement.cellIndex || 0];
+    if (cellToFocus) {
+      cellToFocus.focus();
+      setActiveCellElement(cellToFocus);
+    }
+  };
+
+  const handleDeleteRow = () => {
+    if (!activeCellElement || !activeTableElement) return;
+    const currentRow = activeCellElement.closest("tr");
+    if (!currentRow) return;
+    const totalRows = activeTableElement.querySelectorAll("tr").length;
+    if (totalRows <= 1) {
+      handleDeleteTable();
+      return;
+    }
+    currentRow.parentElement?.removeChild(currentRow);
+    setActiveCellElement(null);
+    handleInput();
+    updateActiveTableState();
+  };
+
+  const handleInsertColLeft = () => {
+    if (!activeCellElement || !activeTableElement) return;
+    const colIndex = activeCellElement.cellIndex;
+    const rows = activeTableElement.querySelectorAll("tr");
+    rows.forEach((row) => {
+      const isHeadRow = row.parentElement?.tagName.toLowerCase() === "thead";
+      const newCell = document.createElement(isHeadRow ? "th" : "td");
+      newCell.style.cssText = isHeadRow
+        ? "border: 1px solid #cbd5e1; background-color: #f1f5f9; padding: 8px 12px; font-weight: 700; color: #0f172a;"
+        : "border: 1px solid #cbd5e1; padding: 8px 12px; color: #334155;";
+      newCell.innerHTML = "<br>";
+      const targetCell = row.cells[colIndex];
+      if (targetCell) {
+        row.insertBefore(newCell, targetCell);
+      } else {
+        row.appendChild(newCell);
+      }
+    });
+    handleInput();
+  };
+
+  const handleInsertColRight = () => {
+    if (!activeCellElement || !activeTableElement) return;
+    const colIndex = activeCellElement.cellIndex;
+    const rows = activeTableElement.querySelectorAll("tr");
+    rows.forEach((row) => {
+      const isHeadRow = row.parentElement?.tagName.toLowerCase() === "thead";
+      const newCell = document.createElement(isHeadRow ? "th" : "td");
+      newCell.style.cssText = isHeadRow
+        ? "border: 1px solid #cbd5e1; background-color: #f1f5f9; padding: 8px 12px; font-weight: 700; color: #0f172a;"
+        : "border: 1px solid #cbd5e1; padding: 8px 12px; color: #334155;";
+      newCell.innerHTML = "<br>";
+      const targetCell = row.cells[colIndex];
+      if (targetCell && targetCell.nextSibling) {
+        row.insertBefore(newCell, targetCell.nextSibling);
+      } else {
+        row.appendChild(newCell);
+      }
+    });
+    handleInput();
+  };
+
+  const handleDeleteCol = () => {
+    if (!activeCellElement || !activeTableElement) return;
+    const colIndex = activeCellElement.cellIndex;
+    const rows = activeTableElement.querySelectorAll("tr");
+    if (rows[0]?.cells.length <= 1) {
+      handleDeleteTable();
+      return;
+    }
+    rows.forEach((row) => {
+      if (row.cells[colIndex]) {
+        row.removeChild(row.cells[colIndex]);
+      }
+    });
+    setActiveCellElement(null);
+    handleInput();
+    updateActiveTableState();
+  };
+
+  const handleDeleteTable = () => {
+    if (!activeTableElement) return;
+    const wrapper = activeTableElement.closest(".rte-table-wrapper");
+    if (wrapper && wrapper.parentElement) {
+      wrapper.parentElement.removeChild(wrapper);
+    } else if (activeTableElement.parentElement) {
+      activeTableElement.parentElement.removeChild(activeTableElement);
+    }
+    setActiveTableElement(null);
+    setActiveCellElement(null);
+    setShowTablePicker(false);
+    handleInput();
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.key === "Tab") {
+      const sel = window.getSelection();
+      if (!sel || sel.rangeCount === 0) return;
+      let node: Node | null = sel.anchorNode;
+      if (node && node.nodeType === 3) {
+        node = node.parentElement;
+      }
+      const cell = (node as HTMLElement | null)?.closest("td, th") as HTMLTableCellElement | null;
+      if (cell) {
+        e.preventDefault();
+        const table = cell.closest("table");
+        if (!table) return;
+
+        const allCells = Array.from(table.querySelectorAll("th, td")) as HTMLElement[];
+        const currentIndex = allCells.indexOf(cell);
+
+        if (e.shiftKey) {
+          if (currentIndex > 0) {
+            const prevCell = allCells[currentIndex - 1];
+            prevCell.focus();
+            const range = document.createRange();
+            range.selectNodeContents(prevCell);
+            range.collapse(false);
+            sel.removeAllRanges();
+            sel.addRange(range);
+            updateActiveTableState(prevCell);
+          }
+        } else {
+          if (currentIndex < allCells.length - 1) {
+            const nextCell = allCells[currentIndex + 1];
+            nextCell.focus();
+            const range = document.createRange();
+            range.selectNodeContents(nextCell);
+            range.collapse(false);
+            sel.removeAllRanges();
+            sel.addRange(range);
+            updateActiveTableState(nextCell);
+          } else {
+            // At the very last cell: append new row!
+            const tbody = table.querySelector("tbody") || table;
+            const lastRow = table.rows[table.rows.length - 1];
+            const colCount = lastRow.cells.length;
+            const newRow = document.createElement("tr");
+            for (let i = 0; i < colCount; i++) {
+              const newCell = document.createElement("td");
+              newCell.style.cssText = "border: 1px solid #cbd5e1; padding: 8px 12px; color: #334155;";
+              newCell.innerHTML = "<br>";
+              newRow.appendChild(newCell);
+            }
+            tbody.appendChild(newRow);
+            handleInput();
+            const firstNewCell = newRow.cells[0];
+            firstNewCell.focus();
+            const range = document.createRange();
+            range.selectNodeContents(firstNewCell);
+            range.collapse(true);
+            sel.removeAllRanges();
+            sel.addRange(range);
+            updateActiveTableState(firstNewCell);
+          }
+        }
+      }
+    }
+  };
+
   const handleEditorClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const target = e.target as HTMLElement;
+    updateActiveTableState(target);
     const latexWrapper = target.closest(".katex-eq-inline, .katex-eq-block") as HTMLElement | null;
     if (latexWrapper) {
       const rawEncoded = latexWrapper.getAttribute("data-latex");
@@ -366,13 +705,6 @@ export function RichTextEditor({
     }
   };
 
-  const insertSnippetIntoLatex = (snippet: string) => {
-    setLatexCode((prev) => {
-      if (!prev || prev.trim() === "\\frac{a}{b}") return snippet;
-      return `${prev} ${snippet}`;
-    });
-  };
-
   // Close menus on click outside
   useEffect(() => {
     const handleGlobalClick = (e: MouseEvent) => {
@@ -383,6 +715,7 @@ export function RichTextEditor({
         setShowAlignPicker(false);
         setShowLinkDialog(false);
         setShowMathPicker(false);
+        setShowTablePicker(false);
       }
     };
     document.addEventListener("mousedown", handleGlobalClick);
@@ -830,6 +1163,251 @@ export function RichTextEditor({
           <span className="text-[11px] font-bold">LaTeX</span>
         </button>
 
+        {/* 18. Table Tool (तक्ता / सारणी) */}
+        <div className="relative">
+          <button
+            type="button"
+            onClick={() => {
+              saveCurrentSelection();
+              setShowTablePicker(!showTablePicker);
+            }}
+            className={`rte-trigger px-2 h-7 flex items-center gap-1.5 rounded transition-colors cursor-pointer border ${
+              showTablePicker || activeTableElement
+                ? "bg-blue-600 text-white border-blue-600 shadow-2xs"
+                : "bg-blue-50/70 hover:bg-blue-100 active:bg-blue-200 border-blue-200 text-blue-950 shadow-2xs"
+            }`}
+            title="तक्ता घाला किंवा व्यवस्थापित करा (Insert or Manage Table)"
+          >
+            <TableIcon className="w-3.5 h-3.5" />
+            <span className="text-[11px] font-bold">तक्ता</span>
+            {activeTableElement && (
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+            )}
+          </button>
+
+          {showTablePicker && (
+            <div className="rte-popover absolute left-0 sm:left-auto sm:right-0 top-full mt-1 p-3.5 bg-white border border-zinc-300 rounded-lg shadow-2xl z-40 w-80 space-y-3.5 select-none animate-in fade-in zoom-in-95 duration-150">
+              
+              {/* Header */}
+              <div className="flex items-center justify-between border-b border-zinc-100 pb-2">
+                <span className="text-xs font-bold text-zinc-900 flex items-center gap-1.5">
+                  <TableIcon className="w-4 h-4 text-blue-600" />
+                  <span>तक्ता जोडा / संपादन (Table)</span>
+                </span>
+                <button
+                  type="button"
+                  onClick={() => setShowTablePicker(false)}
+                  className="text-zinc-400 hover:text-black p-0.5 rounded cursor-pointer"
+                >
+                  <X className="w-3.5 h-3.5" />
+                </button>
+              </div>
+
+              {/* If active table is present: Show active table operations */}
+              {activeTableElement ? (
+                <div className="space-y-3">
+                  <div className="p-2.5 bg-blue-50/80 border border-blue-200 rounded-md">
+                    <p className="text-[11px] font-bold text-blue-900 mb-1.5 flex items-center gap-1">
+                      <span>✓ सध्या निवडलेला तक्ता (Active Table)</span>
+                    </p>
+                    
+                    {/* Rows */}
+                    <div className="space-y-1 mb-2">
+                      <span className="text-[10px] font-semibold text-blue-800 uppercase tracking-wide">ओळ क्रिया (Row):</span>
+                      <div className="grid grid-cols-2 gap-1.5">
+                        <button
+                          type="button"
+                          onClick={handleInsertRowAbove}
+                          className="px-2 py-1 bg-white hover:bg-zinc-50 border border-blue-200 rounded text-xs font-medium text-zinc-800 flex items-center gap-1 cursor-pointer"
+                        >
+                          <ArrowUp className="w-3 h-3 text-blue-600" />
+                          <span>+ वर ओळ</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleInsertRowBelow}
+                          className="px-2 py-1 bg-white hover:bg-zinc-50 border border-blue-200 rounded text-xs font-medium text-zinc-800 flex items-center gap-1 cursor-pointer"
+                        >
+                          <ArrowDown className="w-3 h-3 text-blue-600" />
+                          <span>+ खाली ओळ</span>
+                        </button>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={handleDeleteRow}
+                        className="w-full mt-1 px-2 py-1 bg-white hover:bg-red-50 border border-red-200 rounded text-xs font-medium text-red-700 flex items-center justify-center gap-1 cursor-pointer"
+                      >
+                        <Trash2 className="w-3 h-3 text-red-500" />
+                        <span>निवडलेली ओळ हटवा (Delete Row)</span>
+                      </button>
+                    </div>
+
+                    {/* Columns */}
+                    <div className="space-y-1">
+                      <span className="text-[10px] font-semibold text-blue-800 uppercase tracking-wide">स्तंभ क्रिया (Column):</span>
+                      <div className="grid grid-cols-2 gap-1.5">
+                        <button
+                          type="button"
+                          onClick={handleInsertColLeft}
+                          className="px-2 py-1 bg-white hover:bg-zinc-50 border border-blue-200 rounded text-xs font-medium text-zinc-800 flex items-center gap-1 cursor-pointer"
+                        >
+                          <ArrowLeft className="w-3 h-3 text-blue-600" />
+                          <span>+ डावीकडे स्तंभ</span>
+                        </button>
+                        <button
+                          type="button"
+                          onClick={handleInsertColRight}
+                          className="px-2 py-1 bg-white hover:bg-zinc-50 border border-blue-200 rounded text-xs font-medium text-zinc-800 flex items-center gap-1 cursor-pointer"
+                        >
+                          <ArrowRight className="w-3 h-3 text-blue-600" />
+                          <span>+ उजवीकडे स्तंभ</span>
+                        </button>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={handleDeleteCol}
+                        className="w-full mt-1 px-2 py-1 bg-white hover:bg-red-50 border border-red-200 rounded text-xs font-medium text-red-700 flex items-center justify-center gap-1 cursor-pointer"
+                      >
+                        <Trash2 className="w-3 h-3 text-red-500" />
+                        <span>निवडलेला स्तंभ हटवा (Delete Column)</span>
+                      </button>
+                    </div>
+
+                    {/* Delete entire table */}
+                    <button
+                      type="button"
+                      onClick={handleDeleteTable}
+                      className="w-full mt-2.5 px-2.5 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer shadow-xs transition-colors"
+                    >
+                      <Trash2 className="w-3.5 h-3.5" />
+                      <span>संपूर्ण तक्ता हटवा (Delete Entire Table)</span>
+                    </button>
+                  </div>
+
+                  <div className="border-t border-zinc-200 pt-2">
+                    <span className="text-[11px] font-bold text-zinc-600 block mb-1.5">किंवा नवीन तक्ता घाला:</span>
+                  </div>
+                </div>
+              ) : null}
+
+              {/* Grid Selector */}
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <span className="text-[11px] font-semibold text-zinc-700">ग्रिड निवडून लगेच जोडा:</span>
+                  <span className="text-[10px] font-mono font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded border border-blue-200">
+                    {hoveredGrid.cols} × {hoveredGrid.rows}
+                  </span>
+                </div>
+
+                {/* 8 Columns x 6 Rows Interactive Grid */}
+                <div
+                  className="grid grid-cols-8 gap-1 p-2 bg-zinc-50 border border-zinc-200 rounded-lg justify-center w-full"
+                  onMouseLeave={() => setHoveredGrid({ rows: 3, cols: 3 })}
+                >
+                  {Array.from({ length: 6 }).map((_, rIdx) =>
+                    Array.from({ length: 8 }).map((_, cIdx) => {
+                      const isHighlighted =
+                        rIdx < hoveredGrid.rows && cIdx < hoveredGrid.cols;
+                      return (
+                        <div
+                          key={`${rIdx}-${cIdx}`}
+                          onMouseEnter={() => setHoveredGrid({ rows: rIdx + 1, cols: cIdx + 1 })}
+                          onClick={() => {
+                            handleInsertTable(rIdx + 1, cIdx + 1, tableIncludeHeader, tableStyle);
+                          }}
+                          className={`w-6 h-6 rounded-[3px] border cursor-pointer transition-all duration-75 ${
+                            isHighlighted
+                              ? "bg-blue-600 border-blue-700 shadow-2xs scale-105"
+                              : "bg-white border-zinc-200 hover:border-zinc-400"
+                          }`}
+                          title={`${cIdx + 1} Columns × ${rIdx + 1} Rows`}
+                        />
+                      );
+                    })
+                  )}
+                </div>
+              </div>
+
+              {/* Custom Size Form */}
+              <div className="pt-2 border-t border-zinc-100 space-y-2.5">
+                <div className="grid grid-cols-2 gap-2">
+                  <div>
+                    <label className="text-[10px] text-zinc-500 font-semibold block mb-0.5">ओळी (Rows):</label>
+                    <input
+                      type="number"
+                      min={1}
+                      max={30}
+                      value={customTableRows}
+                      onChange={(e) => setCustomTableRows(Math.max(1, parseInt(e.target.value) || 1))}
+                      className="w-full px-2 py-1 text-xs border border-zinc-300 rounded font-mono"
+                    />
+                  </div>
+                  <div>
+                    <label className="text-[10px] text-zinc-500 font-semibold block mb-0.5">स्तंभ (Columns):</label>
+                    <input
+                      type="number"
+                      min={1}
+                      max={15}
+                      value={customTableCols}
+                      onChange={(e) => setCustomTableCols(Math.max(1, parseInt(e.target.value) || 1))}
+                      className="w-full px-2 py-1 text-xs border border-zinc-300 rounded font-mono"
+                    />
+                  </div>
+                </div>
+
+                <div className="flex items-center justify-between text-xs">
+                  <label className="flex items-center gap-1.5 cursor-pointer text-zinc-700">
+                    <input
+                      type="checkbox"
+                      checked={tableIncludeHeader}
+                      onChange={(e) => setTableIncludeHeader(e.target.checked)}
+                      className="rounded text-blue-600 focus:ring-0"
+                    />
+                    <span className="text-[11px] font-medium">शीर्षक ओळ (Header Row)</span>
+                  </label>
+
+                  <div className="flex items-center gap-1">
+                    <button
+                      type="button"
+                      onClick={() => setTableStyle("bordered")}
+                      className={`px-1.5 py-0.5 text-[10px] font-semibold rounded cursor-pointer ${
+                        tableStyle === "bordered"
+                          ? "bg-zinc-800 text-white"
+                          : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200"
+                      }`}
+                    >
+                      साधारण
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setTableStyle("striped")}
+                      className={`px-1.5 py-0.5 text-[10px] font-semibold rounded cursor-pointer ${
+                        tableStyle === "striped"
+                          ? "bg-zinc-800 text-white"
+                          : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200"
+                      }`}
+                    >
+                      पट्टेरी
+                    </button>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    handleInsertTable(customTableRows, customTableCols, tableIncludeHeader, tableStyle);
+                  }}
+                  className="w-full py-1.5 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-xs font-bold rounded shadow-xs cursor-pointer flex items-center justify-center gap-1.5 transition-colors"
+                >
+                  <Plus className="w-3.5 h-3.5" />
+                  <span>+ {customTableRows}×{customTableCols} तक्ता तयार करा</span>
+                </button>
+              </div>
+
+            </div>
+          )}
+        </div>
+
         {/* View Mode Toggle: Visual vs Raw HTML */}
         <div className="ml-auto flex items-center gap-1 pl-2">
           <button
@@ -848,6 +1426,96 @@ export function RichTextEditor({
         </div>
 
       </div>
+
+      {/* Contextual In-Table Quick Action Ribbon */}
+      {activeTableElement && (
+        <div className="flex flex-wrap items-center justify-between gap-1.5 px-3 py-1.5 bg-blue-50/90 border-b border-blue-200 text-xs text-blue-950 animate-in fade-in duration-100 select-none">
+          <div className="flex items-center flex-wrap gap-2">
+            <span className="font-bold flex items-center gap-1 text-blue-900">
+              <TableIcon className="w-3.5 h-3.5 text-blue-700" />
+              <span>तक्ता साधने:</span>
+            </span>
+            <div className="h-4 w-px bg-blue-200 hidden sm:block" />
+            
+            {/* Row actions */}
+            <div className="flex items-center gap-1">
+              <span className="text-[10px] uppercase font-bold text-blue-700">ओळ:</span>
+              <button
+                type="button"
+                onMouseDown={(e) => { e.preventDefault(); handleInsertRowAbove(); }}
+                className="px-1.5 py-0.5 rounded bg-white hover:bg-blue-100 border border-blue-200 text-[11px] font-medium text-blue-900 cursor-pointer flex items-center gap-0.5 shadow-2xs"
+                title="वर ओळ जोडा (Insert Row Above)"
+              >
+                <ArrowUp className="w-3 h-3 text-blue-600" />
+                <span>+वर</span>
+              </button>
+              <button
+                type="button"
+                onMouseDown={(e) => { e.preventDefault(); handleInsertRowBelow(); }}
+                className="px-1.5 py-0.5 rounded bg-white hover:bg-blue-100 border border-blue-200 text-[11px] font-medium text-blue-900 cursor-pointer flex items-center gap-0.5 shadow-2xs"
+                title="खाली ओळ जोडा (Insert Row Below)"
+              >
+                <ArrowDown className="w-3 h-3 text-blue-600" />
+                <span>+खाली</span>
+              </button>
+              <button
+                type="button"
+                onMouseDown={(e) => { e.preventDefault(); handleDeleteRow(); }}
+                className="px-1.5 py-0.5 rounded bg-white hover:bg-red-50 border border-red-200 text-[11px] font-medium text-red-700 cursor-pointer flex items-center gap-0.5 shadow-2xs"
+                title="सध्याची ओळ हटवा (Delete Row)"
+              >
+                <Trash2 className="w-3 h-3 text-red-500" />
+                <span>ओळ हटवा</span>
+              </button>
+            </div>
+
+            <div className="h-4 w-px bg-blue-200 hidden sm:block" />
+
+            {/* Column actions */}
+            <div className="flex items-center gap-1">
+              <span className="text-[10px] uppercase font-bold text-blue-700">स्तंभ:</span>
+              <button
+                type="button"
+                onMouseDown={(e) => { e.preventDefault(); handleInsertColLeft(); }}
+                className="px-1.5 py-0.5 rounded bg-white hover:bg-blue-100 border border-blue-200 text-[11px] font-medium text-blue-900 cursor-pointer flex items-center gap-0.5 shadow-2xs"
+                title="डावीकडे स्तंभ जोडा (Insert Column Left)"
+              >
+                <ArrowLeft className="w-3 h-3 text-blue-600" />
+                <span>+डावी</span>
+              </button>
+              <button
+                type="button"
+                onMouseDown={(e) => { e.preventDefault(); handleInsertColRight(); }}
+                className="px-1.5 py-0.5 rounded bg-white hover:bg-blue-100 border border-blue-200 text-[11px] font-medium text-blue-900 cursor-pointer flex items-center gap-0.5 shadow-2xs"
+                title="उजवीकडे स्तंभ जोडा (Insert Column Right)"
+              >
+                <ArrowRight className="w-3 h-3 text-blue-600" />
+                <span>+उजवी</span>
+              </button>
+              <button
+                type="button"
+                onMouseDown={(e) => { e.preventDefault(); handleDeleteCol(); }}
+                className="px-1.5 py-0.5 rounded bg-white hover:bg-red-50 border border-red-200 text-[11px] font-medium text-red-700 cursor-pointer flex items-center gap-0.5 shadow-2xs"
+                title="सध्याचा स्तंभ हटवा (Delete Column)"
+              >
+                <Trash2 className="w-3 h-3 text-red-500" />
+                <span>स्तंभ हटवा</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Delete entire table */}
+          <button
+            type="button"
+            onMouseDown={(e) => { e.preventDefault(); handleDeleteTable(); }}
+            className="px-2 py-0.5 rounded bg-red-100 hover:bg-red-200 border border-red-300 text-[11px] font-bold text-red-800 cursor-pointer flex items-center gap-1 transition-colors ml-auto sm:ml-0"
+            title="संपूर्ण तक्ता काढून टाका (Delete Table)"
+          >
+            <Trash2 className="w-3 h-3 text-red-600" />
+            <span>तक्ता हटवा</span>
+          </button>
+        </div>
+      )}
 
       {/* Editor Body */}
       {isHtmlView ? (
@@ -874,13 +1542,14 @@ export function RichTextEditor({
             contentEditable
             onInput={handleInput}
             onBlur={handleInput}
+            onKeyDown={handleKeyDown}
             onKeyUp={saveCurrentSelection}
             onMouseUp={saveCurrentSelection}
             onClick={(e) => {
               saveCurrentSelection();
               handleEditorClick(e);
             }}
-            className="outline-none min-h-[140px] focus:ring-0 [&_h1]:text-lg [&_h1]:font-extrabold [&_h1]:text-slate-900 [&_h1]:mb-2 [&_h2]:text-base [&_h2]:font-bold [&_h2]:text-slate-900 [&_h2]:mb-1.5 [&_h3]:text-sm [&_h3]:font-bold [&_h3]:text-slate-800 [&_h3]:mb-1 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-0.5 [&_blockquote]:border-l-3 [&_blockquote]:border-[#9B3A32] [&_blockquote]:pl-3 [&_blockquote]:italic [&_blockquote]:text-slate-600 [&_blockquote]:my-2 [&_p]:my-1 leading-relaxed"
+            className="outline-none min-h-[140px] focus:ring-0 [&_h1]:text-lg [&_h1]:font-extrabold [&_h1]:text-slate-900 [&_h1]:mb-2 [&_h2]:text-base [&_h2]:font-bold [&_h2]:text-slate-900 [&_h2]:mb-1.5 [&_h3]:text-sm [&_h3]:font-bold [&_h3]:text-slate-800 [&_h3]:mb-1 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:my-2 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:my-2 [&_li]:my-0.5 [&_blockquote]:border-l-3 [&_blockquote]:border-[#9B3A32] [&_blockquote]:pl-3 [&_blockquote]:italic [&_blockquote]:text-slate-600 [&_blockquote]:my-2 [&_p]:my-1 leading-relaxed [&_.rte-table]:w-full [&_.rte-table]:border-collapse [&_.rte-table]:my-3 [&_.rte-table_th]:border [&_.rte-table_th]:border-slate-300 [&_.rte-table_th]:bg-slate-100 [&_.rte-table_th]:px-3 [&_.rte-table_th]:py-2 [&_.rte-table_th]:font-bold [&_.rte-table_th]:text-slate-900 [&_.rte-table_th]:text-left [&_.rte-table_td]:border [&_.rte-table_td]:border-slate-300 [&_.rte-table_td]:px-3 [&_.rte-table_td]:py-2 [&_.rte-table_td]:text-slate-800"
             style={{ minHeight: "140px" }}
           />
 
@@ -935,6 +1604,18 @@ export function RichTextEditor({
           >
             <span className="font-serif italic font-bold text-xs">T<sub className="font-sans text-[8px] not-italic">E</sub>X</span>
             <span>+ LaTeX सूत्र</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              saveCurrentSelection();
+              setShowTablePicker(true);
+            }}
+            className="px-2 py-0.5 rounded bg-blue-50 border border-blue-300 hover:bg-blue-100 text-blue-900 cursor-pointer font-bold flex items-center gap-1 transition-colors"
+            title="तक्ता जोडा (Insert Table)"
+          >
+            <TableIcon className="w-3.5 h-3.5 text-blue-700" />
+            <span>+ तक्ता (Table)</span>
           </button>
         </div>
         <span className="font-mono text-[10px] text-zinc-400">

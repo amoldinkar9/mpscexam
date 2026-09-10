@@ -4,8 +4,8 @@ import { useState, useEffect } from "react";
 import { Flame } from "lucide-react";
 
 export function Header() {
-  const targetDate = new Date("2026-10-25T23:59:59+05:30").getTime();
-  const [timeLeft, setTimeLeft] = useState({ days: 51, hours: 13, minutes: 14, seconds: 47 });
+  const targetDate = new Date("2027-01-03T23:59:59+05:30").getTime();
+  const [timeLeft, setTimeLeft] = useState({ days: 115, hours: 14, minutes: 0, seconds: 0 });
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {

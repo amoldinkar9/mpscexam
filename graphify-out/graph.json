@@ -140,7 +140,7 @@
       "file_type": "code",
       "norm_label": "richtexteditorprops",
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L36"
+      "source_location": "L45"
     },
     {
       "id": "src_lib_contentstore_sectionconfig",
@@ -442,7 +442,7 @@
       "file_type": "code",
       "norm_label": "richtexteditor()",
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L124"
+      "source_location": "L133"
     },
     {
       "id": "src_app_admin_layout_adminlayout",
@@ -1382,7 +1382,7 @@
       "file_type": "code",
       "norm_label": "color_palette_rows",
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L44"
+      "source_location": "L53"
     },
     {
       "id": "src_components_admin_richtexteditor_latex_presets",
@@ -1393,7 +1393,7 @@
       "file_type": "code",
       "norm_label": "latex_presets",
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L62"
+      "source_location": "L71"
     },
     {
       "id": "src_components_admin_richtexteditor_math_symbols",
@@ -1404,7 +1404,7 @@
       "file_type": "code",
       "norm_label": "math_symbols",
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L57"
+      "source_location": "L66"
     },
     {
       "id": "src_app_admin_layout",
@@ -5289,7 +5289,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L124",
+      "source_location": "L133",
       "weight": 1.0
     },
     {
@@ -5300,7 +5300,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L36",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -5311,7 +5311,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L44",
+      "source_location": "L53",
       "weight": 1.0
     },
     {
@@ -5322,7 +5322,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L57",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -5333,7 +5333,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/admin/RichTextEditor.tsx",
-      "source_location": "L62",
+      "source_location": "L71",
       "weight": 1.0
     },
     {
@@ -7001,5 +7001,5 @@
       "source_file": "architecture.md"
     }
   ],
-  "built_at_commit": "f1b4d0b6c9705c6c1e802c459caf6f3b8961df4e"
+  "built_at_commit": "d86189f0d187a1a8ec5c9871ee2db3be41b565be"
 }

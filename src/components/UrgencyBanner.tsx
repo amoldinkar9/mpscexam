@@ -5,8 +5,8 @@ import { Timer, AlertTriangle, Flame } from "lucide-react";
 import { getScarcityData } from "@/lib/scarcity";
 
 export function UrgencyBanner() {
-  const targetDate = new Date("2026-10-25T23:59:59+05:30").getTime();
-  const [timeLeft, setTimeLeft] = useState({ days: 53, hours: 14, minutes: 28, seconds: 45 });
+  const targetDate = new Date("2027-01-03T23:59:59+05:30").getTime();
+  const [timeLeft, setTimeLeft] = useState({ days: 115, hours: 14, minutes: 0, seconds: 0 });
   const [scarcity, setScarcity] = useState(getScarcityData());
 
   useEffect(() => {

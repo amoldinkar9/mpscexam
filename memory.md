@@ -425,9 +425,9 @@ flowchart TD
   - Responsive horizontal scrolling (`overflow-x-auto`) for mobile devices.
   - Public rendering in `SampleProof.tsx` with alternating striped row support and accessible borders.
 
-### Exam Postponement & Countdown Timer Synchronization (3rd Jan 2027)
-- **New Target Exam Date:** `2027-01-03T23:59:59+05:30` (postponed from 25th October 2026).
+### Exam Postponement & Countdown Timer Synchronization (3rd Jan 2027, 10:30 AM)
+- **New Target Exam Date & Time:** `2027-01-03T10:30:00+05:30` (postponed from 25th October 2026).
 - **Synchronized Components:**
-  - `src/components/Header.tsx`: Sticky header countdown timer target date updated to `2027-01-03T23:59:59+05:30`.
-  - `src/components/UrgencyBanner.tsx`: Urgency banner countdown timer target date updated to `2027-01-03T23:59:59+05:30`.
+  - `src/components/Header.tsx`: Sticky header countdown timer target date updated to `2027-01-03T10:30:00+05:30`.
+  - `src/components/UrgencyBanner.tsx`: Urgency banner countdown timer target date updated to `2027-01-03T10:30:00+05:30`.
   - `src/data/siteContent.json`: Test series validity in FAQ and Pricing checklist updated to "3 जानेवारी 2027 पर्यंत".

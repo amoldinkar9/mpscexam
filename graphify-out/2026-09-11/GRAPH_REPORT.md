@@ -1,7 +1,7 @@
 # Graph Report - mpscexam  (2026-09-11)
 
 ## Corpus Check
-- 51 files · ~87,482 words
+- 51 files · ~87,636 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -47,8 +47,8 @@
 5. `getScarcityData()` - 7 edges
 6. `include` - 7 edges
 7. `mpscexam Route Map` - 7 edges
-8. `mpscexam System Architecture` - 6 edges
-9. `QUESTION Entity` - 6 edges
+8. `QUESTION Entity` - 6 edges
+9. `mpscexam System Architecture` - 6 edges
 10. `TestAttempt Entity` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
@@ -60,8 +60,8 @@
   README.md → memory.md
 - `Graphify Knowledge Graph` --conceptually_related_to--> `mpscexam File Dependency Graph`  [INFERRED]
   .agents/rules/graphify.md → dependency-graph.md
-- `AuthMiddleware & RBAC Guard` --conceptually_related_to--> `Route Protection & Middleware Flow`  [INFERRED]
-  dependency-graph.md → routes.md
+- `QuestionEditorPage` --conceptually_related_to--> `QUESTION Entity`  [INFERRED]
+  routes.md → database-map.md
 
 ## Import Cycles
 - None detected.

@@ -456,7 +456,7 @@
       "file_type": "code",
       "norm_label": "sidebarnavitem()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L4363"
+      "source_location": "L4378"
     },
     {
       "id": "src_components_admin_richtexteditor_richtexteditor",
@@ -3672,7 +3672,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L3008",
+      "source_location": "L3023",
       "weight": 1.0
     },
     {
@@ -5717,7 +5717,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L4363",
+      "source_location": "L4378",
       "weight": 1.0
     },
     {

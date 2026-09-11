@@ -456,7 +456,7 @@
       "file_type": "code",
       "norm_label": "sidebarnavitem()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L4217"
+      "source_location": "L4343"
     },
     {
       "id": "src_components_admin_richtexteditor_richtexteditor",
@@ -3672,7 +3672,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L2899",
+      "source_location": "L3013",
       "weight": 1.0
     },
     {
@@ -5717,7 +5717,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L4217",
+      "source_location": "L4343",
       "weight": 1.0
     },
     {
@@ -7762,5 +7762,5 @@
       "source_file": "architecture.md"
     }
   ],
-  "built_at_commit": "e5ca6ffa21ae4c6506c63960f609355ee5ae6361"
+  "built_at_commit": "601912e0dca67d02054ed6511009e04a2a97d82c"
 }

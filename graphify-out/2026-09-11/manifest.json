@@ -60,9 +60,9 @@
     "semantic_hash": "d54f6c579c79fb7e061791f5b1293e5a"
   },
   "memory.md": {
-    "mtime": 1789122429.2307894,
-    "seen": 1789122435.5986009,
-    "ast_hash": "6c0af74ea8b625582b7e8d9b3037f050",
+    "mtime": 1789122889.9331734,
+    "seen": 1789122900.270528,
+    "ast_hash": "deeca5a07b494a8bb00cd4aaa3f68a72",
     "semantic_hash": ""
   },
   "routes.md": {
@@ -228,9 +228,9 @@
     "semantic_hash": ""
   },
   "src/app/admin/page.tsx": {
-    "mtime": 1789122391.6850119,
-    "seen": 1789122435.5985742,
-    "ast_hash": "c75a1ddf84aa8c0b03788dac90b9808e",
+    "mtime": 1789122868.5585122,
+    "seen": 1789122900.270497,
+    "ast_hash": "f2558d80d47e75795346ad263d7ea4f3",
     "semantic_hash": ""
   },
   "src/app/api/admin/content/route.ts": {
@@ -246,9 +246,9 @@
     "semantic_hash": ""
   },
   "src/lib/contentStore.ts": {
-    "mtime": 1788587935.4326959,
-    "seen": 1788589322.520766,
-    "ast_hash": "0de89f36d1c6a05e3840d4a98d9fe1f8",
+    "mtime": 1789122724.5707088,
+    "seen": 1789122900.270515,
+    "ast_hash": "87142d22e1c5788633990600f2daffe0",
     "semantic_hash": ""
   },
   "src/middleware.ts": {
@@ -309,6 +309,30 @@
     "mtime": 1789018994.5343974,
     "seen": 1789019023.955421,
     "ast_hash": "aaf765ec23394bb18615fef0aae23402",
+    "semantic_hash": ""
+  },
+  "src/app/api/admin/upload/route.ts": {
+    "mtime": 1789122708.3468697,
+    "seen": 1789122900.270499,
+    "ast_hash": "a41b4fdd986dff5404d8b8d4264f42be",
+    "semantic_hash": ""
+  },
+  "src/app/api/images/[id]/route.ts": {
+    "mtime": 1789122713.666292,
+    "seen": 1789122900.2705002,
+    "ast_hash": "fe4d097d8879a98696c804642063418c",
+    "semantic_hash": ""
+  },
+  "src/lib/db.ts": {
+    "mtime": 1789122690.346615,
+    "seen": 1789122900.270515,
+    "ast_hash": "3f986c2adcf81aaebc50ca15450b0bdc",
+    "semantic_hash": ""
+  },
+  "src/lib/imageStore.ts": {
+    "mtime": 1789122698.9947712,
+    "seen": 1789122900.270516,
+    "ast_hash": "1c58e5d8c4f45f5a70090dd40679c6ea",
     "semantic_hash": ""
   }
 }

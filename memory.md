@@ -455,6 +455,8 @@ flowchart TD
     - How to Purchase steps (`Screenshot Image (9:20 Portrait)` with live 9:20 thumbnail).
     - Hero section (`Desktop Hero Image (5:6)` and `Mobile Hero Image (16:9)`).
     - Questions / Sample Proof (`Infographic Image`).
+  - Added direct 1-click in-table image upload (`UploadCloud`) inside the "How to Buy" management table for each individual step row, allowing instant upload and replacement with auto-save to Cloudflare D1 without opening the edit dialog.
+  - Added "📁 थेट स्क्रीनशॉट अपलोड करा" Quick Upload header button and prominent drag-and-drop file upload cards in step modals.
   - Added "✓ DB Stored" indicator badges on inputs containing database-stored `/api/images/` paths.
   - Added "Database Check & Media" trigger buttons to top header and sidebar navigation footers.
   - Added accessible Radix Dialog modal showing live database connection health, engine, table statuses, direct upload, and an interactive media gallery with 1-click "Copy URL" and "Delete".

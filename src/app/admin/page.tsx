@@ -1581,13 +1581,45 @@ export default function AdminPage() {
                   <h2 className="text-xl font-bold text-black tracking-tight">How to Buy</h2>
                   <p className="text-xs text-zinc-400 mt-0.5">{content.howToPurchase.length} entries</p>
                 </div>
-                <button
-                  onClick={() => handleOpenAdd("purchase")}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-black hover:bg-zinc-800 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer"
-                >
-                  <Plus className="w-3.5 h-3.5" />
-                  <span>+ Add Step</span>
-                </button>
+                <div className="flex items-center gap-2">
+                  <label className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer transition-colors">
+                    <UploadCloud className="w-3.5 h-3.5" />
+                    <span>{isUploadingImage ? "अपलोड होत आहे..." : "📁 थेट स्क्रीनशॉट अपलोड करा"}</span>
+                    <input
+                      type="file"
+                      accept="image/*"
+                      className="hidden"
+                      disabled={isUploadingImage}
+                      onChange={async (e) => {
+                        const f = e.target.files?.[0];
+                        if (f) {
+                          const res = await uploadImageFile(f);
+                          if (res) {
+                            const newStepNum = content.howToPurchase.length + 1;
+                            setPurchaseStepForm({
+                              step: `स्टेप ${newStepNum}`,
+                              title: "",
+                              desc: "",
+                              skeletonText: `9:20 स्क्रीनशॉट ${newStepNum}`,
+                              imageUrl: res.url,
+                              order: newStepNum,
+                            });
+                            setEditingIndex(null);
+                            setModalType("purchase");
+                          }
+                          e.target.value = "";
+                        }
+                      }}
+                    />
+                  </label>
+                  <button
+                    onClick={() => handleOpenAdd("purchase")}
+                    className="inline-flex items-center gap-1.5 px-4 py-2 bg-black hover:bg-zinc-800 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                    <span>+ Add Step</span>
+                  </button>
+                </div>
               </div>
 
               <div className="border border-zinc-200 rounded-[4px] bg-white overflow-x-auto shadow-xs">
@@ -1656,15 +1688,97 @@ export default function AdminPage() {
                           <GripVertical className="w-4 h-4 mx-auto" />
                         </td>
                         <td className="p-3 text-center">
-                          {step.imageUrl ? (
-                            <img
-                              src={step.imageUrl}
-                              alt={step.title}
-                              className="w-8 h-14 object-cover rounded border border-zinc-200 mx-auto shadow-2xs"
-                            />
-                          ) : (
-                            <span className="text-[10px] text-zinc-400 italic">No img</span>
-                          )}
+                          <div className="flex flex-col items-center justify-center gap-1 min-w-[90px]">
+                            {step.imageUrl ? (
+                              <>
+                                <div className="relative group">
+                                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                                  <img
+                                    src={step.imageUrl}
+                                    alt={step.title}
+                                    style={{ aspectRatio: "9 / 20" }}
+                                    className="w-9 aspect-[9/20] object-cover rounded border border-zinc-200 mx-auto shadow-2xs group-hover:opacity-70 transition-opacity"
+                                  />
+                                  <label
+                                    className="absolute inset-0 bg-black/60 text-white opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center rounded text-[9px] font-bold cursor-pointer transition-opacity"
+                                    title="इमेज बदला (Replace)"
+                                  >
+                                    <UploadCloud className="w-3.5 h-3.5 mb-0.5" />
+                                    <span>Change</span>
+                                    <input
+                                      type="file"
+                                      accept="image/*"
+                                      className="hidden"
+                                      disabled={isUploadingImage}
+                                      onChange={async (e) => {
+                                        const f = e.target.files?.[0];
+                                        if (f) {
+                                          const res = await uploadImageFile(f);
+                                          if (res) {
+                                            const updated = [...content.howToPurchase];
+                                            updated[idx] = { ...updated[idx], imageUrl: res.url };
+                                            const newContent = { ...content, howToPurchase: updated };
+                                            setContent(newContent);
+                                            handleSaveAll(newContent);
+                                          }
+                                          e.target.value = "";
+                                        }
+                                      }}
+                                    />
+                                  </label>
+                                </div>
+                                <label className="text-[10px] font-bold text-zinc-600 hover:text-black hover:underline cursor-pointer flex items-center gap-0.5">
+                                  <UploadCloud className="w-2.5 h-2.5 text-emerald-600" />
+                                  <span>बदला</span>
+                                  <input
+                                    type="file"
+                                    accept="image/*"
+                                    className="hidden"
+                                    disabled={isUploadingImage}
+                                    onChange={async (e) => {
+                                      const f = e.target.files?.[0];
+                                      if (f) {
+                                        const res = await uploadImageFile(f);
+                                        if (res) {
+                                          const updated = [...content.howToPurchase];
+                                          updated[idx] = { ...updated[idx], imageUrl: res.url };
+                                          const newContent = { ...content, howToPurchase: updated };
+                                          setContent(newContent);
+                                          handleSaveAll(newContent);
+                                        }
+                                        e.target.value = "";
+                                      }
+                                    }}
+                                  />
+                                </label>
+                              </>
+                            ) : (
+                              <label className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-black hover:bg-zinc-800 text-white rounded text-[10px] font-bold cursor-pointer transition-colors shadow-2xs">
+                                <UploadCloud className="w-3 h-3" />
+                                <span>{isUploadingImage ? "..." : "+ Upload"}</span>
+                                <input
+                                  type="file"
+                                  accept="image/*"
+                                  className="hidden"
+                                  disabled={isUploadingImage}
+                                  onChange={async (e) => {
+                                    const f = e.target.files?.[0];
+                                    if (f) {
+                                      const res = await uploadImageFile(f);
+                                      if (res) {
+                                        const updated = [...content.howToPurchase];
+                                        updated[idx] = { ...updated[idx], imageUrl: res.url };
+                                        const newContent = { ...content, howToPurchase: updated };
+                                        setContent(newContent);
+                                        handleSaveAll(newContent);
+                                      }
+                                      e.target.value = "";
+                                    }
+                                  }}
+                                />
+                              </label>
+                            )}
+                          </div>
                         </td>
                         <td className="p-3 font-bold text-zinc-900">{step.step}</td>
                         <td className="p-3 font-semibold text-zinc-800">{step.title}</td>
@@ -3758,7 +3872,7 @@ export default function AdminPage() {
                   </div>
 
                   <div>
-                    <div className="flex items-center justify-between mb-1">
+                    <div className="flex items-center justify-between mb-1.5">
                       <label className="block text-xs font-semibold text-zinc-800">
                         Screenshot Image (9:20 Portrait)
                       </label>
@@ -3769,45 +3883,57 @@ export default function AdminPage() {
                         </span>
                       )}
                     </div>
-                    <div className="flex flex-col sm:flex-row gap-2">
+
+                    {/* Prominent Direct Upload Button / Card */}
+                    <label className="block p-3.5 border-2 border-dashed border-zinc-300 hover:border-black rounded-lg bg-zinc-50 hover:bg-zinc-100/70 text-center cursor-pointer transition-all mb-2.5">
+                      <div className="flex flex-col items-center justify-center gap-1.5">
+                        <div className="w-8 h-8 rounded-full bg-white shadow-2xs border border-zinc-200 flex items-center justify-center text-zinc-700">
+                          <UploadCloud className="w-4 h-4 text-[#9B3A32]" />
+                        </div>
+                        <div>
+                          <p className="text-xs font-bold text-zinc-800">
+                            {isUploadingImage ? "डेटाबेसमध्ये सेव्ह होत आहे..." : "येथे क्लिक करून थेट इमेज फाइल निवडा (Click to Upload File)"}
+                          </p>
+                          <p className="text-[10px] text-zinc-400 mt-0.5">
+                            PNG, JPG, WEBP • 9:20 स्क्रीनशॉट • थेट Cloudflare D1 मध्ये सेव्ह होईल
+                          </p>
+                        </div>
+                      </div>
+                      <input
+                        type="file"
+                        accept="image/*"
+                        className="hidden"
+                        disabled={isUploadingImage}
+                        onChange={async (e) => {
+                          const f = e.target.files?.[0];
+                          if (f) {
+                            const res = await uploadImageFile(f);
+                            if (res) {
+                              setPurchaseStepForm({ ...purchaseStepForm, imageUrl: res.url });
+                            }
+                            e.target.value = "";
+                          }
+                        }}
+                      />
+                    </label>
+
+                    <div className="flex gap-2">
                       <input
                         type="text"
                         value={purchaseStepForm.imageUrl}
                         onChange={(e) => setPurchaseStepForm({ ...purchaseStepForm, imageUrl: e.target.value })}
-                        placeholder="https://... किंवा खालील बटणाने थेट अपलोड करा"
+                        placeholder="किंवा इमेज URL टाका (https://...)"
                         className="flex-1 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white font-mono"
                       />
-                      <div className="flex items-center gap-1.5 shrink-0">
-                        <label className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black hover:bg-zinc-800 text-white rounded-[4px] text-xs font-bold cursor-pointer transition-colors shadow-2xs">
-                          <UploadCloud className="w-3.5 h-3.5" />
-                          <span>{isUploadingImage ? "अपलोड होत आहे..." : "इमेज अपलोड करा"}</span>
-                          <input
-                            type="file"
-                            accept="image/*"
-                            className="hidden"
-                            disabled={isUploadingImage}
-                            onChange={async (e) => {
-                              const f = e.target.files?.[0];
-                              if (f) {
-                                const res = await uploadImageFile(f);
-                                if (res) {
-                                  setPurchaseStepForm({ ...purchaseStepForm, imageUrl: res.url });
-                                }
-                                e.target.value = "";
-                              }
-                            }}
-                          />
-                        </label>
-                        {purchaseStepForm.imageUrl && (
-                          <button
-                            type="button"
-                            onClick={() => setPurchaseStepForm({ ...purchaseStepForm, imageUrl: "" })}
-                            className="px-2.5 py-1.5 text-xs text-red-600 hover:bg-red-50 border border-red-200 rounded-[4px] cursor-pointer font-medium"
-                          >
-                            Clear
-                          </button>
-                        )}
-                      </div>
+                      {purchaseStepForm.imageUrl && (
+                        <button
+                          type="button"
+                          onClick={() => setPurchaseStepForm({ ...purchaseStepForm, imageUrl: "" })}
+                          className="px-2.5 py-1.5 text-xs text-red-600 hover:bg-red-50 border border-red-200 rounded-[4px] cursor-pointer font-medium"
+                        >
+                          Clear
+                        </button>
+                      )}
                     </div>
                     <p className="text-[11px] text-zinc-400 mt-1">
                       तुमच्या डिव्हाइसवरून 9:20 स्क्रीनशॉट निवडा. ही इमेज थेट Cloudflare D1 डेटाबेसमध्ये सेव्ह होते.

@@ -84,8 +84,8 @@ export function SampleProof({ initialData }: { initialData?: Record<string, any>
           </div>
 
           {/* Question Highlight Box (Soft Blue/Slate Tint) */}
-          <div className="bg-[#dce3f0] rounded-xl p-4 sm:p-5 text-slate-900 font-bold text-sm sm:text-base leading-relaxed tracking-tight">
-            {current.question}
+          <div className="bg-[#dce3f0] rounded-xl p-4 sm:p-5 text-slate-900 font-bold text-sm sm:text-base leading-relaxed tracking-tight whitespace-pre-line">
+            {current.question ? current.question.replace(/<br\s*\/?>/gi, "\n") : ""}
           </div>
 
           {/* Vertical Options List with Radio Selectors */}
@@ -108,7 +108,7 @@ export function SampleProof({ initialData }: { initialData?: Record<string, any>
                   ) : (
                     <div className="w-4 h-4 rounded-full border border-slate-400 shrink-0 bg-white" />
                   )}
-                  <span className="text-sm sm:text-base leading-snug">{opt}</span>
+                  <span className="text-sm sm:text-base leading-snug whitespace-pre-line">{opt}</span>
                 </div>
               );
             })}

@@ -228,7 +228,7 @@ export default function AdminPage() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!passcode.trim()) {
-      setLoginError("कृपया पासवर्ड टाका (Please enter passcode)");
+      setLoginError("Please enter passcode");
       return;
     }
     setIsLoggingIn(true);
@@ -246,10 +246,10 @@ export default function AdminPage() {
           sessionStorage.setItem("admin_auth_passcode", passcode.trim());
         }
       } else {
-        setLoginError(data.error || "चुकीचा पासवर्ड! (Incorrect password)");
+        setLoginError(data.error || "Incorrect passcode!");
       }
     } catch {
-      setLoginError("सर्व्हरशी संपर्क होऊ शकला नाही. (Connection error)");
+      setLoginError("Could not connect to server.");
     } finally {
       setIsLoggingIn(false);
     }
@@ -325,12 +325,12 @@ export default function AdminPage() {
       });
       const data = await res.json();
       if (!res.ok || !data.success) {
-        throw new Error(data.error || "इमेज अपलोड अयशस्वी");
+        throw new Error(data.error || "Image upload failed");
       }
 
       setStatusMessage({
         type: "success",
-        text: data.message || "✓ इमेज डेटाबेसमध्ये सेव्ह झाली!",
+        text: data.message || "✓ Image saved to database successfully!",
       });
 
       if (isDbModalOpen) {
@@ -341,7 +341,7 @@ export default function AdminPage() {
     } catch (err: any) {
       setStatusMessage({
         type: "error",
-        text: err.message || "इमेज अपलोड करताना त्रुटी आली",
+        text: err.message || "Error uploading image",
       });
       return null;
     } finally {
@@ -380,7 +380,7 @@ export default function AdminPage() {
   };
 
   const handleDeleteDbImage = async (id: string) => {
-    if (!confirm("तुम्हाला खात्री आहे का ही इमेज डेटाबेसमधून हटवायची आहे?")) return;
+    if (!confirm("Are you sure you want to delete this image from database?")) return;
     try {
       const activePass = passcode || sessionStorage.getItem("admin_auth_passcode") || "";
       const res = await fetch(`/api/admin/upload?id=${encodeURIComponent(id)}&passcode=${encodeURIComponent(activePass)}`, {
@@ -389,10 +389,10 @@ export default function AdminPage() {
       const data = await res.json();
       if (data.success) {
         setDbImages((prev) => prev.filter((img) => img.id !== id));
-        setStatusMessage({ type: "success", text: "इमेज डेटाबेसमधून यशस्वीरीत्या हटवली!" });
+        setStatusMessage({ type: "success", text: "Image deleted from database successfully!" });
         fetchDbHealthAndImages();
       } else {
-        alert(data.error || "इमेज हटवता आली नाही");
+        alert(data.error || "Failed to delete image");
       }
     } catch (err) {
       alert("Error deleting image");
@@ -486,7 +486,7 @@ export default function AdminPage() {
 
   // Reset section ordering to default
   const handleResetSectionsOrder = () => {
-    if (!confirm("तुम्हाला सर्व विभागांचा क्रम मूळ स्थितीवर आणायचा आहे का? (Reset all sections to default order?)")) return;
+    if (!confirm("Are you sure you want to reset all sections to default order?")) return;
     const newContent = { ...content, sections: defaultSiteData.sections };
     setContent(newContent);
     handleSaveAll(newContent);
@@ -533,16 +533,16 @@ export default function AdminPage() {
         name: "",
         initial: "",
         location: "",
-        outcomeTag: "कटऑफ पार",
+        outcomeTag: "Cutoff Cleared",
         quote: "",
         order: content.testimonials.length + 1,
       });
     } else if (type === "purchase") {
       setPurchaseStepForm({
-        step: `स्टेप ${content.howToPurchase.length + 1}`,
+        step: `Step ${content.howToPurchase.length + 1}`,
         title: "",
         desc: "",
-        skeletonText: `9:20 स्क्रीनशॉट ${content.howToPurchase.length + 1}`,
+        skeletonText: `9:20 Screenshot ${content.howToPurchase.length + 1}`,
         imageUrl: "",
         order: content.howToPurchase.length + 1,
       });
@@ -959,7 +959,7 @@ export default function AdminPage() {
             <button
               onClick={handleOpenDatabaseModal}
               className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold text-zinc-700 bg-white hover:bg-zinc-100 rounded-[4px] border border-zinc-300 transition-colors cursor-pointer"
-              title="डेटाबेस तपासा (Check Database)"
+              title="Check Database"
             >
               <Database className="w-3.5 h-3.5 text-emerald-600" />
             </button>
@@ -995,10 +995,10 @@ export default function AdminPage() {
             <button
               onClick={handleOpenDatabaseModal}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-zinc-700 bg-white hover:bg-emerald-50 hover:border-emerald-300 rounded-[4px] border border-zinc-300 transition-colors cursor-pointer"
-              title="डेटाबेस स्थिती आणि मीडिया तपासा (Check Database & Media)"
+              title="Check Database & Media"
             >
               <Database className="w-3.5 h-3.5 text-emerald-600" />
-              <span>डेटाबेस (Database)</span>
+              <span>Database</span>
             </button>
             <button
               onClick={handleReset}
@@ -1060,20 +1060,20 @@ export default function AdminPage() {
                 <div>
                   <h2 className="text-xl font-bold text-black tracking-tight flex items-center gap-2">
                     <Layers className="w-5 h-5 text-black" />
-                    <span>विभाग क्रम व दृश्यमानता (Section Drag & Visibility)</span>
+                    <span>Section Order & Visibility</span>
                   </h2>
                   <p className="text-xs text-zinc-500 mt-1">
-                    वेबसाइटवरील विभागांचा क्रम बदलण्यासाठी ड्रॅग (Drag up/down) करा किंवा बाण वापरा. आवश्यकतेनुसार चालू किंवा बंद करा.
+                    Drag up/down or use arrows to reorder landing page sections. Toggle on/off as needed.
                   </p>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
                     onClick={handleResetSectionsOrder}
                     className="inline-flex items-center gap-1.5 px-3 py-2 bg-white border border-zinc-200 hover:bg-zinc-50 text-zinc-700 text-xs font-semibold rounded-[4px] shadow-xs transition-colors cursor-pointer"
-                    title="मूळ क्रम पूर्ववत करा"
+                    title="Reset section order"
                   >
                     <RotateCcw className="w-3.5 h-3.5" />
-                    <span>मूळ क्रम (Reset)</span>
+                    <span>Reset Order</span>
                   </button>
                   <button
                     onClick={() => handleSaveAll()}
@@ -1081,7 +1081,7 @@ export default function AdminPage() {
                     className="inline-flex items-center gap-1.5 px-4 py-2 bg-black hover:bg-zinc-800 disabled:opacity-50 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer transition-colors"
                   >
                     <Save className="w-3.5 h-3.5" />
-                    <span>{isSaving ? "सेव्ह होत आहे..." : "बदल सेव्ह करा"}</span>
+                    <span>{isSaving ? "Saving..." : "Save Changes"}</span>
                   </button>
                 </div>
               </div>
@@ -1099,7 +1099,7 @@ export default function AdminPage() {
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                     <div className="bg-white border border-zinc-200 rounded-[4px] p-3 flex items-center justify-between shadow-xs">
                       <div>
-                        <p className="text-[11px] text-zinc-400 font-medium">एकूण विभाग (Total Sections)</p>
+                        <p className="text-[11px] text-zinc-400 font-medium">Total Sections</p>
                         <p className="text-base font-bold text-zinc-900 mt-0.5">{totalCount}</p>
                       </div>
                       <span className="w-8 h-8 rounded-full bg-zinc-100 flex items-center justify-center text-zinc-600 font-bold text-xs">
@@ -1109,7 +1109,7 @@ export default function AdminPage() {
 
                     <div className="bg-white border border-emerald-200 rounded-[4px] p-3 flex items-center justify-between shadow-xs">
                       <div>
-                        <p className="text-[11px] text-emerald-600 font-medium">सक्रिय विभाग (Live on Website)</p>
+                        <p className="text-[11px] text-emerald-600 font-medium">Live on Website</p>
                         <p className="text-base font-bold text-emerald-700 mt-0.5">{activeCount}</p>
                       </div>
                       <span className="w-8 h-8 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center font-bold text-xs border border-emerald-200">
@@ -1119,7 +1119,7 @@ export default function AdminPage() {
 
                     <div className="bg-white border border-zinc-200 rounded-[4px] p-3 flex items-center justify-between shadow-xs">
                       <div>
-                        <p className="text-[11px] text-zinc-500 font-medium">लपवलेले विभाग (Disabled / Hidden)</p>
+                        <p className="text-[11px] text-zinc-500 font-medium">Disabled / Hidden</p>
                         <p className="text-base font-bold text-zinc-600 mt-0.5">{hiddenCount}</p>
                       </div>
                       <span className="w-8 h-8 rounded-full bg-zinc-100 text-zinc-500 flex items-center justify-center font-bold text-xs">
@@ -1134,13 +1134,13 @@ export default function AdminPage() {
               <div className="bg-amber-50/80 border border-amber-200/90 rounded-[4px] p-3 text-xs text-amber-900 flex items-start gap-2.5">
                 <GripVertical className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
                 <div className="space-y-0.5">
-                  <p className="font-semibold">कसे वापरावे (How to use):</p>
+                  <p className="font-semibold">How to use:</p>
                   <p className="text-amber-800 text-[11px]">
-                    1. <strong>वर-खाली हलवा:</strong> डावीकडील ग्रिप (⋮⋮) धरून ओढा किंवा ▲ / ▼ बाण क्लिक करा.
+                    1. <strong>Reorder:</strong> Drag handle (⋮⋮) or click ▲ / ▼ arrow buttons.
                     <br />
-                    2. <strong>चालू/बंद (Enable/Disable):</strong> उजवीकडील टॉगल स्विचने विभाग लगेच सुरू किंवा बंद करा.
+                    2. <strong>Enable / Disable:</strong> Use the toggle switch on the right to show or hide section.
                     <br />
-                    3. <strong>मजकूर संपादन:</strong> संबंधित विभागाचा मजकूर बदलण्यासाठी "संपादित करा" बटनावर क्लिक करा.
+                    3. <strong>Edit Content:</strong> Click "Edit" to jump directly to that section's editor.
                   </p>
                 </div>
               </div>
@@ -1150,13 +1150,13 @@ export default function AdminPage() {
                 <table className="w-full min-w-[640px] text-left text-xs border-collapse">
                   <thead className="bg-zinc-50 text-zinc-700 font-semibold border-b border-zinc-200">
                     <tr>
-                      <th className="p-3 w-12 text-center" title="Drag to reorder">ड्रॅग</th>
-                      <th className="p-3 w-14 text-center">क्रम</th>
-                      <th className="p-3 w-20 text-center">हलवा</th>
-                      <th className="p-3">विभागाचे नाव (Section Name & Info)</th>
-                      <th className="p-3 w-28 text-center">स्थिती (Status)</th>
-                      <th className="p-3 w-20 text-center">दृश्यमानता</th>
-                      <th className="p-3 w-28 text-center">मजकूर संपादन</th>
+                      <th className="p-3 w-12 text-center" title="Drag to reorder">Drag</th>
+                      <th className="p-3 w-14 text-center">Order</th>
+                      <th className="p-3 w-20 text-center">Move</th>
+                      <th className="p-3">Section Name & Info</th>
+                      <th className="p-3 w-28 text-center">Status</th>
+                      <th className="p-3 w-20 text-center">Visibility</th>
+                      <th className="p-3 w-28 text-center">Edit Content</th>
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-zinc-200">
@@ -1287,12 +1287,12 @@ export default function AdminPage() {
                             {isLive ? (
                               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full">
                                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                                <span>सक्रिय (Live)</span>
+                                <span>Live</span>
                               </span>
                             ) : (
                               <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-bold bg-zinc-100 text-zinc-500 border border-zinc-200 rounded-full">
                                 <span className="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
-                                <span>लपवलेला (Off)</span>
+                                <span>Hidden</span>
                               </span>
                             )}
                           </td>
@@ -1304,7 +1304,7 @@ export default function AdminPage() {
                                 checked={isLive}
                                 onCheckedChange={() => handleToggleSectionEnabled(sec.id)}
                                 className="w-9 h-5 bg-zinc-300 data-[state=checked]:bg-black rounded-full relative outline-none cursor-pointer transition-colors"
-                                title={isLive ? "विभागाला बंद करा" : "विभागाला चालू करा"}
+                                title={isLive ? "Disable section" : "Enable section"}
                               >
                                 <Switch.Thumb className="block w-4 h-4 bg-white rounded-full transition-transform transform translate-x-0.5 data-[state=checked]:translate-x-4.5 will-change-transform shadow-xs" />
                               </Switch.Root>
@@ -1317,13 +1317,13 @@ export default function AdminPage() {
                               <button
                                 onClick={() => setActiveSection(tabTarget[sec.id])}
                                 className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-semibold text-zinc-700 hover:text-black bg-zinc-100 hover:bg-zinc-200 rounded-[4px] transition-colors cursor-pointer"
-                                title="या विभागाचा मजकूर संपादित करा"
+                                title="Edit section content"
                               >
                                 <Edit2 className="w-3 h-3" />
-                                <span>संपादित करा</span>
+                                <span>Edit</span>
                               </button>
                             ) : (
-                              <span className="text-[11px] text-zinc-400 font-normal">स्वयंचलित</span>
+                              <span className="text-[11px] text-zinc-400 font-normal">Automatic</span>
                             )}
                           </td>
                         </tr>
@@ -1584,7 +1584,7 @@ export default function AdminPage() {
                 <div className="flex items-center gap-2">
                   <label className="inline-flex items-center gap-1.5 px-3.5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer transition-colors">
                     <UploadCloud className="w-3.5 h-3.5" />
-                    <span>{isUploadingImage ? "अपलोड होत आहे..." : "📁 थेट स्क्रीनशॉट अपलोड करा"}</span>
+                    <span>{isUploadingImage ? "Uploading..." : "📁 Upload Direct Screenshot"}</span>
                     <input
                       type="file"
                       accept="image/*"
@@ -1597,10 +1597,10 @@ export default function AdminPage() {
                           if (res) {
                             const newStepNum = content.howToPurchase.length + 1;
                             setPurchaseStepForm({
-                              step: `स्टेप ${newStepNum}`,
+                              step: `Step ${newStepNum}`,
                               title: "",
                               desc: "",
-                              skeletonText: `9:20 स्क्रीनशॉट ${newStepNum}`,
+                              skeletonText: `9:20 Screenshot ${newStepNum}`,
                               imageUrl: res.url,
                               order: newStepNum,
                             });
@@ -1701,7 +1701,7 @@ export default function AdminPage() {
                                   />
                                   <label
                                     className="absolute inset-0 bg-black/60 text-white opacity-0 group-hover:opacity-100 flex flex-col items-center justify-center rounded text-[9px] font-bold cursor-pointer transition-opacity"
-                                    title="इमेज बदला (Replace)"
+                                    title="Replace Image"
                                   >
                                     <UploadCloud className="w-3.5 h-3.5 mb-0.5" />
                                     <span>Change</span>
@@ -1729,7 +1729,7 @@ export default function AdminPage() {
                                 </div>
                                 <label className="text-[10px] font-bold text-zinc-600 hover:text-black hover:underline cursor-pointer flex items-center gap-0.5">
                                   <UploadCloud className="w-2.5 h-2.5 text-emerald-600" />
-                                  <span>बदला</span>
+                                  <span>Change</span>
                                   <input
                                     type="file"
                                     accept="image/*"
@@ -1818,7 +1818,7 @@ export default function AdminPage() {
             </div>
           )}
 
-          {/* SECTION: अभ्यास अडचणी (Pain Points) */}
+          {/* SECTION: Pain Points */}
           {activeSection === "painPoints" && (
             <div className="space-y-4">
               <div className="flex items-center justify-between">
@@ -1831,7 +1831,7 @@ export default function AdminPage() {
                   className="inline-flex items-center gap-1.5 px-4 py-2 bg-black hover:bg-zinc-800 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer"
                 >
                   <Plus className="w-3.5 h-3.5" />
-                  <span>+ Add Pain Point</span>
+                  <span>+ Add Item</span>
                 </button>
               </div>
 
@@ -1940,7 +1940,7 @@ export default function AdminPage() {
             <div className="space-y-4">
               <div>
                 <h2 className="text-xl font-bold text-black tracking-tight">Hero Image Settings</h2>
-                <p className="text-xs text-zinc-400 mt-0.5">डेस्कटॉप (5:6) आणि मोबाईल (16:9) साठी स्वतंत्र इमेजेस आणि क्लिक URL.</p>
+                <p className="text-xs text-zinc-400 mt-0.5">Separate images and click URLs for Desktop (5:6) and Mobile (16:9).</p>
               </div>
 
               <div className="border border-zinc-200 rounded-[4px] bg-white p-6 shadow-xs space-y-5">
@@ -1970,7 +1970,7 @@ export default function AdminPage() {
                               hero: { ...content.hero, desktopHeroImage: e.target.value },
                             })
                           }
-                          placeholder="https://... किंवा अपलोड करा"
+                          placeholder="https://... or click Upload"
                           className="flex-1 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white focus:border-black focus:ring-1 focus:ring-black outline-none font-mono"
                         />
                         <label className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black hover:bg-zinc-800 text-white rounded-[4px] text-xs font-bold cursor-pointer transition-colors shadow-2xs shrink-0">
@@ -2021,7 +2021,7 @@ export default function AdminPage() {
                               hero: { ...content.hero, mobileHeroImage: e.target.value },
                             })
                           }
-                          placeholder="https://... किंवा अपलोड करा"
+                          placeholder="https://... or click Upload"
                           className="flex-1 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white focus:border-black focus:ring-1 focus:ring-black outline-none font-mono"
                         />
                         <label className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black hover:bg-zinc-800 text-white rounded-[4px] text-xs font-bold cursor-pointer transition-colors shadow-2xs shrink-0">
@@ -2463,20 +2463,20 @@ export default function AdminPage() {
                         updated[key] = {
                           questionNo: 1,
                           subjectName: name,
-                          tag: "MPSC संभाव्य सराव प्रश्न",
-                          question: "येथे नवीन प्रश्न टाईप करा...",
-                          options: ["पर्याय 1", "पर्याय 2", "पर्याय 3", "पर्याय 4"],
+                          tag: "MPSC Practice Question",
+                          question: "Type question statement here...",
+                          options: ["Option 1", "Option 2", "Option 3", "Option 4"],
                           correct: 0,
-                          correctAnswer: "पर्याय 1",
+                          correctAnswer: "Option 1",
                           image: "",
-                          explanation: "येथे सविस्तर स्पष्टीकरण लिहा...",
+                          explanation: "Write detailed explanation here...",
                           structuredExplanation: {
-                            answer: "पर्याय 1",
+                            answer: "Option 1",
                             bullets: [
-                              { label: "महत्त्वाचा मुद्दा :", text: "येथे विश्लेषण लिहा", highlightClass: "text-[#9B3A32] font-bold" }
+                              { label: "Key Point :", text: "Write analysis here", highlightClass: "text-[#9B3A32] font-bold" }
                             ],
                             subsections: [
-                              { heading: "📌 संदर्भ व टीप :", items: ["परीक्षेसाठी महत्त्वाचा घटक"] }
+                              { heading: "📌 Reference Note :", items: ["Important point for exam"] }
                             ]
                           }
                         };
@@ -2726,7 +2726,7 @@ export default function AdminPage() {
                           Question Text
                         </label>
                         <textarea
-                          rows={3}
+                          rows={5}
                           value={current.question || ""}
                           onChange={(e) => {
                             const updated = { ...sampleProofData };
@@ -2734,8 +2734,11 @@ export default function AdminPage() {
                             setContent({ ...content, sampleProof: updated });
                           }}
                           placeholder="Type question here..."
-                          className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold bg-white leading-relaxed"
+                          className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold bg-white leading-relaxed resize-y"
                         />
+                        <p className="text-[11px] text-zinc-500 mt-1">
+                          Tip: Line breaks (Enter) are preserved in the live preview and on the website.
+                        </p>
                       </div>
 
                       {/* Dynamic Options List with Radio Answer Picker */}
@@ -2906,7 +2909,7 @@ export default function AdminPage() {
                                 updated[effectiveActive].image = e.target.value;
                                 setContent({ ...content, sampleProof: updated });
                               }}
-                              placeholder="/sample-image.png किंवा अपलोड करा"
+                              placeholder="/sample-image.png or click Upload"
                               className="flex-1 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white font-mono"
                             />
                             <label className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black hover:bg-zinc-800 text-white rounded-[4px] text-xs font-bold cursor-pointer transition-colors shadow-2xs shrink-0">
@@ -3295,8 +3298,8 @@ export default function AdminPage() {
                           </span>
                         </div>
 
-                        <div className="bg-[#dce3f0] rounded-xl p-4 text-slate-900 font-bold text-sm leading-relaxed">
-                          {current.question || "Question text will appear here..."}
+                        <div className="bg-[#dce3f0] rounded-xl p-4 text-slate-900 font-bold text-sm leading-relaxed tracking-tight whitespace-pre-line">
+                          {current.question ? current.question.replace(/<br\s*\/?>/gi, "\n") : "Question text will appear here..."}
                         </div>
 
                         <div className="space-y-2">
@@ -3318,7 +3321,7 @@ export default function AdminPage() {
                                 ) : (
                                   <div className="w-4 h-4 rounded-full border border-slate-400 shrink-0 bg-white" />
                                 )}
-                                <span>{opt}</span>
+                                <span className="whitespace-pre-line">{opt}</span>
                               </div>
                             );
                           })}
@@ -3335,7 +3338,7 @@ export default function AdminPage() {
                           )}
 
                           <p className="font-extrabold text-[#15803d]">
-                            उत्तर : {current.correctAnswer || current.options?.[current.correct]}
+                            Answer : {current.correctAnswer || current.options?.[current.correct]}
                           </p>
 
                           {current.explanationHtml ? (
@@ -3472,10 +3475,10 @@ export default function AdminPage() {
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
                       <label className="block text-xs font-bold text-zinc-900">
-                        Checklist Inclusions (काय समाविष्ट आहे?)
+                        Checklist Inclusions (Features & Access Points)
                       </label>
                       <p className="text-[11px] text-zinc-500">
-                        किमतीच्या कार्डमधील वैशिष्ट्ये, नोट्स किंवा टेस्ट्सची यादी (Checklist points).
+                        Features, bonuses, or test points included in the pricing card.
                       </p>
                     </div>
                     <button
@@ -3489,7 +3492,7 @@ export default function AdminPage() {
                         });
                       }}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black hover:bg-zinc-800 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer transition-colors shrink-0 self-start sm:self-auto"
-                      title="नवीन इनक्लुजन जोडा"
+                      title="Add New Inclusion"
                     >
                       <Plus className="w-3.5 h-3.5" />
                       <span>+ Add Inclusion</span>
@@ -3498,19 +3501,19 @@ export default function AdminPage() {
 
                   {(!content.finalCta?.checklist || content.finalCta.checklist.length === 0) ? (
                     <div className="p-4 border border-dashed border-zinc-300 rounded-[4px] text-center bg-zinc-50">
-                      <p className="text-xs text-zinc-500 mb-2">कोणतेही इनक्लुजन जोडलेले नाही.</p>
+                      <p className="text-xs text-zinc-500 mb-2">No inclusions added yet.</p>
                       <button
                         type="button"
                         onClick={() => {
                           setContent({
                             ...content,
-                            finalCta: { ...content.finalCta, checklist: ["नवीन वैशिष्ट्य किंवा ऑफर"] },
+                            finalCta: { ...content.finalCta, checklist: ["New Feature or Bonus"] },
                           });
                         }}
                         className="inline-flex items-center gap-1 px-3 py-1.5 bg-white border border-zinc-300 hover:bg-zinc-100 text-xs font-semibold text-zinc-700 rounded-[4px] cursor-pointer shadow-xs"
                       >
                         <Plus className="w-3.5 h-3.5" />
-                        <span>पहिले इनक्लुजन जोडा (Add First Inclusion)</span>
+                        <span>+ Add First Inclusion</span>
                       </button>
                     </div>
                   ) : (
@@ -3583,7 +3586,7 @@ export default function AdminPage() {
                                   finalCta: { ...content.finalCta, checklist: updated },
                                 });
                               }}
-                              placeholder={`उदा. 25 परिपूर्ण टेस्ट्स किंवा वैशिष्ट्य #${idx + 1}`}
+                              placeholder={`e.g. 25 Full Mock Tests or Feature #${idx + 1}`}
                               className="flex-1 min-w-0 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white focus:border-black focus:ring-1 focus:ring-black outline-none font-medium"
                             />
 
@@ -3598,7 +3601,7 @@ export default function AdminPage() {
                                 });
                               }}
                               className="p-1.5 text-zinc-400 hover:text-red-600 hover:bg-red-50 rounded-[4px] transition-colors cursor-pointer shrink-0"
-                              title="हे इनक्लुजन हटवा (Delete)"
+                              title="Delete Inclusion"
                             >
                               <Trash2 className="w-4 h-4" />
                             </button>
@@ -3879,7 +3882,7 @@ export default function AdminPage() {
                       {purchaseStepForm.imageUrl?.startsWith("/api/images/") && (
                         <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
                           <CheckCircle2 className="w-3 h-3 text-emerald-600" />
-                          डेटाबेसमध्ये सेव्ह (DB Stored)
+                          DB Stored
                         </span>
                       )}
                     </div>
@@ -3892,10 +3895,10 @@ export default function AdminPage() {
                         </div>
                         <div>
                           <p className="text-xs font-bold text-zinc-800">
-                            {isUploadingImage ? "डेटाबेसमध्ये सेव्ह होत आहे..." : "येथे क्लिक करून थेट इमेज फाइल निवडा (Click to Upload File)"}
+                            {isUploadingImage ? "Saving to Database..." : "Click to select image file (Click to Upload File)"}
                           </p>
                           <p className="text-[10px] text-zinc-400 mt-0.5">
-                            PNG, JPG, WEBP • 9:20 स्क्रीनशॉट • थेट Cloudflare D1 मध्ये सेव्ह होईल
+                            PNG, JPG, WEBP • 9:20 Screenshot • Saved directly to Cloudflare D1
                           </p>
                         </div>
                       </div>
@@ -3922,7 +3925,7 @@ export default function AdminPage() {
                         type="text"
                         value={purchaseStepForm.imageUrl}
                         onChange={(e) => setPurchaseStepForm({ ...purchaseStepForm, imageUrl: e.target.value })}
-                        placeholder="किंवा इमेज URL टाका (https://...)"
+                        placeholder="Or enter image URL (https://...)"
                         className="flex-1 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white font-mono"
                       />
                       {purchaseStepForm.imageUrl && (
@@ -3936,7 +3939,7 @@ export default function AdminPage() {
                       )}
                     </div>
                     <p className="text-[11px] text-zinc-400 mt-1">
-                      तुमच्या डिव्हाइसवरून 9:20 स्क्रीनशॉट निवडा. ही इमेज थेट Cloudflare D1 डेटाबेसमध्ये सेव्ह होते.
+                      Select a 9:20 screenshot from your device. This image will be saved directly into Cloudflare D1 database.
                     </p>
 
                     {/* Live Thumbnail Preview */}
@@ -4169,10 +4172,10 @@ export default function AdminPage() {
                 </div>
                 <div>
                   <Dialog.Title className="text-base font-bold text-black">
-                    डेटाबेस स्थिती आणि मीडिया (Database & Media)
+                    Database Status & Media
                   </Dialog.Title>
                   <p className="text-xs text-zinc-500">
-                    Cloudflare D1 डेटाबेस कनेक्टिव्हिटी आणि अपलोड केलेल्या इमेजेस
+                    Cloudflare D1 database connectivity and uploaded images
                   </p>
                 </div>
               </div>
@@ -4196,7 +4199,7 @@ export default function AdminPage() {
                       <span className={`relative inline-flex rounded-full h-3 w-3 ${dbHealth?.ok ? "bg-emerald-500" : "bg-amber-500"}`}></span>
                     </span>
                     <span className="text-xs font-bold text-zinc-900">
-                      {dbHealth?.ok ? "डेटाबेस कनेक्टेड आणि सक्रिय (Active & Connected)" : "डेटाबेस स्थिती तपासत आहे..."}
+                      {dbHealth?.ok ? "Database Connected & Active" : "Checking database status..."}
                     </span>
                   </div>
 
@@ -4206,7 +4209,7 @@ export default function AdminPage() {
                     className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-zinc-700 bg-white hover:bg-zinc-100 border border-zinc-300 rounded shadow-2xs cursor-pointer self-start sm:self-auto"
                   >
                     <RefreshCw className={`w-3 h-3 ${isLoadingDb ? "animate-spin" : ""}`} />
-                    <span>पुन्हा तपासा (Refresh)</span>
+                    <span>Refresh</span>
                   </button>
                 </div>
 
@@ -4242,12 +4245,12 @@ export default function AdminPage() {
               {/* Direct Upload into Database */}
               <div className="flex items-center justify-between p-3 rounded-lg border border-dashed border-zinc-300 bg-white">
                 <div>
-                  <h4 className="text-xs font-bold text-zinc-900">थेट डेटाबेसमध्ये इमेज अपलोड करा</h4>
-                  <p className="text-[11px] text-zinc-500">कोणतीही इमेज निवडून थेट Cloudflare D1 मध्ये सेव्ह करा.</p>
+                  <h4 className="text-xs font-bold text-zinc-900">Directly Upload Image to Database</h4>
+                  <p className="text-[11px] text-zinc-500">Select any image and save directly into Cloudflare D1.</p>
                 </div>
                 <label className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black hover:bg-zinc-800 text-white rounded text-xs font-bold cursor-pointer transition-colors shadow-2xs shrink-0">
                   <UploadCloud className="w-3.5 h-3.5" />
-                  <span>{isUploadingImage ? "अपलोड होत आहे..." : "नवीन इमेज निवडा"}</span>
+                  <span>{isUploadingImage ? "Uploading..." : "Select New Image"}</span>
                   <input
                     type="file"
                     accept="image/*"
@@ -4267,15 +4270,15 @@ export default function AdminPage() {
               {/* Stored Images List */}
               <div className="space-y-2">
                 <h4 className="text-xs font-bold text-zinc-900 flex items-center justify-between">
-                  <span>डेटाबेसमध्ये सेव्ह केलेल्या इमेजेस ({dbImages.length})</span>
-                  {isLoadingDb && <span className="text-[11px] text-zinc-400 font-normal">लोड होत आहे...</span>}
+                  <span>Images Saved in Database ({dbImages.length})</span>
+                  {isLoadingDb && <span className="text-[11px] text-zinc-400 font-normal">Loading...</span>}
                 </h4>
 
                 {dbImages.length === 0 ? (
                   <div className="text-center py-8 border border-zinc-200 rounded-lg bg-zinc-50/50">
                     <ImageIcon className="w-8 h-8 text-zinc-300 mx-auto mb-2" />
-                    <p className="text-xs text-zinc-500 font-medium">डेटाबेसमध्ये अद्याप कोणतीही इमेज सेव्ह नाही.</p>
-                    <p className="text-[11px] text-zinc-400 mt-0.5">वरील बटण वापरून इमेज अपलोड करा.</p>
+                    <p className="text-xs text-zinc-500 font-medium">No images stored in database yet.</p>
+                    <p className="text-[11px] text-zinc-400 mt-0.5">Use the button above to upload an image.</p>
                   </div>
                 ) : (
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -4328,7 +4331,7 @@ export default function AdminPage() {
             <div className="pt-3 mt-3 border-t border-zinc-100 flex justify-end shrink-0">
               <Dialog.Close asChild>
                 <button className="px-4 py-1.5 bg-zinc-100 hover:bg-zinc-200 text-zinc-800 text-xs font-semibold rounded cursor-pointer transition-colors">
-                  बंद करा (Close)
+                  Close
                 </button>
               </Dialog.Close>
             </div>

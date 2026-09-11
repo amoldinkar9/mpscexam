@@ -70,36 +70,36 @@ const MATH_SYMBOLS = [
 
 export const LATEX_PRESETS = [
   {
-    category: "अपूर्णांक व घात (Fractions & Powers)",
+    category: "Fractions & Powers",
     items: [
-      { label: "a/b", latex: "\\frac{a}{b}", name: "अपूर्णांक (Fraction)" },
-      { label: "x²", latex: "x^2", name: "वर्ग (Square)" },
-      { label: "xⁿ", latex: "x^{n}", name: "घात (Exponent)" },
-      { label: "xᵢ", latex: "x_{i}", name: "पाद (Subscript)" },
-      { label: "x₁²", latex: "x_{1}^{2}", name: "पाद व घात" },
-      { label: "√x", latex: "\\sqrt{x}", name: "वर्गमूळ (Square Root)" },
-      { label: "∛x", latex: "\\sqrt[3]{x}", name: "घनमूळ (Cube Root)" },
-      { label: "d/dx", latex: "\\frac{d}{dx}", name: "अवकलन (Derivative)" },
+      { label: "a/b", latex: "\\frac{a}{b}", name: "Fraction" },
+      { label: "x²", latex: "x^2", name: "Square" },
+      { label: "xⁿ", latex: "x^{n}", name: "Exponent" },
+      { label: "xᵢ", latex: "x_{i}", name: "Subscript" },
+      { label: "x₁²", latex: "x_{1}^{2}", name: "Subscript & Power" },
+      { label: "√x", latex: "\\sqrt{x}", name: "Square Root" },
+      { label: "∛x", latex: "\\sqrt[3]{x}", name: "Cube Root" },
+      { label: "d/dx", latex: "\\frac{d}{dx}", name: "Derivative" },
     ]
   },
   {
-    category: "चिन्हे व संबंध (Symbols & Operators)",
+    category: "Symbols & Operators",
     items: [
-      { label: "±", latex: "\\pm", name: "अधिक-उणे (Plus-Minus)" },
-      { label: "×", latex: "\\times", name: "गुणाकार" },
-      { label: "÷", latex: "\\div", name: "भागाकार" },
-      { label: "≠", latex: "\\neq", name: "समान नाही" },
-      { label: "≈", latex: "\\approx", name: "अंदाजे" },
-      { label: "≤", latex: "\\le", name: "कमी किंवा समान" },
-      { label: "≥", latex: "\\ge", name: "जास्त किंवा समान" },
-      { label: "∞", latex: "\\infty", name: "अनंत (Infinity)" },
-      { label: "%", latex: "\\%", name: "टक्केवारी" },
-      { label: "∑", latex: "\\sum_{i=1}^{n} x_i", name: "बेरीज (Summation)" },
-      { label: "∫", latex: "\\int_{a}^{b} f(x) dx", name: "समाकलन (Integral)" },
+      { label: "±", latex: "\\pm", name: "Plus-Minus" },
+      { label: "×", latex: "\\times", name: "Multiplication" },
+      { label: "÷", latex: "\\div", name: "Division" },
+      { label: "≠", latex: "\\neq", name: "Not Equal" },
+      { label: "≈", latex: "\\approx", name: "Approximately" },
+      { label: "≤", latex: "\\le", name: "Less Than or Equal" },
+      { label: "≥", latex: "\\ge", name: "Greater Than or Equal" },
+      { label: "∞", latex: "\\infty", name: "Infinity" },
+      { label: "%", latex: "\\%", name: "Percentage" },
+      { label: "∑", latex: "\\sum_{i=1}^{n} x_i", name: "Summation" },
+      { label: "∫", latex: "\\int_{a}^{b} f(x) dx", name: "Integral" },
     ]
   },
   {
-    category: "ग्रीक अक्षरे (Greek Letters)",
+    category: "Greek Letters",
     items: [
       { label: "α", latex: "\\alpha", name: "Alpha" },
       { label: "β", latex: "\\beta", name: "Beta" },
@@ -114,18 +114,18 @@ export const LATEX_PRESETS = [
     ]
   },
   {
-    category: "MPSC परीक्षा सूत्रे (Exam Formulas)",
+    category: "Exam Formulas",
     items: [
-      { label: "वर्गसमीकरण (Quadratic)", latex: "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}", name: "Quadratic Formula" },
-      { label: "पायथागोरस (Pythagoras)", latex: "a^2 + b^2 = c^2", name: "Pythagorean Theorem" },
-      { label: "वर्तुळ क्षेत्रफळ (Circle Area)", latex: "A = \\pi r^2", name: "Circle Area" },
-      { label: "त्रिकोण क्षेत्रफळ (Triangle)", latex: "A = \\frac{1}{2} b h", name: "Triangle Area" },
-      { label: "चक्रवाढ व्याज (CI)", latex: "A = P \\left(1 + \\frac{r}{100}\\right)^n", name: "Compound Interest" },
-      { label: "वेग व अंतर (Speed)", latex: "\\text{वेग} = \\frac{\\text{अंतर}}{\\text{वेळ}}", name: "Speed Formula" },
-      { label: "टक्केवारी नफा (Profit %)", latex: "\\text{नफा} \\% = \\frac{\\text{नफा}}{\\text{खरेदी किंमत}} \\times 100", name: "Profit Percentage" },
-      { label: "सरासरी (Average)", latex: "\\bar{x} = \\frac{x_1 + x_2 + \\dots + x_n}{n}", name: "Average Formula" },
-      { label: "पाणी रेणू (Water)", latex: "\\text{H}_2\\text{O}", name: "Water Formula" },
-      { label: "सल्फ्यूरिक आम्ल (Acid)", latex: "\\text{H}_2\\text{SO}_4", name: "Sulfuric Acid" },
+      { label: "Quadratic", latex: "x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}", name: "Quadratic Formula" },
+      { label: "Pythagoras", latex: "a^2 + b^2 = c^2", name: "Pythagorean Theorem" },
+      { label: "Circle Area", latex: "A = \\pi r^2", name: "Circle Area" },
+      { label: "Triangle Area", latex: "A = \\frac{1}{2} b h", name: "Triangle Area" },
+      { label: "Compound Interest (CI)", latex: "A = P \\left(1 + \\frac{r}{100}\\right)^n", name: "Compound Interest" },
+      { label: "Speed & Distance", latex: "\\text{Speed} = \\frac{\\text{Distance}}{\\text{Time}}", name: "Speed Formula" },
+      { label: "Profit Percentage", latex: "\\text{Profit} \\% = \\frac{\\text{Profit}}{\\text{Cost Price}} \\times 100", name: "Profit Percentage" },
+      { label: "Average", latex: "\\bar{x} = \\frac{x_1 + x_2 + \\dots + x_n}{n}", name: "Average Formula" },
+      { label: "Water Molecule", latex: "\\text{H}_2\\text{O}", name: "Water Formula" },
+      { label: "Sulfuric Acid", latex: "\\text{H}_2\\text{SO}_4", name: "Sulfuric Acid" },
     ]
   }
 ];
@@ -363,14 +363,14 @@ export function RichTextEditor({
       // Edit existing formula node in-place
       editingLatexNode.setAttribute("data-latex", encodedLatex);
       editingLatexNode.setAttribute("data-is-block", latexIsBlock ? "true" : "false");
-      editingLatexNode.setAttribute("title", `LaTeX: ${cleanLatex} (क्लिक करून बदला)`);
+      editingLatexNode.setAttribute("title", `LaTeX: ${cleanLatex} (Click to edit)`);
       editingLatexNode.innerHTML = renderedHtml;
       setEditingLatexNode(null);
     } else {
       // Insert new LaTeX node
       const wrapperHtml = latexIsBlock
-        ? `<div class="katex-eq-block my-3 text-center select-none" data-latex="${encodedLatex}" data-is-block="true" contenteditable="false" style="padding: 10px 16px; background-color: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; cursor: pointer; display: block;" title="LaTeX: ${cleanLatex.replace(/"/g, '&quot;')} (क्लिक करून बदला)">${renderedHtml}</div><p><br></p>`
-        : `<span class="katex-eq-inline inline-block mx-1 select-none" data-latex="${encodedLatex}" data-is-block="false" contenteditable="false" style="padding: 2px 6px; background-color: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 4px; vertical-align: middle; cursor: pointer;" title="LaTeX: ${cleanLatex.replace(/"/g, '&quot;')} (क्लिक करून बदला)">${renderedHtml}</span>&nbsp;`;
+        ? `<div class="katex-eq-block my-3 text-center select-none" data-latex="${encodedLatex}" data-is-block="true" contenteditable="false" style="padding: 10px 16px; background-color: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 8px; cursor: pointer; display: block;" title="LaTeX: ${cleanLatex.replace(/"/g, '&quot;')} (Click to edit)">${renderedHtml}</div><p><br></p>`
+        : `<span class="katex-eq-inline inline-block mx-1 select-none" data-latex="${encodedLatex}" data-is-block="false" contenteditable="false" style="padding: 2px 6px; background-color: #f8fafc; border: 1px dashed #cbd5e1; border-radius: 4px; vertical-align: middle; cursor: pointer;" title="LaTeX: ${cleanLatex.replace(/"/g, '&quot;')} (Click to edit)">${renderedHtml}</span>&nbsp;`;
 
       document.execCommand("insertHTML", false, wrapperHtml);
     }
@@ -417,7 +417,7 @@ export function RichTextEditor({
       for (let c = 0; c < cols; c++) {
         const th = document.createElement("th");
         th.style.cssText = "border: 1px solid #cbd5e1; background-color: #f1f5f9; padding: 8px 12px; font-weight: 700; color: #0f172a; text-align: left;";
-        th.textContent = `शीर्षक ${c + 1}`;
+        th.textContent = `Header ${c + 1}`;
         headRow.appendChild(th);
       }
       thead.appendChild(headRow);
@@ -434,7 +434,7 @@ export function RichTextEditor({
       for (let c = 0; c < cols; c++) {
         const td = document.createElement("td");
         td.style.cssText = "border: 1px solid #cbd5e1; padding: 8px 12px; color: #334155;";
-        td.innerHTML = `मजकूर ${r + 1}.${c + 1}`;
+        td.innerHTML = `Cell ${r + 1}.${c + 1}`;
         tr.appendChild(td);
       }
       tbody.appendChild(tr);
@@ -952,7 +952,7 @@ export function RichTextEditor({
                   }}
                   className="text-[10px] text-zinc-500 hover:text-black font-semibold cursor-pointer"
                 >
-                  रंग काढा (Clear Highlight)
+                  Clear Highlight
                 </button>
               </div>
             </div>
@@ -1157,13 +1157,13 @@ export function RichTextEditor({
               ? "bg-black text-white border-black"
               : "bg-amber-50 hover:bg-amber-100 active:bg-amber-200 border-amber-300 text-amber-950 shadow-2xs"
           }`}
-          title="LaTeX Math Equation (गणितीय सूत्र व समीकरणे)"
+          title="LaTeX Math Equation"
         >
           <span className="font-serif font-bold text-xs italic tracking-tight">T<sub className="font-sans font-extrabold text-[8px] not-italic">E</sub>X</span>
           <span className="text-[11px] font-bold">LaTeX</span>
         </button>
 
-        {/* 18. Table Tool (तक्ता / सारणी) */}
+        {/* 18. Table Tool */}
         <div className="relative">
           <button
             type="button"
@@ -1176,10 +1176,10 @@ export function RichTextEditor({
                 ? "bg-blue-600 text-white border-blue-600 shadow-2xs"
                 : "bg-blue-50/70 hover:bg-blue-100 active:bg-blue-200 border-blue-200 text-blue-950 shadow-2xs"
             }`}
-            title="तक्ता घाला किंवा व्यवस्थापित करा (Insert or Manage Table)"
+            title="Insert or Manage Table"
           >
             <TableIcon className="w-3.5 h-3.5" />
-            <span className="text-[11px] font-bold">तक्ता</span>
+            <span className="text-[11px] font-bold">Table</span>
             {activeTableElement && (
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
             )}
@@ -1192,7 +1192,7 @@ export function RichTextEditor({
               <div className="flex items-center justify-between border-b border-zinc-100 pb-2">
                 <span className="text-xs font-bold text-zinc-900 flex items-center gap-1.5">
                   <TableIcon className="w-4 h-4 text-blue-600" />
-                  <span>तक्ता जोडा / संपादन (Table)</span>
+                  <span>Insert / Manage Table</span>
                 </span>
                 <button
                   type="button"
@@ -1208,12 +1208,12 @@ export function RichTextEditor({
                 <div className="space-y-3">
                   <div className="p-2.5 bg-blue-50/80 border border-blue-200 rounded-md">
                     <p className="text-[11px] font-bold text-blue-900 mb-1.5 flex items-center gap-1">
-                      <span>✓ सध्या निवडलेला तक्ता (Active Table)</span>
+                      <span>✓ Active Table Selected</span>
                     </p>
                     
                     {/* Rows */}
                     <div className="space-y-1 mb-2">
-                      <span className="text-[10px] font-semibold text-blue-800 uppercase tracking-wide">ओळ क्रिया (Row):</span>
+                      <span className="text-[10px] font-semibold text-blue-800 uppercase tracking-wide">Row Actions:</span>
                       <div className="grid grid-cols-2 gap-1.5">
                         <button
                           type="button"
@@ -1221,7 +1221,7 @@ export function RichTextEditor({
                           className="px-2 py-1 bg-white hover:bg-zinc-50 border border-blue-200 rounded text-xs font-medium text-zinc-800 flex items-center gap-1 cursor-pointer"
                         >
                           <ArrowUp className="w-3 h-3 text-blue-600" />
-                          <span>+ वर ओळ</span>
+                          <span>+ Row Above</span>
                         </button>
                         <button
                           type="button"
@@ -1229,7 +1229,7 @@ export function RichTextEditor({
                           className="px-2 py-1 bg-white hover:bg-zinc-50 border border-blue-200 rounded text-xs font-medium text-zinc-800 flex items-center gap-1 cursor-pointer"
                         >
                           <ArrowDown className="w-3 h-3 text-blue-600" />
-                          <span>+ खाली ओळ</span>
+                          <span>+ Row Below</span>
                         </button>
                       </div>
                       <button
@@ -1238,13 +1238,13 @@ export function RichTextEditor({
                         className="w-full mt-1 px-2 py-1 bg-white hover:bg-red-50 border border-red-200 rounded text-xs font-medium text-red-700 flex items-center justify-center gap-1 cursor-pointer"
                       >
                         <Trash2 className="w-3 h-3 text-red-500" />
-                        <span>निवडलेली ओळ हटवा (Delete Row)</span>
+                        <span>Delete Selected Row</span>
                       </button>
                     </div>
 
                     {/* Columns */}
                     <div className="space-y-1">
-                      <span className="text-[10px] font-semibold text-blue-800 uppercase tracking-wide">स्तंभ क्रिया (Column):</span>
+                      <span className="text-[10px] font-semibold text-blue-800 uppercase tracking-wide">Column Actions:</span>
                       <div className="grid grid-cols-2 gap-1.5">
                         <button
                           type="button"
@@ -1252,7 +1252,7 @@ export function RichTextEditor({
                           className="px-2 py-1 bg-white hover:bg-zinc-50 border border-blue-200 rounded text-xs font-medium text-zinc-800 flex items-center gap-1 cursor-pointer"
                         >
                           <ArrowLeft className="w-3 h-3 text-blue-600" />
-                          <span>+ डावीकडे स्तंभ</span>
+                          <span>+ Column Left</span>
                         </button>
                         <button
                           type="button"
@@ -1260,7 +1260,7 @@ export function RichTextEditor({
                           className="px-2 py-1 bg-white hover:bg-zinc-50 border border-blue-200 rounded text-xs font-medium text-zinc-800 flex items-center gap-1 cursor-pointer"
                         >
                           <ArrowRight className="w-3 h-3 text-blue-600" />
-                          <span>+ उजवीकडे स्तंभ</span>
+                          <span>+ Column Right</span>
                         </button>
                       </div>
                       <button
@@ -1269,7 +1269,7 @@ export function RichTextEditor({
                         className="w-full mt-1 px-2 py-1 bg-white hover:bg-red-50 border border-red-200 rounded text-xs font-medium text-red-700 flex items-center justify-center gap-1 cursor-pointer"
                       >
                         <Trash2 className="w-3 h-3 text-red-500" />
-                        <span>निवडलेला स्तंभ हटवा (Delete Column)</span>
+                        <span>Delete Selected Column</span>
                       </button>
                     </div>
 
@@ -1280,12 +1280,12 @@ export function RichTextEditor({
                       className="w-full mt-2.5 px-2.5 py-1.5 bg-red-600 hover:bg-red-700 text-white rounded text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer shadow-xs transition-colors"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
-                      <span>संपूर्ण तक्ता हटवा (Delete Entire Table)</span>
+                      <span>Delete Entire Table</span>
                     </button>
                   </div>
 
                   <div className="border-t border-zinc-200 pt-2">
-                    <span className="text-[11px] font-bold text-zinc-600 block mb-1.5">किंवा नवीन तक्ता घाला:</span>
+                    <span className="text-[11px] font-bold text-zinc-600 block mb-1.5">Or Insert New Table:</span>
                   </div>
                 </div>
               ) : null}
@@ -1293,7 +1293,7 @@ export function RichTextEditor({
               {/* Grid Selector */}
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-semibold text-zinc-700">ग्रिड निवडून लगेच जोडा:</span>
+                  <span className="text-[11px] font-semibold text-zinc-700">Quick Grid Selector:</span>
                   <span className="text-[10px] font-mono font-bold bg-blue-50 text-blue-700 px-1.5 py-0.5 rounded border border-blue-200">
                     {hoveredGrid.cols} × {hoveredGrid.rows}
                   </span>
@@ -1332,7 +1332,7 @@ export function RichTextEditor({
               <div className="pt-2 border-t border-zinc-100 space-y-2.5">
                 <div className="grid grid-cols-2 gap-2">
                   <div>
-                    <label className="text-[10px] text-zinc-500 font-semibold block mb-0.5">ओळी (Rows):</label>
+                    <label className="text-[10px] text-zinc-500 font-semibold block mb-0.5">Rows:</label>
                     <input
                       type="number"
                       min={1}
@@ -1343,7 +1343,7 @@ export function RichTextEditor({
                     />
                   </div>
                   <div>
-                    <label className="text-[10px] text-zinc-500 font-semibold block mb-0.5">स्तंभ (Columns):</label>
+                    <label className="text-[10px] text-zinc-500 font-semibold block mb-0.5">Columns:</label>
                     <input
                       type="number"
                       min={1}
@@ -1363,7 +1363,7 @@ export function RichTextEditor({
                       onChange={(e) => setTableIncludeHeader(e.target.checked)}
                       className="rounded text-blue-600 focus:ring-0"
                     />
-                    <span className="text-[11px] font-medium">शीर्षक ओळ (Header Row)</span>
+                    <span className="text-[11px] font-medium">Header Row</span>
                   </label>
 
                   <div className="flex items-center gap-1">
@@ -1376,7 +1376,7 @@ export function RichTextEditor({
                           : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200"
                       }`}
                     >
-                      साधारण
+                      Standard
                     </button>
                     <button
                       type="button"
@@ -1387,7 +1387,7 @@ export function RichTextEditor({
                           : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200"
                       }`}
                     >
-                      पट्टेरी
+                      Striped
                     </button>
                   </div>
                 </div>
@@ -1400,7 +1400,7 @@ export function RichTextEditor({
                   className="w-full py-1.5 bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white text-xs font-bold rounded shadow-xs cursor-pointer flex items-center justify-center gap-1.5 transition-colors"
                 >
                   <Plus className="w-3.5 h-3.5" />
-                  <span>+ {customTableRows}×{customTableCols} तक्ता तयार करा</span>
+                  <span>+ Create {customTableRows}×{customTableCols} Table</span>
                 </button>
               </div>
 
@@ -1433,39 +1433,39 @@ export function RichTextEditor({
           <div className="flex items-center flex-wrap gap-2">
             <span className="font-bold flex items-center gap-1 text-blue-900">
               <TableIcon className="w-3.5 h-3.5 text-blue-700" />
-              <span>तक्ता साधने:</span>
+              <span>Table Tools:</span>
             </span>
             <div className="h-4 w-px bg-blue-200 hidden sm:block" />
             
             {/* Row actions */}
             <div className="flex items-center gap-1">
-              <span className="text-[10px] uppercase font-bold text-blue-700">ओळ:</span>
+              <span className="text-[10px] uppercase font-bold text-blue-700">Row:</span>
               <button
                 type="button"
                 onMouseDown={(e) => { e.preventDefault(); handleInsertRowAbove(); }}
                 className="px-1.5 py-0.5 rounded bg-white hover:bg-blue-100 border border-blue-200 text-[11px] font-medium text-blue-900 cursor-pointer flex items-center gap-0.5 shadow-2xs"
-                title="वर ओळ जोडा (Insert Row Above)"
+                title="Insert Row Above"
               >
                 <ArrowUp className="w-3 h-3 text-blue-600" />
-                <span>+वर</span>
+                <span>+Above</span>
               </button>
               <button
                 type="button"
                 onMouseDown={(e) => { e.preventDefault(); handleInsertRowBelow(); }}
                 className="px-1.5 py-0.5 rounded bg-white hover:bg-blue-100 border border-blue-200 text-[11px] font-medium text-blue-900 cursor-pointer flex items-center gap-0.5 shadow-2xs"
-                title="खाली ओळ जोडा (Insert Row Below)"
+                title="Insert Row Below"
               >
                 <ArrowDown className="w-3 h-3 text-blue-600" />
-                <span>+खाली</span>
+                <span>+Below</span>
               </button>
               <button
                 type="button"
                 onMouseDown={(e) => { e.preventDefault(); handleDeleteRow(); }}
                 className="px-1.5 py-0.5 rounded bg-white hover:bg-red-50 border border-red-200 text-[11px] font-medium text-red-700 cursor-pointer flex items-center gap-0.5 shadow-2xs"
-                title="सध्याची ओळ हटवा (Delete Row)"
+                title="Delete Row"
               >
                 <Trash2 className="w-3 h-3 text-red-500" />
-                <span>ओळ हटवा</span>
+                <span>Delete Row</span>
               </button>
             </div>
 
@@ -1473,33 +1473,33 @@ export function RichTextEditor({
 
             {/* Column actions */}
             <div className="flex items-center gap-1">
-              <span className="text-[10px] uppercase font-bold text-blue-700">स्तंभ:</span>
+              <span className="text-[10px] uppercase font-bold text-blue-700">Col:</span>
               <button
                 type="button"
                 onMouseDown={(e) => { e.preventDefault(); handleInsertColLeft(); }}
                 className="px-1.5 py-0.5 rounded bg-white hover:bg-blue-100 border border-blue-200 text-[11px] font-medium text-blue-900 cursor-pointer flex items-center gap-0.5 shadow-2xs"
-                title="डावीकडे स्तंभ जोडा (Insert Column Left)"
+                title="Insert Column Left"
               >
                 <ArrowLeft className="w-3 h-3 text-blue-600" />
-                <span>+डावी</span>
+                <span>+Left</span>
               </button>
               <button
                 type="button"
                 onMouseDown={(e) => { e.preventDefault(); handleInsertColRight(); }}
                 className="px-1.5 py-0.5 rounded bg-white hover:bg-blue-100 border border-blue-200 text-[11px] font-medium text-blue-900 cursor-pointer flex items-center gap-0.5 shadow-2xs"
-                title="उजवीकडे स्तंभ जोडा (Insert Column Right)"
+                title="Insert Column Right"
               >
                 <ArrowRight className="w-3 h-3 text-blue-600" />
-                <span>+उजवी</span>
+                <span>+Right</span>
               </button>
               <button
                 type="button"
                 onMouseDown={(e) => { e.preventDefault(); handleDeleteCol(); }}
                 className="px-1.5 py-0.5 rounded bg-white hover:bg-red-50 border border-red-200 text-[11px] font-medium text-red-700 cursor-pointer flex items-center gap-0.5 shadow-2xs"
-                title="सध्याचा स्तंभ हटवा (Delete Column)"
+                title="Delete Column"
               >
                 <Trash2 className="w-3 h-3 text-red-500" />
-                <span>स्तंभ हटवा</span>
+                <span>Delete Col</span>
               </button>
             </div>
           </div>
@@ -1509,10 +1509,10 @@ export function RichTextEditor({
             type="button"
             onMouseDown={(e) => { e.preventDefault(); handleDeleteTable(); }}
             className="px-2 py-0.5 rounded bg-red-100 hover:bg-red-200 border border-red-300 text-[11px] font-bold text-red-800 cursor-pointer flex items-center gap-1 transition-colors ml-auto sm:ml-0"
-            title="संपूर्ण तक्ता काढून टाका (Delete Table)"
+            title="Delete Entire Table"
           >
             <Trash2 className="w-3 h-3 text-red-600" />
-            <span>तक्ता हटवा</span>
+            <span>Delete Table</span>
           </button>
         </div>
       )}
@@ -1600,10 +1600,10 @@ export function RichTextEditor({
             type="button"
             onClick={handleOpenLatexDialog}
             className="px-2 py-0.5 rounded bg-amber-50 border border-amber-300 hover:bg-amber-100 text-amber-900 cursor-pointer font-bold flex items-center gap-1 transition-colors"
-            title="LaTeX Math Formula (गणितीय सूत्र)"
+            title="LaTeX Math Formula"
           >
             <span className="font-serif italic font-bold text-xs">T<sub className="font-sans text-[8px] not-italic">E</sub>X</span>
-            <span>+ LaTeX सूत्र</span>
+            <span>+ LaTeX Formula</span>
           </button>
           <button
             type="button"
@@ -1612,10 +1612,10 @@ export function RichTextEditor({
               setShowTablePicker(true);
             }}
             className="px-2 py-0.5 rounded bg-blue-50 border border-blue-300 hover:bg-blue-100 text-blue-900 cursor-pointer font-bold flex items-center gap-1 transition-colors"
-            title="तक्ता जोडा (Insert Table)"
+            title="Insert Table"
           >
             <TableIcon className="w-3.5 h-3.5 text-blue-700" />
-            <span>+ तक्ता (Table)</span>
+            <span>+ Table</span>
           </button>
         </div>
         <span className="font-mono text-[10px] text-zinc-400">
@@ -1636,10 +1636,10 @@ export function RichTextEditor({
                 </div>
                 <div>
                   <h3 className="text-sm font-bold text-zinc-900 tracking-tight flex items-center gap-2">
-                    <span>{editingLatexNode ? "LaTeX सूत्र संपादित करा (Edit Formula)" : "LaTeX गणितीय सूत्र संपादक (LaTeX Formula Editor)"}</span>
+                    <span>{editingLatexNode ? "Edit LaTeX Formula" : "LaTeX Math Formula Editor"}</span>
                   </h3>
                   <p className="text-[11px] text-zinc-500">
-                    अपूर्णांक, वर्गमूळ, घातांक, समीकरणे व चिन्हे अचूक फॉरमॅटमध्ये लिहा.
+                    Write fractions, square roots, exponents, equations, and mathematical symbols.
                   </p>
                 </div>
               </div>
@@ -1647,7 +1647,7 @@ export function RichTextEditor({
                 type="button"
                 onClick={() => setShowLatexDialog(false)}
                 className="w-7 h-7 rounded-lg text-zinc-400 hover:text-black hover:bg-zinc-100 flex items-center justify-center cursor-pointer transition-colors"
-                title="बंद करा (Close)"
+                title="Close"
               >
                 <X className="w-4 h-4" />
               </button>
@@ -1658,7 +1658,7 @@ export function RichTextEditor({
               
               {/* Display Mode Selector (Inline vs Block) */}
               <div className="flex items-center gap-3 p-2.5 bg-zinc-50 border border-zinc-200 rounded-lg">
-                <span className="text-xs font-semibold text-zinc-700">समीकरण प्रकार (Type):</span>
+                <span className="text-xs font-semibold text-zinc-700">Formula Type:</span>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
@@ -1669,7 +1669,7 @@ export function RichTextEditor({
                         : "bg-white text-zinc-600 border border-zinc-300 hover:bg-zinc-100"
                     }`}
                   >
-                    इनलाईन (Inline $...$)
+                    Inline ($...$)
                   </button>
                   <button
                     type="button"
@@ -1680,11 +1680,11 @@ export function RichTextEditor({
                         : "bg-white text-zinc-600 border border-zinc-300 hover:bg-zinc-100"
                     }`}
                   >
-                    ब्लॉक / मध्यभागी (Block $$...$$)
+                    Display Block ($$...$$)
                   </button>
                 </div>
                 <span className="text-[11px] text-zinc-400 ml-auto hidden sm:inline">
-                  {!latexIsBlock ? "वाक्यातील मजकुरासोबत दिसेल" : "स्वतंत्र ओळीवर मध्यभागी दिसेल"}
+                  {!latexIsBlock ? "Appears inline within text" : "Appears centered on its own line"}
                 </span>
               </div>
 
@@ -1692,21 +1692,21 @@ export function RichTextEditor({
               <div className="space-y-1.5">
                 <div className="flex items-center justify-between">
                   <label className="text-xs font-bold text-zinc-800 flex items-center gap-1.5">
-                    <span>LaTeX कोड (LaTeX Code):</span>
+                    <span>LaTeX Code:</span>
                   </label>
                   <button
                     type="button"
                     onClick={() => setLatexCode("")}
                     className="text-[11px] text-zinc-400 hover:text-red-600 cursor-pointer"
                   >
-                    साफ करा (Clear)
+                    Clear
                   </button>
                 </div>
                 <textarea
                   rows={3}
                   value={latexCode}
                   onChange={(e) => setLatexCode(e.target.value)}
-                  placeholder="उदा. \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} किंवा x^2 + y^2 = r^2"
+                  placeholder="e.g. \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} or x^2 + y^2 = r^2"
                   className="w-full px-3 py-2 bg-zinc-900 text-emerald-400 font-mono text-xs sm:text-sm rounded-lg border border-zinc-700 focus:border-amber-400 focus:outline-none resize-y leading-relaxed"
                   autoFocus
                 />
@@ -1716,12 +1716,12 @@ export function RichTextEditor({
               <div className="space-y-1.5">
                 <span className="text-xs font-bold text-zinc-800 flex items-center gap-1">
                   <Sparkles className="w-3.5 h-3.5 text-amber-500" />
-                  <span>थेट पूर्वावलोकन (Live KaTeX Preview):</span>
+                  <span>Live KaTeX Preview:</span>
                 </span>
                 <div className="min-h-[70px] p-4 bg-white border border-zinc-300 rounded-lg flex items-center justify-center shadow-inner overflow-x-auto">
                   {(() => {
                     if (!latexCode || !latexCode.trim()) {
-                      return <span className="text-zinc-400 italic text-xs">समीकरणाचे पूर्वावलोकन येथे दिसेल...</span>;
+                      return <span className="text-zinc-400 italic text-xs">Equation preview will appear here...</span>;
                     }
                     try {
                       const html = katex.renderToString(latexCode.trim(), {
@@ -1737,7 +1737,7 @@ export function RichTextEditor({
                     } catch (e: any) {
                       return (
                         <span className="text-red-600 font-mono text-xs">
-                          त्रुटी: {e.message || "अवैध LaTeX वाक्यरचना"}
+                          Error: {e.message || "Invalid LaTeX syntax"}
                         </span>
                       );
                     }
@@ -1748,8 +1748,8 @@ export function RichTextEditor({
               {/* Quick Formula Presets & Templates */}
               <div className="space-y-2 pt-1 border-t border-zinc-200">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-zinc-800">वारंवार लागणारी सूत्रे व चिन्हे (Quick Presets):</span>
-                  <span className="text-[10px] text-zinc-400">क्लिक करून जोडा</span>
+                  <span className="text-xs font-bold text-zinc-800">Quick Formula Presets:</span>
+                  <span className="text-[10px] text-zinc-400">Click to insert</span>
                 </div>
 
                 {/* Category Navigation Pills */}
@@ -1765,7 +1765,7 @@ export function RichTextEditor({
                           : "bg-zinc-100 hover:bg-zinc-200 text-zinc-600"
                       }`}
                     >
-                      {cat.category.split(" ")[0]}
+                      {cat.category}
                     </button>
                   ))}
                 </div>
@@ -1802,11 +1802,11 @@ export function RichTextEditor({
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-red-600 hover:text-red-700 hover:bg-red-50 rounded-md border border-red-200 cursor-pointer transition-colors"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
-                  <span>काढून टाका (Delete)</span>
+                  <span>Delete</span>
                 </button>
               ) : (
                 <div className="text-[11px] text-zinc-400 flex items-center gap-1">
-                  <span>💡 सूत्र निवडल्यावर थेट एडिट करता येईल</span>
+                  <span>💡 Click any formula in editor to edit directly</span>
                 </div>
               )}
 
@@ -1816,7 +1816,7 @@ export function RichTextEditor({
                   onClick={() => setShowLatexDialog(false)}
                   className="px-3.5 py-1.5 text-xs text-zinc-600 hover:bg-zinc-200 rounded-md font-medium cursor-pointer transition-colors"
                 >
-                  रद्द करा (Cancel)
+                  Cancel
                 </button>
                 <button
                   type="button"
@@ -1825,7 +1825,7 @@ export function RichTextEditor({
                   className="inline-flex items-center gap-1.5 px-4 py-1.5 bg-black hover:bg-zinc-800 disabled:opacity-40 text-white text-xs font-bold rounded-md shadow-xs cursor-pointer transition-colors"
                 >
                   <Check className="w-3.5 h-3.5" />
-                  <span>{editingLatexNode ? "बदल सेव्ह करा (Update)" : "सूत्र जोडा (Insert Formula)"}</span>
+                  <span>{editingLatexNode ? "Save Changes (Update)" : "Insert Formula"}</span>
                 </button>
               </div>
             </div>

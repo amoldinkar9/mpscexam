@@ -59,7 +59,7 @@
       "desc": "खालील ₹199 ऑफर बटणावर क्लिक करून तुमचा स्लॉट निवडा.",
       "iconName": "ShoppingCart",
       "color": "bg-[#fbeae8] text-[#9B3A32] border-[#f3c8c4]",
-      "skeletonText": "9:20 स्क्रीनशॉट / इमेज 1",
+      "skeletonText": "9:16 स्क्रीनशॉट / इमेज 1",
       "imageUrl": ""
     },
     {
@@ -68,7 +68,7 @@
       "desc": "GPay, PhonePe, Paytm किंवा इतर कोणत्याही UPI ने ₹199 पेमेंट करा.",
       "iconName": "CreditCard",
       "color": "bg-emerald-50 text-emerald-700 border-emerald-200",
-      "skeletonText": "9:20 स्क्रीनशॉट / इमेज 2",
+      "skeletonText": "9:16 स्क्रीनशॉट / इमेज 2",
       "imageUrl": ""
     },
     {
@@ -77,7 +77,7 @@
       "desc": "पेमेंट होताच 1 सेकंदात टेस्ट्स अनलॉक होतील आणि लॉगिन माहिती मिळेल.",
       "iconName": "Smartphone",
       "color": "bg-blue-50 text-blue-700 border-blue-200",
-      "skeletonText": "9:20 स्क्रीनशॉट / इमेज 3",
+      "skeletonText": "9:16 स्क्रीनशॉट / इमेज 3",
       "imageUrl": ""
     },
     {
@@ -86,7 +86,7 @@
       "desc": "मोबाईल किंवा लॅपटॉपवर 100 गुणांच्या 25 टेस्ट्स सोडवायला सुरुवात करा.",
       "iconName": "PlayCircle",
       "color": "bg-amber-50 text-amber-700 border-amber-200",
-      "skeletonText": "9:20 स्क्रीनशॉट / इमेज 4",
+      "skeletonText": "9:16 स्क्रीनशॉट / इमेज 4",
       "imageUrl": ""
     }
   ],
@@ -140,59 +140,155 @@
       "title": "इतिहास",
       "subtitle": "आधुनिक भारत व महाराष्ट्र",
       "content": "आधुनिक भारताचा विशेषतः महाराष्ट्राचा इतिहास.",
-      "topics": []
+      "topics": [
+        "1857 चा राष्ट्रीय उठाव",
+        "महाराष्ट्रातील समाजसुधारक",
+        "भारतीय राष्ट्रीय चळवळ",
+        "स्वातंत्र्योत्तर महाराष्ट्र व संयुक्त महाराष्ट्र चळवळ"
+      ]
     },
     {
       "num": "2",
       "title": "भूगोल",
       "subtitle": "महाराष्ट्र व जगाचा भूगोल",
       "content": "महाराष्ट्राच्या भूगोलाच्या विशेष अभ्यासासह पृथ्वी, जगातील विभाग, हवामान, अक्षांश-रेखांश, महाराष्ट्रातील जमिनीचे प्रकार, पर्जन्यमान, प्रमुख पिके, शहरे, नद्या, उद्योगधंदे, इत्यादी.",
-      "topics": []
+      "topics": [
+        "महाराष्ट्राची प्राकृतिक रचना",
+        "नदीप्रणाली व जलसंपत्ती",
+        "मृदा, वने व खनिजे",
+        "हवामान व पर्जन्यमान",
+        "प्रमुख पिके व कृषी हवामान विभाग"
+      ]
     },
     {
       "num": "3",
       "title": "अर्थव्यवस्था",
       "subtitle": "भारतीय अर्थव्यवस्था व विकास",
       "content": "भारतीय अर्थव्यवस्था राष्ट्रीय उत्पन्न, शेती, उद्योग, परकीय व्यापार, बँकिंग, लोकसंख्या, दारिद्रय व बेरोजगारी, मुद्रा आणि राजकोषीय नीति, इत्यादी.",
-      "topics": []
+      "topics": [
+        "राष्ट्रीय उत्पन्न मापन पद्धती",
+        "शेती व ग्रामीण विकास धोरणे",
+        "उद्योग, बँकिंग व RBI पतधोरण",
+        "दारिद्र्य, बेरोजगारी व लोकसंख्या",
+        "राजकोषीय व चलनविषयक धोरणे"
+      ]
     },
     {
       "num": "4",
       "title": "शासकीय अर्थव्यवस्था व चालू घडामोडी",
       "subtitle": "अर्थसंकल्प व देश-विदेश घडामोडी",
       "content": "अर्थसंकल्प, लेखा, लेखापरीक्षण, इत्यादी. चालू घडामोडी जागतिक तसेच महाराष्ट्रासह भारतातील.",
-      "topics": []
+      "topics": [
+        "केंद्रीय व राज्य अर्थसंकल्प (Budget)",
+        "शासकीय जमा, खर्च व वित्तीय तूट",
+        "लेखा व लेखापरीक्षण (CAG)",
+        "महाराष्ट्र, राष्ट्रीय व जागतिक चालू घडामोडी",
+        "शासकीय नवीन योजना व पुरस्कार"
+      ]
     },
     {
       "num": "5",
       "title": "राज्यशास्त्र",
       "subtitle": "संविधान व स्थानिक स्वराज्य संस्था",
       "content": "भारतीय संविधान, राज्यव्यवस्था, ग्रामप्रशासन, पंचायतराज व घटनात्मक संस्था.",
-      "topics": []
+      "topics": [
+        "संविधानाची निर्मिती व प्रस्तावना",
+        "मूलभूत हक्क, कर्तव्ये व मार्गदर्शक तत्त्वे",
+        "संसद, राष्ट्रपती, राज्यपाल व मंत्रिमंडळ",
+        "73 वी व 74 वी घटनादुरुस्ती (पंचायत राज)",
+        "न्यायव्यवस्था व घटनात्मक संस्था"
+      ]
     },
     {
       "num": "6",
       "title": "सामान्य विज्ञान",
       "subtitle": "भौतिक, रसायन, जीव व आरोग्यशास्त्र",
       "content": "भौतिकशास्त्र (Physics), रसायनशास्त्र (Chemistry), प्राणिशास्त्र (Zoology), वनस्पतीशास्त्र (Botany), आरोग्यशास्त्र (Hygiene).",
-      "topics": []
+      "topics": [
+        "भौतिकशास्त्र (प्रकाश, ध्वनी, गती, विद्युत)",
+        "रसायनशास्त्र (मूलद्रव्ये, संयुगे, आम्ल-आम्लारी)",
+        "प्राणी व वनस्पती वर्गीकरण",
+        "मानवी शरीरशास्त्र व पचनसंस्था",
+        "आरोग्यशास्त्र, पोषण व रोग नियंत्रण"
+      ]
     },
     {
       "num": "7",
       "title": "अंकगणित",
       "subtitle": "संख्यात्मक अभियोग्यता",
       "content": "बेरीज, वजाबाकी, गुणाकार, भागाकार, दशांश, अपूर्णांक व टक्केवारी इत्यादी.",
-      "topics": []
+      "topics": [
+        "दशांश व अपूर्णांक नियम",
+        "टक्केवारी, सरासरी व गुणोत्तर-प्रमाण",
+        "नफा-तोटा व सरळव्याज-चक्रवाढव्याज",
+        "काळ, काम आणि वेग (Time & Work)",
+        "घातांक, करणी व लसावि-मसावि"
+      ]
     },
     {
       "num": "8",
       "title": "बुध्दिमापन चाचणी",
       "subtitle": "तार्किक व विश्लेषणात्मक तर्क",
       "content": "उमेदवार किती लवकर व अचूकपणे विचार करु शकतो हे आजमावण्यासाठी प्रश्न.",
-      "topics": []
+      "topics": [
+        "संख्या व अक्षर मालिका (Series)",
+        "कोडिंग-डिकोडिंग व सांकेतिक भाषा",
+        "नातेसंबंध व दिशाज्ञान",
+        "घड्याळ, कॅलेंडर व तर्कशुद्ध विचार",
+        "आकृती विश्लेषण व बैठक व्यवस्था"
+      ]
     }
   ],
   "sampleProof": {
+    "gk": {
+      "questionNo": 1,
+      "question": "महाराष्ट्र लोकसेवा हक्क कायदा, 2015 अंतर्गत प्रथम अपिलीय प्राधिकरणाकडे किती दिवसांत अपील करता येते?",
+      "options": [
+        "15 दिवस",
+        "30 दिवस",
+        "45 दिवस",
+        "60 दिवस"
+      ],
+      "correct": 1,
+      "correctAnswer": "30 दिवस",
+      "explanation": "महाराष्ट्र लोकसेवा हक्क अधिनियम 2015 च्या कलम 8(1) नुसार, विहित कालावधीत सेवा न मिळाल्यास किंवा अर्ज फेटाळल्यास ३० (30) दिवसांच्या आत प्रथम अपिलीय प्राधिकरणाकडे अपील दाखल करता येते.",
+      "structuredExplanation": {
+        "answer": "30 दिवस",
+        "bullets": [
+          {
+            "label": "कायद्याचे नाव :",
+            "text": "महाराष्ट्र लोकसेवा हक्क अधिनियम, 2015"
+          },
+          {
+            "label": "कलम :",
+            "highlightClass": "text-[#9B3A32] font-bold",
+            "text": "कलम 8(1) नुसार प्रथम अपील दाखल करण्याची तरतूद."
+          },
+          {
+            "label": "प्रथम अपील मुदत :",
+            "highlightClass": "text-emerald-700 font-bold",
+            "text": "विहित कालावधीत सेवा न मिळाल्यास किंवा अर्ज फेटाळल्यास ३० (30) दिवसांच्या आत प्रथम अपिलीय प्राधिकरणाकडे अपील दाखल करता येते."
+          },
+          {
+            "label": "दुसरे अपील मुदत :",
+            "highlightClass": "text-blue-700 font-bold",
+            "text": "प्रथम अपिलीय प्राधिकरणाच्या निर्णयाविरुद्ध ३० (30) दिवसांच्या आत द्वितीय अपिलीय प्राधिकरणाकडे दाद मागता येते."
+          }
+        ],
+        "subsections": [
+          {
+            "heading": "⚖️ मुख्य तरतुदी व परीक्षा संदर्भ :",
+            "items": [
+              "लोकसेवा हक्क आयोग (Right to Public Services Commission) नागरिकांना पारदर्शक व कालमर्यादेत सेवा मिळवून देण्यासाठी कार्यरत आहे.",
+              "MPSC Group C पूर्व व मुख्य परीक्षेत या कायद्यावर हमखास 1-2 प्रश्न विचारले जातात."
+            ]
+          }
+        ]
+      },
+      "subjectName": "सामान्य ज्ञान",
+      "tag": "MPSC Group C वारंवार विचारलेला पॅटर्न",
+      "image": "https://media.tcs9.in/current_affairs_images/India-Astra-Missile-Infographics_1787985845663_277e48e4-14c5-4178-8f88-5194240c1c74.webp"
+    },
     "math": {
       "questionNo": 2,
       "question": "एका रकमेचे चक्रवाढ व्याजाने 2 वर्षांत ₹2,420 आणि 3 वर्षांत ₹2,662 होते, तर व्याजाचा दर दरसाल दर शेकडा (द.सा.द.शे.) किती असेल?",
@@ -236,56 +332,6 @@
       "subjectName": "अंकगणित",
       "tag": "शॉर्टकट ट्रिकसह स्टेप-बाय-स्टेप उत्तर"
     },
-    "gk": {
-      "questionNo": 1,
-      "question": "महाराष्ट्र लोकसेवा हक्क कायदा, 2015 अंतर्गत प्रथम अपिलीय प्राधिकरणाकडे किती दिवसांत अपील करता येते?",
-      "options": [
-        "15 दिवस",
-        "30 दिवस",
-        "45 दिवस",
-        "60 दिवस"
-      ],
-      "correct": 1,
-      "correctAnswer": "30 दिवस",
-      "explanation": "कायद्याचे नाव : महाराष्ट्र लोकसेवा हक्क अधिनियम, 2015कलम : कलम 8(1) नुसार प्रथम अपील दाखल करण्याची तरतूद.प्रथम अपील मुदत : विहित कालावधीत सेवा न मिळाल्यास किंवा अर्ज फेटाळल्यास ३० (30) दिवसांच्या आत प्रथम अपिलीय प्राधिकरणाकडे अपील दाखल करता येते.दुसरे अपील मुदत : प्रथम अपिलीय प्राधिकरणाच्या निर्णयाविरुद्ध ३० (30) दिवसांच्या आत द्वितीय अपिलीय प्राधिकरणाकडे दाद मागता येते.⚖️ मुख्य तरतुदी व परीक्षा संदर्भ :लोकसेवा हक्क आयोग (Right to Public Services Commission) नागरिकांना पारदर्शक व कालमर्यादेत सेवा मिळवून देण्यासाठी कार्यरत आहे.MPSC Group C पूर्व व मुख्य परीक्षेत या कायद्यावर हमखास 1-2 प्रश्न विचारले जातात.(a) मदनलाल धिंग्रा(i) ‘मित्र-मंडळ’ मंडळाची स्थापना(b) अनंत लक्ष्मण कान्हेरे(ii) जॉन जॅक्सन कलेक्टर यांच्यावर हल्ला(c) विनायक दामोदर सावरकर(iii) नाशिकच्या कलेक्टर जॅक्सनची हत्या(d) हेमचंद्र दास(iv) कर्झन वायलीची हत्या",
-      "structuredExplanation": {
-        "answer": "30 दिवस",
-        "bullets": [
-          {
-            "label": "कायद्याचे नाव :",
-            "text": "महाराष्ट्र लोकसेवा हक्क अधिनियम, 2015"
-          },
-          {
-            "label": "कलम :",
-            "highlightClass": "text-[#9B3A32] font-bold",
-            "text": "कलम 8(1) नुसार प्रथम अपील दाखल करण्याची तरतूद."
-          },
-          {
-            "label": "प्रथम अपील मुदत :",
-            "highlightClass": "text-emerald-700 font-bold",
-            "text": "विहित कालावधीत सेवा न मिळाल्यास किंवा अर्ज फेटाळल्यास ३० (30) दिवसांच्या आत प्रथम अपिलीय प्राधिकरणाकडे अपील दाखल करता येते."
-          },
-          {
-            "label": "दुसरे अपील मुदत :",
-            "highlightClass": "text-blue-700 font-bold",
-            "text": "प्रथम अपिलीय प्राधिकरणाच्या निर्णयाविरुद्ध ३० (30) दिवसांच्या आत द्वितीय अपिलीय प्राधिकरणाकडे दाद मागता येते."
-          }
-        ],
-        "subsections": [
-          {
-            "heading": "⚖️ मुख्य तरतुदी व परीक्षा संदर्भ :",
-            "items": [
-              "लोकसेवा हक्क आयोग (Right to Public Services Commission) नागरिकांना पारदर्शक व कालमर्यादेत सेवा मिळवून देण्यासाठी कार्यरत आहे.",
-              "MPSC Group C पूर्व व मुख्य परीक्षेत या कायद्यावर हमखास 1-2 प्रश्न विचारले जातात."
-            ]
-          }
-        ]
-      },
-      "subjectName": "सामान्य ज्ञान",
-      "tag": "MPSC Group C वारंवार विचारलेला पॅटर्न",
-      "image": "https://media.tcs9.in/current_affairs_images/India-Astra-Missile-Infographics_1787985845663_277e48e4-14c5-4178-8f88-5194240c1c74.webp",
-      "explanationHtml": "<ul><li><strong>कायद्याचे नाव :</strong> महाराष्ट्र लोकसेवा हक्क अधिनियम, 2015</li><li><strong style=\"color: #9B3A32;\">कलम :</strong> कलम 8(1) नुसार प्रथम अपील दाखल करण्याची तरतूद.</li><li><strong style=\"color: #047857;\">प्रथम अपील मुदत :</strong> विहित कालावधीत सेवा न मिळाल्यास किंवा अर्ज फेटाळल्यास ३० (30) दिवसांच्या आत प्रथम अपिलीय प्राधिकरणाकडे अपील दाखल करता येते.</li><li><strong style=\"color: #1d4ed8;\">दुसरे अपील मुदत :</strong> प्रथम अपिलीय प्राधिकरणाच्या निर्णयाविरुद्ध ३० (30) दिवसांच्या आत द्वितीय अपिलीय प्राधिकरणाकडे दाद मागता येते.</li></ul><h3>⚖️ मुख्य तरतुदी व परीक्षा संदर्भ :</h3><ul><li>लोकसेवा हक्क आयोग (Right to Public Services Commission) नागरिकांना पारदर्शक व कालमर्यादेत सेवा मिळवून देण्यासाठी कार्यरत आहे.</li><li>MPSC Group C पूर्व व मुख्य परीक्षेत या कायद्यावर हमखास 1-2 प्रश्न विचारले जातात.<br><div class=\"rte-table-wrapper\" style=\"overflow-x: auto; margin: 12px 0px;\"><table class=\"rte-table\" style=\"width: 100%; border-collapse: collapse; margin: 12px 0px; border: 1px solid rgb(203, 213, 225);\"><thead><tr style=\"background-color: rgb(241, 245, 249);\"><th style=\"border: 1px solid rgb(203, 213, 225); background-color: rgb(241, 245, 249); padding: 8px 12px; font-weight: 700; color: rgb(15, 23, 42); text-align: left;\"><span style=\"font-weight:normal;\" id=\"docs-internal-guid-c4f4fda4-7fff-da8c-99a8-2299005867a5\"><span style=\"font-size: 11pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0); background-color: transparent; font-variant: normal; vertical-align: baseline; white-space: pre-wrap;\">(a) मदनलाल धिंग्रा</span></span></th><th style=\"border: 1px solid rgb(203, 213, 225); background-color: rgb(241, 245, 249); padding: 8px 12px; font-weight: 700; color: rgb(15, 23, 42); text-align: left;\"><span style=\"font-weight:normal;\" id=\"docs-internal-guid-84e579fd-7fff-e2a9-4a3e-c2c4e9d6107c\"><span style=\"font-size: 11pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0); background-color: transparent; font-variant: normal; vertical-align: baseline; white-space: pre-wrap;\">(i) ‘मित्र-मंडळ’ मंडळाची स्थापना</span></span></th></tr></thead><tbody><tr><td style=\"border: 1px solid rgb(203, 213, 225); padding: 8px 12px; color: rgb(51, 65, 85);\">(b) अनंत लक्ष्मण कान्हेरे</td><td style=\"border: 1px solid rgb(203, 213, 225); padding: 8px 12px; color: rgb(51, 65, 85);\"><span id=\"docs-internal-guid-9570979d-7fff-0300-f1b0-91af4acc9089\"><span style=\"font-size: 11pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0); background-color: transparent; font-variant: normal; vertical-align: baseline; white-space: pre-wrap;\">(ii) जॉन जॅक्सन कलेक्टर यांच्यावर हल्ला</span></span></td></tr><tr><td style=\"border: 1px solid rgb(203, 213, 225); padding: 8px 12px; color: rgb(51, 65, 85);\"><span id=\"docs-internal-guid-98e4af36-7fff-a5a5-70ea-32ee9a113005\"><span style=\"font-size: 11pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0); background-color: transparent; font-variant: normal; vertical-align: baseline; white-space: pre-wrap;\">(c) विनायक दामोदर सावरकर</span></span></td><td style=\"border: 1px solid rgb(203, 213, 225); padding: 8px 12px; color: rgb(51, 65, 85);\"><span id=\"docs-internal-guid-65d24c7c-7fff-29e0-b49b-90c63ed85cbd\"><span style=\"font-size: 11pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0); background-color: transparent; font-variant: normal; vertical-align: baseline; white-space: pre-wrap;\">(iii) नाशिकच्या कलेक्टर जॅक्सनची हत्या</span></span></td></tr><tr><td style=\"border: 1px solid rgb(203, 213, 225); padding: 8px 12px; color: rgb(51, 65, 85);\"><span id=\"docs-internal-guid-6116172e-7fff-befb-7a19-b1e4a2007181\"><span style=\"font-size: 11pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0); background-color: transparent; font-variant: normal; vertical-align: baseline; white-space: pre-wrap;\">(d) हेमचंद्र दास</span></span></td><td style=\"border: 1px solid rgb(203, 213, 225); padding: 8px 12px; color: rgb(51, 65, 85);\"><span id=\"docs-internal-guid-e23b577d-7fff-48b3-a8b1-8761d7aad551\"><span style=\"font-size: 11pt; font-family: Arial, sans-serif; color: rgb(0, 0, 0); background-color: transparent; font-variant: normal; vertical-align: baseline; white-space: pre-wrap;\">(iv) कर्झन वायलीची हत्या</span></span></td></tr></tbody></table></div><p><br></p><br></li></ul>"
-    },
     "reasoning": {
       "questionNo": 4,
       "question": "जर एका विशिष्ट सांकेतिक भाषेत 'MPSC' हा शब्द 'NQTF' असा लिहिला, तर 'EXAM' हा शब्द कसा लिहिला जाईल?",
@@ -297,7 +343,7 @@
       ],
       "correct": 0,
       "correctAnswer": "FYBN",
-      "explanation": "पुरस्काराचे नाव : एअरपोर्ट सर्व्हिस क्वालिटी (ASQ) अवॉर्ड्स 2025आयोजक : एअरपोर्ट कौन्सिल इंटरनॅशनल (ACI) वर्ल्डमंगळूर विमानतळ : या विमानतळाने सलग दुसऱ्या वर्षी (2024 आणि 2025) जागतिक स्तरावर 'बेस्ट एअरपोर्ट एट अरायव्हल्स' ही श्रेणी जिंकली आहे.निकष : हा पुरस्कार प्रवाशांच्या प्रत्यक्ष अभिप्रायावर (Real-time Passenger Feedback) आधारित असतो, ज्यात इमिग्रेशन, बॅगेज डिलिव्हरी आणि टर्मिनल सुविधांचे मूल्यमापन केले जाते.🏛 मंगळूर विमानतळ मालकी :हे विमानतळ मूळतः भारतीय विमानतळ प्राधिकरण (Airports Authority of India - AAI) च्या मालकीचे आहे.ऑक्टोबर 2020 मध्ये 'अदानी एअरपोर्ट होल्डिंग्ज लिमिटेड'ने या विमानतळाचे संचालन, व्यवस्थापन आणि विकासाची 50 वर्षांसाठी जबाबदारी घेतली आहे.=x3xix2×=  \\sqrt[3]{x} x_{i} x^2 \\times=3x​xi​x2× x2+y3x^2+y^3=x2+y3=amolaal= x^2+y^3 \\\\ =amolaal=x2+y3 ",
+      "explanation": "अक्षरांचे स्थानमान तपासून: E (+1) = F, X (+1) = Y, A (+1) = B, M (+1) = N. म्हणून उत्तर पर्याय 1 'FYBN' असा येतो.",
       "structuredExplanation": {
         "answer": "FYBN",
         "bullets": [
@@ -326,12 +372,11 @@
         ]
       },
       "subjectName": "बुद्धिमत्ता चाचणी",
-      "tag": "लॉजिक व कोडिंग-डिकोडिंग सोल्यूशन",
-      "explanationHtml": "<ul><li><strong>पुरस्काराचे नाव :</strong> <font color=\"#e60000\"><b>एअरपोर्ट सर्व्हिस क्वालिटी (ASQ) अवॉर्ड्स 2025</b></font></li><li><strong>आयोजक :</strong> एअरपोर्ट कौन्सिल इंटरनॅशनल (ACI) वर्ल्ड</li><li><strong style=\"color: #9B3A32;\">मंगळूर विमानतळ :</strong> या विमानतळाने सलग दुसऱ्या वर्षी (2024 आणि 2025) जागतिक स्तरावर 'बेस्ट एअरपोर्ट एट अरायव्हल्स' ही श्रेणी जिंकली आहे.</li><li><strong style=\"color: #1d4ed8;\">निकष :</strong> हा पुरस्कार प्रवाशांच्या प्रत्यक्ष अभिप्रायावर (Real-time Passenger Feedback) आधारित असतो, ज्यात इमिग्रेशन, बॅगेज डिलिव्हरी आणि टर्मिनल सुविधांचे मूल्यमापन केले जाते.</li></ul><h3>🏛 मंगळूर विमानतळ मालकी :</h3><ul><li>हे विमानतळ मूळतः भारतीय विमानतळ प्राधिकरण (Airports Authority of India - AAI) च्या मालकीचे आहे.</li><li>ऑक्टोबर 2020 मध्ये 'अदानी एअरपोर्ट होल्डिंग्ज लिमिटेड'ने या विमानतळाचे संचालन, व्यवस्थापन आणि विकासाची 50 वर्षांसाठी जबाबदारी घेतली आहे.<br><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>=</mo><mroot><mi>x</mi><mn>3</mn></mroot><msub><mi>x</mi><mi>i</mi></msub><msup><mi>x</mi><mn>2</mn></msup><mo>×</mo></mrow><annotation encoding=\"application/x-tex\">=  \\sqrt[3]{x} x_{i} x^2 \\times</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.3669em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:1.0538em;vertical-align:-0.2397em;\"></span><span class=\"mord sqrt\"><span class=\"katex-root\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.6586em;\"><span style=\"top:-2.8363em;\"><span class=\"pstrut\" style=\"height:2.5em;\"></span><span class=\"katex-sizing reset-size6 size1 mtight\"><span class=\"mord mtight\"><span class=\"mord mtight\">3</span></span></span></span></span></span></span></span><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8003em;\"><span class=\"svg-align\" style=\"top:-3em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\" style=\"padding-left:0.833em;\"><span class=\"mord mathnormal\">x</span></span></span><span style=\"top:-2.7603em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"hide-tail\" style=\"min-width:0.853em;height:1.08em;\"><svg xmlns=\"http://www.w3.org/2000/svg\" width=\"400em\" height=\"1.08em\" viewBox=\"0 0 400000 1080\" preserveAspectRatio=\"xMinYMin slice\"><path d=\"M95,702\nc-2.7,0,-7.17,-2.7,-13.5,-8c-5.8,-5.3,-9.5,-10,-9.5,-14\nc0,-2,0.3,-3.3,1,-4c1.3,-2.7,23.83,-20.7,67.5,-54\nc44.2,-33.3,65.8,-50.3,66.5,-51c1.3,-1.3,3,-2,5,-2c4.7,0,8.7,3.3,12,10\ns173,378,173,378c0.7,0,35.3,-71,104,-213c68.7,-142,137.5,-285,206.5,-429\nc69,-144,104.5,-217.7,106.5,-221\nl0 -0\nc5.3,-9.3,12,-14,20,-14\nH400000v40H845.2724\ns-225.272,467,-225.272,467s-235,486,-235,486c-2.7,4.7,-9,7,-19,7\nc-6,0,-10,-1,-12,-3s-194,-422,-194,-422s-65,47,-65,47z\nM834 80h400000v40h-400000z\"></path></svg></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.2397em;\"></span></span></span></span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.3117em;\"><span style=\"top:-2.55em;margin-left:0em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"katex-sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><span class=\"mord mathnormal mtight\">i</span></span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.15em;\"></span></span></span></span></span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8141em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"katex-sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span></span></span></span></span><span class=\"mord\">×</span></span></span></span>&nbsp;</li><li><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>3</mn></msup></mrow><annotation encoding=\"application/x-tex\">x^2+y^3</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.8974em;vertical-align:-0.0833em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\"></span></span></span></span></span><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>=</mo><msup><mi>x</mi><mn>2</mn></msup><mo>+</mo><msup><mi>y</mi><mn>3</mn></msup><mspace linebreak=\"newline\"></mspace><mo>=</mo><mi>a</mi><mi>m</mi><mi>o</mi><mi>l</mi><mi>a</mi><mi>a</mi><mi>l</mi></mrow><annotation encoding=\"application/x-tex\">= x^2+y^3 \\\\ =amolaal</annotation></semantics></math></span><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.3669em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:0.8974em;vertical-align:-0.0833em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\">x</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8141em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"katex-sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">2</span></span></span></span></span></span></span></span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">+</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"katex-base\"><span class=\"katex-strut\" style=\"height:1.0085em;vertical-align:-0.1944em;\"></span><span class=\"mord\"><span class=\"mord mathnormal\" style=\"margin-right:0.0359em;\">y</span><span class=\"msupsub\"><span class=\"vlist-t\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.8141em;\"><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"pstrut\" style=\"height:2.7em;\"></span><span class=\"katex-sizing reset-size6 size3 mtight\"><span class=\"mord mtight\">3&nbsp;</span></span></span><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"katex-sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><br></span></span></span><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"katex-sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><br></span></span></span><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"katex-sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><br></span></span></span><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"katex-sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><br></span></span></span><span style=\"top:-3.063em;margin-right:0.05em;\"><span class=\"katex-sizing reset-size6 size3 mtight\"><span class=\"mord mtight\"><br></span></span></span></span></span></span></span></span></span></span></span></li></ul>"
+      "tag": "लॉजिक व कोडिंग-डिकोडिंग सोल्यूशन"
     },
     "currentAffairs": {
       "questionNo": 6,
-      "question": "'एअरपोर्ट कौन्सिल इंटरनॅशनल (ACI) वर्ल्ड' तर्फे जाहीर करण्यात आलेल्या 'एअरपोर्ट सर्व्हिस क्वालिटी (ASQ) अवॉर्ड्स 2025' मध्ये जागतिक स्तरावर 'बेस्ट एअरपोर्ट एट अरायव्हल्स' (Best Airport at Arrivals) हा बहुमान सलग दुसऱ्या वर्षी कोणत्या भारतीय विमानतळाने पटकावला आहे ?",
+      "question": "भारतीय मान्सून आणि 'एल निनो' (El Niño) या हवामानशास्त्रीय संकल्पनेबाबत खालील विधानांचा विचार करा :\nअ) भारतात जून ते सप्टेंबर दरम्यान पडणारा मुख्य पाऊस हा ईशान्य मोसमी वाऱ्यांमुळे (Northeast Monsoon) पडतो.\nब) 'एल निनो' ही पॅसिफिक महासागराच्या पूर्व आणि मध्य भागातील पाण्याच्या पृष्ठभागाचे तापमान असामान्यपणे वाढण्याची (उष्ण होण्याची) स्थिती आहे.\nक) एल निनोच्या स्थितीमुळे भारतीय उपखंडातील मान्सून अधिक मजबूत होतो आणि भारतात अतिवृष्टीचा पूर येतो.\n\nवरीलपैकी कोणते/कोणती विधान/विधाने बरोबर आहेत ?",
       "options": [
         "इंदिरा गांधी आंतरराष्ट्रीय विमानतळ, दिल्ली",
         "मंगळुरू आंतरराष्ट्रीय विमानतळ, मंगळुरू",
@@ -340,9 +385,9 @@
       ],
       "correct": 1,
       "image": "/sample-airport.png",
-      "correctAnswer": "मंगळुरू आंतरराष्ट्रीय विमानतळ, मंगळुरू",
-      "explanation": "पुरस्काराचे नाव : एअरपोर्ट सर्व्हिस क्वालिटी (ASQ) अवॉर्ड्स 2025आयोजक : एअरपोर्ट कौन्सिल इंटरनॅशनल (ACI) वर्ल्डमंगळूर विमानतळ : या विमानतळाने सलग दुसऱ्या वर्षी (2024 आणि 2025) जागतिक स्तरावर 'बेस्ट एअरपोर्ट एट अरायव्हल्स' ही श्रेणी जिंकली आहे.निकष : हा पुरस्कार प्रवाशांच्या प्रत्यक्ष अभिप्रायावर (Real-time Passenger Feedback) आधारित असतो, ज्यात इमिग्रेशन, बॅगेज डिलिव्हरी आणि टर्मिनल सुविधांचे मूल्यमापन केले जाते.🏛 मंगळूर विमानतळ मालकी :हे विमानतळ मूळतः भारतीय विमानतळ प्राधिकरण (Airports Authority of India - AAI) च्या मालकीचे आहे.ऑक्टोबर 2020 मध्ये 'अदानी एअरपोर्ट होल्डिंग्ज लिमिटेड'ने या विमानतळाचे संचालन, व्यवस्थापन आणि विकासाची 50 वर्षांसाठी जबाबदारी घेतली आहे.अमोलशीर्षक 2मजकूर 1.1मजकूर 1.2मजकूर 2.1मजकूर 2.2मजकूर 3.1मजकूर 3.2=x3xix2×\\",
-      "explanationHtml": "<ul><li><strong>पुरस्काराचे नाव :</strong> <font color=\"#e60000\"><b>एअरपोर्ट सर्व्हिस क्वालिटी (ASQ) अवॉर्ड्स 2025</b></font></li><li><strong>आयोजक :</strong> एअरपोर्ट कौन्सिल इंटरनॅशनल (ACI) वर्ल्ड</li><li><strong style=\"color: #9B3A32;\">मंगळूर विमानतळ :</strong> या विमानतळाने सलग दुसऱ्या वर्षी (2024 आणि 2025) जागतिक स्तरावर 'बेस्ट एअरपोर्ट एट अरायव्हल्स' ही श्रेणी जिंकली आहे.</li><li><strong style=\"color: #1d4ed8;\">निकष :</strong> हा पुरस्कार प्रवाशांच्या प्रत्यक्ष अभिप्रायावर (Real-time Passenger Feedback) आधारित असतो, ज्यात इमिग्रेशन, बॅगेज डिलिव्हरी आणि टर्मिनल सुविधांचे मूल्यमापन केले जाते.</li></ul><h3>🏛 मंगळूर विमानतळ मालकी :</h3><ul><li>हे विमानतळ मूळतः भारतीय विमानतळ प्राधिकरण (Airports Authority of India - AAI) च्या मालकीचे आहे.</li><li>ऑक्टोबर 2020 मध्ये 'अदानी एअरपोर्ट होल्डिंग्ज लिमिटेड'ने या विमानतळाचे संचालन, व्यवस्थापन आणि विकासाची 50 वर्षांसाठी जबाबदारी घेतली आहे.<br><div class=\"rte-table-wrapper\" style=\"overflow-x: auto; margin: 12px 0px;\"><table class=\"rte-table\" style=\"width: 100%; border-collapse: collapse; margin: 12px 0px; border: 1px solid rgb(203, 213, 225);\"><thead><tr style=\"background-color: rgb(241, 245, 249);\"><th style=\"border: 1px solid rgb(203, 213, 225); background-color: rgb(241, 245, 249); padding: 8px 12px; text-align: left;\"><font color=\"#000000\" style=\"font-weight: normal;\">अमोल</font></th><th style=\"border: 1px solid rgb(203, 213, 225); background-color: rgb(241, 245, 249); padding: 8px 12px; text-align: left;\"><font color=\"#000000\" style=\"font-weight: normal;\">शीर्षक 2</font></th></tr></thead><tbody><tr><td style=\"border: 1px solid rgb(203, 213, 225); padding: 8px 12px;\"><font color=\"#000000\">मजकूर 1.1</font></td><td style=\"border: 1px solid rgb(203, 213, 225); padding: 8px 12px;\"><font color=\"#000000\">मजकूर 1.2</font></td></tr><tr><td style=\"border: 1px solid rgb(203, 213, 225); padding: 8px 12px;\"><font color=\"#000000\">मजकूर 2.1</font></td><td style=\"border: 1px solid rgb(203, 213, 225); padding: 8px 12px;\"><font color=\"#000000\">मजकूर 2.2</font></td></tr><tr><td style=\"border: 1px solid rgb(203, 213, 225); padding: 8px 12px;\"><font color=\"#000000\">मजकूर 3.1</font></td><td style=\"border: 1px solid rgb(203, 213, 225); padding: 8px 12px;\"><font color=\"#000000\">मजकूर 3.2</font></td></tr></tbody></table></div><p><br></p><br><span class=\"katex\"><span class=\"katex-mathml\"><math xmlns=\"http://www.w3.org/1998/Math/MathML\"><semantics><mrow><mo>=</mo><mroot><mi>x</mi><mn>3</mn></mroot><msub><mi>x</mi><mi>i</mi></msub><msup><mi>x</mi><mn>2</mn></msup><mo>×\\</mo></mrow></semantics></math></span></span></li></ul>",
+      "correctAnswer": "मंगळूर आंतरराष्ट्रीय विमानतळ",
+      "explanation": "पुरस्काराचे नाव : एअरपोर्ट सर्व्हिस क्वालिटी (ASQ) अवॉर्ड्स 2025आयोजक : एअरपोर्ट कौन्सिल इंटरनॅशनल (ACI) वर्ल्डमंगळूर विमानतळ : या विमानतळाने सलग दुसऱ्या वर्षी (2024 आणि 2025) जागतिक स्तरावर 'बेस्ट एअरपोर्ट एट अरायव्हल्स' ही श्रेणी जिंकली आहे.निकष : हा पुरस्कार प्रवाशांच्या प्रत्यक्ष अभिप्रायावर (Real-time Passenger Feedback) आधारित असतो, ज्यात इमिग्रेशन, बॅगेज डिलिव्हरी आणि टर्मिनल सुविधांचे मूल्यमापन केले जाते.🏛 मंगळूर विमानतळ मालकी :हे विमानतळ मूळतः भारतीय विमानतळ प्राधिकरण (Airports Authority of India - AAI) च्या मालकीचे आहे.ऑक्टोबर 2020 मध्ये 'अदानी एअरपोर्ट होल्डिंग्ज लिमिटेड'ने या विमानतळाचे संचालन, व्यवस्थापन आणि विकासाची 50 वर्षांसाठी जबाबदारी घेतली आहे.",
+      "explanationHtml": "<ul><li><strong>पुरस्काराचे नाव :</strong> <font color=\"#e60000\"><b>एअरपोर्ट सर्व्हिस क्वालिटी (ASQ) अवॉर्ड्स 2025</b></font></li><li><strong>आयोजक :</strong> एअरपोर्ट कौन्सिल इंटरनॅशनल (ACI) वर्ल्ड</li><li><strong style=\"color: #9B3A32;\">मंगळूर विमानतळ :</strong> या विमानतळाने सलग दुसऱ्या वर्षी (2024 आणि 2025) जागतिक स्तरावर 'बेस्ट एअरपोर्ट एट अरायव्हल्स' ही श्रेणी जिंकली आहे.</li><li><strong style=\"color: #1d4ed8;\">निकष :</strong> हा पुरस्कार प्रवाशांच्या प्रत्यक्ष अभिप्रायावर (Real-time Passenger Feedback) आधारित असतो, ज्यात इमिग्रेशन, बॅगेज डिलिव्हरी आणि टर्मिनल सुविधांचे मूल्यमापन केले जाते.</li></ul><h3>🏛 मंगळूर विमानतळ मालकी :</h3><ul><li>हे विमानतळ मूळतः भारतीय विमानतळ प्राधिकरण (Airports Authority of India - AAI) च्या मालकीचे आहे.</li><li>ऑक्टोबर 2020 मध्ये 'अदानी एअरपोर्ट होल्डिंग्ज लिमिटेड'ने या विमानतळाचे संचालन, व्यवस्थापन आणि विकासाची 50 वर्षांसाठी जबाबदारी घेतली आहे.</li></ul>",
       "structuredExplanation": {
         "answer": "मंगळूर आंतरराष्ट्रीय विमानतळ",
         "bullets": [
@@ -400,7 +445,7 @@
     },
     {
       "q": "टेस्ट सिरीजची वैधता (Validity) किती दिवस राहील?",
-      "a": "या टेस्ट सिरीजची वैधता परीक्षा होईपर्यंत म्हणजेच 3 जानेवारी 2027 पर्यंत वैध राहील. तोपर्यंत तुम्ही सर्व टेस्ट्स व स्पष्टीकरणे कधीही पाहू शकता."
+      "a": "या टेस्ट सिरीजची वैधता परीक्षा होईपर्यंत म्हणजेच 25 ऑक्टोबर 2026 पर्यंत वैध राहील. तोपर्यंत तुम्ही सर्व टेस्ट्स व स्पष्टीकरणे कधीही पाहू शकता."
     },
     {
       "q": "पेमेंट केल्यानंतर टेस्ट्स लगेच सुरू होतील का?",
@@ -425,7 +470,7 @@
     "checklist": [
       "25 परिपूर्ण मॉक टेस्ट्स (2,000+ प्रश्न)",
       "प्रत्येक प्रश्नाचे 4 पर्यायांसह सविस्तर स्पष्टीकरण",
-      "वैधता: 3 जानेवारी 2027 पर्यंत",
+      "वैधता: 25 ऑक्टोबर 2026 पर्यंत",
       "अमर्यादित वेळा सराव & PDF डाऊनलोड"
     ],
     "buttonText": "आत्ताच ₹199 मध्ये टेस्ट सिरीज सुरू करा"

@@ -456,9 +456,27 @@ flowchart TD
     - Hero section (`Desktop Hero Image (5:6)` and `Mobile Hero Image (16:9)`).
     - Questions / Sample Proof (`Infographic Image`).
   - Added direct 1-click in-table image upload (`UploadCloud`) inside the "How to Buy" management table for each individual step row, allowing instant upload and replacement with auto-save to Cloudflare D1 without opening the edit dialog.
-  - Added "📁 थेट स्क्रीनशॉट अपलोड करा" Quick Upload header button and prominent drag-and-drop file upload cards in step modals.
+  - Added "📁 Upload Direct Screenshot" Quick Upload header button and prominent drag-and-drop file upload cards in step modals.
   - Added "✓ DB Stored" indicator badges on inputs containing database-stored `/api/images/` paths.
   - Added "Database Check & Media" trigger buttons to top header and sidebar navigation footers.
   - Added accessible Radix Dialog modal showing live database connection health, engine, table statuses, direct upload, and an interactive media gallery with 1-click "Copy URL" and "Delete".
 
+### Admin Panel UI English Localization
+- **Scope & Principles:**
+  - Full conversion of all buttons, labels, tooltips, dialogs, badges, empty states, and action bars in `src/app/admin/page.tsx` and `src/components/admin/RichTextEditor.tsx` to clean, professional English.
+  - Strict preservation of educational Marathi content (practice questions, explanations, student feedback quotes, and syllabus points).
+  - Cleaned up:
+    - LaTeX Math Equation Editor: formula presets (Fractions & Powers, Symbols & Operators, Greek Letters, Exam Formulas), display type selectors (Inline vs Display Block), live KaTeX preview status, insert/update action buttons.
+    - Rich Text Table Tools: interactive grid selector, row and column manipulation controls (+ Row Above, + Row Below, Delete Row, + Column Left, + Column Right, Delete Column), delete table button, and floating contextual ribbon.
+    - How to Purchase Admin Table: "Upload Direct Screenshot", "Replace Image", "Change", default step numbers ("Step N", "9:20 Screenshot N").
+    - Database Status & Media dialog: health engine cards, direct database upload trigger, image gallery counters, empty state alerts, and modal close buttons.
+    - Pricing checklist inclusions: inclusion add/reorder/delete actions and placeholder guides.
 
+### Question Line Break & Formatting Preservation
+- **Problem:**
+  - In `SampleProof.tsx` and the admin live preview, multi-statement questions (e.g. statement lists `अ)`, `ब)`, `क)`) with line breaks entered via Enter in the admin textarea or stored as `\n` in the database were collapsing into a single continuous paragraph due to default HTML whitespace behavior (`white-space: normal`).
+- **Solution:**
+  - Added `whitespace-pre-line` to the question text container in `src/components/SampleProof.tsx` and `src/app/admin/page.tsx` preview so `\n` line breaks are rendered properly.
+  - Added `<br\s*/?>` tag normalization (`.replace(/<br\s*\/?>/gi, "\n")`) to gracefully handle cases where users or rich-text snippets include HTML breaks.
+  - Added `whitespace-pre-line` to option spans to allow clean multi-line answer options.
+  - Enlarged the question textarea in `src/app/admin/page.tsx` to 5 rows with `resize-y` and added a helper tip: `"Tip: Line breaks (Enter) are preserved in the live preview and on the website."`

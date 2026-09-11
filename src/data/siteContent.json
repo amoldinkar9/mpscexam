@@ -59,7 +59,7 @@
       "desc": "खालील ₹199 ऑफर बटणावर क्लिक करून तुमचा स्लॉट निवडा.",
       "iconName": "ShoppingCart",
       "color": "bg-[#fbeae8] text-[#9B3A32] border-[#f3c8c4]",
-      "skeletonText": "9:16 स्क्रीनशॉट / इमेज 1",
+      "skeletonText": "9:20 स्क्रीनशॉट / इमेज 1",
       "imageUrl": ""
     },
     {
@@ -68,7 +68,7 @@
       "desc": "GPay, PhonePe, Paytm किंवा इतर कोणत्याही UPI ने ₹199 पेमेंट करा.",
       "iconName": "CreditCard",
       "color": "bg-emerald-50 text-emerald-700 border-emerald-200",
-      "skeletonText": "9:16 स्क्रीनशॉट / इमेज 2",
+      "skeletonText": "9:20 स्क्रीनशॉट / इमेज 2",
       "imageUrl": ""
     },
     {
@@ -77,7 +77,7 @@
       "desc": "पेमेंट होताच 1 सेकंदात टेस्ट्स अनलॉक होतील आणि लॉगिन माहिती मिळेल.",
       "iconName": "Smartphone",
       "color": "bg-blue-50 text-blue-700 border-blue-200",
-      "skeletonText": "9:16 स्क्रीनशॉट / इमेज 3",
+      "skeletonText": "9:20 स्क्रीनशॉट / इमेज 3",
       "imageUrl": ""
     },
     {
@@ -86,7 +86,7 @@
       "desc": "मोबाईल किंवा लॅपटॉपवर 100 गुणांच्या 25 टेस्ट्स सोडवायला सुरुवात करा.",
       "iconName": "PlayCircle",
       "color": "bg-amber-50 text-amber-700 border-amber-200",
-      "skeletonText": "9:16 स्क्रीनशॉट / इमेज 4",
+      "skeletonText": "9:20 स्क्रीनशॉट / इमेज 4",
       "imageUrl": ""
     }
   ],

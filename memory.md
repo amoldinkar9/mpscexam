@@ -431,3 +431,32 @@ flowchart TD
   - `src/components/Header.tsx`: Sticky header countdown timer target date updated to `2027-01-03T10:30:00+05:30`.
   - `src/components/UrgencyBanner.tsx`: Urgency banner countdown timer target date updated to `2027-01-03T10:30:00+05:30`.
   - `src/data/siteContent.json`: Test series validity in FAQ and Pricing checklist updated to "3 जानेवारी 2027 पर्यंत".
+
+### How to Purchase Section 9:20 Mobile Screenshot Aspect Ratio
+- **Aspect Ratio Shift (9:16 -> 9:20):**
+  - Updated screenshot display container from standard 9:16 to modern smartphone portrait 9:20 (`aspect-[9/20]`, `style={{ aspectRatio: "9 / 20" }}`) in `src/components/HowToPurchase.tsx`.
+  - Optimized slider card dimensions (`w-60 sm:w-68`) to provide an authentic, modern smartphone silhouette without excessive vertical stretching.
+  - Updated fallback placeholder labels across `src/data/siteContent.json` (`9:20 स्क्रीनशॉट / इमेज 1-4`).
+  - Updated Admin Management Panel (`src/app/admin/page.tsx`): input labels, fallback placeholders, and live thumbnail preview box updated to 9:20 aspect ratio.
+
+### Admin Image Upload & Cloudflare D1 Database Integration
+- **Database Storage (`uploaded_images` table):**
+  - Schema: `id TEXT PRIMARY KEY, filename TEXT NOT NULL, mime_type TEXT NOT NULL, data TEXT NOT NULL, size INTEGER NOT NULL, created_at DATETIME DEFAULT CURRENT_TIMESTAMP`.
+  - Executed on both local and remote Cloudflare D1 `mpscexam-db` databases.
+  - Unified DB adapter in `src/lib/db.ts` seamlessly binds Cloudflare D1 in edge runtime (`cloudflare:workers` `env.DB`) and local wrangler SQLite in Node.js dev runtime (`node:sqlite`).
+- **Endpoints:**
+  - `POST /api/admin/upload`: Passcode-authenticated multipart file upload; stores base64 payload in D1, writes static backup to `public/uploads/` on disk, returns URL `/api/images/[id]`, file size, and verification flag.
+  - `GET /api/admin/upload?action=check-db`: Health-check endpoint verifying connection, table presence (`site_content`, `uploaded_images`), and image record counts.
+  - `GET /api/admin/upload?action=list`: Lists recently uploaded images with metadata.
+  - `DELETE /api/admin/upload?id=[id]`: Deletes image from database and local disk.
+  - `GET /api/images/[id]`: High-performance public image streamer fetching bytes from D1/disk with immutable cache headers (`public, max-age=31536000, immutable`).
+- **Admin Panel UI Integration (`src/app/admin/page.tsx`):**
+  - Integrated "Upload Image" (`UploadCloud`) file pickers across:
+    - How to Purchase steps (`Screenshot Image (9:20 Portrait)` with live 9:20 thumbnail).
+    - Hero section (`Desktop Hero Image (5:6)` and `Mobile Hero Image (16:9)`).
+    - Questions / Sample Proof (`Infographic Image`).
+  - Added "✓ DB Stored" indicator badges on inputs containing database-stored `/api/images/` paths.
+  - Added "Database Check & Media" trigger buttons to top header and sidebar navigation footers.
+  - Added accessible Radix Dialog modal showing live database connection health, engine, table statuses, direct upload, and an interactive media gallery with 1-click "Copy URL" and "Delete".
+
+

@@ -86,13 +86,13 @@ export function HowToPurchase({ initialData }: { initialData?: typeof siteData.h
           </p>
         </div>
 
-        {/* 9:16 Image Slider Flow */}
+        {/* 9:20 Image Slider Flow */}
         <div
           className="relative max-w-4xl mx-auto mb-10"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          {/* Slider Container with 9:16 Aspect Ratio Cards */}
+          {/* Slider Container with 9:20 Aspect Ratio Cards */}
           <div
             ref={scrollContainerRef}
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
@@ -105,13 +105,16 @@ export function HowToPurchase({ initialData }: { initialData?: typeof siteData.h
                 <div
                   key={idx}
                   onClick={() => setCurrentSlide(idx)}
-                  className={`w-64 sm:w-72 shrink-0 snap-start rounded-3xl p-4 border transition-all duration-300 cursor-pointer flex flex-col justify-between ${isActive
+                  className={`w-60 sm:w-68 shrink-0 snap-start rounded-3xl p-4 border transition-all duration-300 cursor-pointer flex flex-col justify-between ${isActive
                     ? "bg-white border-[#9B3A32] shadow-xl ring-2 ring-[#9B3A32]/30 scale-102"
                     : "bg-[#fafbfc] border-slate-200 shadow-sm opacity-80 hover:opacity-100"
                     }`}
                 >
-                  {/* 9:16 Image Skeleton / Screenshot Area */}
-                  <div className="w-full aspect-[9/16] rounded-2xl bg-gradient-to-b from-slate-100 via-slate-50 to-slate-200 border-2 border-dashed border-slate-300 flex flex-col items-center justify-center relative overflow-hidden group">
+                  {/* 9:20 Image Skeleton / Screenshot Area */}
+                  <div
+                    style={{ aspectRatio: "9 / 20" }}
+                    className="w-full aspect-[9/20] rounded-2xl bg-gradient-to-b from-slate-100 via-slate-50 to-slate-200 border-2 border-dashed border-slate-300 flex flex-col items-center justify-center relative overflow-hidden group"
+                  >
                     {step.imageUrl ? (
                       <img
                         src={step.imageUrl}

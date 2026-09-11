@@ -44,7 +44,12 @@ import {
   ChevronDown,
   ChevronUp,
   Layers,
-  Menu
+  Menu,
+  UploadCloud,
+  Database,
+  CheckCircle2,
+  Copy,
+  Loader2
 } from "lucide-react";
 import defaultSiteData from "@/data/siteContent.json";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
@@ -174,6 +179,14 @@ export default function AdminPage() {
   const [dragOptionSource, setDragOptionSource] = useState<number | null>(null);
   const [dragOverOptionIndex, setDragOverOptionIndex] = useState<number | null>(null);
 
+  // Database & Image Upload states
+  const [isDbModalOpen, setIsDbModalOpen] = useState(false);
+  const [dbHealth, setDbHealth] = useState<any>(null);
+  const [isLoadingDb, setIsLoadingDb] = useState(false);
+  const [dbImages, setDbImages] = useState<any[]>([]);
+  const [isUploadingImage, setIsUploadingImage] = useState(false);
+  const [copiedImageId, setCopiedImageId] = useState<string | null>(null);
+
   // Load content from API on mount and check existing session
   useEffect(() => {
     async function initAuthAndContent() {
@@ -295,6 +308,102 @@ export default function AdminPage() {
     } finally {
       setIsSaving(false);
     }
+  };
+
+  // Upload image file to Cloudflare D1 Database
+  const uploadImageFile = async (file: File): Promise<{ url: string; verifiedInDatabase: boolean } | null> => {
+    try {
+      setIsUploadingImage(true);
+      const activePass = passcode || sessionStorage.getItem("admin_auth_passcode") || "";
+      const formData = new FormData();
+      formData.append("file", file);
+      formData.append("passcode", activePass);
+
+      const res = await fetch("/api/admin/upload", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await res.json();
+      if (!res.ok || !data.success) {
+        throw new Error(data.error || "इमेज अपलोड अयशस्वी");
+      }
+
+      setStatusMessage({
+        type: "success",
+        text: data.message || "✓ इमेज डेटाबेसमध्ये सेव्ह झाली!",
+      });
+
+      if (isDbModalOpen) {
+        fetchDbHealthAndImages();
+      }
+
+      return { url: data.url, verifiedInDatabase: data.verifiedInDatabase };
+    } catch (err: any) {
+      setStatusMessage({
+        type: "error",
+        text: err.message || "इमेज अपलोड करताना त्रुटी आली",
+      });
+      return null;
+    } finally {
+      setIsUploadingImage(false);
+    }
+  };
+
+  const fetchDbHealthAndImages = async () => {
+    setIsLoadingDb(true);
+    try {
+      const activePass = passcode || sessionStorage.getItem("admin_auth_passcode") || "";
+      const [healthRes, imagesRes] = await Promise.all([
+        fetch(`/api/admin/upload?action=check-db&passcode=${encodeURIComponent(activePass)}`),
+        fetch(`/api/admin/upload?action=list&passcode=${encodeURIComponent(activePass)}`),
+      ]);
+
+      const healthData = await healthRes.json();
+      const imagesData = await imagesRes.json();
+
+      if (healthData.success) {
+        setDbHealth(healthData.health);
+      }
+      if (imagesData.success) {
+        setDbImages(imagesData.images || []);
+      }
+    } catch (err) {
+      console.error("Error fetching database status:", err);
+    } finally {
+      setIsLoadingDb(false);
+    }
+  };
+
+  const handleOpenDatabaseModal = () => {
+    setIsDbModalOpen(true);
+    fetchDbHealthAndImages();
+  };
+
+  const handleDeleteDbImage = async (id: string) => {
+    if (!confirm("तुम्हाला खात्री आहे का ही इमेज डेटाबेसमधून हटवायची आहे?")) return;
+    try {
+      const activePass = passcode || sessionStorage.getItem("admin_auth_passcode") || "";
+      const res = await fetch(`/api/admin/upload?id=${encodeURIComponent(id)}&passcode=${encodeURIComponent(activePass)}`, {
+        method: "DELETE",
+      });
+      const data = await res.json();
+      if (data.success) {
+        setDbImages((prev) => prev.filter((img) => img.id !== id));
+        setStatusMessage({ type: "success", text: "इमेज डेटाबेसमधून यशस्वीरीत्या हटवली!" });
+        fetchDbHealthAndImages();
+      } else {
+        alert(data.error || "इमेज हटवता आली नाही");
+      }
+    } catch (err) {
+      alert("Error deleting image");
+    }
+  };
+
+  const handleCopyUrl = (url: string, id: string) => {
+    const fullUrl = window.location.origin + url;
+    navigator.clipboard.writeText(fullUrl);
+    setCopiedImageId(id);
+    setTimeout(() => setCopiedImageId(null), 2000);
   };
 
   // Toggle published helper
@@ -433,7 +542,7 @@ export default function AdminPage() {
         step: `स्टेप ${content.howToPurchase.length + 1}`,
         title: "",
         desc: "",
-        skeletonText: `9:16 स्क्रीनशॉट ${content.howToPurchase.length + 1}`,
+        skeletonText: `9:20 स्क्रीनशॉट ${content.howToPurchase.length + 1}`,
         imageUrl: "",
         order: content.howToPurchase.length + 1,
       });
@@ -715,6 +824,13 @@ export default function AdminPage() {
 
         {/* Sidebar Footer */}
         <div className="p-4 border-t border-zinc-200 space-y-1 text-xs">
+          <button
+            onClick={handleOpenDatabaseModal}
+            className="w-full flex items-center gap-2 px-3 py-2 text-zinc-700 hover:text-black hover:bg-emerald-50 rounded-[4px] transition-colors cursor-pointer text-left font-medium"
+          >
+            <Database className="w-4 h-4 text-emerald-600 shrink-0" />
+            <span>Database & Media</span>
+          </button>
           <a
             href="/"
             target="_blank"
@@ -781,6 +897,16 @@ export default function AdminPage() {
 
             {/* Drawer Footer */}
             <div className="p-4 border-t border-zinc-200 space-y-1 text-xs bg-zinc-50/50">
+              <button
+                onClick={() => {
+                  setIsMobileMenuOpen(false);
+                  handleOpenDatabaseModal();
+                }}
+                className="w-full flex items-center gap-2 px-3 py-2 text-zinc-700 hover:text-black hover:bg-emerald-50 rounded-[4px] transition-colors cursor-pointer text-left font-medium"
+              >
+                <Database className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>Database & Media</span>
+              </button>
               <a
                 href="/"
                 target="_blank"
@@ -831,6 +957,13 @@ export default function AdminPage() {
 
           <div className="flex items-center gap-1.5 shrink-0">
             <button
+              onClick={handleOpenDatabaseModal}
+              className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold text-zinc-700 bg-white hover:bg-zinc-100 rounded-[4px] border border-zinc-300 transition-colors cursor-pointer"
+              title="डेटाबेस तपासा (Check Database)"
+            >
+              <Database className="w-3.5 h-3.5 text-emerald-600" />
+            </button>
+            <button
               onClick={handleReset}
               disabled={isSaving}
               className="inline-flex items-center gap-1 px-2.5 py-1.5 text-xs font-semibold text-zinc-600 bg-white hover:bg-zinc-100 rounded-[4px] border border-zinc-300 transition-colors cursor-pointer"
@@ -859,6 +992,14 @@ export default function AdminPage() {
           </div>
 
           <div className="flex items-center gap-2.5">
+            <button
+              onClick={handleOpenDatabaseModal}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold text-zinc-700 bg-white hover:bg-emerald-50 hover:border-emerald-300 rounded-[4px] border border-zinc-300 transition-colors cursor-pointer"
+              title="डेटाबेस स्थिती आणि मीडिया तपासा (Check Database & Media)"
+            >
+              <Database className="w-3.5 h-3.5 text-emerald-600" />
+              <span>डेटाबेस (Database)</span>
+            </button>
             <button
               onClick={handleReset}
               disabled={isSaving}
@@ -1694,37 +1835,105 @@ export default function AdminPage() {
                   {/* Form inputs */}
                   <div className="space-y-4">
                     <div>
-                      <label className="block text-xs font-semibold text-zinc-700 mb-1">
-                        Desktop Hero Image URL (5:6 aspect ratio)
-                      </label>
-                      <input
-                        type="url"
-                        value={content.hero.desktopHeroImage || (content.hero as any).heroImage || ""}
-                        onChange={(e) =>
-                          setContent({
-                            ...content,
-                            hero: { ...content.hero, desktopHeroImage: e.target.value },
-                          })
-                        }
-                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
-                      />
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="block text-xs font-semibold text-zinc-700">
+                          Desktop Hero Image URL (5:6 aspect ratio)
+                        </label>
+                        {content.hero.desktopHeroImage?.startsWith("/api/images/") && (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                            <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                            DB Stored
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex gap-2">
+                        <input
+                          type="url"
+                          value={content.hero.desktopHeroImage || (content.hero as any).heroImage || ""}
+                          onChange={(e) =>
+                            setContent({
+                              ...content,
+                              hero: { ...content.hero, desktopHeroImage: e.target.value },
+                            })
+                          }
+                          placeholder="https://... किंवा अपलोड करा"
+                          className="flex-1 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white focus:border-black focus:ring-1 focus:ring-black outline-none font-mono"
+                        />
+                        <label className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black hover:bg-zinc-800 text-white rounded-[4px] text-xs font-bold cursor-pointer transition-colors shadow-2xs shrink-0">
+                          <UploadCloud className="w-3.5 h-3.5" />
+                          <span>{isUploadingImage ? "..." : "Upload"}</span>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            disabled={isUploadingImage}
+                            onChange={async (e) => {
+                              const f = e.target.files?.[0];
+                              if (f) {
+                                const res = await uploadImageFile(f);
+                                if (res) {
+                                  setContent({
+                                    ...content,
+                                    hero: { ...content.hero, desktopHeroImage: res.url },
+                                  });
+                                }
+                                e.target.value = "";
+                              }
+                            }}
+                          />
+                        </label>
+                      </div>
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-zinc-700 mb-1">
-                        Mobile Hero Image URL (16:9 aspect ratio)
-                      </label>
-                      <input
-                        type="url"
-                        value={content.hero.mobileHeroImage || content.hero.desktopHeroImage || (content.hero as any).heroImage || ""}
-                        onChange={(e) =>
-                          setContent({
-                            ...content,
-                            hero: { ...content.hero, mobileHeroImage: e.target.value },
-                          })
-                        }
-                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
-                      />
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="block text-xs font-semibold text-zinc-700">
+                          Mobile Hero Image URL (16:9 aspect ratio)
+                        </label>
+                        {content.hero.mobileHeroImage?.startsWith("/api/images/") && (
+                          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                            <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                            DB Stored
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex gap-2">
+                        <input
+                          type="url"
+                          value={content.hero.mobileHeroImage || content.hero.desktopHeroImage || (content.hero as any).heroImage || ""}
+                          onChange={(e) =>
+                            setContent({
+                              ...content,
+                              hero: { ...content.hero, mobileHeroImage: e.target.value },
+                            })
+                          }
+                          placeholder="https://... किंवा अपलोड करा"
+                          className="flex-1 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white focus:border-black focus:ring-1 focus:ring-black outline-none font-mono"
+                        />
+                        <label className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black hover:bg-zinc-800 text-white rounded-[4px] text-xs font-bold cursor-pointer transition-colors shadow-2xs shrink-0">
+                          <UploadCloud className="w-3.5 h-3.5" />
+                          <span>{isUploadingImage ? "..." : "Upload"}</span>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            disabled={isUploadingImage}
+                            onChange={async (e) => {
+                              const f = e.target.files?.[0];
+                              if (f) {
+                                const res = await uploadImageFile(f);
+                                if (res) {
+                                  setContent({
+                                    ...content,
+                                    hero: { ...content.hero, mobileHeroImage: res.url },
+                                  });
+                                }
+                                e.target.value = "";
+                              }
+                            }}
+                          />
+                        </label>
+                      </div>
                     </div>
 
                     <div>
@@ -2563,9 +2772,17 @@ export default function AdminPage() {
 
                         {/* Image URL / Path with thumbnail preview */}
                         <div>
-                          <label className="block text-xs font-semibold text-zinc-700 mb-1">
-                            Infographic Image (URL / Path)
-                          </label>
+                          <div className="flex items-center justify-between mb-1">
+                            <label className="block text-xs font-semibold text-zinc-700">
+                              Infographic Image (URL / Path)
+                            </label>
+                            {current.image?.startsWith("/api/images/") && (
+                              <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                                <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                                DB Stored
+                              </span>
+                            )}
+                          </div>
                           <div className="flex gap-2">
                             <input
                               type="text"
@@ -2575,9 +2792,31 @@ export default function AdminPage() {
                                 updated[effectiveActive].image = e.target.value;
                                 setContent({ ...content, sampleProof: updated });
                               }}
-                              placeholder="/sample-image.png or https://..."
+                              placeholder="/sample-image.png किंवा अपलोड करा"
                               className="flex-1 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white font-mono"
                             />
+                            <label className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black hover:bg-zinc-800 text-white rounded-[4px] text-xs font-bold cursor-pointer transition-colors shadow-2xs shrink-0">
+                              <UploadCloud className="w-3.5 h-3.5" />
+                              <span>{isUploadingImage ? "..." : "Upload"}</span>
+                              <input
+                                type="file"
+                                accept="image/*"
+                                className="hidden"
+                                disabled={isUploadingImage}
+                                onChange={async (e) => {
+                                  const f = e.target.files?.[0];
+                                  if (f) {
+                                    const res = await uploadImageFile(f);
+                                    if (res) {
+                                      const updated = { ...sampleProofData };
+                                      updated[effectiveActive].image = res.url;
+                                      setContent({ ...content, sampleProof: updated });
+                                    }
+                                    e.target.value = "";
+                                  }
+                                }}
+                              />
+                            </label>
                             {current.image && (
                               <button
                                 type="button"
@@ -3519,35 +3758,68 @@ export default function AdminPage() {
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-zinc-800 mb-1">
-                      Screenshot Image URL (9:16 Portrait)
-                    </label>
-                    <div className="flex gap-2">
+                    <div className="flex items-center justify-between mb-1">
+                      <label className="block text-xs font-semibold text-zinc-800">
+                        Screenshot Image (9:20 Portrait)
+                      </label>
+                      {purchaseStepForm.imageUrl?.startsWith("/api/images/") && (
+                        <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
+                          <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                          डेटाबेसमध्ये सेव्ह (DB Stored)
+                        </span>
+                      )}
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-2">
                       <input
                         type="text"
                         value={purchaseStepForm.imageUrl}
                         onChange={(e) => setPurchaseStepForm({ ...purchaseStepForm, imageUrl: e.target.value })}
-                        placeholder="https://example.com/screenshot.jpg or /images/..."
+                        placeholder="https://... किंवा खालील बटणाने थेट अपलोड करा"
                         className="flex-1 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white font-mono"
                       />
-                      {purchaseStepForm.imageUrl && (
-                        <button
-                          type="button"
-                          onClick={() => setPurchaseStepForm({ ...purchaseStepForm, imageUrl: "" })}
-                          className="px-2.5 py-1 text-xs text-red-600 hover:bg-red-50 border border-red-200 rounded-[4px] cursor-pointer font-medium"
-                        >
-                          Clear
-                        </button>
-                      )}
+                      <div className="flex items-center gap-1.5 shrink-0">
+                        <label className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black hover:bg-zinc-800 text-white rounded-[4px] text-xs font-bold cursor-pointer transition-colors shadow-2xs">
+                          <UploadCloud className="w-3.5 h-3.5" />
+                          <span>{isUploadingImage ? "अपलोड होत आहे..." : "इमेज अपलोड करा"}</span>
+                          <input
+                            type="file"
+                            accept="image/*"
+                            className="hidden"
+                            disabled={isUploadingImage}
+                            onChange={async (e) => {
+                              const f = e.target.files?.[0];
+                              if (f) {
+                                const res = await uploadImageFile(f);
+                                if (res) {
+                                  setPurchaseStepForm({ ...purchaseStepForm, imageUrl: res.url });
+                                }
+                                e.target.value = "";
+                              }
+                            }}
+                          />
+                        </label>
+                        {purchaseStepForm.imageUrl && (
+                          <button
+                            type="button"
+                            onClick={() => setPurchaseStepForm({ ...purchaseStepForm, imageUrl: "" })}
+                            className="px-2.5 py-1.5 text-xs text-red-600 hover:bg-red-50 border border-red-200 rounded-[4px] cursor-pointer font-medium"
+                          >
+                            Clear
+                          </button>
+                        )}
+                      </div>
                     </div>
                     <p className="text-[11px] text-zinc-400 mt-1">
-                      Add a direct image URL or path for the mobile screenshot.
+                      तुमच्या डिव्हाइसवरून 9:20 स्क्रीनशॉट निवडा. ही इमेज थेट Cloudflare D1 डेटाबेसमध्ये सेव्ह होते.
                     </p>
 
                     {/* Live Thumbnail Preview */}
                     {purchaseStepForm.imageUrl && (
                       <div className="mt-2.5 p-2.5 border border-zinc-200 rounded-[4px] bg-zinc-50 flex items-center gap-3">
-                        <div className="w-12 h-20 rounded border border-zinc-300 bg-white overflow-hidden shrink-0 shadow-2xs">
+                        <div
+                          style={{ aspectRatio: "9 / 20" }}
+                          className="w-12 aspect-[9/20] rounded border border-zinc-300 bg-white overflow-hidden shrink-0 shadow-2xs"
+                        >
                           <img
                             src={purchaseStepForm.imageUrl}
                             alt="Preview"
@@ -3558,7 +3830,7 @@ export default function AdminPage() {
                           />
                         </div>
                         <div className="text-[11px] text-zinc-600 min-w-0">
-                          <p className="font-semibold text-zinc-800">Screenshot Preview (9:16)</p>
+                          <p className="font-semibold text-zinc-800">Screenshot Preview (9:20)</p>
                           <p className="text-[10px] text-zinc-400 truncate font-mono mt-0.5">
                             {purchaseStepForm.imageUrl}
                           </p>
@@ -3573,7 +3845,7 @@ export default function AdminPage() {
                       type="text"
                       value={purchaseStepForm.skeletonText}
                       onChange={(e) => setPurchaseStepForm({ ...purchaseStepForm, skeletonText: e.target.value })}
-                      placeholder="9:16 Screenshot 1"
+                      placeholder="9:20 Screenshot 1"
                       className="w-full px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white"
                     />
                     <p className="text-[11px] text-zinc-400 mt-1">Shown if no screenshot image is added.</p>
@@ -3755,6 +4027,185 @@ export default function AdminPage() {
 
             </form>
 
+          </Dialog.Content>
+        </Dialog.Portal>
+      </Dialog.Root>
+
+      {/* DATABASE HEALTH & MEDIA LIBRARY MODAL */}
+      <Dialog.Root open={isDbModalOpen} onOpenChange={setIsDbModalOpen}>
+        <Dialog.Portal>
+          <Dialog.Overlay className="fixed inset-0 bg-black/60 backdrop-blur-xs z-50 animate-fade-in" />
+          <Dialog.Content className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white rounded-lg shadow-2xl z-50 w-[calc(100%-2rem)] max-w-2xl p-5 sm:p-6 border border-zinc-200 animate-scale-up max-h-[85vh] flex flex-col">
+            <div className="flex items-center justify-between border-b border-zinc-100 pb-3 mb-4 shrink-0">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-800">
+                  <Database className="w-4 h-4" />
+                </div>
+                <div>
+                  <Dialog.Title className="text-base font-bold text-black">
+                    डेटाबेस स्थिती आणि मीडिया (Database & Media)
+                  </Dialog.Title>
+                  <p className="text-xs text-zinc-500">
+                    Cloudflare D1 डेटाबेस कनेक्टिव्हिटी आणि अपलोड केलेल्या इमेजेस
+                  </p>
+                </div>
+              </div>
+              <Dialog.Close asChild>
+                <button
+                  className="p-1 rounded text-zinc-400 hover:text-black hover:bg-zinc-100 transition-colors cursor-pointer"
+                  aria-label="Close"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+              </Dialog.Close>
+            </div>
+
+            <div className="flex-1 overflow-y-auto pr-1 space-y-4">
+              {/* Database Health Card */}
+              <div className="p-4 rounded-lg bg-zinc-50 border border-zinc-200 space-y-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="relative flex h-3 w-3">
+                      <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${dbHealth?.ok ? "bg-emerald-400" : "bg-amber-400"} opacity-75`}></span>
+                      <span className={`relative inline-flex rounded-full h-3 w-3 ${dbHealth?.ok ? "bg-emerald-500" : "bg-amber-500"}`}></span>
+                    </span>
+                    <span className="text-xs font-bold text-zinc-900">
+                      {dbHealth?.ok ? "डेटाबेस कनेक्टेड आणि सक्रिय (Active & Connected)" : "डेटाबेस स्थिती तपासत आहे..."}
+                    </span>
+                  </div>
+
+                  <button
+                    onClick={fetchDbHealthAndImages}
+                    disabled={isLoadingDb}
+                    className="inline-flex items-center gap-1 px-2.5 py-1 text-xs font-semibold text-zinc-700 bg-white hover:bg-zinc-100 border border-zinc-300 rounded shadow-2xs cursor-pointer self-start sm:self-auto"
+                  >
+                    <RefreshCw className={`w-3 h-3 ${isLoadingDb ? "animate-spin" : ""}`} />
+                    <span>पुन्हा तपासा (Refresh)</span>
+                  </button>
+                </div>
+
+                {/* Health details grid */}
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+                  <div className="p-2 bg-white rounded border border-zinc-200 text-center">
+                    <span className="block text-[10px] text-zinc-400 font-medium">Engine</span>
+                    <span className="text-xs font-bold text-zinc-800 truncate block">
+                      {dbHealth?.engine || "Connecting..."}
+                    </span>
+                  </div>
+                  <div className="p-2 bg-white rounded border border-zinc-200 text-center">
+                    <span className="block text-[10px] text-zinc-400 font-medium">Site Content</span>
+                    <span className="text-xs font-bold text-emerald-700">
+                      {dbHealth?.tables?.site_content ? "✓ Active" : "Pending"}
+                    </span>
+                  </div>
+                  <div className="p-2 bg-white rounded border border-zinc-200 text-center">
+                    <span className="block text-[10px] text-zinc-400 font-medium">Images Table</span>
+                    <span className="text-xs font-bold text-emerald-700">
+                      {dbHealth?.tables?.uploaded_images ? "✓ Active" : "Pending"}
+                    </span>
+                  </div>
+                  <div className="p-2 bg-white rounded border border-zinc-200 text-center">
+                    <span className="block text-[10px] text-zinc-400 font-medium">Total Images</span>
+                    <span className="text-xs font-bold text-[#9B3A32]">
+                      {dbHealth?.imageCount ?? dbImages.length}
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Direct Upload into Database */}
+              <div className="flex items-center justify-between p-3 rounded-lg border border-dashed border-zinc-300 bg-white">
+                <div>
+                  <h4 className="text-xs font-bold text-zinc-900">थेट डेटाबेसमध्ये इमेज अपलोड करा</h4>
+                  <p className="text-[11px] text-zinc-500">कोणतीही इमेज निवडून थेट Cloudflare D1 मध्ये सेव्ह करा.</p>
+                </div>
+                <label className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black hover:bg-zinc-800 text-white rounded text-xs font-bold cursor-pointer transition-colors shadow-2xs shrink-0">
+                  <UploadCloud className="w-3.5 h-3.5" />
+                  <span>{isUploadingImage ? "अपलोड होत आहे..." : "नवीन इमेज निवडा"}</span>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    className="hidden"
+                    disabled={isUploadingImage}
+                    onChange={async (e) => {
+                      const f = e.target.files?.[0];
+                      if (f) {
+                        await uploadImageFile(f);
+                        e.target.value = "";
+                      }
+                    }}
+                  />
+                </label>
+              </div>
+
+              {/* Stored Images List */}
+              <div className="space-y-2">
+                <h4 className="text-xs font-bold text-zinc-900 flex items-center justify-between">
+                  <span>डेटाबेसमध्ये सेव्ह केलेल्या इमेजेस ({dbImages.length})</span>
+                  {isLoadingDb && <span className="text-[11px] text-zinc-400 font-normal">लोड होत आहे...</span>}
+                </h4>
+
+                {dbImages.length === 0 ? (
+                  <div className="text-center py-8 border border-zinc-200 rounded-lg bg-zinc-50/50">
+                    <ImageIcon className="w-8 h-8 text-zinc-300 mx-auto mb-2" />
+                    <p className="text-xs text-zinc-500 font-medium">डेटाबेसमध्ये अद्याप कोणतीही इमेज सेव्ह नाही.</p>
+                    <p className="text-[11px] text-zinc-400 mt-0.5">वरील बटण वापरून इमेज अपलोड करा.</p>
+                  </div>
+                ) : (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                    {dbImages.map((img) => (
+                      <div
+                        key={img.id}
+                        className="flex items-center gap-3 p-2.5 bg-white border border-zinc-200 rounded-lg hover:border-zinc-300 transition-colors shadow-2xs"
+                      >
+                        <div className="w-12 h-12 rounded border border-zinc-200 bg-zinc-100 overflow-hidden shrink-0 flex items-center justify-center">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={img.url}
+                            alt={img.filename}
+                            className="w-full h-full object-cover"
+                            onError={(e) => {
+                              (e.target as HTMLElement).style.display = "none";
+                            }}
+                          />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <p className="text-xs font-semibold text-zinc-800 truncate" title={img.filename}>
+                            {img.filename}
+                          </p>
+                          <p className="text-[10px] text-zinc-400 font-mono">
+                            {img.size ? `${Math.round(img.size / 1024)} KB` : "Image"} • {img.id.slice(-8)}
+                          </p>
+                          <div className="flex items-center gap-1.5 mt-1.5">
+                            <button
+                              onClick={() => handleCopyUrl(img.url, img.id)}
+                              className="inline-flex items-center gap-1 text-[10px] font-semibold text-zinc-600 hover:text-black bg-zinc-100 hover:bg-zinc-200 px-2 py-0.5 rounded cursor-pointer transition-colors"
+                            >
+                              <Copy className="w-2.5 h-2.5" />
+                              <span>{copiedImageId === img.id ? "Copied!" : "Copy URL"}</span>
+                            </button>
+                            <button
+                              onClick={() => handleDeleteDbImage(img.id)}
+                              className="text-[10px] font-semibold text-red-600 hover:text-red-700 bg-red-50 hover:bg-red-100 px-1.5 py-0.5 rounded cursor-pointer transition-colors"
+                            >
+                              Delete
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+
+            <div className="pt-3 mt-3 border-t border-zinc-100 flex justify-end shrink-0">
+              <Dialog.Close asChild>
+                <button className="px-4 py-1.5 bg-zinc-100 hover:bg-zinc-200 text-zinc-800 text-xs font-semibold rounded cursor-pointer transition-colors">
+                  बंद करा (Close)
+                </button>
+              </Dialog.Close>
+            </div>
           </Dialog.Content>
         </Dialog.Portal>
       </Dialog.Root>

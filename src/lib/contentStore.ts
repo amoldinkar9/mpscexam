@@ -20,22 +20,14 @@ export function getDefaultSiteContent(): SiteContent {
   return defaultData as SiteContent;
 }
 
+import { getDb } from "@/lib/db";
+
 /**
- * Dynamically resolves Cloudflare D1 database binding if running in workerd (Cloudflare runtime).
+ * Dynamically resolves Cloudflare D1 database binding or local SQLite database.
  */
 async function getD1Database(): Promise<any> {
-  try {
-    // In Cloudflare Workers environment (production / edge runtime),
-    // cloudflare:workers provides the env object containing bindings.
-    // @ts-ignore
-    const workers = await import("cloudflare:workers");
-    if (workers?.env?.DB) {
-      return workers.env.DB;
-    }
-  } catch {
-    // Not running inside Cloudflare Workers runtime
-  }
-  return null;
+  const { db } = await getDb();
+  return db;
 }
 
 /**

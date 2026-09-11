@@ -6,7 +6,9 @@ import siteData from "@/data/siteContent.json";
 
 export function SampleProof({ initialData }: { initialData?: Record<string, any> }) {
   const [sampleData, setSampleData] = useState<Record<string, any>>(initialData || siteData.sampleProof || {});
-  const subjectKeys = Object.keys(sampleData);
+  const subjectKeys = (Array.isArray(sampleData._order) && sampleData._order.length > 0)
+    ? sampleData._order.filter((k: string) => sampleData[k] && k !== "_order")
+    : Object.keys(sampleData).filter((k) => k !== "_order");
   const [activeSubject, setActiveSubject] = useState<string>(subjectKeys[0] || "currentAffairs");
 
   // Fetch latest content from API to stay live with admin edits
@@ -26,7 +28,7 @@ export function SampleProof({ initialData }: { initialData?: Record<string, any>
     if (subjectKeys.length > 0 && !subjectKeys.includes(activeSubject)) {
       setActiveSubject(subjectKeys[0]);
     }
-  }, [subjectKeys, activeSubject]);
+  }, [subjectKeys.join(","), activeSubject]);
 
   const effectiveSubject = subjectKeys.includes(activeSubject) ? activeSubject : subjectKeys[0] || "";
   const current = sampleData[effectiveSubject] || sampleData[subjectKeys[0]] || {};

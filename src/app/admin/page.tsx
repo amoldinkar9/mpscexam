@@ -43,6 +43,7 @@ import {
   BookOpen,
   ChevronDown,
   ChevronUp,
+  ChevronRight,
   Layers,
   Menu,
   UploadCloud,
@@ -2480,6 +2481,10 @@ export default function AdminPage() {
                             ]
                           }
                         };
+                        const currentOrder = (Array.isArray(updated._order) && updated._order.length > 0)
+                          ? updated._order.filter((k: string) => updated[k] && k !== "_order")
+                          : Object.keys(updated).filter((k) => k !== "_order" && k !== key);
+                        updated._order = [...currentOrder, key];
                         const newContent = { ...content, sampleProof: updated };
                         setContent(newContent);
                         setActiveSubject(key);
@@ -2499,9 +2504,23 @@ export default function AdminPage() {
               {/* Dynamic Subject Tabs */}
               {(() => {
                 const sampleProofData = (content.sampleProof || {}) as Record<string, any>;
-                const subjectKeys = Object.keys(sampleProofData);
+                const subjectKeys = (Array.isArray(sampleProofData._order) && sampleProofData._order.length > 0)
+                  ? sampleProofData._order.filter((k: string) => sampleProofData[k] && k !== "_order")
+                  : Object.keys(sampleProofData).filter((k) => k !== "_order");
                 const effectiveActive = subjectKeys.includes(activeSubject) ? activeSubject : subjectKeys[0] || "";
                 const current = sampleProofData[effectiveActive];
+
+                const updateCurrentSubject = (patch: Record<string, any>) => {
+                  const currentObj = sampleProofData[effectiveActive] || {};
+                  const updated = {
+                    ...sampleProofData,
+                    [effectiveActive]: {
+                      ...currentObj,
+                      ...patch,
+                    },
+                  };
+                  setContent({ ...content, sampleProof: updated });
+                };
 
                 if (!current) {
                   return (
@@ -2513,44 +2532,43 @@ export default function AdminPage() {
 
                 const handleReorderSubject = (fromKey: string, toKey: string) => {
                   if (!fromKey || !toKey || fromKey === toKey) return;
-                  const keys = Object.keys(sampleProofData);
-                  const fromIndex = keys.indexOf(fromKey);
-                  const toIndex = keys.indexOf(toKey);
+                  const fromIndex = subjectKeys.indexOf(fromKey);
+                  const toIndex = subjectKeys.indexOf(toKey);
                   if (fromIndex === -1 || toIndex === -1) return;
 
-                  const newKeys = [...keys];
+                  const newKeys = [...subjectKeys];
                   const [moved] = newKeys.splice(fromIndex, 1);
                   newKeys.splice(toIndex, 0, moved);
 
-                  const updated: Record<string, any> = {};
-                  for (const k of newKeys) {
-                    updated[k] = sampleProofData[k];
-                  }
+                  const updated: Record<string, any> = {
+                    ...sampleProofData,
+                    _order: newKeys,
+                  };
+
                   const newContent = { ...content, sampleProof: updated };
                   setContent(newContent);
                   handleSaveAll(newContent);
                 };
 
                 const handleMoveSubject = (key: string, direction: "left" | "right") => {
-                  const keys = Object.keys(sampleProofData);
-                  const index = keys.indexOf(key);
-                  if (index === -1) return;
-                  const targetIndex = direction === "left" ? index - 1 : index + 1;
-                  if (targetIndex < 0 || targetIndex >= keys.length) return;
-                  handleReorderSubject(key, keys[targetIndex]);
+                  const idx = subjectKeys.indexOf(key);
+                  if (idx === -1) return;
+                  const targetIdx = direction === "left" ? idx - 1 : idx + 1;
+                  if (targetIdx < 0 || targetIdx >= subjectKeys.length) return;
+                  handleReorderSubject(key, subjectKeys[targetIdx]);
                 };
 
                 return (
                   <div className="space-y-6">
-                    {/* Tabs Bar with Drag Left / Right Reorder */}
+                    
+                    {/* Subject Tabs Bar with Horizontal Drag-and-Drop and Left/Right buttons */}
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-zinc-200 pb-3">
-                      <div className="flex items-center gap-2 overflow-x-auto pb-1 max-w-full">
+                      <div className="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full no-scrollbar">
                         {subjectKeys.map((key, idx) => {
                           const item = sampleProofData[key];
+                          const isActive = effectiveActive === key;
                           const isDragging = draggedSubjectKey === key;
                           const isDragOver = dragOverSubjectKey === key;
-                          const isActive = effectiveActive === key;
-
                           return (
                             <div
                               key={key}
@@ -2567,16 +2585,16 @@ export default function AdminPage() {
                                   setDragOverSubjectKey(key);
                                 }
                               }}
-                              onDragLeave={() => {
-                                if (dragOverSubjectKey === key) {
+                              onDragLeave={(e) => {
+                                if (!e.currentTarget.contains(e.relatedTarget as Node)) {
                                   setDragOverSubjectKey(null);
                                 }
                               }}
                               onDrop={(e) => {
                                 e.preventDefault();
-                                const sourceKey = e.dataTransfer.getData("text/plain") || draggedSubjectKey;
-                                if (sourceKey && sourceKey !== key) {
-                                  handleReorderSubject(sourceKey, key);
+                                const source = e.dataTransfer.getData("text/plain") || draggedSubjectKey;
+                                if (source && source !== key) {
+                                  handleReorderSubject(source, key);
                                 }
                                 setDraggedSubjectKey(null);
                                 setDragOverSubjectKey(null);
@@ -2585,29 +2603,34 @@ export default function AdminPage() {
                                 setDraggedSubjectKey(null);
                                 setDragOverSubjectKey(null);
                               }}
-                              className={`group relative flex items-center rounded-[4px] select-none cursor-grab active:cursor-grabbing transition-all ${
+                              onClick={() => setActiveSubject(key)}
+                              className={`group flex items-center gap-1.5 px-3 py-1.5 rounded-[4px] text-xs font-bold transition-all cursor-grab active:cursor-grabbing select-none border shrink-0 ${
                                 isDragging
-                                  ? "opacity-30 scale-95 border border-dashed border-zinc-500"
+                                  ? "opacity-30 border-dashed border-zinc-400 bg-zinc-100"
                                   : isDragOver
-                                  ? "ring-2 ring-black scale-105 z-10"
-                                  : ""
+                                  ? "border-l-4 border-l-black bg-zinc-100 ring-2 ring-black"
+                                  : isActive
+                                  ? "bg-black text-white border-black shadow-xs"
+                                  : "bg-white text-zinc-600 border-zinc-200 hover:bg-zinc-100 hover:text-black"
                               }`}
-                              title="Drag left or right to reorder"
                             >
-                              <div
-                                onClick={() => setActiveSubject(key)}
-                                className={`px-3 py-1.5 text-xs font-bold rounded-[4px] transition-all flex items-center gap-1.5 cursor-pointer ${
-                                  isActive
-                                    ? "bg-black text-white shadow-2xs"
-                                    : "bg-zinc-100 text-zinc-700 hover:bg-zinc-200"
+                              <span
+                                className="opacity-60 group-hover:opacity-100 text-[11px] pointer-events-none"
+                                title="Drag to reorder"
+                              >
+                                ⠿
+                              </span>
+                              <span className="pointer-events-none">{item?.subjectName || key}</span>
+                              <span
+                                className={`text-[10px] px-1.5 py-0.2 rounded font-mono pointer-events-none ${
+                                  isActive ? "bg-zinc-800 text-zinc-300" : "bg-zinc-100 text-zinc-500"
                                 }`}
                               >
-                                <GripVertical className={`w-3 h-3 opacity-40 group-hover:opacity-100 transition-opacity ${isActive ? "text-zinc-300" : "text-zinc-600"}`} />
-                                <span>{item?.subjectName || key}</span>
-                              </div>
+                                Q{item?.questionNo || idx + 1}
+                              </span>
 
-                              {/* Quick Move Left / Right Buttons on hover */}
-                              <div className="hidden group-hover:flex items-center gap-0.5 absolute -top-3.5 left-1/2 -translate-x-1/2 bg-white border border-zinc-300 rounded shadow-xs px-1 py-0.5 z-30">
+                              {/* Left / Right Arrow Reorder Buttons */}
+                              <div className="flex items-center gap-0.5 ml-1">
                                 {idx > 0 && (
                                   <button
                                     type="button"
@@ -2615,8 +2638,12 @@ export default function AdminPage() {
                                       e.stopPropagation();
                                       handleMoveSubject(key, "left");
                                     }}
-                                    className="w-3.5 h-3.5 flex items-center justify-center text-[10px] text-zinc-600 hover:bg-zinc-100 rounded cursor-pointer font-bold"
-                                    title="Move Left"
+                                    className={`w-4 h-4 flex items-center justify-center text-[10px] rounded cursor-pointer font-bold transition-all ${
+                                      isActive
+                                        ? "text-zinc-400 hover:text-white hover:bg-zinc-800"
+                                        : "text-zinc-400 hover:text-black hover:bg-zinc-200"
+                                    }`}
+                                    title="Move tab left"
                                   >
                                     ←
                                   </button>
@@ -2628,8 +2655,12 @@ export default function AdminPage() {
                                       e.stopPropagation();
                                       handleMoveSubject(key, "right");
                                     }}
-                                    className="w-3.5 h-3.5 flex items-center justify-center text-[10px] text-zinc-600 hover:bg-zinc-100 rounded cursor-pointer font-bold"
-                                    title="Move Right"
+                                    className={`w-4 h-4 flex items-center justify-center text-[10px] rounded cursor-pointer font-bold transition-all ${
+                                      isActive
+                                        ? "text-zinc-400 hover:text-white hover:bg-zinc-800"
+                                        : "text-zinc-400 hover:text-black hover:bg-zinc-200"
+                                    }`}
+                                    title="Move tab right"
                                   >
                                     →
                                   </button>
@@ -2651,7 +2682,8 @@ export default function AdminPage() {
                               if (confirm(`Are you sure you want to delete '${current.subjectName || effectiveActive}' tab?`)) {
                                 const updated = { ...sampleProofData };
                                 delete updated[effectiveActive];
-                                const newKeys = Object.keys(updated);
+                                const newKeys = subjectKeys.filter((k) => k !== effectiveActive);
+                                updated._order = newKeys;
                                 const newContent = { ...content, sampleProof: updated };
                                 setContent(newContent);
                                 setActiveSubject(newKeys[0] || "");
@@ -2679,9 +2711,7 @@ export default function AdminPage() {
                             type="number"
                             value={current.questionNo || 1}
                             onChange={(e) => {
-                              const updated = { ...sampleProofData };
-                              updated[effectiveActive].questionNo = Number(e.target.value);
-                              setContent({ ...content, sampleProof: updated });
+                              updateCurrentSubject({ questionNo: Number(e.target.value) });
                             }}
                             className="w-full px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs font-bold bg-white"
                             placeholder="6"
@@ -2695,9 +2725,7 @@ export default function AdminPage() {
                             type="text"
                             value={current.subjectName || ""}
                             onChange={(e) => {
-                              const updated = { ...sampleProofData };
-                              updated[effectiveActive].subjectName = e.target.value;
-                              setContent({ ...content, sampleProof: updated });
+                              updateCurrentSubject({ subjectName: e.target.value });
                             }}
                             className="w-full px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs font-bold bg-white"
                           />
@@ -2710,9 +2738,7 @@ export default function AdminPage() {
                             type="text"
                             value={current.tag || ""}
                             onChange={(e) => {
-                              const updated = { ...sampleProofData };
-                              updated[effectiveActive].tag = e.target.value;
-                              setContent({ ...content, sampleProof: updated });
+                              updateCurrentSubject({ tag: e.target.value });
                             }}
                             className="w-full px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white"
                             placeholder="e.g. MPSC Target Question"
@@ -2729,9 +2755,7 @@ export default function AdminPage() {
                           rows={5}
                           value={current.question || ""}
                           onChange={(e) => {
-                            const updated = { ...sampleProofData };
-                            updated[effectiveActive].question = e.target.value;
-                            setContent({ ...content, sampleProof: updated });
+                            updateCurrentSubject({ question: e.target.value });
                           }}
                           placeholder="Type question here..."
                           className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold bg-white leading-relaxed resize-y"
@@ -2750,11 +2774,9 @@ export default function AdminPage() {
                           <button
                             type="button"
                             onClick={() => {
-                              const updated = { ...sampleProofData };
                               const opts = [...(current.options || [])];
                               opts.push(`Option ${opts.length + 1}`);
-                              updated[effectiveActive].options = opts;
-                              setContent({ ...content, sampleProof: updated });
+                              updateCurrentSubject({ options: opts });
                             }}
                             className="text-xs font-bold text-black hover:underline cursor-pointer flex items-center gap-1"
                           >
@@ -2819,10 +2841,7 @@ export default function AdminPage() {
                                   name={`correctAnswer_${effectiveActive}`}
                                   checked={isSelected}
                                   onChange={() => {
-                                    const updated = { ...sampleProofData };
-                                    updated[effectiveActive].correct = optIdx;
-                                    updated[effectiveActive].correctAnswer = opt;
-                                    setContent({ ...content, sampleProof: updated });
+                                    updateCurrentSubject({ correct: optIdx, correctAnswer: opt });
                                   }}
                                   className="accent-emerald-600 cursor-pointer w-4 h-4"
                                 />
@@ -2833,14 +2852,12 @@ export default function AdminPage() {
                                   type="text"
                                   value={opt}
                                   onChange={(e) => {
-                                    const updated = { ...sampleProofData };
-                                    const opts = [...(updated[effectiveActive].options || [])];
+                                    const opts = [...(current.options || [])];
                                     opts[optIdx] = e.target.value;
-                                    updated[effectiveActive].options = opts;
-                                    if (updated[effectiveActive].correct === optIdx) {
-                                      updated[effectiveActive].correctAnswer = e.target.value;
-                                    }
-                                    setContent({ ...content, sampleProof: updated });
+                                    updateCurrentSubject({
+                                      options: opts,
+                                      ...(current.correct === optIdx ? { correctAnswer: e.target.value } : {}),
+                                    });
                                   }}
                                   className="flex-1 bg-transparent text-xs outline-none font-medium text-black"
                                 />
@@ -2848,13 +2865,11 @@ export default function AdminPage() {
                                   <button
                                     type="button"
                                     onClick={() => {
-                                      const updated = { ...sampleProofData };
                                       const opts = current.options.filter((_: any, i: number) => i !== optIdx);
-                                      updated[effectiveActive].options = opts;
-                                      if (updated[effectiveActive].correct >= opts.length) {
-                                        updated[effectiveActive].correct = 0;
-                                      }
-                                      setContent({ ...content, sampleProof: updated });
+                                      updateCurrentSubject({
+                                        options: opts,
+                                        ...(current.correct >= opts.length ? { correct: 0 } : {}),
+                                      });
                                     }}
                                     className="text-zinc-400 hover:text-red-500 p-1 cursor-pointer"
                                     title="Delete Option"
@@ -2878,9 +2893,7 @@ export default function AdminPage() {
                             type="text"
                             value={current.correctAnswer || current.options?.[current.correct] || ""}
                             onChange={(e) => {
-                              const updated = { ...sampleProofData };
-                              updated[effectiveActive].correctAnswer = e.target.value;
-                              setContent({ ...content, sampleProof: updated });
+                              updateCurrentSubject({ correctAnswer: e.target.value });
                             }}
                             placeholder="e.g. Correct Answer Title"
                             className="w-full px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs font-bold text-emerald-800 bg-white"
@@ -2905,9 +2918,7 @@ export default function AdminPage() {
                               type="text"
                               value={current.image || ""}
                               onChange={(e) => {
-                                const updated = { ...sampleProofData };
-                                updated[effectiveActive].image = e.target.value;
-                                setContent({ ...content, sampleProof: updated });
+                                updateCurrentSubject({ image: e.target.value });
                               }}
                               placeholder="/sample-image.png or click Upload"
                               className="flex-1 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs bg-white font-mono"
@@ -2925,9 +2936,7 @@ export default function AdminPage() {
                                   if (f) {
                                     const res = await uploadImageFile(f);
                                     if (res) {
-                                      const updated = { ...sampleProofData };
-                                      updated[effectiveActive].image = res.url;
-                                      setContent({ ...content, sampleProof: updated });
+                                      updateCurrentSubject({ image: res.url });
                                     }
                                     e.target.value = "";
                                   }
@@ -2938,9 +2947,7 @@ export default function AdminPage() {
                               <button
                                 type="button"
                                 onClick={() => {
-                                  const updated = { ...sampleProofData };
-                                  updated[effectiveActive].image = "";
-                                  setContent({ ...content, sampleProof: updated });
+                                  updateCurrentSubject({ image: "" });
                                 }}
                                 className="px-2 py-1 text-xs text-red-600 hover:bg-red-50 rounded border border-red-200 cursor-pointer"
                               >
@@ -3015,14 +3022,16 @@ export default function AdminPage() {
                             <RichTextEditor
                               value={current.explanationHtml || getInitialHtmlForQuestion(current)}
                               onChange={(newHtml) => {
-                                const updated = { ...sampleProofData };
-                                updated[effectiveActive].explanationHtml = newHtml;
+                                let plain = "";
                                 if (typeof document !== "undefined") {
                                   const tmp = document.createElement("DIV");
                                   tmp.innerHTML = newHtml;
-                                  updated[effectiveActive].explanation = tmp.textContent || tmp.innerText || "";
+                                  plain = tmp.textContent || tmp.innerText || "";
                                 }
-                                setContent({ ...content, sampleProof: updated });
+                                updateCurrentSubject({
+                                  explanationHtml: newHtml,
+                                  ...(plain ? { explanation: plain } : {}),
+                                });
                               }}
                               placeholder="Insert text here ..."
                             />
@@ -3288,30 +3297,33 @@ export default function AdminPage() {
                         </h3>
                       </div>
 
-                      <div className="bg-[#f4f5f8] rounded-2xl border border-slate-200/90 shadow-sm p-6 space-y-4 max-w-3xl">
+                      <div className="max-w-3xl bg-[#f4f5f8] rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-md p-6 sm:p-8 md:p-9 space-y-5">
+                        {/* Question No. Title */}
                         <div className="flex items-center justify-between gap-3">
-                          <span className="text-base font-bold text-slate-900">
+                          <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
                             Question No. {current.questionNo || 6}
-                          </span>
+                          </h3>
                           <span className="text-xs bg-slate-200/80 text-slate-700 px-3 py-1 rounded-md font-semibold border border-slate-300/60">
                             {current.tag || current.subjectName}
                           </span>
                         </div>
 
-                        <div className="bg-[#dce3f0] rounded-xl p-4 text-slate-900 font-bold text-sm leading-relaxed tracking-tight whitespace-pre-line">
+                        {/* Question Highlight Box (Soft Blue/Slate Tint) */}
+                        <div className="bg-[#dce3f0] rounded-xl p-4 sm:p-5 text-slate-900 font-bold text-sm sm:text-base leading-relaxed tracking-tight whitespace-pre-line">
                           {current.question ? current.question.replace(/<br\s*\/?>/gi, "\n") : "Question text will appear here..."}
                         </div>
 
-                        <div className="space-y-2">
+                        {/* Vertical Options List with Radio Selectors */}
+                        <div className="space-y-2.5">
                           {(current.options || []).map((opt: string, idx: number) => {
                             const isCorrect = idx === current.correct;
                             return (
                               <div
                                 key={idx}
-                                className={`flex items-center gap-3 px-3.5 py-2 rounded-xl text-sm ${
+                                className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all ${
                                   isCorrect
-                                    ? "bg-[#bbf7d0] text-emerald-950 font-bold"
-                                    : "text-slate-700 font-medium"
+                                    ? "bg-[#bbf7d0] text-emerald-950 font-bold shadow-2xs"
+                                    : "text-slate-700 font-medium hover:bg-slate-100/60"
                                 }`}
                               >
                                 {isCorrect ? (
@@ -3321,36 +3333,44 @@ export default function AdminPage() {
                                 ) : (
                                   <div className="w-4 h-4 rounded-full border border-slate-400 shrink-0 bg-white" />
                                 )}
-                                <span className="whitespace-pre-line">{opt}</span>
+                                <span className="text-sm sm:text-base leading-snug whitespace-pre-line">{opt}</span>
                               </div>
                             );
                           })}
                         </div>
 
-                        <div className="pt-2 space-y-2 text-xs sm:text-sm">
-                          <p className="font-semibold text-slate-700">Explanation:</p>
+                        {/* Explanation Area */}
+                        <div className="pt-2 space-y-3">
+                          <p className="text-sm font-semibold text-slate-700">Explanation:</p>
 
+                          {/* Visual/Infographic Image (e.g. Airport Photo) */}
                           {current.image && (
-                            <div className="rounded-xl overflow-hidden border border-slate-200 shadow-xs max-w-lg my-2">
+                            <div className="rounded-xl overflow-hidden border border-slate-200/90 shadow-xs max-w-2xl my-2">
                               {/* eslint-disable-next-line @next/next/no-img-element */}
-                              <img src={current.image} alt="Preview" className="w-full h-auto object-cover" />
+                              <img
+                                src={current.image}
+                                alt="स्पष्टीकरण इन्फोग्राफिक"
+                                className="w-full h-auto object-cover"
+                              />
                             </div>
                           )}
 
-                          <p className="font-extrabold text-[#15803d]">
-                            Answer : {current.correctAnswer || current.options?.[current.correct]}
+                          {/* Answer Heading in Green */}
+                          <p className="text-sm sm:text-base font-extrabold text-[#15803d]">
+                            उत्तर : {current.correctAnswer || (current.options && current.options[current.correct])}
                           </p>
 
+                          {/* Explanation Breakdown: Dynamic Rich HTML first, then Structured, then Plain Text */}
                           {current.explanationHtml ? (
                             <div
-                              className="rich-preview text-slate-800 leading-relaxed font-normal space-y-2 [&_h1]:text-base sm:[&_h1]:text-lg [&_h1]:font-extrabold [&_h1]:text-slate-900 [&_h1]:my-1.5 [&_h2]:text-sm sm:[&_h2]:text-base [&_h2]:font-bold [&_h2]:text-slate-900 [&_h2]:my-1.5 [&_h3]:text-xs sm:[&_h3]:text-sm [&_h3]:font-bold [&_h3]:text-slate-800 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-1 [&_li]:my-0.5 [&_blockquote]:border-l-3 [&_blockquote]:border-[#9B3A32] [&_blockquote]:pl-3 [&_blockquote]:italic [&_blockquote]:text-slate-600 [&_code]:bg-slate-100 [&_code]:text-[#9B3A32] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:font-mono [&_code]:text-xs [&_a]:text-[#2563eb] [&_a]:underline [&_a]:font-semibold"
+                              className="text-xs sm:text-sm text-slate-800 leading-relaxed font-normal space-y-2.5 [&_h1]:text-base sm:[&_h1]:text-lg [&_h1]:font-extrabold [&_h1]:text-slate-900 [&_h1]:my-2 [&_h2]:text-sm sm:[&_h2]:text-base [&_h2]:font-bold [&_h2]:text-slate-900 [&_h2]:my-1.5 [&_h3]:text-xs sm:[&_h3]:text-sm [&_h3]:font-bold [&_h3]:text-slate-800 [&_h3]:my-1 [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-1 [&_li]:my-0.5 [&_blockquote]:border-l-3 [&_blockquote]:border-[#9B3A32] [&_blockquote]:pl-3 [&_blockquote]:italic [&_blockquote]:text-slate-600 [&_code]:bg-slate-100 [&_code]:text-[#9B3A32] [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:font-mono [&_code]:text-xs [&_a]:text-[#2563eb] [&_a]:underline [&_a]:font-semibold [&_table]:w-full [&_table]:border-collapse [&_table]:my-3 [&_th]:border [&_th]:border-slate-300 [&_th]:bg-slate-100 [&_th]:px-3 [&_th]:py-2 [&_th]:font-bold [&_th]:text-slate-900 [&_th]:text-left [&_td]:border [&_td]:border-slate-300 [&_td]:px-3 [&_td]:py-2 [&_td]:text-slate-800 [&_tr:nth-child(even)]:bg-slate-50/60 overflow-x-auto"
                               dangerouslySetInnerHTML={{ __html: current.explanationHtml }}
                             />
                           ) : current.structuredExplanation ? (
-                            <div className="space-y-2 text-slate-800">
+                            <div className="space-y-2.5 text-xs sm:text-sm text-slate-800 leading-relaxed font-normal">
                               {(current.structuredExplanation.bullets || []).map((bullet: any, idx: number) => (
                                 <p key={idx} className="flex items-start gap-2">
-                                  <span className="font-bold">•</span>
+                                  <span className="font-bold shrink-0">•</span>
                                   <span>
                                     <strong className={`font-bold ${bullet.highlightClass || "text-slate-900"}`}>
                                       {bullet.label}
@@ -3361,11 +3381,13 @@ export default function AdminPage() {
                               ))}
 
                               {(current.structuredExplanation.subsections || []).map((sec: any, sIdx: number) => (
-                                <div key={sIdx} className="pt-1.5 space-y-1">
-                                  <p className="font-bold text-slate-900">{sec.heading}</p>
+                                <div key={sIdx} className="pt-2 space-y-1.5">
+                                  <p className="font-bold text-slate-900 flex items-center gap-1.5">
+                                    <span>{sec.heading}</span>
+                                  </p>
                                   {(sec.items || []).map((item: string, iIdx: number) => (
                                     <p key={iIdx} className="flex items-start gap-2 pl-2 text-slate-700">
-                                      <span className="font-bold">•</span>
+                                      <span className="font-bold shrink-0">•</span>
                                       <span>{item}</span>
                                     </p>
                                   ))}
@@ -3373,8 +3395,18 @@ export default function AdminPage() {
                               ))}
                             </div>
                           ) : (
-                            <p className="text-slate-700 whitespace-pre-line font-normal">{current.explanation}</p>
+                            <p className="text-xs sm:text-sm text-slate-700 whitespace-pre-line leading-relaxed font-normal">
+                              {current.explanation}
+                            </p>
                           )}
+                        </div>
+
+                        {/* Card Footer Bar */}
+                        <div className="pt-4 border-t border-slate-200/90 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs sm:text-sm text-slate-500 font-medium">
+                          <span>अशाच पद्धतीचे 2,000+ दर्जेदार प्रश्न व सविस्तर स्पष्टीकरणे टेस्ट सिरीजमध्ये उपलब्ध आहेत.</span>
+                          <span className="font-bold text-[#9B3A32] flex items-center shrink-0">
+                            100% MPSC स्टँडर्ड <ChevronRight className="w-4 h-4 ml-0.5" />
+                          </span>
                         </div>
                       </div>
                     </div>

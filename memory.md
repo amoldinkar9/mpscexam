@@ -480,3 +480,17 @@ flowchart TD
   - Added `<br\s*/?>` tag normalization (`.replace(/<br\s*\/?>/gi, "\n")`) to gracefully handle cases where users or rich-text snippets include HTML breaks.
   - Added `whitespace-pre-line` to option spans to allow clean multi-line answer options.
   - Enlarged the question textarea in `src/app/admin/page.tsx` to 5 rows with `resize-y` and added a helper tip: `"Tip: Line breaks (Enter) are preserved in the live preview and on the website."`
+  - Synchronized the `Live Question Box Preview` in `src/app/admin/page.tsx` to exactly match `SampleProof.tsx` specification (card border/shadow/padding, font sizes, `उत्तर :` headline, complete rich-text table styling classes, structured bullet layout, and card footer banner with `100% MPSC स्टँडर्ड`).
+  - Switched state updates in the question editor to immutable React updates (`updateCurrentSubject`) ensuring real-time live preview responsiveness on each keystroke.
+
+### Subject Tabs Reordering & Drag-and-Drop for 8+ Subjects
+- **Problem:**
+  - When users added numeric IDs (e.g. `1`, `2`, `3`, `5`) alongside string keys (`currentAffairs`, `gk`), JavaScript engine (`Object.keys()`) automatically sorted integer keys in ascending numerical order, completely discarding any reordering done by the user.
+  - In addition, child elements inside the draggable tab container bubbled `dragleave` events, causing dragover flickering and dropped drag operations across horizontal overflow containers.
+- **Solution:**
+  - Introduced persistent `_order: string[]` in `sampleProof` state and DB, guaranteeing custom arbitrary subject order across both numeric and string keys.
+  - Updated `SampleProof.tsx` and `admin/page.tsx` to read `_order` with fallback to `Object.keys()`.
+  - Added `pointer-events-none` on tab text/badge children to prevent premature `dragleave` cancellation.
+  - Added HTML5 `setData("text/plain", key)` for cross-browser drag compatibility and `contains()` boundary checks on `onDragLeave`.
+  - Upgraded the `←` and `→` 1-click reorder buttons on each tab to be clearly visible and accessible, giving instant 1-click ordering without requiring horizontal drag.
+

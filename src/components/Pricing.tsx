@@ -46,7 +46,7 @@ export function Pricing({ initialData }: { initialData?: typeof siteData.finalCt
             पहिले 500 विद्यार्थी विशेष सवलत
           </div>
 
-          <div className="bg-gradient-to-b from-white to-[#fbf4f3] rounded-3xl p-7 sm:p-10 border-2 border-[#9B3A32] shadow-2xl text-center space-y-6">
+          <div className="bg-gradient-to-b from-white to-[#fbf4f3] rounded-3xl p-6 sm:p-8 md:p-9 lg:p-10 border-2 border-[#9B3A32] shadow-2xl text-center space-y-6">
             
             <div className="space-y-1">
               <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">{cta.packageName}</p>
@@ -64,12 +64,12 @@ export function Pricing({ initialData }: { initialData?: typeof siteData.finalCt
               </div>
             </div>
 
-            {/* Inclusions checklist */}
-            <div className="bg-white p-5 rounded-2xl border border-[#f3c8c4] text-xs sm:text-sm text-left space-y-3 text-[#1F2A5C]">
+            {/* Inclusions checklist (2-column grid on tablet / sm+) */}
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#f3c8c4] text-xs sm:text-sm text-left grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 text-[#1F2A5C]">
               {(cta.checklist || []).map((item, idx) => (
-                <div key={idx} className="flex items-center gap-2.5">
+                <div key={idx} className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
-                  <span>{item}</span>
+                  <span className="leading-snug">{item}</span>
                 </div>
               ))}
             </div>

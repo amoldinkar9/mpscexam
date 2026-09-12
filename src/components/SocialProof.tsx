@@ -52,7 +52,7 @@ export function SocialProof({ initialData }: { initialData?: typeof siteData.tes
             {[...testimonials, ...testimonials].map((t, idx) => (
               <div
                 key={idx}
-                className="w-[300px] sm:w-[350px] md:w-[380px] shrink-0 bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-5 select-none"
+                className="w-[290px] sm:w-[330px] md:w-[350px] lg:w-[380px] shrink-0 bg-white rounded-2xl p-5 sm:p-6 md:p-6 lg:p-7 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between space-y-4 md:space-y-5 select-none"
               >
                 <div className="space-y-4">
                   {/* Rating Stars & Outcome Tag */}

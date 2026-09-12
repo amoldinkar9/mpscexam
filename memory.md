@@ -494,3 +494,18 @@ flowchart TD
   - Added HTML5 `setData("text/plain", key)` for cross-browser drag compatibility and `contains()` boundary checks on `onDragLeave`.
   - Upgraded the `←` and `→` 1-click reorder buttons on each tab to be clearly visible and accessible, giving instant 1-click ordering without requiring horizontal drag.
 
+### Tablet Layout Responsiveness Architecture (768px – 1024px)
+- **Scope & Problem:**
+  - On tablet viewports (768px – 1024px, such as iPad portrait 768px, iPad Air 820px, and Android 800px tablets), desktop-focused breakpoint jumps (`lg:`) caused sections to fall back to single-column mobile stacking, resulting in excessive vertical page length, stretched cards, and cramped text inside multi-column cards.
+- **Architectural Enhancements Across All Sections:**
+  - `Header.tsx`: Set balanced dimensions `md:flex-1 md:max-w-md` for both the logo card and countdown timer, standardizing `md:px-8` and `md:gap-5` to eliminate awkward gap distribution.
+  - `HeroSection.tsx`: Enabled side-by-side 2-column layout starting at tablet (`md:grid-cols-12` with `md:col-span-7` text and `md:col-span-5` visual). Automatically displays the desktop 5:6 portrait hero artwork on tablet (`hidden md:block`), reducing hero height and bringing urgency above the fold.
+  - `UrgencyBanner.tsx`: Constrained the seat scarcity progress bar (`md:max-w-xl mx-auto lg:max-w-none lg:w-96`) to prevent 720px wide over-stretching when stacked below the timer on tablet.
+  - `SocialProof.tsx`: Tuned marquee card width (`md:w-[350px] lg:w-[380px]`) and padding (`md:p-6`) so two full testimonial cards are cleanly visible on 768px tablets.
+  - `SyllabusWeightage.tsx`: Replaced invalid `xs:` class with `sm:inline-flex` for the "पूर्ण कव्हर" badge and balanced accordion trigger padding (`md:p-5 lg:p-6`).
+  - `HowToPurchase.tsx`: Calibrated 9:20 slider cards to `md:w-[290px]` with `md:scroll-pl-10 md:px-10`, presenting an elegant 2-card tablet view.
+  - `AspirantPainPoints.tsx`: Reduced card internal padding in the 2-column grid to `p-5 md:p-5 lg:p-7` with `gap-4 md:gap-5`, expanding inner text width by 40+ pixels and eliminating aggressive Marathi text wraps.
+  - `SampleProof.tsx`: Compacted subject tab pills (`px-3.5 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3`) so all 8+ tabs fit into 2 tidy rows, and refined question box padding to `md:p-7`.
+  - `FAQ.tsx`: Added `flex-1 min-w-0 pr-2` to question text containers to prevent long questions colliding with the accordion chevron.
+  - `Pricing.tsx`: Organized checklist inclusions into a 2-column responsive grid on tablet (`grid-cols-1 sm:grid-cols-2`), cutting vertical card height in half.
+  - `Footer.tsx`: Restructured 12-column grid into `md:col-span-6` for Brand, `md:col-span-6` for Partner Links, and `md:col-span-12` horizontal flex wrap for Policies, preventing narrow 3-column text crunching.

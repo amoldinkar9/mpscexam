@@ -41,24 +41,24 @@ export function AspirantPainPoints({
         </div>
 
         {/* 2-Column Comparison Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 lg:gap-6 mb-12">
           {points.map((pt, idx) => (
             <div
               key={idx}
-              className="bg-slate-50 rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-2xs hover:shadow-md transition-all space-y-4 flex flex-col justify-between"
+              className="bg-slate-50 rounded-2xl p-5 sm:p-6 md:p-5 lg:p-7 border border-slate-200 shadow-2xs hover:shadow-md transition-all space-y-3.5 md:space-y-4 flex flex-col justify-between"
             >
               {/* Problem Statement */}
-              <div className="flex items-start gap-3 bg-red-50/80 p-3.5 rounded-xl border border-red-200/80">
+              <div className="flex items-start gap-2.5 sm:gap-3 bg-red-50/80 p-3 sm:p-3.5 rounded-xl border border-red-200/80">
                 <XCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-                <p className="text-sm sm:text-base font-bold text-red-950 leading-relaxed">
+                <p className="text-sm md:text-[13px] lg:text-base font-bold text-red-950 leading-relaxed">
                   {pt.problem}
                 </p>
               </div>
 
               {/* TCS9 Solution */}
-              <div className="flex items-start gap-3 bg-emerald-50/90 p-3.5 rounded-xl border border-emerald-200/80">
+              <div className="flex items-start gap-2.5 sm:gap-3 bg-emerald-50/90 p-3 sm:p-3.5 rounded-xl border border-emerald-200/80">
                 <CheckCircle2 className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
-                <p className="text-sm text-emerald-950 leading-relaxed font-medium">
+                <p className="text-xs sm:text-sm md:text-[13px] lg:text-sm text-emerald-950 leading-relaxed font-medium">
                   <strong className="text-emerald-900">आमचे सोल्यूशन:</strong> {pt.solution}
                 </p>
               </div>
@@ -67,7 +67,7 @@ export function AspirantPainPoints({
         </div>
 
         {/* High-Impact FOMO Contrast: The 1-Year Opportunity Cost */}
-        <div className="bg-gradient-to-br from-[#1F2A5C] to-[#151d40] text-white rounded-2xl p-6 sm:p-8 shadow-xl border border-slate-700">
+        <div className="bg-gradient-to-br from-[#1F2A5C] to-[#151d40] text-white rounded-2xl p-5 sm:p-6 md:p-6 lg:p-8 shadow-xl border border-slate-700">
           <div className="text-center max-w-2xl mx-auto mb-6">
             <span className="bg-amber-400/20 text-amber-300 text-xs font-extrabold px-3 py-1 rounded-full border border-amber-400/30">
               कटऑफचा खरा फरक
@@ -80,8 +80,8 @@ export function AspirantPainPoints({
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <div className="bg-red-950/40 border border-red-500/30 rounded-xl p-5 space-y-2">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+            <div className="bg-red-950/40 border border-red-500/30 rounded-xl p-4 sm:p-5 space-y-2">
               <div className="flex items-center gap-2 text-red-400 font-bold text-sm">
                 <XCircle className="w-4 h-4 shrink-0" />
                 <span>केवळ पुस्तके वाचणारे विद्यार्थी:</span>
@@ -93,7 +93,7 @@ export function AspirantPainPoints({
               </ul>
             </div>
 
-            <div className="bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-5 space-y-2">
+            <div className="bg-emerald-950/40 border border-emerald-500/30 rounded-xl p-4 sm:p-5 space-y-2">
               <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
                 <CheckCircle2 className="w-4 h-4 shrink-0" />
                 <span>ही 25 टेस्ट्स सिरीज सोडवणारे विद्यार्थी:</span>

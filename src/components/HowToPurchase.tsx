@@ -96,7 +96,7 @@ export function HowToPurchase({ initialData }: { initialData?: typeof siteData.h
           <div
             ref={scrollContainerRef}
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-            className="flex gap-6 overflow-x-auto pb-6 pt-4 px-6 sm:px-10 md:px-12 scroll-pl-6 sm:scroll-pl-10 md:scroll-pl-12 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:w-0 [&::-webkit-scrollbar]:h-0 no-scrollbar"
+            className="flex gap-5 md:gap-6 overflow-x-auto pb-6 pt-4 px-4 sm:px-8 md:px-10 scroll-pl-4 sm:scroll-pl-8 md:scroll-pl-10 snap-x snap-mandatory scroll-smooth [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden [&::-webkit-scrollbar]:w-0 [&::-webkit-scrollbar]:h-0 no-scrollbar"
           >
             {purchaseSteps.map((step, idx) => {
               const Icon = step.icon;
@@ -105,7 +105,7 @@ export function HowToPurchase({ initialData }: { initialData?: typeof siteData.h
                 <div
                   key={idx}
                   onClick={() => setCurrentSlide(idx)}
-                  className={`w-60 sm:w-68 shrink-0 snap-start rounded-3xl p-4 border transition-all duration-300 cursor-pointer flex flex-col justify-between ${isActive
+                  className={`w-60 sm:w-68 md:w-[290px] shrink-0 snap-start rounded-3xl p-4 border transition-all duration-300 cursor-pointer flex flex-col justify-between ${isActive
                     ? "bg-white border-[#9B3A32] shadow-xl ring-2 ring-[#9B3A32]/30 scale-102"
                     : "bg-[#fafbfc] border-slate-200 shadow-sm opacity-80 hover:opacity-100"
                     }`}

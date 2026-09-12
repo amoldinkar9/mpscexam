@@ -52,7 +52,7 @@ export function SampleProof({ initialData }: { initialData?: Record<string, any>
         </div>
 
         {/* Subject Navigation Tabs (Dynamically rendered in exact order from sampleData) */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
+        <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-2.5 md:gap-3 mb-8 md:mb-10">
           {subjectKeys.map((key) => {
             const item = sampleData[key];
             const isTabActive = effectiveSubject === key;
@@ -60,7 +60,7 @@ export function SampleProof({ initialData }: { initialData?: Record<string, any>
               <button
                 key={key}
                 onClick={() => setActiveSubject(key)}
-                className={`px-5 py-3 rounded-xl font-bold text-sm sm:text-base transition-all cursor-pointer ${
+                className={`px-3.5 sm:px-4 md:px-5 py-2 sm:py-2.5 md:py-3 rounded-xl font-bold text-xs sm:text-sm md:text-base transition-all cursor-pointer ${
                   isTabActive
                     ? "bg-[#9B3A32] text-white shadow-md shadow-[#9B3A32]/25 scale-105"
                     : "bg-white text-[#1F2A5C] hover:bg-slate-100 border border-slate-200"
@@ -73,7 +73,7 @@ export function SampleProof({ initialData }: { initialData?: Record<string, any>
         </div>
 
         {/* Sample Question & Explanation Preview Card (Exact layout matching Question Box specification) */}
-        <div className="max-w-3xl mx-auto bg-[#f4f5f8] rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-md p-6 sm:p-8 md:p-9 space-y-5">
+        <div className="max-w-3xl mx-auto bg-[#f4f5f8] rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-md p-5 sm:p-6 md:p-7 lg:p-9 space-y-4 md:space-y-5">
           
           {/* Question No. Title */}
           <div className="flex items-center justify-between gap-3">

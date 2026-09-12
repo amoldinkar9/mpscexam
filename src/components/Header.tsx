@@ -47,22 +47,22 @@ export function Header() {
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Top Row: Logo Card + Exam Countdown Timer (Side-by-side in one line) */}
-        <div className="flex flex-row items-stretch justify-between gap-3 sm:gap-6">
+        <div className="flex flex-row items-stretch justify-between gap-3 sm:gap-4 md:gap-6">
 
           {/* 1. Header Logo Rounded Rectangle */}
-          <div className="flex-1 sm:flex-initial bg-white/95 backdrop-blur-md rounded-[20px] px-3 sm:px-10 border border-slate-200/90 shadow-sm flex items-center justify-center gap-2 sm:gap-5 py-2.5 sm:py-3.5 min-h-[88px] sm:min-h-[106px]">
+          <div className="flex-1 sm:flex-initial md:flex-1 md:max-w-md bg-white/95 backdrop-blur-md rounded-[20px] px-3 sm:px-6 md:px-8 border border-slate-200/90 shadow-sm flex items-center justify-center gap-2 sm:gap-4 md:gap-5 py-2.5 sm:py-3.5 min-h-[88px] sm:min-h-[106px]">
             {/* TCS9 Logo */}
             <div className="flex items-center justify-center shrink-0">
               <img
                 src="https://media.tcs9.in/current_affairs_images/tcs9logo4_4x_1788436732855_f1609608-4829-4780-a8d2-9970abd66b22.webp"
                 alt="TCS9 Logo"
-                className="h-11 sm:h-[70px] w-auto object-contain"
+                className="h-11 sm:h-[62px] md:h-[70px] w-auto object-contain"
                 loading="eager"
               />
             </div>
 
             {/* "+" Divider */}
-            <span className="text-slate-300 font-bold select-none shrink-0 text-xl sm:text-3xl">
+            <span className="text-slate-300 font-bold select-none shrink-0 text-xl sm:text-2xl md:text-3xl">
               +
             </span>
 
@@ -71,14 +71,14 @@ export function Header() {
               <img
                 src="https://mpsc.gov.in/static/media/logo.7a984172.png"
                 alt="MPSC Logo"
-                className="h-11 sm:h-[70px] w-auto object-contain"
+                className="h-11 sm:h-[62px] md:h-[70px] w-auto object-contain"
                 loading="eager"
               />
             </div>
           </div>
 
           {/* 2. Exam Countdown Timer */}
-          <div className="flex-1 sm:flex-initial bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 border-2 border-amber-500/40 rounded-[20px] px-2.5 sm:px-6 shadow-sm flex flex-col items-center justify-center gap-1.5 sm:gap-2 py-2.5 sm:py-3 min-h-[88px] sm:min-h-[106px]">
+          <div className="flex-1 sm:flex-initial md:flex-1 md:max-w-md bg-gradient-to-r from-amber-400 via-amber-300 to-amber-400 border-2 border-amber-500/40 rounded-[20px] px-2.5 sm:px-4 md:px-6 shadow-sm flex flex-col items-center justify-center gap-1.5 sm:gap-2 py-2.5 sm:py-3 min-h-[88px] sm:min-h-[106px]">
             {/* Pill Tag */}
             <div className="inline-flex items-center gap-1 bg-[#8b2d26] text-white text-[9px] sm:text-xs font-bold px-2.5 sm:px-4 py-0.5 rounded-full shadow-xs whitespace-nowrap">
               <Flame className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-amber-300 fill-amber-300 animate-bounce shrink-0" />
@@ -86,7 +86,7 @@ export function Header() {
             </div>
 
             {/* Digital Countdown Blocks */}
-            <div className="flex items-center gap-1 sm:gap-2.5">
+            <div className="flex items-center gap-1 sm:gap-2 md:gap-2.5">
               <HeaderTimeBox val={timeLeft.days} unit="Days" />
               <span className="font-black text-[#8b2d26] text-base sm:text-2xl leading-none select-none">:</span>
               <HeaderTimeBox val={timeLeft.hours} unit="Hours" />

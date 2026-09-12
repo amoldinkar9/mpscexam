@@ -73,7 +73,7 @@ export function UrgencyBanner() {
           </div>
 
           {/* Right: Seat Scarcity Progress Bar */}
-          <div className="w-full lg:w-96 bg-white/95 backdrop-blur-md px-5 py-3.5 rounded-2xl border-2 border-amber-500/40 shadow-sm space-y-2">
+          <div className="w-full md:max-w-xl lg:max-w-none lg:w-96 bg-white/95 backdrop-blur-md px-5 py-3.5 md:py-4 rounded-2xl border-2 border-amber-500/40 shadow-sm space-y-2 mx-auto lg:mx-0">
             <div className="flex items-center justify-between text-xs sm:text-sm font-bold text-[#1F2A5C]">
               <span className="flex items-center gap-1.5">
                 <AlertTriangle className="w-4 h-4 text-[#9B3A32]" />

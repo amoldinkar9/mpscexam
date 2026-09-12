@@ -45,9 +45,9 @@ export function FAQ({ initialData }: { initialData?: typeof siteData.faqs } = {}
               >
                 <button
                   onClick={() => toggle(idx)}
-                  className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-5 font-bold text-[#1F2A5C] text-base sm:text-lg cursor-pointer"
+                  className="w-full text-left p-4 sm:p-5 md:p-6 flex items-center justify-between gap-4 md:gap-5 font-bold text-[#1F2A5C] text-base sm:text-lg cursor-pointer"
                 >
-                  <span className="flex items-center gap-3.5">
+                  <span className="flex items-center gap-3 md:gap-3.5 flex-1 min-w-0 pr-2">
                     <span className="w-7 h-7 rounded-full bg-[#fbeae8] text-[#9B3A32] text-xs sm:text-sm font-black flex items-center justify-center shrink-0 english-numerals">
                       {idx + 1}
                     </span>
@@ -61,8 +61,8 @@ export function FAQ({ initialData }: { initialData?: typeof siteData.faqs } = {}
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-1 text-sm sm:text-base text-[#334155] leading-[1.8] border-t border-slate-100">
-                    <p className="pl-10.5">{faq.a}</p>
+                  <div className="px-5 sm:px-6 pb-5 sm:pb-6 pt-1 text-sm sm:text-base text-[#334155] leading-[1.8] border-t border-slate-100">
+                    <p className="pl-9 sm:pl-10.5">{faq.a}</p>
                   </div>
                 )}
               </div>

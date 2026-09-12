@@ -36,10 +36,10 @@ export function Footer() {
 
       {/* Main Footer Links & Info */}
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-8 lg:gap-10 pb-12 border-b border-white/10">
           
           {/* Brand Col */}
-          <div className="md:col-span-5 space-y-4">
+          <div className="md:col-span-6 lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-full border border-white/30 bg-white/10 flex items-center justify-center">
                 <span className="text-amber-400 font-black text-xs">TCS9</span>
@@ -58,7 +58,7 @@ export function Footer() {
           </div>
 
           {/* Quick & Partner Links */}
-          <div className="md:col-span-4 space-y-4">
+          <div className="md:col-span-6 lg:col-span-4 space-y-4">
             <h4 className="text-sm sm:text-base font-bold text-white uppercase tracking-wider">आमचे इतर शैक्षणिक प्लॅटफॉर्म्स</h4>
             <ul className="space-y-3 text-xs sm:text-sm text-slate-300">
               <li>
@@ -89,9 +89,9 @@ export function Footer() {
           </div>
 
           {/* Legal / Policy */}
-          <div className="md:col-span-3 space-y-4">
+          <div className="md:col-span-12 lg:col-span-3 space-y-3 md:space-y-4 md:pt-2 lg:pt-0">
             <h4 className="text-sm sm:text-base font-bold text-white uppercase tracking-wider">धोरणे व अटी</h4>
-            <ul className="space-y-2.5 text-xs sm:text-sm text-slate-300">
+            <ul className="space-y-2.5 md:space-y-0 md:flex md:flex-wrap md:gap-x-6 md:gap-y-2 lg:block lg:space-y-2.5 text-xs sm:text-sm text-slate-300">
               <li><a href="#" className="hover:text-white transition-colors">गोपनीयता धोरण (Privacy Policy)</a></li>
               <li><a href="#" className="hover:text-white transition-colors">नियम व अटी (Terms of Service)</a></li>
               <li><a href="#" className="hover:text-white transition-colors">रिफंड धोरण (Refund Policy)</a></li>

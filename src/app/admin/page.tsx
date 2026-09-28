@@ -3297,7 +3297,7 @@ export default function AdminPage() {
                         </h3>
                       </div>
 
-                      <div className="max-w-3xl bg-[#f4f5f8] rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-md p-6 sm:p-8 md:p-9 space-y-5">
+                      <div className="max-w-3xl bg-[#f4f4f4] rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-md p-6 sm:p-8 md:p-9 space-y-5">
                         {/* Question No. Title */}
                         <div className="flex items-center justify-between gap-3">
                           <h3 className="text-base sm:text-lg font-bold text-slate-900 tracking-tight">
@@ -3308,8 +3308,8 @@ export default function AdminPage() {
                           </span>
                         </div>
 
-                        {/* Question Highlight Box (Soft Blue/Slate Tint) */}
-                        <div className="bg-[#dce3f0] rounded-xl p-4 sm:p-5 text-slate-900 font-bold text-sm sm:text-base leading-relaxed tracking-tight whitespace-pre-line">
+                        {/* Question Highlight Box (Soft Gray Tint) */}
+                        <div className="bg-[#f4f4f4] border border-slate-200/80 rounded-xl p-4 sm:p-5 text-slate-900 font-bold text-sm sm:text-base leading-relaxed tracking-tight whitespace-pre-line">
                           {current.question ? current.question.replace(/<br\s*\/?>/gi, "\n") : "Question text will appear here..."}
                         </div>
 
@@ -3403,7 +3403,7 @@ export default function AdminPage() {
 
                         {/* Card Footer Bar */}
                         <div className="pt-4 border-t border-slate-200/90 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs sm:text-sm text-slate-500 font-medium">
-                          <span>अशाच पद्धतीचे 2,000+ दर्जेदार प्रश्न व सविस्तर स्पष्टीकरणे टेस्ट सिरीजमध्ये उपलब्ध आहेत.</span>
+                          <span>अशाच पद्धतीचे 2,500+ दर्जेदार प्रश्न व सविस्तर स्पष्टीकरणे टेस्ट सिरीजमध्ये उपलब्ध आहेत.</span>
                           <span className="font-bold text-[#9B3A32] flex items-center shrink-0">
                             100% MPSC स्टँडर्ड <ChevronRight className="w-4 h-4 ml-0.5" />
                           </span>

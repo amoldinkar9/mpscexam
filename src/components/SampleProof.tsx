@@ -73,7 +73,7 @@ export function SampleProof({ initialData }: { initialData?: Record<string, any>
         </div>
 
         {/* Sample Question & Explanation Preview Card (Exact layout matching Question Box specification) */}
-        <div className="max-w-3xl mx-auto bg-[#f4f5f8] rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-md p-5 sm:p-6 md:p-7 lg:p-9 space-y-4 md:space-y-5">
+        <div className="max-w-3xl mx-auto bg-[#f4f4f4] rounded-2xl sm:rounded-3xl border border-slate-200/90 shadow-md p-5 sm:p-6 md:p-7 lg:p-9 space-y-4 md:space-y-5">
           
           {/* Question No. Title */}
           <div className="flex items-center justify-between gap-3">
@@ -85,8 +85,8 @@ export function SampleProof({ initialData }: { initialData?: Record<string, any>
             </span>
           </div>
 
-          {/* Question Highlight Box (Soft Blue/Slate Tint) */}
-          <div className="bg-[#dce3f0] rounded-xl p-4 sm:p-5 text-slate-900 font-bold text-sm sm:text-base leading-relaxed tracking-tight whitespace-pre-line">
+          {/* Question Highlight Box (Soft Gray Tint) */}
+          <div className="bg-[#f4f4f4] border border-slate-200/80 rounded-xl p-4 sm:p-5 text-slate-900 font-bold text-sm sm:text-base leading-relaxed tracking-tight whitespace-pre-line">
             {current.question ? current.question.replace(/<br\s*\/?>/gi, "\n") : ""}
           </div>
 

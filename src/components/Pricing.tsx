@@ -5,7 +5,13 @@ import { ShieldCheck, Lock, ArrowRight, Zap, CheckCircle2 } from "lucide-react";
 import siteData from "@/data/siteContent.json";
 import { getScarcityData } from "@/lib/scarcity";
 
-export function Pricing({ initialData }: { initialData?: typeof siteData.finalCta } = {}) {
+export function Pricing({
+  initialData,
+  id = "pricing-section",
+}: {
+  initialData?: typeof siteData.finalCta;
+  id?: string;
+} = {}) {
   const cta = initialData || siteData.finalCta;
   const [scarcity, setScarcity] = useState(getScarcityData());
 
@@ -21,7 +27,7 @@ export function Pricing({ initialData }: { initialData?: typeof siteData.finalCt
   };
 
   return (
-    <section id="pricing-section" className="py-16 sm:py-20 bg-[#fafbfc] border-b border-slate-200">
+    <section id={id} className="py-16 sm:py-20 bg-[#fafbfc] border-b border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

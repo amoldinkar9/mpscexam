@@ -526,6 +526,13 @@
       "enabled": true
     },
     {
+      "id": "pricing2",
+      "name": "Mid-Page CTA (Pricing)",
+      "nameMr": "किंमत व नोंदणी - २ (Pricing CTA)",
+      "description": "मध्यवर्ती ऑफर किंमत आणि नोंदणी बटण",
+      "enabled": true
+    },
+    {
       "id": "faqs",
       "name": "Frequently Asked Questions",
       "nameMr": "वारंवार विचारले जाणारे प्रश्न (FAQs)",

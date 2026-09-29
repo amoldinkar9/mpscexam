@@ -7,7 +7,7 @@ import siteData from "@/data/siteContent.json";
 export function HeroSection({ initialData }: { initialData?: typeof siteData.hero } = {}) {
   const heroData = initialData || siteData.hero;
   const scrollToPricing = () => {
-    document.getElementById("pricing-section")?.scrollIntoView({ behavior: "smooth" });
+    (document.querySelector("#pricing-section-2, #pricing-section") as HTMLElement)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (

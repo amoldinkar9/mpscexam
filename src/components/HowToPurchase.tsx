@@ -65,7 +65,7 @@ export function HowToPurchase({ initialData }: { initialData?: typeof siteData.h
   };
 
   const scrollToPricing = () => {
-    document.getElementById("pricing-section")?.scrollIntoView({ behavior: "smooth" });
+    (document.querySelector("#pricing-section-2, #pricing-section") as HTMLElement)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (

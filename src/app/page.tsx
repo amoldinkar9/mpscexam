@@ -29,6 +29,7 @@ export default async function Home() {
         { id: "howToPurchase", enabled: true },
         { id: "painPoints", enabled: true },
         { id: "sampleProof", enabled: true },
+        { id: "pricing2", enabled: true },
         { id: "faqs", enabled: true },
         { id: "pricing", enabled: true },
       ];
@@ -58,10 +59,12 @@ export default async function Home() {
         );
       case "sampleProof":
         return <SampleProof key="sampleProof" initialData={content.sampleProof} />;
+      case "pricing2":
+        return <Pricing key="pricing2" id="pricing-section-2" initialData={content.finalCta} />;
       case "faqs":
         return <FAQ key="faqs" initialData={content.faqs} />;
       case "pricing":
-        return <Pricing key="pricing" initialData={content.finalCta} />;
+        return <Pricing key="pricing" id="pricing-section" initialData={content.finalCta} />;
       default:
         return null;
     }

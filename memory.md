@@ -509,3 +509,21 @@ flowchart TD
   - `FAQ.tsx`: Added `flex-1 min-w-0 pr-2` to question text containers to prevent long questions colliding with the accordion chevron.
   - `Pricing.tsx`: Organized checklist inclusions into a 2-column responsive grid on tablet (`grid-cols-1 sm:grid-cols-2`), cutting vertical card height in half.
   - `Footer.tsx`: Restructured 12-column grid into `md:col-span-6` for Brand, `md:col-span-6` for Partner Links, and `md:col-span-12` horizontal flex wrap for Policies, preventing narrow 3-column text crunching.
+
+### Duplicated Reorderable CTA Section Architecture (`pricing2` / Mid-Page CTA)
+- **Problem & Requirement:**
+  - High-converting landing pages require multiple touchpoints for the primary Call to Action (CTA) so aspirants can enroll without scrolling all the way to the footer.
+  - The CTA needed to be duplicated as an independent, fully reorderable section in the Admin Panel (`Sections Order`) with drag-and-drop capability, toggleable visibility, and synchronized pricing content.
+- **Architectural Implementation Across Connected Layers:**
+  - `src/data/siteContent.json`: Registered `pricing2` (`Mid-Page CTA (Pricing)`) in the default `sections` array with bilingual metadata (`nameMr: "किंमत व नोंदणी - २ (Pricing CTA)"`).
+  - `src/lib/contentStore.ts`: Enhanced `ensureSections` to dynamically merge newly registered default sections (like `pricing2`) into existing saved content loaded from Cloudflare D1 database or local cache, preventing stale DB payloads from hiding new sections.
+  - `src/app/admin/page.tsx`:
+    - Updated `tabTarget` mapping with `pricing2: "finalCta"` so clicking "Edit Content" on the duplicated CTA row seamlessly opens the Pricing & Final CTA management tab.
+    - Integrated with HTML5 drag-and-drop, Move Up / Down controls, and visibility toggle switch.
+  - `src/app/page.tsx`:
+    - Added `pricing2` to the default section fallback sequence.
+    - Configured `renderSection` to render `<Pricing key="pricing2" id="pricing-section-2" initialData={content.finalCta} />`.
+  - `src/components/Pricing.tsx`: Added configurable `id?: string` prop (defaulting to `"pricing-section"`) ensuring unique valid DOM IDs when multiple pricing CTA sections are active simultaneously.
+  - `src/components/HeroSection.tsx`, `HowToPurchase.tsx`, `StickyMobileBar.tsx`:
+    - Upgraded `scrollToPricing` to query `#pricing-section-2, #pricing-section`, smoothly scrolling to the first visible pricing CTA encountered in document order.
+

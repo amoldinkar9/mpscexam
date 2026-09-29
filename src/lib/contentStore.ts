@@ -37,6 +37,13 @@ function ensureSections(content: any): SiteContent {
   if (!content) return defaultData as SiteContent;
   if (!content.sections || !Array.isArray(content.sections) || content.sections.length === 0) {
     content.sections = defaultData.sections;
+  } else {
+    // Merge any newly introduced default sections that aren't yet in saved content
+    const existingIds = new Set(content.sections.map((s: any) => s.id));
+    const missingSections = (defaultData.sections || []).filter((s: any) => !existingIds.has(s.id));
+    if (missingSections.length > 0) {
+      content.sections = [...content.sections, ...missingSections];
+    }
   }
   return content as SiteContent;
 }

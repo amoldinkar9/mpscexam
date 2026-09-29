@@ -1179,6 +1179,7 @@ export default function AdminPage() {
                         sampleProof: "sampleProof",
                         faqs: "faqs",
                         pricing: "finalCta",
+                        pricing2: "finalCta",
                       };
                       const hasDirectTab = tabTarget[sec.id] !== undefined;
 

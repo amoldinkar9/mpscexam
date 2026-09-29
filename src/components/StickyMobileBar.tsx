@@ -15,7 +15,7 @@ export function StickyMobileBar() {
   }, []);
 
   const scrollToPricing = () => {
-    document.getElementById("pricing-section")?.scrollIntoView({ behavior: "smooth" });
+    (document.querySelector("#pricing-section-2, #pricing-section") as HTMLElement)?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (

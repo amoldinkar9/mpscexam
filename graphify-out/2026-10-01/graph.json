@@ -127,7 +127,7 @@
       "file_type": "code",
       "norm_label": "sitecontent",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L58"
+      "source_location": "L61"
     },
     {
       "id": "src_components_admin_richtexteditor_richtexteditorprops",
@@ -336,7 +336,7 @@
       "file_type": "code",
       "norm_label": "stickymobilebar()",
       "source_file": "src/components/StickyMobileBar.tsx",
-      "source_location": "L7"
+      "source_location": "L9"
     },
     {
       "id": "src_components_syllabusweightage_syllabusweightage",
@@ -420,7 +420,7 @@
       "file_type": "code",
       "norm_label": "adminpage()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L115"
+      "source_location": "L118"
     },
     {
       "id": "src_app_admin_page_adminpage_initauthandcontent",
@@ -432,7 +432,7 @@
       "file_type": "code",
       "norm_label": "initauthandcontent()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L193"
+      "source_location": "L196"
     },
     {
       "id": "src_app_admin_page_getinitialhtmlforquestion",
@@ -444,7 +444,7 @@
       "file_type": "code",
       "norm_label": "getinitialhtmlforquestion()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L64"
+      "source_location": "L67"
     },
     {
       "id": "src_app_admin_page_sidebarnavitem",
@@ -456,7 +456,7 @@
       "file_type": "code",
       "norm_label": "sidebarnavitem()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L4363"
+      "source_location": "L4644"
     },
     {
       "id": "src_components_admin_richtexteditor_richtexteditor",
@@ -1530,7 +1530,7 @@
       "file_type": "code",
       "norm_label": "nav_items",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L102"
+      "source_location": "L105"
     },
     {
       "id": "src_components_admin_richtexteditor",
@@ -3628,7 +3628,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L3009",
+      "source_location": "L3012",
       "weight": 1.0
     },
     {
@@ -3808,7 +3808,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/components/StickyMobileBar.tsx",
-      "source_location": "L8",
+      "source_location": "L15",
       "weight": 1.0
     },
     {
@@ -3952,7 +3952,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L193",
+      "source_location": "L196",
       "weight": 1.0
     },
     {
@@ -4420,7 +4420,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L56",
+      "source_location": "L59",
       "weight": 1.0
     },
     {
@@ -4780,7 +4780,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L56",
+      "source_location": "L59",
       "weight": 1.0
     },
     {
@@ -5651,7 +5651,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L102",
+      "source_location": "L105",
       "weight": 1.0
     },
     {
@@ -5662,7 +5662,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L115",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -5673,7 +5673,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L4363",
+      "source_location": "L4644",
       "weight": 1.0
     },
     {
@@ -5684,7 +5684,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L58",
+      "source_location": "L61",
       "weight": 1.0
     },
     {
@@ -5695,7 +5695,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L64",
+      "source_location": "L67",
       "weight": 1.0
     },
     {
@@ -6102,7 +6102,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/StickyMobileBar.tsx",
-      "source_location": "L7",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -7664,5 +7664,5 @@
       "source_file": "architecture.md"
     }
   ],
-  "built_at_commit": "1f77a3c06c5c347ae0b462eb63f7c664b8394989"
+  "built_at_commit": "e0296e99ae3c9c783d7daf268d701e9487f5b389"
 }

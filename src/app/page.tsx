@@ -79,7 +79,7 @@ export default async function Home() {
       {sections.filter((s) => s.enabled !== false).map((s) => renderSection(s.id))}
 
       {/* Footer */}
-      <Footer />
+      <Footer initialData={content.footer} />
 
       {/* Sticky Mobile Dock & Full-Width Animated Live Activity Toast */}
       <StickyMobileBar initialData={content.finalCta} />

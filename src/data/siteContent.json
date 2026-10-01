@@ -479,6 +479,58 @@
       "अमर्यादित वेळा सराव & PDF डाऊनलोड"
     ]
   },
+  "footer": {
+    "contactBar": {
+      "heading": "काही अडचण किंवा प्रश्न असल्यास थेट बोला:",
+      "phone": "+91 95796 16908",
+      "timing": "(सकाळी 9 ते रात्री 9)",
+      "whatsappButtonText": "व्हॉट्सॲपवर संपर्क करा",
+      "whatsappNumber": "919579616908",
+      "whatsappMessage": "Hello TCS9 MPSC Group C Test Series बद्दल माहिती हवी आहे"
+    },
+    "brand": {
+      "name": "mpscexam",
+      "badge": "TCS9",
+      "description": "महाराष्ट्र लोकसेवा आयोगाच्या (MPSC) विविध स्पर्धा परीक्षांच्या तयारीसाठी दर्जेदार मॉक टेस्ट्स आणि अभ्यास साहित्याचा विश्वासू मंच.",
+      "supportEmail": "support@mpscexam.com"
+    },
+    "partnerLinks": {
+      "title": "आमचे इतर शैक्षणिक प्लॅटफॉर्म्स",
+      "links": [
+        {
+          "title": "TCS9.com — ऑनलाइन टेस्ट सिरीज प्लॅटफॉर्म",
+          "url": "https://tcs9.com"
+        },
+        {
+          "title": "chalughadamodi.in — दैनिक चालू घडामोडी",
+          "url": "https://chalughadamodi.in"
+        }
+      ]
+    },
+    "legalLinks": {
+      "title": "धोरणे व अटी",
+      "links": [
+        {
+          "title": "गोपनीयता धोरण (Privacy Policy)",
+          "url": "#"
+        },
+        {
+          "title": "नियम व अटी (Terms of Service)",
+          "url": "#"
+        },
+        {
+          "title": "रिफंड धोरण (Refund Policy)",
+          "url": "#"
+        },
+        {
+          "title": "आमच्याबद्दल (About Us)",
+          "url": "#"
+        }
+      ]
+    },
+    "copyright": "© 2026 mpscexam / TCS9. सर्व हक्क राखीव.",
+    "disclaimer": "*अस्वीकरण: ही एक खाजगी शैक्षणिक टेस्ट सिरीज असून तिचा महाराष्ट्र लोकसेवा आयोग (MPSC) शी कोणताही थेट किंवा अधिकृत संबंध नाही."
+  },
   "sections": [
     {
       "id": "hero",

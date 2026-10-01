@@ -60,9 +60,9 @@
     "semantic_hash": "d54f6c579c79fb7e061791f5b1293e5a"
   },
   "memory.md": {
-    "mtime": 1790843044.10009,
-    "seen": 1790843050.770536,
-    "ast_hash": "1e192288796281dfe7302173462db61b",
+    "mtime": 1790844444.6839902,
+    "seen": 1790844452.0460968,
+    "ast_hash": "d59a50a0e2a49077fc2939b020d9773c",
     "semantic_hash": ""
   },
   "routes.md": {
@@ -102,9 +102,9 @@
     "semantic_hash": ""
   },
   "src/app/page.tsx": {
-    "mtime": 1790842947.0138867,
-    "seen": 1790843032.439256,
-    "ast_hash": "f50942e1b0217b5905f9b6c71868070d",
+    "mtime": 1790844291.9081564,
+    "seen": 1790844431.1177301,
+    "ast_hash": "117b6ea3d429f8ac735003342b5430c0",
     "semantic_hash": ""
   },
   "src/components/AspirantPainPoints.tsx": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "src/components/Footer.tsx": {
-    "mtime": 1789191042.0569634,
-    "seen": 1789191064.604814,
-    "ast_hash": "cbca721c4c0c6120db603a7b75f59cd8",
+    "mtime": 1790844280.3814135,
+    "seen": 1790844431.117732,
+    "ast_hash": "28e9ea13e643eb5b41b53e5d634af114",
     "semantic_hash": ""
   },
   "src/components/HeroSection.tsx": {
@@ -228,9 +228,9 @@
     "semantic_hash": ""
   },
   "src/app/admin/page.tsx": {
-    "mtime": 1790843004.2690067,
-    "seen": 1790843032.439251,
-    "ast_hash": "fe25ca04a0fd9a08d34127cb132d36ff",
+    "mtime": 1790844409.5213923,
+    "seen": 1790844431.117727,
+    "ast_hash": "1100339c495b526dac4c29253de36b08",
     "semantic_hash": ""
   },
   "src/app/api/admin/content/route.ts": {
@@ -240,9 +240,9 @@
     "semantic_hash": ""
   },
   "src/data/siteContent.json": {
-    "mtime": 1790842873.7988856,
-    "seen": 1790843032.439269,
-    "ast_hash": "7aedd0ebdba6dc84d11adf30fccf4eea",
+    "mtime": 1790844252.8213494,
+    "seen": 1790844431.117742,
+    "ast_hash": "57b87372d1fbec28bb1668259da80e1a",
     "semantic_hash": ""
   },
   "src/lib/contentStore.ts": {

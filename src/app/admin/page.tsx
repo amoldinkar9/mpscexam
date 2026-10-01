@@ -53,7 +53,12 @@ import {
   Loader2,
   ShieldCheck,
   ArrowRight,
-  Zap
+  Zap,
+  PanelBottom,
+  Phone,
+  Mail,
+  Globe,
+  MessageCircle
 } from "lucide-react";
 import defaultSiteData from "@/data/siteContent.json";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
@@ -113,6 +118,7 @@ const NAV_ITEMS = [
   { id: "sampleProof", label: "Questions", icon: FileText },
   { id: "faqs", label: "FAQs", icon: HelpCircle },
   { id: "finalCta", label: "Pricing", icon: Tag },
+  { id: "footer", label: "Footer", icon: PanelBottom },
 ];
 
 export default function AdminPage() {
@@ -3916,6 +3922,732 @@ export default function AdminPage() {
                 >
                   {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
                   <span>{isSaving ? "Saving Pricing Changes..." : "Save Pricing & CTA Changes"}</span>
+                </button>
+              </div>
+            </div>
+          )}
+
+          {/* SECTION: Footer Customization */}
+          {activeSection === "footer" && (
+            <div className="space-y-6">
+              <div>
+                <h2 className="text-xl font-bold text-black tracking-tight">Footer Customization</h2>
+                <p className="text-xs text-zinc-400 mt-0.5">
+                  Customize the contact bar, WhatsApp support details, brand info, partner platforms, legal links, and disclaimer
+                </p>
+              </div>
+
+              <div className="border border-zinc-200 rounded-[4px] bg-white p-5 sm:p-6 shadow-xs space-y-6">
+                
+                {/* 1. Contact Bar & Direct WhatsApp Support */}
+                <div className="space-y-4">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-700 pb-1.5 border-b border-zinc-200 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                    <span>1. Top Contact Bar & WhatsApp Support</span>
+                  </h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div className="sm:col-span-2">
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Contact Bar Heading</label>
+                      <input
+                        type="text"
+                        value={content.footer?.contactBar?.heading ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            footer: {
+                              ...content.footer,
+                              contactBar: { ...content.footer?.contactBar, heading: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="e.g. काही अडचण किंवा प्रश्न असल्यास थेट बोला:"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Support Phone Number</label>
+                      <input
+                        type="text"
+                        value={content.footer?.contactBar?.phone ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            footer: {
+                              ...content.footer,
+                              contactBar: { ...content.footer?.contactBar, phone: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="e.g. +91 95796 16908"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Operating Hours / Timing</label>
+                      <input
+                        type="text"
+                        value={content.footer?.contactBar?.timing ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            footer: {
+                              ...content.footer,
+                              contactBar: { ...content.footer?.contactBar, timing: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="e.g. (सकाळी 9 ते रात्री 9)"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium text-zinc-600 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">WhatsApp Button Text</label>
+                      <input
+                        type="text"
+                        value={content.footer?.contactBar?.whatsappButtonText ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            footer: {
+                              ...content.footer,
+                              contactBar: { ...content.footer?.contactBar, whatsappButtonText: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="e.g. व्हॉट्सॲपवर संपर्क करा"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                        WhatsApp Number (Digits with Country Code)
+                      </label>
+                      <input
+                        type="text"
+                        value={content.footer?.contactBar?.whatsappNumber ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            footer: {
+                              ...content.footer,
+                              contactBar: { ...content.footer?.contactBar, whatsappNumber: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="e.g. 919579616908"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-semibold text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Pre-filled WhatsApp Message</label>
+                      <input
+                        type="text"
+                        value={content.footer?.contactBar?.whatsappMessage ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            footer: {
+                              ...content.footer,
+                              contactBar: { ...content.footer?.contactBar, whatsappMessage: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="e.g. Hello TCS9 MPSC Group C Test Series बद्दल माहिती हवी आहे"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2. Brand & Platform Identity */}
+                <div className="space-y-4 pt-2 border-t border-zinc-200">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-700 pb-1.5 border-b border-zinc-200 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#1F2A5C]"></span>
+                    <span>2. Brand & Platform Identity</span>
+                  </h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Brand Name</label>
+                      <input
+                        type="text"
+                        value={content.footer?.brand?.name ?? "mpscexam"}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            footer: {
+                              ...content.footer,
+                              brand: { ...content.footer?.brand, name: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="e.g. mpscexam"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Badge Label (Logo Badge)</label>
+                      <input
+                        type="text"
+                        value={content.footer?.brand?.badge ?? "TCS9"}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            footer: {
+                              ...content.footer,
+                              brand: { ...content.footer?.brand, badge: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="e.g. TCS9"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Support Email</label>
+                      <input
+                        type="email"
+                        value={content.footer?.brand?.supportEmail ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            footer: {
+                              ...content.footer,
+                              brand: { ...content.footer?.brand, supportEmail: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="e.g. support@mpscexam.com"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div className="sm:col-span-3">
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Brand Description / About Statement</label>
+                      <textarea
+                        rows={2}
+                        value={content.footer?.brand?.description ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            footer: {
+                              ...content.footer,
+                              brand: { ...content.footer?.brand, description: e.target.value },
+                            },
+                          })
+                        }
+                        placeholder="e.g. महाराष्ट्र लोकसेवा आयोगाच्या (MPSC) विविध स्पर्धा परीक्षांच्या तयारीसाठी दर्जेदार मॉक टेस्ट्स आणि अभ्यास साहित्याचा विश्वासू मंच."
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. Partner / Quick Links */}
+                <div className="space-y-3 pt-2 border-t border-zinc-200">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-700 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                        <span>3. Educational & Partner Platforms</span>
+                      </h3>
+                      <p className="text-[11px] text-zinc-500 mt-0.5">Links to other platforms and websites</p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const current = content.footer?.partnerLinks?.links || [];
+                        const updated = [...current, { title: "New Platform", url: "https://" }];
+                        setContent({
+                          ...content,
+                          footer: {
+                            ...content.footer,
+                            partnerLinks: {
+                              ...content.footer?.partnerLinks,
+                              title: content.footer?.partnerLinks?.title || "आमचे इतर शैक्षणिक प्लॅटफॉर्म्स",
+                              links: updated,
+                            },
+                          },
+                        });
+                      }}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black hover:bg-zinc-800 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer shrink-0 self-start sm:self-auto"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      <span>+ Add Partner Link</span>
+                    </button>
+                  </div>
+
+                  <div className="mb-2">
+                    <label className="block text-xs font-semibold text-zinc-700 mb-1">Section Title</label>
+                    <input
+                      type="text"
+                      value={content.footer?.partnerLinks?.title ?? ""}
+                      onChange={(e) =>
+                        setContent({
+                          ...content,
+                          footer: {
+                            ...content.footer,
+                            partnerLinks: {
+                              ...content.footer?.partnerLinks,
+                              title: e.target.value,
+                              links: content.footer?.partnerLinks?.links || [],
+                            },
+                          },
+                        })
+                      }
+                      placeholder="e.g. आमचे इतर शैक्षणिक प्लॅटफॉर्म्स"
+                      className="w-full max-w-md px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs font-semibold bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    {(content.footer?.partnerLinks?.links || []).map((link, idx) => {
+                      const isFirst = idx === 0;
+                      const isLast = idx === (content.footer?.partnerLinks?.links || []).length - 1;
+                      return (
+                        <div key={idx} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 p-2 bg-zinc-50 border border-zinc-200 rounded-[4px]">
+                          <div className="flex items-center gap-1 shrink-0">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                if (isFirst) return;
+                                const updated = [...(content.footer?.partnerLinks?.links || [])];
+                                const temp = updated[idx];
+                                updated[idx] = updated[idx - 1];
+                                updated[idx - 1] = temp;
+                                setContent({
+                                  ...content,
+                                  footer: {
+                                    ...content.footer,
+                                    partnerLinks: { ...content.footer?.partnerLinks, links: updated },
+                                  },
+                                });
+                              }}
+                              disabled={isFirst}
+                              className="p-1 text-zinc-400 hover:text-black rounded disabled:opacity-20 cursor-pointer disabled:cursor-not-allowed"
+                              title="Move Up"
+                            >
+                              <ChevronUp className="w-3.5 h-3.5" />
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                if (isLast) return;
+                                const updated = [...(content.footer?.partnerLinks?.links || [])];
+                                const temp = updated[idx];
+                                updated[idx] = updated[idx + 1];
+                                updated[idx + 1] = temp;
+                                setContent({
+                                  ...content,
+                                  footer: {
+                                    ...content.footer,
+                                    partnerLinks: { ...content.footer?.partnerLinks, links: updated },
+                                  },
+                                });
+                              }}
+                              disabled={isLast}
+                              className="p-1 text-zinc-400 hover:text-black rounded disabled:opacity-20 cursor-pointer disabled:cursor-not-allowed"
+                              title="Move Down"
+                            >
+                              <ChevronDown className="w-3.5 h-3.5" />
+                            </button>
+                            <span className="w-5 h-5 flex items-center justify-center rounded bg-zinc-200 text-zinc-700 text-[11px] font-bold">
+                              {idx + 1}
+                            </span>
+                          </div>
+
+                          <input
+                            type="text"
+                            value={link.title}
+                            onChange={(e) => {
+                              const updated = [...(content.footer?.partnerLinks?.links || [])];
+                              updated[idx] = { ...updated[idx], title: e.target.value };
+                              setContent({
+                                ...content,
+                                footer: {
+                                  ...content.footer,
+                                  partnerLinks: { ...content.footer?.partnerLinks, links: updated },
+                                },
+                              });
+                            }}
+                            placeholder="Link Title (e.g. TCS9.com — ऑनलाइन टेस्ट सिरीज प्लॅटफॉर्म)"
+                            className="flex-1 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs font-medium bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                          />
+
+                          <input
+                            type="text"
+                            value={link.url}
+                            onChange={(e) => {
+                              const updated = [...(content.footer?.partnerLinks?.links || [])];
+                              updated[idx] = { ...updated[idx], url: e.target.value };
+                              setContent({
+                                ...content,
+                                footer: {
+                                  ...content.footer,
+                                  partnerLinks: { ...content.footer?.partnerLinks, links: updated },
+                                },
+                              });
+                            }}
+                            placeholder="URL (e.g. https://tcs9.com)"
+                            className="flex-1 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs font-mono text-zinc-700 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                          />
+
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const updated = (content.footer?.partnerLinks?.links || []).filter((_, i) => i !== idx);
+                              setContent({
+                                ...content,
+                                footer: {
+                                  ...content.footer,
+                                  partnerLinks: { ...content.footer?.partnerLinks, links: updated },
+                                },
+                              });
+                            }}
+                            className="p-1.5 text-zinc-400 hover:text-red-600 hover:bg-red-50 rounded-[4px] cursor-pointer shrink-0 self-end sm:self-auto"
+                            title="Delete Partner Link"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* 4. Policies & Legal Links */}
+                <div className="space-y-3 pt-2 border-t border-zinc-200">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                      <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-700 flex items-center gap-2">
+                        <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+                        <span>4. Policies & Legal Links</span>
+                      </h3>
+                      <p className="text-[11px] text-zinc-500 mt-0.5">Privacy policy, terms of service, refund policy, about us</p>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const current = content.footer?.legalLinks?.links || [];
+                        const updated = [...current, { title: "नवीन धोरण (New Policy)", url: "#" }];
+                        setContent({
+                          ...content,
+                          footer: {
+                            ...content.footer,
+                            legalLinks: {
+                              ...content.footer?.legalLinks,
+                              title: content.footer?.legalLinks?.title || "धोरणे व अटी",
+                              links: updated,
+                            },
+                          },
+                        });
+                      }}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-black hover:bg-zinc-800 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer shrink-0 self-start sm:self-auto"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      <span>+ Add Legal Link</span>
+                    </button>
+                  </div>
+
+                  <div className="mb-2">
+                    <label className="block text-xs font-semibold text-zinc-700 mb-1">Section Title</label>
+                    <input
+                      type="text"
+                      value={content.footer?.legalLinks?.title ?? ""}
+                      onChange={(e) =>
+                        setContent({
+                          ...content,
+                          footer: {
+                            ...content.footer,
+                            legalLinks: {
+                              ...content.footer?.legalLinks,
+                              title: e.target.value,
+                              links: content.footer?.legalLinks?.links || [],
+                            },
+                          },
+                        })
+                      }
+                      placeholder="e.g. धोरणे व अटी"
+                      className="w-full max-w-md px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs font-semibold bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    {(content.footer?.legalLinks?.links || []).map((link, idx) => {
+                      const isFirst = idx === 0;
+                      const isLast = idx === (content.footer?.legalLinks?.links || []).length - 1;
+                      return (
+                        <div key={idx} className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 p-2 bg-zinc-50 border border-zinc-200 rounded-[4px]">
+                          <div className="flex items-center gap-1 shrink-0">
+                            <button
+                              type="button"
+                              onClick={() => {
+                                if (isFirst) return;
+                                const updated = [...(content.footer?.legalLinks?.links || [])];
+                                const temp = updated[idx];
+                                updated[idx] = updated[idx - 1];
+                                updated[idx - 1] = temp;
+                                setContent({
+                                  ...content,
+                                  footer: {
+                                    ...content.footer,
+                                    legalLinks: { ...content.footer?.legalLinks, links: updated },
+                                  },
+                                });
+                              }}
+                              disabled={isFirst}
+                              className="p-1 text-zinc-400 hover:text-black rounded disabled:opacity-20 cursor-pointer disabled:cursor-not-allowed"
+                              title="Move Up"
+                            >
+                              <ChevronUp className="w-3.5 h-3.5" />
+                            </button>
+                            <button
+                              type="button"
+                              onClick={() => {
+                                if (isLast) return;
+                                const updated = [...(content.footer?.legalLinks?.links || [])];
+                                const temp = updated[idx];
+                                updated[idx] = updated[idx + 1];
+                                updated[idx + 1] = temp;
+                                setContent({
+                                  ...content,
+                                  footer: {
+                                    ...content.footer,
+                                    legalLinks: { ...content.footer?.legalLinks, links: updated },
+                                  },
+                                });
+                              }}
+                              disabled={isLast}
+                              className="p-1 text-zinc-400 hover:text-black rounded disabled:opacity-20 cursor-pointer disabled:cursor-not-allowed"
+                              title="Move Down"
+                            >
+                              <ChevronDown className="w-3.5 h-3.5" />
+                            </button>
+                            <span className="w-5 h-5 flex items-center justify-center rounded bg-zinc-200 text-zinc-700 text-[11px] font-bold">
+                              {idx + 1}
+                            </span>
+                          </div>
+
+                          <input
+                            type="text"
+                            value={link.title}
+                            onChange={(e) => {
+                              const updated = [...(content.footer?.legalLinks?.links || [])];
+                              updated[idx] = { ...updated[idx], title: e.target.value };
+                              setContent({
+                                ...content,
+                                footer: {
+                                  ...content.footer,
+                                  legalLinks: { ...content.footer?.legalLinks, links: updated },
+                                },
+                              });
+                            }}
+                            placeholder="Link Title (e.g. गोपनीयता धोरण (Privacy Policy))"
+                            className="flex-1 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs font-medium bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                          />
+
+                          <input
+                            type="text"
+                            value={link.url}
+                            onChange={(e) => {
+                              const updated = [...(content.footer?.legalLinks?.links || [])];
+                              updated[idx] = { ...updated[idx], url: e.target.value };
+                              setContent({
+                                ...content,
+                                footer: {
+                                  ...content.footer,
+                                  legalLinks: { ...content.footer?.legalLinks, links: updated },
+                                },
+                              });
+                            }}
+                            placeholder="URL (e.g. # or /privacy-policy)"
+                            className="flex-1 px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs font-mono text-zinc-700 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                          />
+
+                          <button
+                            type="button"
+                            onClick={() => {
+                              const updated = (content.footer?.legalLinks?.links || []).filter((_, i) => i !== idx);
+                              setContent({
+                                ...content,
+                                footer: {
+                                  ...content.footer,
+                                  legalLinks: { ...content.footer?.legalLinks, links: updated },
+                                },
+                              });
+                            }}
+                            className="p-1.5 text-zinc-400 hover:text-red-600 hover:bg-red-50 rounded-[4px] cursor-pointer shrink-0 self-end sm:self-auto"
+                            title="Delete Legal Link"
+                          >
+                            <Trash2 className="w-4 h-4" />
+                          </button>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+
+                {/* 5. Copyright & Disclaimer */}
+                <div className="space-y-4 pt-2 border-t border-zinc-200">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-700 pb-1.5 border-b border-zinc-200 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-zinc-500"></span>
+                    <span>5. Copyright & Disclaimer Notice</span>
+                  </h3>
+
+                  <div className="grid grid-cols-1 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Copyright Line</label>
+                      <input
+                        type="text"
+                        value={content.footer?.copyright ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            footer: { ...content.footer, copyright: e.target.value },
+                          })
+                        }
+                        placeholder="e.g. © 2026 mpscexam / TCS9. सर्व हक्क राखीव."
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Legal Disclaimer Statement</label>
+                      <textarea
+                        rows={2}
+                        value={content.footer?.disclaimer ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            footer: { ...content.footer, disclaimer: e.target.value },
+                          })
+                        }
+                        placeholder="e.g. *अस्वीकरण: ही एक खाजगी शैक्षणिक टेस्ट सिरीज असून तिचा महाराष्ट्र लोकसेवा आयोग (MPSC) शी कोणताही थेट किंवा अधिकृत संबंध नाही."
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* 6. Live Interactive Footer Preview */}
+                <div className="space-y-3 pt-4 border-t border-zinc-200">
+                  <div>
+                    <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider flex items-center gap-1.5">
+                      <Eye className="w-3.5 h-3.5 text-zinc-500" />
+                      <span>Live Footer Preview (How it appears on website)</span>
+                    </h4>
+                    <p className="text-[11px] text-zinc-500">Updates synchronously with your edits above</p>
+                  </div>
+
+                  <div className="rounded-xl overflow-hidden border border-zinc-300 shadow-sm text-xs">
+                    {/* Contact Bar Preview */}
+                    <div className="bg-white text-[#1F2A5C] p-4 sm:p-5 border-b border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                      <div className="flex items-center gap-3">
+                        <div className="w-9 h-9 rounded-full bg-[#fbeae8] flex items-center justify-center text-[#9B3A32] shrink-0">
+                          <Phone className="w-4 h-4" />
+                        </div>
+                        <div>
+                          <p className="text-[11px] text-slate-500 font-medium">
+                            {content.footer?.contactBar?.heading || "काही अडचण किंवा प्रश्न असल्यास थेट बोला:"}
+                          </p>
+                          <p className="text-sm font-extrabold text-[#1F2A5C]">
+                            {content.footer?.contactBar?.phone || "+91 95796 16908"}{" "}
+                            <span className="font-medium text-xs text-slate-500">
+                              {content.footer?.contactBar?.timing || "(सकाळी 9 ते रात्री 9)"}
+                            </span>
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-emerald-600 text-white font-bold text-xs shadow-xs">
+                        <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
+                        <span>{content.footer?.contactBar?.whatsappButtonText || "व्हॉट्सॲपवर संपर्क करा"}</span>
+                      </div>
+                    </div>
+
+                    {/* Main Dark Footer Preview */}
+                    <div className="bg-[#1F2A5C] text-white p-5 sm:p-6 space-y-6">
+                      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 pb-6 border-b border-white/10">
+                        {/* Brand */}
+                        <div className="md:col-span-6 space-y-3">
+                          <div className="flex items-center gap-2.5">
+                            <div className="w-7 h-7 rounded-full border border-white/30 bg-white/10 flex items-center justify-center">
+                              <span className="text-amber-400 font-black text-[10px]">
+                                {content.footer?.brand?.badge || "TCS9"}
+                              </span>
+                            </div>
+                            <span className="text-lg font-extrabold tracking-tight text-white">
+                              {content.footer?.brand?.name || "mpscexam"}
+                            </span>
+                          </div>
+                          <p className="text-[11px] text-slate-300 leading-relaxed max-w-sm">
+                            {content.footer?.brand?.description || "महाराष्ट्र लोकसेवा आयोगाच्या विविध स्पर्धा परीक्षांच्या तयारीसाठी दर्जेदार मंच."}
+                          </p>
+                          {content.footer?.brand?.supportEmail && (
+                            <p className="flex items-center gap-2 text-[11px] text-slate-300">
+                              <Mail className="w-3.5 h-3.5 text-amber-400" />
+                              <span>{content.footer?.brand?.supportEmail}</span>
+                            </p>
+                          )}
+                        </div>
+
+                        {/* Partner Links */}
+                        <div className="md:col-span-3 space-y-2">
+                          <h5 className="text-[11px] font-bold text-white uppercase tracking-wider">
+                            {content.footer?.partnerLinks?.title || "आमचे इतर शैक्षणिक प्लॅटफॉर्म्स"}
+                          </h5>
+                          <ul className="space-y-1.5 text-[11px] text-slate-300">
+                            {(content.footer?.partnerLinks?.links || []).map((l, idx) => (
+                              <li key={idx} className="flex items-center gap-1.5 hover:text-amber-400">
+                                <Globe className="w-3 h-3 text-slate-400" />
+                                <span className="truncate">{l.title}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+
+                        {/* Legal Links */}
+                        <div className="md:col-span-3 space-y-2">
+                          <h5 className="text-[11px] font-bold text-white uppercase tracking-wider">
+                            {content.footer?.legalLinks?.title || "धोरणे व अटी"}
+                          </h5>
+                          <ul className="space-y-1.5 text-[11px] text-slate-300">
+                            {(content.footer?.legalLinks?.links || []).map((l, idx) => (
+                              <li key={idx} className="truncate">
+                                {l.title}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+
+                      {/* Bottom line */}
+                      <div className="flex flex-col sm:flex-row items-center justify-between gap-3 text-[10px] text-slate-400">
+                        <p>{content.footer?.copyright || "© 2026 mpscexam / TCS9. सर्व हक्क राखीव."}</p>
+                        <p className="max-w-xs text-center sm:text-right">
+                          {content.footer?.disclaimer || "*अस्वीकरण: ही एक खाजगी शैक्षणिक टेस्ट सिरीज आहे."}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Save Button */}
+                <button
+                  onClick={() => handleSaveAll()}
+                  disabled={isSaving}
+                  className="w-full py-3 bg-black hover:bg-zinc-800 disabled:bg-zinc-500 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer flex items-center justify-center gap-2 transition-colors"
+                >
+                  {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+                  <span>{isSaving ? "Saving Footer Changes..." : "Save Footer Changes"}</span>
                 </button>
               </div>
             </div>

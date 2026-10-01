@@ -578,3 +578,21 @@ flowchart TD
       5. **Copyright & Disclaimer Notice**: Copyright string and legal disclaimer statement inputs.
       6. **Live Interactive Footer Preview**: Real-time mirrored preview of both the white contact bar and navy footer container updating with every keystroke before saving.
 
+### CTA Buttons Affiliate Checkout Linking Architecture
+- **Requirement & Strategy:**
+  - High-intent visitors clicking CTA buttons across the landing page need direct, seamless routing to the TCS9 Super 25 test series bundle checkout URL with affiliate attribution:
+    `https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX`
+- **Architectural Implementation Across Connected Layers:**
+  - `src/data/siteContent.json`:
+    - Updated `hero.targetUrl` and added `finalCta.buttonUrl` pointing to the TCS9 affiliate checkout URL.
+  - `src/components/Pricing.tsx`:
+    - Converted the main "Start Test" button into an accessible `<a>` anchor tag linking to `cta.buttonUrl` with `target="_blank" rel="noopener noreferrer"`.
+  - `src/components/HeroSection.tsx`:
+    - Converted the hero "Start Test" button into an anchor tag directly opening `heroData.targetUrl` in a new tab.
+  - `src/components/HowToPurchase.tsx`:
+    - Converted the "Start Test" CTA block button into an anchor tag opening the TCS9 affiliate checkout URL in a new tab.
+  - `src/components/StickyMobileBar.tsx`:
+    - Converted the "सुरुवात करा" mobile bottom bar action button into an anchor tag opening the TCS9 affiliate checkout URL in a new tab.
+  - `src/app/admin/page.tsx`:
+    - Added "CTA Button Direct Link (URL)" input in the Admin Panel under `Pricing & Final CTA` for instant dynamic updates to the affiliate link.
+

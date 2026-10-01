@@ -3645,6 +3645,25 @@ export default function AdminPage() {
 
                     <div className="sm:col-span-2">
                       <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                        CTA Button Direct Link (URL)
+                        <span className="text-[10px] text-zinc-400 font-normal ml-1">(Affiliate checkout link)</span>
+                      </label>
+                      <input
+                        type="text"
+                        value={content.finalCta?.buttonUrl ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, buttonUrl: e.target.value },
+                          })
+                        }
+                        placeholder="e.g. https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-mono text-zinc-800 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">
                         Risk-Reversal / WhatsApp Support Guarantee
                         <span className="text-[10px] text-zinc-400 font-normal ml-1">(HTML & &lt;strong&gt; tags supported)</span>
                       </label>

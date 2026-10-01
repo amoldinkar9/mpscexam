@@ -201,13 +201,15 @@ export function HowToPurchase({ initialData }: { initialData?: typeof siteData.h
 
         {/* Primary CTA Block */}
         <div className="flex flex-col items-center justify-center pt-6 pb-2 space-y-3 text-center">
-          <button
-            onClick={scrollToPricing}
-            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#9B3A32] hover:bg-[#822f28] active:bg-[#6b251f] text-white font-extrabold text-base sm:text-lg rounded-2xl shadow-lg shadow-[#9B3A32]/25 hover:shadow-xl hover:shadow-[#9B3A32]/30 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+          <a
+            href={siteData.finalCta?.buttonUrl || "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX"}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#9B3A32] hover:bg-[#822f28] active:bg-[#6b251f] text-white font-extrabold text-base sm:text-lg rounded-2xl shadow-lg shadow-[#9B3A32]/25 hover:shadow-xl hover:shadow-[#9B3A32]/30 transition-all transform hover:-translate-y-0.5 cursor-pointer no-underline"
           >
             <span>Start Test</span>
             <ArrowRight className="w-5 h-5" />
-          </button>
+          </a>
           <div className="text-xs sm:text-sm text-slate-500 flex items-center justify-center gap-1.5 font-medium flex-wrap px-4">
             <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 inline-block" />
             <span>⚡ 60% सवलत केवळ पहिल्या 500 विद्यार्थ्यांसाठी • 100% सुरक्षित पेमेंट • Instant Test Series</span>

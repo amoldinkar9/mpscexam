@@ -83,13 +83,15 @@ export function Pricing({
             </div>
 
             {/* Action Button */}
-            <button
-              onClick={handleEnroll}
-              className="w-full py-4.5 px-6 bg-[#9B3A32] hover:bg-[#822f28] active:bg-[#6b251f] text-white font-extrabold text-base sm:text-lg rounded-xl shadow-lg shadow-[#9B3A32]/25 hover:shadow-xl hover:shadow-[#9B3A32]/30 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2.5 cursor-pointer"
+            <a
+              href={cta.buttonUrl || "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full py-4.5 px-6 bg-[#9B3A32] hover:bg-[#822f28] active:bg-[#6b251f] text-white font-extrabold text-base sm:text-lg rounded-xl shadow-lg shadow-[#9B3A32]/25 hover:shadow-xl hover:shadow-[#9B3A32]/30 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-2.5 cursor-pointer no-underline"
             >
               <span>{cta.buttonText}</span>
               <ArrowRight className="w-5 h-5" />
-            </button>
+            </a>
 
             {/* Price Lock Alert */}
             <p className="text-[11px] text-slate-500 font-medium">

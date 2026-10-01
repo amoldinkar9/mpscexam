@@ -42,13 +42,15 @@ export function HeroSection({ initialData }: { initialData?: typeof siteData.her
             {/* Primary CTA Block */}
             <div className="pt-2 space-y-3">
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
-                <button
-                  onClick={scrollToPricing}
-                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#9B3A32] hover:bg-[#822f28] active:bg-[#6b251f] text-white font-extrabold text-base sm:text-lg rounded-xl shadow-lg shadow-[#9B3A32]/25 hover:shadow-xl hover:shadow-[#9B3A32]/30 transition-all transform hover:-translate-y-0.5 cursor-pointer"
+                <a
+                  href={heroData.targetUrl || "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#9B3A32] hover:bg-[#822f28] active:bg-[#6b251f] text-white font-extrabold text-base sm:text-lg rounded-xl shadow-lg shadow-[#9B3A32]/25 hover:shadow-xl hover:shadow-[#9B3A32]/30 transition-all transform hover:-translate-y-0.5 cursor-pointer no-underline"
                 >
                   <span>Start Test</span>
                   <ArrowRight className="w-5 h-5" />
-                </button>
+                </a>
               </div>
               <p className="text-xs text-[#64748b] flex items-center gap-2 font-medium">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />

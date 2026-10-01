@@ -58,13 +58,15 @@ export function StickyMobileBar({
             <span className="absolute -inset-1 rounded-xl bg-white/40 animate-tap-ripple pointer-events-none" />
 
             {/* Inverted CTA Button with Simulated Click Motion */}
-            <button
-              onClick={scrollToPricing}
-              className="relative px-5 py-3 rounded-xl bg-white text-[#8b261e] active:scale-90 font-black text-sm shadow-lg flex items-center gap-1.5 shrink-0 hover:bg-slate-100 transition-all animate-tap-click cursor-pointer"
+            <a
+              href={cta.buttonUrl || "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative px-5 py-3 rounded-xl bg-white text-[#8b261e] active:scale-90 font-black text-sm shadow-lg flex items-center gap-1.5 shrink-0 hover:bg-slate-100 transition-all animate-tap-click cursor-pointer no-underline inline-flex"
             >
               <span>सुरुवात करा</span>
               <ArrowRight className="w-4 h-4 text-[#8b261e]" />
-            </button>
+            </a>
           </div>
         </div>
 

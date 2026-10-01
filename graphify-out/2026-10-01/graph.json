@@ -127,7 +127,7 @@
       "file_type": "code",
       "norm_label": "sitecontent",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L61"
+      "source_location": "L66"
     },
     {
       "id": "src_components_admin_richtexteditor_richtexteditorprops",
@@ -228,7 +228,7 @@
       "file_type": "code",
       "norm_label": "footer()",
       "source_file": "src/components/Footer.tsx",
-      "source_location": "L3"
+      "source_location": "L4"
     },
     {
       "id": "src_components_header_header",
@@ -420,7 +420,7 @@
       "file_type": "code",
       "norm_label": "adminpage()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L118"
+      "source_location": "L124"
     },
     {
       "id": "src_app_admin_page_adminpage_initauthandcontent",
@@ -432,7 +432,7 @@
       "file_type": "code",
       "norm_label": "initauthandcontent()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L196"
+      "source_location": "L202"
     },
     {
       "id": "src_app_admin_page_getinitialhtmlforquestion",
@@ -444,7 +444,7 @@
       "file_type": "code",
       "norm_label": "getinitialhtmlforquestion()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L67"
+      "source_location": "L72"
     },
     {
       "id": "src_app_admin_page_sidebarnavitem",
@@ -456,7 +456,7 @@
       "file_type": "code",
       "norm_label": "sidebarnavitem()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L4644"
+      "source_location": "L5376"
     },
     {
       "id": "src_components_admin_richtexteditor_richtexteditor",
@@ -1530,7 +1530,7 @@
       "file_type": "code",
       "norm_label": "nav_items",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L105"
+      "source_location": "L110"
     },
     {
       "id": "src_components_admin_richtexteditor",
@@ -3628,7 +3628,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L3012",
+      "source_location": "L3018",
       "weight": 1.0
     },
     {
@@ -3952,7 +3952,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L196",
+      "source_location": "L202",
       "weight": 1.0
     },
     {
@@ -4420,7 +4420,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L59",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -4780,7 +4780,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L59",
+      "source_location": "L64",
       "weight": 1.0
     },
     {
@@ -5651,7 +5651,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L105",
+      "source_location": "L110",
       "weight": 1.0
     },
     {
@@ -5662,7 +5662,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L118",
+      "source_location": "L124",
       "weight": 1.0
     },
     {
@@ -5673,7 +5673,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L4644",
+      "source_location": "L5376",
       "weight": 1.0
     },
     {
@@ -5684,7 +5684,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L61",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -5695,7 +5695,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L67",
+      "source_location": "L72",
       "weight": 1.0
     },
     {
@@ -5959,7 +5959,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/Footer.tsx",
-      "source_location": "L3",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -7664,5 +7664,5 @@
       "source_file": "architecture.md"
     }
   ],
-  "built_at_commit": "e0296e99ae3c9c783d7daf268d701e9487f5b389"
+  "built_at_commit": "c9f8e41ed70b40de3bd1e0b4bd6fdb022552fcb9"
 }

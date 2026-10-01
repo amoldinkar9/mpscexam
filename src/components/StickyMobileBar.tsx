@@ -4,7 +4,14 @@ import { useState, useEffect } from "react";
 import { ArrowRight, MessageCircle, Zap } from "lucide-react";
 import { getScarcityData } from "@/lib/scarcity";
 
-export function StickyMobileBar() {
+import siteData from "@/data/siteContent.json";
+
+export function StickyMobileBar({
+  initialData,
+}: {
+  initialData?: typeof siteData.finalCta;
+} = {}) {
+  const cta = (initialData || siteData.finalCta) as any;
   const [scarcity, setScarcity] = useState(getScarcityData());
 
   useEffect(() => {
@@ -25,8 +32,8 @@ export function StickyMobileBar() {
         {/* Price & Scarcity Tag */}
         <div className="flex flex-col">
           <div className="flex items-center gap-1.5">
-            <span className="text-xs text-white/60 line-through font-semibold english-numerals">₹499</span>
-            <span className="text-2xl font-black text-white leading-none english-numerals">₹199</span>
+            <span className="text-xs text-white/60 line-through font-semibold english-numerals">₹{cta.originalPrice || 499}</span>
+            <span className="text-2xl font-black text-white leading-none english-numerals">₹{cta.offerPrice || 199}</span>
           </div>
           <span className="text-[10px] text-amber-300 font-extrabold flex items-center gap-0.5 mt-0.5 animate-pulse">
             <Zap className="w-3 h-3 fill-amber-300 text-amber-300" />

@@ -527,3 +527,26 @@ flowchart TD
   - `src/components/HeroSection.tsx`, `HowToPurchase.tsx`, `StickyMobileBar.tsx`:
     - Upgraded `scrollToPricing` to query `#pricing-section-2, #pricing-section`, smoothly scrolling to the first visible pricing CTA encountered in document order.
 
+### Pricing CTA Complete Element Customization Architecture (`finalCta`)
+- **Requirement & Problem:**
+  - Aspirants and admins needed full control over the discount badge text (e.g. changing from 80% to 60% off without hardcoded remnants like "• एकरकमी फी"), and the admin required the ability to modify every element of the CTA from the Admin Panel.
+- **Architectural Implementation Across Connected Layers:**
+  - `src/data/siteContent.json`:
+    - Updated `finalCta` with default `discountText: "60% थेट सवलत"`, `originalPrice: 499`, and added dedicated fields: `scarcityTag`, `priceLockAlert`, `riskReversal`, and `paymentSecurityText`.
+  - `src/components/Pricing.tsx`:
+    - Connected all CTA elements to dynamic data with fallback defaults:
+      - Floating scarcity badge pill: `{cta.scarcityTag || "पहिले 500 विद्यार्थी विशेष सवलत"}`
+      - Discount text: `({cta.discountText})` (rendered conditionally if present)
+      - Price lock alert: `{cta.priceLockAlert || "*58 सीट्स संपल्यानंतर मूळ किंमत ₹499 लागू होईल."}`
+      - Risk reversal guarantee: rendered dynamically via `dangerouslySetInnerHTML` with `cta.riskReversal`
+      - Payment security badges: `{cta.paymentSecurityText || "256-Bit SSL सुरक्षित • UPI / PhonePe / GPay"}`
+  - `src/components/StickyMobileBar.tsx` & `src/app/page.tsx`:
+    - Accepts `initialData={content.finalCta}` and dynamically renders updated offer and original prices.
+  - `src/app/admin/page.tsx`:
+    - Expanded the "Pricing & Final CTA" tab into 5 organized modules:
+      1. **Section Header & Badges**: Section Badge Pill, Card Floating Scarcity Badge, Section Headline, and Subheadline textarea.
+      2. **Package & Pricing Details**: Package Title, Offer Price, Original Price, Discount Text input with live rendering caption, Booked Seats, and Remaining Seats.
+      3. **Action Button, Footnotes & Guarantees**: CTA Button Text, Price Lock Alert footnote, Risk-Reversal / WhatsApp Support Guarantee (HTML-supported), and Payment Security text.
+      4. **Checklist Inclusions**: Dynamic add, reorder (Move Up/Down), delete, and edit.
+      5. **Live Interactive Preview**: Real-time mirrored Pricing Card updating with every keystroke before saving to Cloudflare D1 and disk.
+

@@ -50,7 +50,10 @@ import {
   Database,
   CheckCircle2,
   Copy,
-  Loader2
+  Loader2,
+  ShieldCheck,
+  ArrowRight,
+  Zap
 } from "lucide-react";
 import defaultSiteData from "@/data/siteContent.json";
 import { RichTextEditor } from "@/components/admin/RichTextEditor";
@@ -3404,90 +3407,274 @@ export default function AdminPage() {
 
           {/* SECTION: Pricing & Final CTA */}
           {activeSection === "finalCta" && (
-            <div className="space-y-4">
+            <div className="space-y-6">
               <div>
                 <h2 className="text-xl font-bold text-black tracking-tight">Pricing & Final CTA</h2>
-                <p className="text-xs text-zinc-400 mt-0.5">Pricing, discounts, seat counters, and inclusions</p>
+                <p className="text-xs text-zinc-400 mt-0.5">Customize every CTA element: badges, headlines, pricing, discount text, buttons, guarantees, and inclusions</p>
               </div>
 
-              <div className="border border-zinc-200 rounded-[4px] bg-white p-6 shadow-xs space-y-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-xs font-semibold text-zinc-700 mb-1">Offer Price (₹)</label>
-                    <input
-                      type="number"
-                      value={content.finalCta.offerPrice}
-                      onChange={(e) =>
-                        setContent({
-                          ...content,
-                          finalCta: { ...content.finalCta, offerPrice: Number(e.target.value) },
-                        })
-                      }
-                      className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-base font-black text-black bg-white"
-                    />
-                  </div>
+              <div className="border border-zinc-200 rounded-[4px] bg-white p-5 sm:p-6 shadow-xs space-y-6">
+                
+                {/* 1. Section Header & Badges */}
+                <div className="space-y-4">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-700 pb-1.5 border-b border-zinc-200 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-amber-500"></span>
+                    <span>1. Section Header & Badges</span>
+                  </h3>
 
-                  <div>
-                    <label className="block text-xs font-semibold text-zinc-700 mb-1">Original Price (₹)</label>
-                    <input
-                      type="number"
-                      value={content.finalCta.originalPrice}
-                      onChange={(e) =>
-                        setContent({
-                          ...content,
-                          finalCta: { ...content.finalCta, originalPrice: Number(e.target.value) },
-                        })
-                      }
-                      className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-base font-bold text-zinc-400 line-through bg-white"
-                    />
-                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Section Badge Pill</label>
+                      <input
+                        type="text"
+                        value={content.finalCta?.badgeText ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, badgeText: e.target.value },
+                          })
+                        }
+                        placeholder="e.g. विशेष सवलत ऑफर"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
 
-                  <div>
-                    <label className="block text-xs font-semibold text-zinc-700 mb-1">Booked Seats</label>
-                    <input
-                      type="number"
-                      value={content.finalCta.bookedSeats}
-                      onChange={(e) =>
-                        setContent({
-                          ...content,
-                          finalCta: { ...content.finalCta, bookedSeats: Number(e.target.value) },
-                        })
-                      }
-                      className="w-full px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs font-bold bg-white"
-                    />
-                  </div>
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Card Floating Scarcity Badge (Top Tag)</label>
+                      <input
+                        type="text"
+                        value={content.finalCta?.scarcityTag ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, scarcityTag: e.target.value },
+                          })
+                        }
+                        placeholder="e.g. पहिले 500 विद्यार्थी विशेष सवलत"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
 
-                  <div>
-                    <label className="block text-xs font-semibold text-zinc-700 mb-1">Remaining Seats</label>
-                    <input
-                      type="number"
-                      value={content.finalCta.remainingSeats}
-                      onChange={(e) =>
-                        setContent({
-                          ...content,
-                          finalCta: { ...content.finalCta, remainingSeats: Number(e.target.value) },
-                        })
-                      }
-                      className="w-full px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs font-bold bg-white"
-                    />
+                    <div className="sm:col-span-2">
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Section Headline</label>
+                      <input
+                        type="text"
+                        value={content.finalCta?.headline ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, headline: e.target.value },
+                          })
+                        }
+                        placeholder="e.g. परवडणाऱ्या दरात उत्कृष्ट दर्जाची तयारी"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Section Subheadline / Description</label>
+                      <textarea
+                        rows={2}
+                        value={content.finalCta?.subheadline ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, subheadline: e.target.value },
+                          })
+                        }
+                        placeholder="e.g. एका पुस्तकाच्या किमतीपेक्षाही कमी दरात मिळवा 25 संपूर्ण टेस्ट्स आणि सविस्तर स्पष्टीकरणे."
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
                   </div>
                 </div>
 
-                <div>
-                  <label className="block text-xs font-semibold text-zinc-700 mb-1">CTA Button Text</label>
-                  <input
-                    type="text"
-                    value={content.finalCta.buttonText}
-                    onChange={(e) =>
-                      setContent({
-                        ...content,
-                        finalCta: { ...content.finalCta, buttonText: e.target.value },
-                      })
-                    }
-                    className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold bg-white"
-                  />
+                {/* 2. Package & Pricing Details */}
+                <div className="space-y-4 pt-2 border-t border-zinc-200">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-700 pb-1.5 border-b border-zinc-200 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-[#9B3A32]"></span>
+                    <span>2. Package & Pricing Details</span>
+                  </h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="sm:col-span-2 lg:col-span-3">
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Package Title</label>
+                      <input
+                        type="text"
+                        value={content.finalCta?.packageName ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, packageName: e.target.value },
+                          })
+                        }
+                        placeholder="e.g. संपूर्ण 25 टेस्ट्स पॅकेज"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-semibold text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Offer Price (₹)</label>
+                      <input
+                        type="number"
+                        value={content.finalCta?.offerPrice ?? 199}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, offerPrice: Number(e.target.value) },
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-base font-black text-[#9B3A32] bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Original Price (₹)</label>
+                      <input
+                        type="number"
+                        value={content.finalCta?.originalPrice ?? 499}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, originalPrice: Number(e.target.value) },
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-base font-bold text-zinc-400 line-through bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                        Discount Text
+                        <span className="text-[10px] text-[#9B3A32] font-semibold ml-1">(Appears in parentheses)</span>
+                      </label>
+                      <input
+                        type="text"
+                        value={content.finalCta?.discountText ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, discountText: e.target.value },
+                          })
+                        }
+                        placeholder="e.g. 60% थेट सवलत or 60% OFF"
+                        className="w-full px-3 py-2 border border-[#9B3A32]/40 rounded-[4px] text-xs font-extrabold text-[#9B3A32] bg-white focus:border-[#9B3A32] focus:ring-1 focus:ring-[#9B3A32] outline-none"
+                      />
+                      <p className="text-[10px] text-zinc-500 mt-0.5">
+                        Live preview on card: <strong className="text-[#9B3A32]">({content.finalCta?.discountText || "60% थेट सवलत"})</strong>
+                      </p>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Booked Seats Count</label>
+                      <input
+                        type="number"
+                        value={content.finalCta?.bookedSeats ?? 442}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, bookedSeats: Number(e.target.value) },
+                          })
+                        }
+                        className="w-full px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs font-bold bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Remaining Seats Count</label>
+                      <input
+                        type="number"
+                        value={content.finalCta?.remainingSeats ?? 58}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, remainingSeats: Number(e.target.value) },
+                          })
+                        }
+                        className="w-full px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs font-bold bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+                  </div>
                 </div>
 
+                {/* 3. Action Button, Footnotes & Guarantees */}
+                <div className="space-y-4 pt-2 border-t border-zinc-200">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-zinc-700 pb-1.5 border-b border-zinc-200 flex items-center gap-2">
+                    <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+                    <span>3. Action Button, Footnotes & Guarantees</span>
+                  </h3>
+
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">CTA Button Text</label>
+                      <input
+                        type="text"
+                        value={content.finalCta?.buttonText ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, buttonText: e.target.value },
+                          })
+                        }
+                        placeholder="e.g. Start Test"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Price Lock Alert (Footnote below button)</label>
+                      <input
+                        type="text"
+                        value={content.finalCta?.priceLockAlert ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, priceLockAlert: e.target.value },
+                          })
+                        }
+                        placeholder="e.g. *58 सीट्स संपल्यानंतर मूळ किंमत ₹499 लागू होईल."
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                        Risk-Reversal / WhatsApp Support Guarantee
+                        <span className="text-[10px] text-zinc-400 font-normal ml-1">(HTML & &lt;strong&gt; tags supported)</span>
+                      </label>
+                      <textarea
+                        rows={2}
+                        value={content.finalCta?.riskReversal ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, riskReversal: e.target.value },
+                          })
+                        }
+                        placeholder="e.g. <strong>100% समाधान किंवा सपोर्ट:</strong> कोणतीही तांत्रिक अडचण आल्यास व्हॉट्सॲप सपोर्टद्वारे त्वरित निराकरण केले जाईल."
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Payment & SSL Security Footer Text</label>
+                      <input
+                        type="text"
+                        value={content.finalCta?.paymentSecurityText ?? ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, paymentSecurityText: e.target.value },
+                          })
+                        }
+                        placeholder="e.g. 256-Bit SSL सुरक्षित • UPI / PhonePe / GPay"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. Checklist Inclusions */}
                 <div className="space-y-3 pt-2 border-t border-zinc-200">
                   <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                     <div>
@@ -3629,12 +3816,106 @@ export default function AdminPage() {
                   )}
                 </div>
 
+                {/* 5. Live Interactive Preview of Pricing Card */}
+                <div className="space-y-3 pt-4 border-t border-zinc-200">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <h4 className="text-xs font-bold text-zinc-900 uppercase tracking-wider flex items-center gap-1.5">
+                        <Eye className="w-3.5 h-3.5 text-zinc-500" />
+                        <span>Live Preview (How it appears on website)</span>
+                      </h4>
+                      <p className="text-[11px] text-zinc-500">Updates synchronously with your edits above</p>
+                    </div>
+                  </div>
+
+                  <div className="bg-[#fafbfc] p-4 sm:p-6 rounded-xl border border-zinc-200">
+                    <div className="max-w-md mx-auto relative pt-4">
+                      {/* Floating Scarcity Tag */}
+                      <div className="absolute top-0 inset-x-0 mx-auto w-fit bg-amber-400 text-[#78350f] text-[10px] font-black px-3.5 py-1 rounded-full shadow-sm uppercase tracking-wider z-10 border-2 border-white">
+                        {content.finalCta?.scarcityTag || "पहिले 500 विद्यार्थी विशेष सवलत"}
+                      </div>
+
+                      {/* Card Body */}
+                      <div className="bg-gradient-to-b from-white to-[#fbf4f3] rounded-2xl p-5 sm:p-6 border-2 border-[#9B3A32] shadow-md text-center space-y-4">
+                        <div className="space-y-1">
+                          <p className="text-[11px] text-slate-500 font-bold uppercase tracking-wider">
+                            {content.finalCta?.packageName || "संपूर्ण 25 टेस्ट्स पॅकेज"}
+                          </p>
+                          <div className="flex items-center justify-center gap-2.5 pt-0.5">
+                            <span className="text-base text-slate-400 line-through font-semibold">
+                              ₹{content.finalCta?.originalPrice ?? 499}
+                            </span>
+                            <span className="text-4xl font-black text-[#9B3A32] tracking-tight">
+                              ₹{content.finalCta?.offerPrice ?? 199}
+                            </span>
+                          </div>
+                          {content.finalCta?.discountText && (
+                            <p className="text-xs text-[#9B3A32] font-extrabold pt-0.5">
+                              ({content.finalCta.discountText})
+                            </p>
+                          )}
+                          <div className="pt-1.5">
+                            <span className="inline-block text-[10px] font-bold bg-[#fbeae8] text-[#9B3A32] px-3 py-0.5 rounded-full border border-[#f3c8c4]">
+                              🔥 {content.finalCta?.bookedSeats ?? 442} सीट्स बुक झाल्या • केवळ {content.finalCta?.remainingSeats ?? 58} शिल्लक
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Inclusions checklist */}
+                        <div className="bg-white p-3 rounded-xl border border-[#f3c8c4] text-xs text-left grid grid-cols-1 sm:grid-cols-2 gap-2 text-[#1F2A5C]">
+                          {(content.finalCta?.checklist || []).map((item, idx) => (
+                            <div key={idx} className="flex items-center gap-1.5">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                              <span className="leading-snug text-[11px]">{item}</span>
+                            </div>
+                          ))}
+                        </div>
+
+                        {/* Button */}
+                        <button
+                          type="button"
+                          className="w-full py-3 px-4 bg-[#9B3A32] text-white font-extrabold text-sm rounded-lg shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                        >
+                          <span>{content.finalCta?.buttonText || "Start Test"}</span>
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
+
+                        {/* Footnote */}
+                        <p className="text-[10px] text-slate-500 font-medium">
+                          {content.finalCta?.priceLockAlert || "*58 सीट्स संपल्यानंतर मूळ किंमत ₹499 लागू होईल."}
+                        </p>
+
+                        {/* Risk Reversal */}
+                        <div className="p-2.5 bg-emerald-50 border border-emerald-200 rounded-lg flex items-start gap-2 text-left">
+                          <ShieldCheck className="w-4 h-4 text-emerald-700 shrink-0 mt-0.5" />
+                          <div
+                            className="text-[11px] text-emerald-900 leading-[1.5] font-medium"
+                            dangerouslySetInnerHTML={{
+                              __html: content.finalCta?.riskReversal || "<strong>100% समाधान किंवा सपोर्ट:</strong> कोणतीही तांत्रिक अडचण आल्यास व्हॉट्सॲप सपोर्टद्वारे त्वरित निराकरण केले जाईल.",
+                            }}
+                          />
+                        </div>
+
+                        {/* Security */}
+                        <div className="pt-1.5 border-t border-slate-200 text-center text-[10px] text-slate-500 font-medium">
+                          <span className="flex items-center justify-center gap-1">
+                            <Lock className="w-3 h-3 text-emerald-600" />
+                            <span>{content.finalCta?.paymentSecurityText || "256-Bit SSL सुरक्षित • UPI / PhonePe / GPay"}</span>
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Save Button */}
                 <button
                   onClick={() => handleSaveAll()}
                   disabled={isSaving}
-                  className="w-full py-2.5 bg-black hover:bg-zinc-800 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer"
+                  className="w-full py-3 bg-black hover:bg-zinc-800 disabled:bg-zinc-500 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer flex items-center justify-center gap-2 transition-colors"
                 >
-                  Save Pricing
+                  {isSaving ? <Loader2 className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />}
+                  <span>{isSaving ? "Saving Pricing Changes..." : "Save Pricing & CTA Changes"}</span>
                 </button>
               </div>
             </div>

@@ -460,20 +460,24 @@
     "badgeText": "विशेष सवलत ऑफर",
     "headline": "परवडणाऱ्या दरात उत्कृष्ट दर्जाची तयारी",
     "subheadline": "एका पुस्तकाच्या किमतीपेक्षाही कमी दरात मिळवा 25 संपूर्ण टेस्ट्स आणि सविस्तर स्पष्टीकरणे.",
+    "scarcityTag": "पहिले 500 विद्यार्थी विशेष सवलत",
     "packageName": "संपूर्ण 25 टेस्ट्स पॅकेज",
-    "originalPrice": 999,
+    "originalPrice": 499,
     "offerPrice": 199,
-    "discountText": "60% थेट सवलत • ",
+    "discountText": "60% थेट सवलत",
     "bookedSeats": 442,
     "totalSeats": 500,
     "remainingSeats": 58,
+    "buttonText": "Start Test",
+    "priceLockAlert": "*58 सीट्स संपल्यानंतर मूळ किंमत ₹499 लागू होईल.",
+    "riskReversal": "<strong>100% समाधान किंवा सपोर्ट:</strong> कोणतीही तांत्रिक अडचण आल्यास व्हॉट्सॲप सपोर्टद्वारे त्वरित निराकरण केले जाईल.",
+    "paymentSecurityText": "256-Bit SSL सुरक्षित • UPI / PhonePe / GPay",
     "checklist": [
       "25 परिपूर्ण मॉक टेस्ट्स (2,000+ प्रश्न)",
       "प्रत्येक प्रश्नाचे 4 पर्यायांसह सविस्तर स्पष्टीकरण",
       "वैधता: 25 ऑक्टोबर 2026 पर्यंत",
       "अमर्यादित वेळा सराव & PDF डाऊनलोड"
-    ],
-    "buttonText": "Start Test"
+    ]
   },
   "sections": [
     {

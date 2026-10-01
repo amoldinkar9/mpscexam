@@ -82,7 +82,7 @@ export default async function Home() {
       <Footer />
 
       {/* Sticky Mobile Dock & Full-Width Animated Live Activity Toast */}
-      <StickyMobileBar />
+      <StickyMobileBar initialData={content.finalCta} />
       <LiveActivityToast />
     </main>
   );

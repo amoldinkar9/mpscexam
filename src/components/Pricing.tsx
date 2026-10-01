@@ -49,7 +49,7 @@ export function Pricing({
 
           {/* Scarcity Tag */}
           <div className="absolute -top-4 inset-x-0 mx-auto w-fit bg-amber-400 text-[#78350f] text-xs font-black px-4 py-1.5 rounded-full shadow-md uppercase tracking-wider z-10 border-2 border-white">
-            पहिले 500 विद्यार्थी विशेष सवलत
+            {cta.scarcityTag || "पहिले 500 विद्यार्थी विशेष सवलत"}
           </div>
 
           <div className="bg-gradient-to-b from-white to-[#fbf4f3] rounded-3xl p-6 sm:p-8 md:p-9 lg:p-10 border-2 border-[#9B3A32] shadow-2xl text-center space-y-6">
@@ -60,9 +60,11 @@ export function Pricing({
                 <span className="text-lg sm:text-xl text-slate-400 line-through font-semibold english-numerals">₹{cta.originalPrice}</span>
                 <span className="text-5xl sm:text-6xl font-black text-[#9B3A32] tracking-tight english-numerals">₹{cta.offerPrice}</span>
               </div>
-              <p className="text-xs sm:text-sm text-[#9B3A32] font-extrabold pt-1">
-                ({cta.discountText})
-              </p>
+              {cta.discountText && (
+                <p className="text-xs sm:text-sm text-[#9B3A32] font-extrabold pt-1">
+                  ({cta.discountText})
+                </p>
+              )}
               <div className="pt-2">
                 <span className="inline-block text-[11px] sm:text-xs font-bold bg-[#fbeae8] text-[#9B3A32] px-3.5 py-1 rounded-full border border-[#f3c8c4] animate-pulse">
                   🔥 {scarcity.booked} सीट्स बुक झाल्या • केवळ {scarcity.remaining} शिल्लक
@@ -72,7 +74,7 @@ export function Pricing({
 
             {/* Inclusions checklist (2-column grid on tablet / sm+) */}
             <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#f3c8c4] text-xs sm:text-sm text-left grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 text-[#1F2A5C]">
-              {(cta.checklist || []).map((item, idx) => (
+              {(cta.checklist || []).map((item: string, idx: number) => (
                 <div key={idx} className="flex items-center gap-2">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span className="leading-snug">{item}</span>
@@ -91,15 +93,18 @@ export function Pricing({
 
             {/* Price Lock Alert */}
             <p className="text-[11px] text-slate-500 font-medium">
-              *58 सीट्स संपल्यानंतर मूळ किंमत ₹499 लागू होईल.
+              {cta.priceLockAlert || "*58 सीट्स संपल्यानंतर मूळ किंमत ₹499 लागू होईल."}
             </p>
 
             {/* Risk-Reversal Callout */}
             <div className="p-3.5 bg-emerald-50 border border-emerald-200 rounded-xl flex items-start gap-2.5 text-left">
               <ShieldCheck className="w-5 h-5 text-emerald-700 shrink-0 mt-0.5" />
-              <p className="text-xs text-emerald-900 leading-[1.6] font-medium">
-                <strong>100% समाधान किंवा सपोर्ट:</strong> कोणतीही तांत्रिक अडचण आल्यास व्हॉट्सॲप सपोर्टद्वारे त्वरित निराकरण केले जाईल.
-              </p>
+              <div
+                className="text-xs text-emerald-900 leading-[1.6] font-medium"
+                dangerouslySetInnerHTML={{
+                  __html: cta.riskReversal || "<strong>100% समाधान किंवा सपोर्ट:</strong> कोणतीही तांत्रिक अडचण आल्यास व्हॉट्सॲप सपोर्टद्वारे त्वरित निराकरण केले जाईल.",
+                }}
+              />
             </div>
 
             {/* Payment Security Badges */}
@@ -107,10 +112,8 @@ export function Pricing({
               <div className="flex items-center justify-center gap-4 text-xs text-slate-500 font-medium">
                 <span className="flex items-center gap-1.5">
                   <Lock className="w-4 h-4 text-emerald-600" />
-                  <span>256-Bit SSL सुरक्षित</span>
+                  <span>{cta.paymentSecurityText || "256-Bit SSL सुरक्षित • UPI / PhonePe / GPay"}</span>
                 </span>
-                <span>•</span>
-                <span>UPI / PhonePe / GPay</span>
               </div>
             </div>
 

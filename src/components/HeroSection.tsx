@@ -114,7 +114,7 @@ export function HeroSection({ initialData }: { initialData?: typeof siteData.her
                 <div className="w-26 h-26 sm:w-28 sm:h-28 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full bg-gradient-to-br from-amber-300 via-amber-400 to-amber-500 p-1.5 shadow-xl border-2 border-white flex flex-col items-center justify-center text-center transform rotate-6 hover:rotate-0 transition-transform">
                   <span className="text-[10px] sm:text-[11px] font-extrabold text-[#78350f] uppercase tracking-wider">विशेष ऑफर</span>
                   <div className="flex items-center gap-1 my-0.5">
-                    <span className="text-xs sm:text-sm text-slate-700 line-through font-semibold english-numerals">₹999</span>
+                    <span className="text-xs sm:text-sm text-slate-700 line-through font-semibold english-numerals">₹499</span>
                   </div>
                   <span className="text-2xl sm:text-3xl font-black text-[#9B3A32] leading-none english-numerals">₹199</span>
                   <span className="text-[10px] font-extrabold text-[#78350f] mt-0.5">80% सूट</span>

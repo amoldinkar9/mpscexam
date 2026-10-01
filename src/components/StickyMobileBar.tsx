@@ -21,11 +21,11 @@ export function StickyMobileBar() {
   return (
     <div className="fixed bottom-0 inset-x-0 z-50 bg-[#8b261e]/98 backdrop-blur-md border-t border-[#a6362d] p-3 shadow-[0_-8px_30px_rgba(0,0,0,0.3)] md:hidden">
       <div className="flex items-center justify-between gap-3 max-w-md mx-auto">
-        
+
         {/* Price & Scarcity Tag */}
         <div className="flex flex-col">
           <div className="flex items-center gap-1.5">
-            <span className="text-xs text-white/60 line-through font-semibold english-numerals">₹999</span>
+            <span className="text-xs text-white/60 line-through font-semibold english-numerals">₹499</span>
             <span className="text-2xl font-black text-white leading-none english-numerals">₹199</span>
           </div>
           <span className="text-[10px] text-amber-300 font-extrabold flex items-center gap-0.5 mt-0.5 animate-pulse">

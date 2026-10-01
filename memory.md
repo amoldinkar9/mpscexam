@@ -274,7 +274,7 @@ flowchart TD
 * **Real-time Social Proof:** Floating dynamic toast (`LiveActivityToast.tsx`) displaying verified actions (test completions, 74+ scores, package unlocks) across Pune, Kolhapur, Sambhaji Nagar, Nashik, etc.
 * **Official Exam Urgency:** Prominent countdown to the actual MPSC Group C Preliminary Exam paper date in `UrgencyBanner.tsx`.
 * **Cutoff Gap Contrast:** Explicit comparison in `AspirantPainPoints.tsx` showing the danger of losing 1 full year by relying on book reading alone without -0.25 negative marking mastery.
-* **Slot Scarcity & Price Lock:** Launch offer locked to the first 500 aspirants (`Pricing.tsx` & `StickyMobileBar.tsx`), reverting to ₹999 after 58 remaining slots are claimed.
+* **Slot Scarcity & Price Lock:** Launch offer locked to the first 500 aspirants (`Pricing.tsx` & `StickyMobileBar.tsx`), reverting to ₹499 after 58 remaining slots are claimed.
 
 ---
 
@@ -339,7 +339,7 @@ flowchart TD
 ### Mobile Sticky Footer Bar (`src/components/StickyMobileBar.tsx`)
 - **Inverted Palette:** Transformed from light white container to rich deep maroon (`bg-[#8b261e]/98 backdrop-blur-md border-t border-[#a6362d]`).
 - **High-Contrast Elements:**
-  - Price: Glowing crisp white `₹199` and translucent strikethrough `₹999` (`text-white/60`).
+  - Price: Glowing crisp white `₹199` and translucent strikethrough `₹499` (`text-white/60`).
   - Scarcity Urgency: Glowing amber icon and text (`text-amber-300 fill-amber-300`).
   - WhatsApp: Translucent glass pill (`bg-white/10 border-white/20 text-emerald-300`).
   - Primary Action Button: Inverted to crisp white button with maroon text (`bg-white text-[#8b261e] font-black shadow-lg`).

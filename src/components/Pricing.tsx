@@ -29,7 +29,7 @@ export function Pricing({
   return (
     <section id={id} className="py-16 sm:py-20 bg-[#fafbfc] border-b border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 space-y-3">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#fbeae8] text-[#9B3A32] text-xs font-bold border border-[#f3c8c4]">
@@ -46,14 +46,14 @@ export function Pricing({
 
         {/* Center-Aligned Final CTA Box (No Value Breakdown Table) */}
         <div className="max-w-xl mx-auto relative">
-          
+
           {/* Scarcity Tag */}
           <div className="absolute -top-4 inset-x-0 mx-auto w-fit bg-amber-400 text-[#78350f] text-xs font-black px-4 py-1.5 rounded-full shadow-md uppercase tracking-wider z-10 border-2 border-white">
             पहिले 500 विद्यार्थी विशेष सवलत
           </div>
 
           <div className="bg-gradient-to-b from-white to-[#fbf4f3] rounded-3xl p-6 sm:p-8 md:p-9 lg:p-10 border-2 border-[#9B3A32] shadow-2xl text-center space-y-6">
-            
+
             <div className="space-y-1">
               <p className="text-xs text-slate-500 font-bold uppercase tracking-wider">{cta.packageName}</p>
               <div className="flex items-center justify-center gap-3 pt-1">
@@ -91,7 +91,7 @@ export function Pricing({
 
             {/* Price Lock Alert */}
             <p className="text-[11px] text-slate-500 font-medium">
-              *58 सीट्स संपल्यानंतर मूळ किंमत ₹999 लागू होईल.
+              *58 सीट्स संपल्यानंतर मूळ किंमत ₹499 लागू होईल.
             </p>
 
             {/* Risk-Reversal Callout */}

@@ -73,7 +73,7 @@
     },
     {
       "step": "स्टेप 3",
-      "title": "झटपट ॲक्टिव्हेशन (Instant Access)",
+      "title": "Instant Test Series (Instant Access)",
       "desc": "पेमेंट होताच 1 सेकंदात टेस्ट्स अनलॉक होतील आणि लॉगिन माहिती मिळेल.",
       "iconName": "Smartphone",
       "color": "bg-blue-50 text-blue-700 border-blue-200",
@@ -463,7 +463,7 @@
     "packageName": "संपूर्ण 25 टेस्ट्स पॅकेज",
     "originalPrice": 999,
     "offerPrice": 199,
-    "discountText": "60% थेट सवलत • एकरकमी फी",
+    "discountText": "60% थेट सवलत • ",
     "bookedSeats": 442,
     "totalSeats": 500,
     "remainingSeats": 58,

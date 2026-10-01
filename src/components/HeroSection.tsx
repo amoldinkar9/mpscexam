@@ -52,7 +52,7 @@ export function HeroSection({ initialData }: { initialData?: typeof siteData.her
               </div>
               <p className="text-xs text-[#64748b] flex items-center gap-2 font-medium">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>⚡ 60% सवलत केवळ पहिल्या 500 विद्यार्थ्यांसाठी • 100% सुरक्षित पेमेंट • झटपट ॲक्टिव्हेशन</span>
+                <span>⚡ 60% सवलत केवळ पहिल्या 500 विद्यार्थ्यांसाठी • 100% सुरक्षित पेमेंट • Instant Test Series</span>
               </p>
             </div>
 

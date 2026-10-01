@@ -210,7 +210,7 @@ export function HowToPurchase({ initialData }: { initialData?: typeof siteData.h
           </button>
           <div className="text-xs sm:text-sm text-slate-500 flex items-center justify-center gap-1.5 font-medium flex-wrap px-4">
             <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0 inline-block" />
-            <span>⚡ 60% सवलत केवळ पहिल्या 500 विद्यार्थ्यांसाठी • 100% सुरक्षित पेमेंट • झटपट ॲक्टिव्हेशन</span>
+            <span>⚡ 60% सवलत केवळ पहिल्या 500 विद्यार्थ्यांसाठी • 100% सुरक्षित पेमेंट • Instant Test Series</span>
           </div>
         </div>
 

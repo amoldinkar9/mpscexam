@@ -1,7 +1,7 @@
-# Graph Report - mpscexam  (2026-10-01)
+# Graph Report - mpscexam  (2026-09-29)
 
 ## Corpus Check
-- 51 files · ~88,540 words
+- 51 files · ~88,574 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1f77a3c0`
+- Built from commit: `0932ec20`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -45,12 +45,12 @@
 1. `compilerOptions` - 16 edges
 2. `getDb()` - 9 edges
 3. `scripts` - 9 edges
-4. `getScarcityData()` - 7 edges
-5. `getSiteContent()` - 7 edges
+4. `getSiteContent()` - 7 edges
+5. `getScarcityData()` - 7 edges
 6. `include` - 7 edges
 7. `mpscexam Route Map` - 7 edges
-8. `mpscexam System Architecture` - 6 edges
-9. `QUESTION Entity` - 6 edges
+8. `QUESTION Entity` - 6 edges
+9. `mpscexam System Architecture` - 6 edges
 10. `TestAttempt Entity` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
@@ -150,7 +150,7 @@ Cohesion: 0.20
 Nodes (9): **/*.mts, .next/dev/types/**/*.ts, next-env.d.ts, .next/types/**/*.ts, node_modules, **/*.ts, **/*.tsx, exclude (+1 more)
 
 ## Knowledge Gaps
-- **114 isolated node(s):** `SiteContent`, `NAV_ITEMS`, `ICON_MAP`, `CutoffContrastData`, `ActivityItem` (+109 more)
+- **114 isolated node(s):** `SiteContent`, `NAV_ITEMS`, `dynamic`, `revalidate`, `ICON_MAP` (+109 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 131 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -161,7 +161,7 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.040) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `scripts`?**
   _High betweenness centrality (0.036) - this node is a cross-community bridge._
-- **What connects `SiteContent`, `NAV_ITEMS`, `ICON_MAP` to the rest of the system?**
+- **What connects `SiteContent`, `NAV_ITEMS`, `dynamic` to the rest of the system?**
   _114 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `app/page.tsx` be split into smaller, more focused modules?**
   _Cohesion score 0.07948717948717948 - nodes in this community are weakly interconnected._

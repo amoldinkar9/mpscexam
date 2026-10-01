@@ -52,7 +52,7 @@ export function HeroSection({ initialData }: { initialData?: typeof siteData.her
               </div>
               <p className="text-xs text-[#64748b] flex items-center gap-2 font-medium">
                 <ShieldCheck className="w-4 h-4 text-emerald-600 shrink-0" />
-                <span>⚡ 80% सवलत केवळ पहिल्या 500 विद्यार्थ्यांसाठी • 100% सुरक्षित पेमेंट • झटपट ॲक्टिव्हेशन</span>
+                <span>⚡ 60% सवलत केवळ पहिल्या 500 विद्यार्थ्यांसाठी • 100% सुरक्षित पेमेंट • झटपट ॲक्टिव्हेशन</span>
               </p>
             </div>
 
@@ -65,7 +65,7 @@ export function HeroSection({ initialData }: { initialData?: typeof siteData.her
                   ))}
                 </div>
                 <span className="text-sm font-bold text-[#1F2A5C] english-numerals">4.9/5</span>
-                <span className="text-xs text-slate-500">(1,850+ पुनरावलोकने)</span>
+                <span className="text-xs text-slate-500">(1,850+ Reviews)</span>
               </div>
 
               <div className="flex items-center gap-2 text-sm text-[#1F2A5C] font-bold">
@@ -76,7 +76,7 @@ export function HeroSection({ initialData }: { initialData?: typeof siteData.her
 
               <div className="flex items-center gap-2 text-sm text-[#1F2A5C] font-bold">
                 <Award className="w-4 h-4 text-[#9B3A32]" />
-                <span>अमर्यादित री-अटेम्प्ट</span>
+                <span>Lifetime Explanation</span>
               </div>
             </div>
 
@@ -117,7 +117,7 @@ export function HeroSection({ initialData }: { initialData?: typeof siteData.her
                     <span className="text-xs sm:text-sm text-slate-700 line-through font-semibold english-numerals">₹499</span>
                   </div>
                   <span className="text-2xl sm:text-3xl font-black text-[#9B3A32] leading-none english-numerals">₹199</span>
-                  <span className="text-[10px] font-extrabold text-[#78350f] mt-0.5">80% सूट</span>
+                  <span className="text-[10px] font-extrabold text-[#78350f] mt-0.5">60% सूट</span>
                 </div>
               </div>
 

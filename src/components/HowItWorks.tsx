@@ -5,7 +5,7 @@ export function HowItWorks() {
     {
       num: "1",
       title: "स्लॉट लॉक करा (₹199)",
-      desc: "पहिल्या 500 विद्यार्थ्यांच्या विशेष 80% सवलतीमध्ये त्वरित प्रवेश मिळवा.",
+      desc: "पहिल्या 500 विद्यार्थ्यांच्या विशेष 60% सवलतीमध्ये त्वरित प्रवेश मिळवा.",
       icon: Zap
     },
     {
@@ -37,7 +37,7 @@ export function HowItWorks() {
   return (
     <section className="py-20 bg-white border-b border-slate-200">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-3">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#fbeae8] text-[#9B3A32] text-xs font-bold border border-[#f3c8c4]">
@@ -58,7 +58,7 @@ export function HowItWorks() {
             const Icon = step.icon;
             return (
               <div key={idx} className="relative flex flex-col items-center text-center group space-y-3">
-                
+
                 {/* Step Circle with English Numeral & Icon */}
                 <div className="relative mb-2">
                   <div className="w-18 h-18 rounded-2xl bg-[#9B3A32] text-white flex items-center justify-center shadow-lg shadow-[#9B3A32]/20 group-hover:scale-105 transition-transform duration-200">

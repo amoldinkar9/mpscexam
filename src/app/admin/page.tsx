@@ -71,10 +71,10 @@ function getInitialHtmlForQuestion(item: any): string {
         const color = b.highlightClass?.includes("text-[#9B3A32]")
           ? ' style="color: #9B3A32;"'
           : b.highlightClass?.includes("text-blue-700")
-          ? ' style="color: #1d4ed8;"'
-          : b.highlightClass?.includes("text-emerald-700")
-          ? ' style="color: #047857;"'
-          : "";
+            ? ' style="color: #1d4ed8;"'
+            : b.highlightClass?.includes("text-emerald-700")
+              ? ' style="color: #047857;"'
+              : "";
         html += `<li><strong${color}>${b.label || ""}</strong> ${b.text || ""}</li>`;
       }
       html += "</ul>";
@@ -116,7 +116,7 @@ export default function AdminPage() {
   const [content, setContent] = useState<SiteContent>(defaultSiteData);
   const [activeSection, setActiveSection] = useState<string>("sections");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  
+
   // Auth state
   const [passcode, setPasscode] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -798,11 +798,11 @@ export default function AdminPage() {
 
   return (
     <div className="min-h-screen bg-[#fafafa] flex text-black font-sans antialiased">
-      
+
       {/* 1. LEFT SIDEBAR (Desktop) */}
       <aside className="hidden md:flex md:w-60 bg-white border-r border-zinc-200 flex-col justify-between shrink-0 min-h-screen sticky top-0">
         <div className="p-5 space-y-6">
-          
+
           {/* Brand header */}
           <div>
             <h1 className="text-base font-bold text-black tracking-tight">mpscexam</h1>
@@ -934,7 +934,7 @@ export default function AdminPage() {
 
       {/* 2. MAIN CONTENT AREA */}
       <main className="flex-1 flex flex-col min-w-0 bg-[#fafafa]">
-        
+
         {/* Mobile Sticky Top Header Bar */}
         <header className="md:hidden sticky top-0 z-30 bg-white border-b border-zinc-200 px-3.5 py-2.5 flex items-center justify-between gap-2 shadow-xs">
           <div className="flex items-center gap-2 min-w-0">
@@ -1024,13 +1024,12 @@ export default function AdminPage() {
         {statusMessage && (
           <div className="px-3.5 sm:px-6 lg:px-8 pt-4">
             <div
-              className={`p-3 rounded-[4px] flex items-center justify-between border text-xs font-semibold ${
-                statusMessage.type === "success"
+              className={`p-3 rounded-[4px] flex items-center justify-between border text-xs font-semibold ${statusMessage.type === "success"
                   ? "bg-zinc-900 text-white border-black"
                   : statusMessage.type === "error"
-                  ? "bg-zinc-100 text-black border-zinc-300"
-                  : "bg-zinc-50 text-zinc-800 border-zinc-200"
-              }`}
+                    ? "bg-zinc-100 text-black border-zinc-300"
+                    : "bg-zinc-50 text-zinc-800 border-zinc-200"
+                }`}
             >
               <div className="flex items-center gap-2">
                 {statusMessage.type === "success" ? (
@@ -1164,173 +1163,172 @@ export default function AdminPage() {
                     {(((content.sections && content.sections.length > 0)
                       ? content.sections
                       : defaultSiteData.sections) as any[]).map((sec, idx, arr) => {
-                      const isFirst = idx === 0;
-                      const isLast = idx === arr.length - 1;
-                      const isLive = sec.enabled !== false;
+                        const isFirst = idx === 0;
+                        const isLast = idx === arr.length - 1;
+                        const isLive = sec.enabled !== false;
 
-                      // Map section ID to corresponding admin tab
-                      const tabTarget: Record<string, string> = {
-                        hero: "hero",
-                        testimonials: "testimonials",
-                        syllabus: "syllabus",
-                        howToPurchase: "purchase",
-                        painPoints: "painPoints",
-                        cutoff: "cutoff",
-                        sampleProof: "sampleProof",
-                        faqs: "faqs",
-                        pricing: "finalCta",
-                        pricing2: "finalCta",
-                      };
-                      const hasDirectTab = tabTarget[sec.id] !== undefined;
+                        // Map section ID to corresponding admin tab
+                        const tabTarget: Record<string, string> = {
+                          hero: "hero",
+                          testimonials: "testimonials",
+                          syllabus: "syllabus",
+                          howToPurchase: "purchase",
+                          painPoints: "painPoints",
+                          cutoff: "cutoff",
+                          sampleProof: "sampleProof",
+                          faqs: "faqs",
+                          pricing: "finalCta",
+                          pricing2: "finalCta",
+                        };
+                        const hasDirectTab = tabTarget[sec.id] !== undefined;
 
-                      return (
-                        <tr
-                          key={sec.id}
-                          draggable
-                          onDragStart={(e) => {
-                            setDragSource({ type: "section", index: idx });
-                            e.dataTransfer.effectAllowed = "move";
-                            e.dataTransfer.setData("text/plain", `${idx}`);
-                          }}
-                          onDragOver={(e) => {
-                            e.preventDefault();
-                            e.dataTransfer.dropEffect = "move";
-                            if (dragOverIndex !== idx || dragOverType !== "section") {
-                              setDragOverIndex(idx);
-                              setDragOverType("section");
-                            }
-                          }}
-                          onDragLeave={() => {
-                            if (dragOverIndex === idx && dragOverType === "section") {
+                        return (
+                          <tr
+                            key={sec.id}
+                            draggable
+                            onDragStart={(e) => {
+                              setDragSource({ type: "section", index: idx });
+                              e.dataTransfer.effectAllowed = "move";
+                              e.dataTransfer.setData("text/plain", `${idx}`);
+                            }}
+                            onDragOver={(e) => {
+                              e.preventDefault();
+                              e.dataTransfer.dropEffect = "move";
+                              if (dragOverIndex !== idx || dragOverType !== "section") {
+                                setDragOverIndex(idx);
+                                setDragOverType("section");
+                              }
+                            }}
+                            onDragLeave={() => {
+                              if (dragOverIndex === idx && dragOverType === "section") {
+                                setDragOverIndex(null);
+                                setDragOverType(null);
+                              }
+                            }}
+                            onDrop={(e) => {
+                              e.preventDefault();
+                              if (dragSource && dragSource.type === "section") {
+                                handleReorderList("section", dragSource.index, idx);
+                              }
+                              setDragSource(null);
                               setDragOverIndex(null);
                               setDragOverType(null);
-                            }
-                          }}
-                          onDrop={(e) => {
-                            e.preventDefault();
-                            if (dragSource && dragSource.type === "section") {
-                              handleReorderList("section", dragSource.index, idx);
-                            }
-                            setDragSource(null);
-                            setDragOverIndex(null);
-                            setDragOverType(null);
-                          }}
-                          onDragEnd={() => {
-                            setDragSource(null);
-                            setDragOverIndex(null);
-                            setDragOverType(null);
-                          }}
-                          className={`transition-colors ${
-                            dragSource?.type === "section" && dragSource.index === idx
-                              ? "opacity-30 bg-zinc-100"
-                              : dragOverType === "section" && dragOverIndex === idx
-                              ? "bg-zinc-100 border-t-2 border-black"
-                              : !isLive
-                              ? "bg-zinc-50/50 hover:bg-zinc-100/60"
-                              : "hover:bg-zinc-50/70"
-                          }`}
-                        >
-                          {/* Drag Handle */}
-                          <td
-                            className="p-3 text-center text-zinc-400 hover:text-black cursor-grab active:cursor-grabbing select-none"
-                            title="Drag to reorder"
+                            }}
+                            onDragEnd={() => {
+                              setDragSource(null);
+                              setDragOverIndex(null);
+                              setDragOverType(null);
+                            }}
+                            className={`transition-colors ${dragSource?.type === "section" && dragSource.index === idx
+                                ? "opacity-30 bg-zinc-100"
+                                : dragOverType === "section" && dragOverIndex === idx
+                                  ? "bg-zinc-100 border-t-2 border-black"
+                                  : !isLive
+                                    ? "bg-zinc-50/50 hover:bg-zinc-100/60"
+                                    : "hover:bg-zinc-50/70"
+                              }`}
                           >
-                            <GripVertical className="w-4 h-4 mx-auto" />
-                          </td>
+                            {/* Drag Handle */}
+                            <td
+                              className="p-3 text-center text-zinc-400 hover:text-black cursor-grab active:cursor-grabbing select-none"
+                              title="Drag to reorder"
+                            >
+                              <GripVertical className="w-4 h-4 mx-auto" />
+                            </td>
 
-                          {/* Order Index */}
-                          <td className="p-3 text-center">
-                            <span className="inline-flex items-center justify-center w-6 h-6 rounded-[4px] bg-zinc-100 text-zinc-700 font-bold text-[11px]">
-                              #{idx + 1}
-                            </span>
-                          </td>
+                            {/* Order Index */}
+                            <td className="p-3 text-center">
+                              <span className="inline-flex items-center justify-center w-6 h-6 rounded-[4px] bg-zinc-100 text-zinc-700 font-bold text-[11px]">
+                                #{idx + 1}
+                              </span>
+                            </td>
 
-                          {/* Move Up/Down arrows */}
-                          <td className="p-3 text-center">
-                            <div className="flex items-center justify-center gap-1">
-                              <button
-                                onClick={() => handleMoveSection(idx, "up")}
-                                disabled={isFirst}
-                                className="p-1 rounded-[3px] text-zinc-500 hover:text-black hover:bg-zinc-200/80 disabled:opacity-20 disabled:hover:bg-transparent disabled:hover:text-zinc-500 cursor-pointer disabled:cursor-not-allowed transition-colors"
-                                title="Move Up"
-                              >
-                                <ChevronUp className="w-4 h-4" />
-                              </button>
-                              <button
-                                onClick={() => handleMoveSection(idx, "down")}
-                                disabled={isLast}
-                                className="p-1 rounded-[3px] text-zinc-500 hover:text-black hover:bg-zinc-200/80 disabled:opacity-20 disabled:hover:bg-transparent disabled:hover:text-zinc-500 cursor-pointer disabled:cursor-not-allowed transition-colors"
-                                title="Move Down"
-                              >
-                                <ChevronDown className="w-4 h-4" />
-                              </button>
-                            </div>
-                          </td>
-
-                          {/* Section details */}
-                          <td className="p-3">
-                            <div className="space-y-0.5">
-                              <div className="flex items-center gap-2">
-                                <span className={`font-bold text-xs ${isLive ? "text-zinc-900" : "text-zinc-400 line-through"}`}>
-                                  {sec.nameMr || sec.name}
-                                </span>
-                                <span className="text-[10px] px-1.5 py-0.5 bg-zinc-100 text-zinc-600 rounded font-mono">
-                                  {sec.id}
-                                </span>
+                            {/* Move Up/Down arrows */}
+                            <td className="p-3 text-center">
+                              <div className="flex items-center justify-center gap-1">
+                                <button
+                                  onClick={() => handleMoveSection(idx, "up")}
+                                  disabled={isFirst}
+                                  className="p-1 rounded-[3px] text-zinc-500 hover:text-black hover:bg-zinc-200/80 disabled:opacity-20 disabled:hover:bg-transparent disabled:hover:text-zinc-500 cursor-pointer disabled:cursor-not-allowed transition-colors"
+                                  title="Move Up"
+                                >
+                                  <ChevronUp className="w-4 h-4" />
+                                </button>
+                                <button
+                                  onClick={() => handleMoveSection(idx, "down")}
+                                  disabled={isLast}
+                                  className="p-1 rounded-[3px] text-zinc-500 hover:text-black hover:bg-zinc-200/80 disabled:opacity-20 disabled:hover:bg-transparent disabled:hover:text-zinc-500 cursor-pointer disabled:cursor-not-allowed transition-colors"
+                                  title="Move Down"
+                                >
+                                  <ChevronDown className="w-4 h-4" />
+                                </button>
                               </div>
-                              <p className="text-[11px] text-zinc-500">
-                                {sec.description || sec.name}
-                              </p>
-                            </div>
-                          </td>
+                            </td>
 
-                          {/* Status Badge */}
-                          <td className="p-3 text-center">
-                            {isLive ? (
-                              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full">
-                                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-                                <span>Live</span>
-                              </span>
-                            ) : (
-                              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-bold bg-zinc-100 text-zinc-500 border border-zinc-200 rounded-full">
-                                <span className="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
-                                <span>Hidden</span>
-                              </span>
-                            )}
-                          </td>
+                            {/* Section details */}
+                            <td className="p-3">
+                              <div className="space-y-0.5">
+                                <div className="flex items-center gap-2">
+                                  <span className={`font-bold text-xs ${isLive ? "text-zinc-900" : "text-zinc-400 line-through"}`}>
+                                    {sec.nameMr || sec.name}
+                                  </span>
+                                  <span className="text-[10px] px-1.5 py-0.5 bg-zinc-100 text-zinc-600 rounded font-mono">
+                                    {sec.id}
+                                  </span>
+                                </div>
+                                <p className="text-[11px] text-zinc-500">
+                                  {sec.description || sec.name}
+                                </p>
+                              </div>
+                            </td>
 
-                          {/* Visibility Switch */}
-                          <td className="p-3 text-center">
-                            <div className="flex items-center justify-center">
-                              <Switch.Root
-                                checked={isLive}
-                                onCheckedChange={() => handleToggleSectionEnabled(sec.id)}
-                                className="w-9 h-5 bg-zinc-300 data-[state=checked]:bg-black rounded-full relative outline-none cursor-pointer transition-colors"
-                                title={isLive ? "Disable section" : "Enable section"}
-                              >
-                                <Switch.Thumb className="block w-4 h-4 bg-white rounded-full transition-transform transform translate-x-0.5 data-[state=checked]:translate-x-4.5 will-change-transform shadow-xs" />
-                              </Switch.Root>
-                            </div>
-                          </td>
+                            {/* Status Badge */}
+                            <td className="p-3 text-center">
+                              {isLive ? (
+                                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-full">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                                  <span>Live</span>
+                                </span>
+                              ) : (
+                                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-bold bg-zinc-100 text-zinc-500 border border-zinc-200 rounded-full">
+                                  <span className="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
+                                  <span>Hidden</span>
+                                </span>
+                              )}
+                            </td>
 
-                          {/* Quick Content Edit button */}
-                          <td className="p-3 text-center">
-                            {hasDirectTab ? (
-                              <button
-                                onClick={() => setActiveSection(tabTarget[sec.id])}
-                                className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-semibold text-zinc-700 hover:text-black bg-zinc-100 hover:bg-zinc-200 rounded-[4px] transition-colors cursor-pointer"
-                                title="Edit section content"
-                              >
-                                <Edit2 className="w-3 h-3" />
-                                <span>Edit</span>
-                              </button>
-                            ) : (
-                              <span className="text-[11px] text-zinc-400 font-normal">Automatic</span>
-                            )}
-                          </td>
-                        </tr>
-                      );
-                    })}
+                            {/* Visibility Switch */}
+                            <td className="p-3 text-center">
+                              <div className="flex items-center justify-center">
+                                <Switch.Root
+                                  checked={isLive}
+                                  onCheckedChange={() => handleToggleSectionEnabled(sec.id)}
+                                  className="w-9 h-5 bg-zinc-300 data-[state=checked]:bg-black rounded-full relative outline-none cursor-pointer transition-colors"
+                                  title={isLive ? "Disable section" : "Enable section"}
+                                >
+                                  <Switch.Thumb className="block w-4 h-4 bg-white rounded-full transition-transform transform translate-x-0.5 data-[state=checked]:translate-x-4.5 will-change-transform shadow-xs" />
+                                </Switch.Root>
+                              </div>
+                            </td>
+
+                            {/* Quick Content Edit button */}
+                            <td className="p-3 text-center">
+                              {hasDirectTab ? (
+                                <button
+                                  onClick={() => setActiveSection(tabTarget[sec.id])}
+                                  className="inline-flex items-center gap-1 px-2.5 py-1 text-[11px] font-semibold text-zinc-700 hover:text-black bg-zinc-100 hover:bg-zinc-200 rounded-[4px] transition-colors cursor-pointer"
+                                  title="Edit section content"
+                                >
+                                  <Edit2 className="w-3 h-3" />
+                                  <span>Edit</span>
+                                </button>
+                              ) : (
+                                <span className="text-[11px] text-zinc-400 font-normal">Automatic</span>
+                              )}
+                            </td>
+                          </tr>
+                        );
+                      })}
                   </tbody>
                 </table>
               </div>
@@ -1404,13 +1402,12 @@ export default function AdminPage() {
                           setDragOverIndex(null);
                           setDragOverType(null);
                         }}
-                        className={`transition-colors ${
-                          dragSource?.type === "faq" && dragSource.index === idx
+                        className={`transition-colors ${dragSource?.type === "faq" && dragSource.index === idx
                             ? "opacity-30 bg-zinc-100"
                             : dragOverType === "faq" && dragOverIndex === idx
-                            ? "bg-zinc-100 border-t-2 border-black"
-                            : "hover:bg-zinc-50/60"
-                        }`}
+                              ? "bg-zinc-100 border-t-2 border-black"
+                              : "hover:bg-zinc-50/60"
+                          }`}
                       >
                         <td
                           className="p-3 text-center text-zinc-400 hover:text-black cursor-grab active:cursor-grabbing"
@@ -1523,13 +1520,12 @@ export default function AdminPage() {
                           setDragOverIndex(null);
                           setDragOverType(null);
                         }}
-                        className={`transition-colors ${
-                          dragSource?.type === "testimonial" && dragSource.index === idx
+                        className={`transition-colors ${dragSource?.type === "testimonial" && dragSource.index === idx
                             ? "opacity-30 bg-zinc-100"
                             : dragOverType === "testimonial" && dragOverIndex === idx
-                            ? "bg-zinc-100 border-t-2 border-black"
-                            : "hover:bg-zinc-50/60"
-                        }`}
+                              ? "bg-zinc-100 border-t-2 border-black"
+                              : "hover:bg-zinc-50/60"
+                          }`}
                       >
                         <td
                           className="p-3 text-center text-zinc-400 hover:text-black cursor-grab active:cursor-grabbing"
@@ -1675,13 +1671,12 @@ export default function AdminPage() {
                           setDragOverIndex(null);
                           setDragOverType(null);
                         }}
-                        className={`transition-colors ${
-                          dragSource?.type === "purchase" && dragSource.index === idx
+                        className={`transition-colors ${dragSource?.type === "purchase" && dragSource.index === idx
                             ? "opacity-30 bg-zinc-100"
                             : dragOverType === "purchase" && dragOverIndex === idx
-                            ? "bg-zinc-100 border-t-2 border-black"
-                            : "hover:bg-zinc-50/60"
-                        }`}
+                              ? "bg-zinc-100 border-t-2 border-black"
+                              : "hover:bg-zinc-50/60"
+                          }`}
                       >
                         <td
                           className="p-3 text-center text-zinc-400 hover:text-black cursor-grab active:cursor-grabbing"
@@ -1886,13 +1881,12 @@ export default function AdminPage() {
                           setDragOverIndex(null);
                           setDragOverType(null);
                         }}
-                        className={`transition-colors ${
-                          dragSource?.type === "painPoint" && dragSource.index === idx
+                        className={`transition-colors ${dragSource?.type === "painPoint" && dragSource.index === idx
                             ? "opacity-30 bg-zinc-100"
                             : dragOverType === "painPoint" && dragOverIndex === idx
-                            ? "bg-zinc-100 border-t-2 border-black"
-                            : "hover:bg-zinc-50/60"
-                        }`}
+                              ? "bg-zinc-100 border-t-2 border-black"
+                              : "hover:bg-zinc-50/60"
+                          }`}
                       >
                         <td
                           className="p-3 text-center text-zinc-400 hover:text-black cursor-grab active:cursor-grabbing"
@@ -1947,7 +1941,7 @@ export default function AdminPage() {
 
               <div className="border border-zinc-200 rounded-[4px] bg-white p-6 shadow-xs space-y-5">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  
+
                   {/* Form inputs */}
                   <div className="space-y-4">
                     <div>
@@ -2319,13 +2313,12 @@ export default function AdminPage() {
                         setDragOverIndex(null);
                         setDragOverType(null);
                       }}
-                      className={`border rounded-[4px] bg-white p-4 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all ${
-                        dragSource?.type === "syllabus" && dragSource.index === idx
+                      className={`border rounded-[4px] bg-white p-4 shadow-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-4 transition-all ${dragSource?.type === "syllabus" && dragSource.index === idx
                           ? "opacity-30 bg-zinc-100 border-dashed border-zinc-400"
                           : dragOverType === "syllabus" && dragOverIndex === idx
-                          ? "border-t-2 border-t-black bg-zinc-50 border-zinc-300"
-                          : "border-zinc-200"
-                      }`}
+                            ? "border-t-2 border-t-black bg-zinc-50 border-zinc-300"
+                            : "border-zinc-200"
+                        }`}
                     >
                       <div className="flex items-start gap-3.5 flex-1 min-w-0">
                         <div
@@ -2561,7 +2554,7 @@ export default function AdminPage() {
 
                 return (
                   <div className="space-y-6">
-                    
+
                     {/* Subject Tabs Bar with Horizontal Drag-and-Drop and Left/Right buttons */}
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-zinc-200 pb-3">
                       <div className="flex items-center gap-1.5 overflow-x-auto pb-1 max-w-full no-scrollbar">
@@ -2605,15 +2598,14 @@ export default function AdminPage() {
                                 setDragOverSubjectKey(null);
                               }}
                               onClick={() => setActiveSubject(key)}
-                              className={`group flex items-center gap-1.5 px-3 py-1.5 rounded-[4px] text-xs font-bold transition-all cursor-grab active:cursor-grabbing select-none border shrink-0 ${
-                                isDragging
+                              className={`group flex items-center gap-1.5 px-3 py-1.5 rounded-[4px] text-xs font-bold transition-all cursor-grab active:cursor-grabbing select-none border shrink-0 ${isDragging
                                   ? "opacity-30 border-dashed border-zinc-400 bg-zinc-100"
                                   : isDragOver
-                                  ? "border-l-4 border-l-black bg-zinc-100 ring-2 ring-black"
-                                  : isActive
-                                  ? "bg-black text-white border-black shadow-xs"
-                                  : "bg-white text-zinc-600 border-zinc-200 hover:bg-zinc-100 hover:text-black"
-                              }`}
+                                    ? "border-l-4 border-l-black bg-zinc-100 ring-2 ring-black"
+                                    : isActive
+                                      ? "bg-black text-white border-black shadow-xs"
+                                      : "bg-white text-zinc-600 border-zinc-200 hover:bg-zinc-100 hover:text-black"
+                                }`}
                             >
                               <span
                                 className="opacity-60 group-hover:opacity-100 text-[11px] pointer-events-none"
@@ -2623,9 +2615,8 @@ export default function AdminPage() {
                               </span>
                               <span className="pointer-events-none">{item?.subjectName || key}</span>
                               <span
-                                className={`text-[10px] px-1.5 py-0.2 rounded font-mono pointer-events-none ${
-                                  isActive ? "bg-zinc-800 text-zinc-300" : "bg-zinc-100 text-zinc-500"
-                                }`}
+                                className={`text-[10px] px-1.5 py-0.2 rounded font-mono pointer-events-none ${isActive ? "bg-zinc-800 text-zinc-300" : "bg-zinc-100 text-zinc-500"
+                                  }`}
                               >
                                 Q{item?.questionNo || idx + 1}
                               </span>
@@ -2639,11 +2630,10 @@ export default function AdminPage() {
                                       e.stopPropagation();
                                       handleMoveSubject(key, "left");
                                     }}
-                                    className={`w-4 h-4 flex items-center justify-center text-[10px] rounded cursor-pointer font-bold transition-all ${
-                                      isActive
+                                    className={`w-4 h-4 flex items-center justify-center text-[10px] rounded cursor-pointer font-bold transition-all ${isActive
                                         ? "text-zinc-400 hover:text-white hover:bg-zinc-800"
                                         : "text-zinc-400 hover:text-black hover:bg-zinc-200"
-                                    }`}
+                                      }`}
                                     title="Move tab left"
                                   >
                                     ←
@@ -2656,11 +2646,10 @@ export default function AdminPage() {
                                       e.stopPropagation();
                                       handleMoveSubject(key, "right");
                                     }}
-                                    className={`w-4 h-4 flex items-center justify-center text-[10px] rounded cursor-pointer font-bold transition-all ${
-                                      isActive
+                                    className={`w-4 h-4 flex items-center justify-center text-[10px] rounded cursor-pointer font-bold transition-all ${isActive
                                         ? "text-zinc-400 hover:text-white hover:bg-zinc-800"
                                         : "text-zinc-400 hover:text-black hover:bg-zinc-200"
-                                    }`}
+                                      }`}
                                     title="Move tab right"
                                   >
                                     →
@@ -2701,7 +2690,7 @@ export default function AdminPage() {
 
                     {/* Editor Form for Current Active Subject */}
                     <div className="border border-zinc-200 rounded-[4px] bg-white p-5 sm:p-6 shadow-xs space-y-5">
-                      
+
                       {/* Top Row: Question No, Subject Name & Badge Tag */}
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                         <div>
@@ -2821,15 +2810,14 @@ export default function AdminPage() {
                                   setDragOptionSource(null);
                                   setDragOverOptionIndex(null);
                                 }}
-                                className={`p-2.5 border rounded-[4px] flex items-center gap-2.5 transition-all ${
-                                  dragOptionSource === optIdx
+                                className={`p-2.5 border rounded-[4px] flex items-center gap-2.5 transition-all ${dragOptionSource === optIdx
                                     ? "opacity-30 bg-zinc-100"
                                     : dragOverOptionIndex === optIdx
-                                    ? "border-t-2 border-t-black bg-zinc-50"
-                                    : isSelected
-                                    ? "border-emerald-600 bg-emerald-50/60 font-bold"
-                                    : "border-zinc-200 bg-white"
-                                }`}
+                                      ? "border-t-2 border-t-black bg-zinc-50"
+                                      : isSelected
+                                        ? "border-emerald-600 bg-emerald-50/60 font-bold"
+                                        : "border-zinc-200 bg-white"
+                                  }`}
                               >
                                 <div
                                   className="text-zinc-400 hover:text-black cursor-grab active:cursor-grabbing p-0.5 shrink-0"
@@ -2984,33 +2972,30 @@ export default function AdminPage() {
                             <button
                               type="button"
                               onClick={() => setExplanationMode("rich")}
-                              className={`px-3 py-1 font-semibold cursor-pointer ${
-                                explanationMode === "rich"
+                              className={`px-3 py-1 font-semibold cursor-pointer ${explanationMode === "rich"
                                   ? "bg-black text-white"
                                   : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200"
-                              }`}
+                                }`}
                             >
                               Rich Text
                             </button>
                             <button
                               type="button"
                               onClick={() => setExplanationMode("structured")}
-                              className={`px-3 py-1 font-semibold cursor-pointer ${
-                                explanationMode === "structured"
+                              className={`px-3 py-1 font-semibold cursor-pointer ${explanationMode === "structured"
                                   ? "bg-black text-white"
                                   : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200"
-                              }`}
+                                }`}
                             >
                               Bullets
                             </button>
                             <button
                               type="button"
                               onClick={() => setExplanationMode("text")}
-                              className={`px-3 py-1 font-semibold cursor-pointer ${
-                                explanationMode === "text"
+                              className={`px-3 py-1 font-semibold cursor-pointer ${explanationMode === "text"
                                   ? "bg-black text-white"
                                   : "bg-zinc-100 text-zinc-600 hover:bg-zinc-200"
-                              }`}
+                                }`}
                             >
                               Plain Text
                             </button>
@@ -3039,7 +3024,7 @@ export default function AdminPage() {
                           </div>
                         ) : explanationMode === "structured" ? (
                           <div className="space-y-4 bg-zinc-50/70 p-4 border border-zinc-200 rounded-[4px]">
-                            
+
                             {/* A. Key-Value Bullets */}
                             <div>
                               <div className="flex items-center justify-between mb-2">
@@ -3321,11 +3306,10 @@ export default function AdminPage() {
                             return (
                               <div
                                 key={idx}
-                                className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all ${
-                                  isCorrect
+                                className={`flex items-center gap-3 px-3.5 py-2.5 rounded-xl transition-all ${isCorrect
                                     ? "bg-[#bbf7d0] text-emerald-950 font-bold shadow-2xs"
                                     : "text-slate-700 font-medium hover:bg-slate-100/60"
-                                }`}
+                                  }`}
                               >
                                 {isCorrect ? (
                                   <div className="w-4 h-4 rounded-full border-2 border-emerald-700 bg-white flex items-center justify-center shrink-0">
@@ -3406,7 +3390,7 @@ export default function AdminPage() {
                         <div className="pt-4 border-t border-slate-200/90 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs sm:text-sm text-slate-500 font-medium">
                           <span>अशाच पद्धतीचे 2,500+ दर्जेदार प्रश्न व सविस्तर स्पष्टीकरणे टेस्ट सिरीजमध्ये उपलब्ध आहेत.</span>
                           <span className="font-bold text-[#9B3A32] flex items-center shrink-0">
-                            100% MPSC स्टँडर्ड <ChevronRight className="w-4 h-4 ml-0.5" />
+                            100% MPSC पॅटर्न <ChevronRight className="w-4 h-4 ml-0.5" />
                           </span>
                         </div>
                       </div>
@@ -3665,7 +3649,7 @@ export default function AdminPage() {
         <Dialog.Portal>
           <Dialog.Overlay className="fixed inset-0 bg-black/40 backdrop-blur-xs z-50 animate-in fade-in duration-150" />
           <Dialog.Content className="admin-panel fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-[6px] shadow-2xl border border-zinc-200 w-[calc(100%-2rem)] max-w-lg z-50 p-4 sm:p-6 max-h-[90vh] overflow-y-auto outline-none animate-in zoom-in-95 duration-150">
-            
+
             {/* Modal Header */}
             <div className="flex items-center justify-between pb-3 border-b border-zinc-100">
               <Dialog.Title className="text-sm font-bold text-black">
@@ -3673,12 +3657,12 @@ export default function AdminPage() {
                 {modalType === "faq"
                   ? "FAQ"
                   : modalType === "testimonial"
-                  ? "Testimonial"
-                  : modalType === "purchase"
-                  ? "Purchase Step"
-                  : modalType === "syllabus"
-                  ? "Syllabus Subject"
-                  : "Pain Point & Solution"}
+                    ? "Testimonial"
+                    : modalType === "purchase"
+                      ? "Purchase Step"
+                      : modalType === "syllabus"
+                        ? "Syllabus Subject"
+                        : "Pain Point & Solution"}
               </Dialog.Title>
               <Dialog.Close asChild>
                 <button
@@ -3692,7 +3676,7 @@ export default function AdminPage() {
 
             {/* Modal Form */}
             <form onSubmit={handleModalSubmit} className="space-y-4 pt-4">
-              
+
               {/* FAQ FORM (Matches Image 1) */}
               {modalType === "faq" && (
                 <>
@@ -4390,11 +4374,10 @@ function SidebarNavItem({
   return (
     <button
       onClick={onClick}
-      className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-[4px] text-xs font-semibold transition-all cursor-pointer text-left ${
-        active
+      className={`w-full flex items-center gap-3 px-3.5 py-2.5 rounded-[4px] text-xs font-semibold transition-all cursor-pointer text-left ${active
           ? "bg-black text-white shadow-xs"
           : "text-zinc-600 hover:text-black hover:bg-zinc-100/80"
-      }`}
+        }`}
     >
       <Icon className="w-4 h-4 shrink-0" />
       <span>{label}</span>

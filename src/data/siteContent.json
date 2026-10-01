@@ -463,7 +463,7 @@
     "packageName": "संपूर्ण 25 टेस्ट्स पॅकेज",
     "originalPrice": 999,
     "offerPrice": 199,
-    "discountText": "80% थेट सवलत • एकरकमी फी",
+    "discountText": "60% थेट सवलत • एकरकमी फी",
     "bookedSeats": 442,
     "totalSeats": 500,
     "remainingSeats": 58,
@@ -473,7 +473,7 @@
       "वैधता: 25 ऑक्टोबर 2026 पर्यंत",
       "अमर्यादित वेळा सराव & PDF डाऊनलोड"
     ],
-    "buttonText": "आत्ताच ₹199 मध्ये टेस्ट सिरीज सुरू करा"
+    "buttonText": "Start Test"
   },
   "sections": [
     {

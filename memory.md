@@ -480,7 +480,7 @@ flowchart TD
   - Added `<br\s*/?>` tag normalization (`.replace(/<br\s*\/?>/gi, "\n")`) to gracefully handle cases where users or rich-text snippets include HTML breaks.
   - Added `whitespace-pre-line` to option spans to allow clean multi-line answer options.
   - Enlarged the question textarea in `src/app/admin/page.tsx` to 5 rows with `resize-y` and added a helper tip: `"Tip: Line breaks (Enter) are preserved in the live preview and on the website."`
-  - Synchronized the `Live Question Box Preview` in `src/app/admin/page.tsx` to exactly match `SampleProof.tsx` specification (card border/shadow/padding, font sizes, `उत्तर :` headline, complete rich-text table styling classes, structured bullet layout, and card footer banner with `100% MPSC स्टँडर्ड`).
+  - Synchronized the `Live Question Box Preview` in `src/app/admin/page.tsx` to exactly match `SampleProof.tsx` specification (card border/shadow/padding, font sizes, `उत्तर :` headline, complete rich-text table styling classes, structured bullet layout, and card footer banner with `100% MPSC पॅटर्न`).
   - Switched state updates in the question editor to immutable React updates (`updateCurrentSubject`) ensuring real-time live preview responsiveness on each keystroke.
 
 ### Subject Tabs Reordering & Drag-and-Drop for 8+ Subjects

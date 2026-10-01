@@ -67,6 +67,17 @@ type SiteContent = Omit<typeof defaultSiteData, "sampleProof" | "syllabus"> & {
   sampleProof: Record<string, any>;
   syllabus?: any[];
   sections?: any[];
+  howToPurchaseCta?: {
+    buttonText?: string;
+    buttonUrl?: string;
+    whatsappButtonText?: string;
+    whatsappUrl?: string;
+  };
+  stickyMobileBar?: {
+    buttonText?: string;
+    buttonUrl?: string;
+    whatsappUrl?: string;
+  };
 };
 
 function getInitialHtmlForQuestion(item: any): string {
@@ -109,6 +120,7 @@ function getInitialHtmlForQuestion(item: any): string {
 
 const NAV_ITEMS = [
   { id: "sections", label: "Sections Order", icon: Layers },
+  { id: "externalButtons", label: "External Buttons", icon: ExternalLink },
   { id: "hero", label: "Hero", icon: ImageIcon },
   { id: "testimonials", label: "Testimonials", icon: MessageSquare },
   { id: "syllabus", label: "Syllabus", icon: BookOpen },
@@ -1821,6 +1833,150 @@ export default function AdminPage() {
                   </tbody>
                 </table>
               </div>
+
+              {/* Action Buttons & External Links under How to Buy */}
+              <div className="border border-zinc-200 rounded-[4px] bg-white p-5 shadow-xs space-y-4">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-zinc-200">
+                  <div>
+                    <h3 className="text-sm font-bold text-black flex items-center gap-2">
+                      <ExternalLink className="w-4 h-4 text-emerald-600" />
+                      <span>Action Buttons & External Links (How to Buy)</span>
+                    </h3>
+                    <p className="text-xs text-zinc-400 mt-0.5">
+                      Configure button names and target URLs for both the primary checkout button and the WhatsApp support button below the steps slider.
+                    </p>
+                  </div>
+                  <button
+                    onClick={() => handleSaveAll()}
+                    disabled={isSaving}
+                    className="px-4 py-1.5 bg-black hover:bg-zinc-800 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer transition-all shrink-0"
+                  >
+                    {isSaving ? "Saving..." : "Save Buttons"}
+                  </button>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Primary CTA Button */}
+                  <div className="p-4 border border-zinc-200 rounded-[4px] bg-zinc-50/60 space-y-3">
+                    <span className="inline-block text-[10px] font-black uppercase tracking-wider text-[#9B3A32] bg-[#fbeae8] px-2 py-0.5 rounded border border-[#f3c8c4]">
+                      Primary CTA Button
+                    </span>
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                        Button Name / Text
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="e.g. Start Test"
+                        value={content.howToPurchaseCta?.buttonText || "Start Test"}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            howToPurchaseCta: {
+                              ...((content as any).howToPurchaseCta || {}),
+                              buttonText: e.target.value,
+                            },
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs bg-white focus:border-black focus:ring-1 focus:ring-black outline-none font-bold text-zinc-900"
+                      />
+                    </div>
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="block text-xs font-semibold text-zinc-700">
+                          Target Link / URL (Checkout / Affiliate)
+                        </label>
+                        {content.howToPurchaseCta?.buttonUrl && (
+                          <a
+                            href={content.howToPurchaseCta.buttonUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] text-blue-600 hover:underline font-semibold"
+                          >
+                            <span>Test Link</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        )}
+                      </div>
+                      <input
+                        type="text"
+                        placeholder="https://www.tcs9.in/..."
+                        value={content.howToPurchaseCta?.buttonUrl || ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            howToPurchaseCta: {
+                              ...((content as any).howToPurchaseCta || {}),
+                              buttonUrl: e.target.value,
+                            },
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs bg-white focus:border-black focus:ring-1 focus:ring-black outline-none font-mono text-zinc-800"
+                      />
+                    </div>
+                  </div>
+
+                  {/* WhatsApp Support Button */}
+                  <div className="p-4 border border-zinc-200 rounded-[4px] bg-zinc-50/60 space-y-3">
+                    <span className="inline-block text-[10px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2 py-0.5 rounded border border-emerald-300">
+                      WhatsApp Support Button
+                    </span>
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                        Button Name / Text
+                      </label>
+                      <input
+                        type="text"
+                        placeholder="e.g. Any Questions? / काही शंका आहेत? थेट व्हॉट्सॲपवर विचारा"
+                        value={content.howToPurchaseCta?.whatsappButtonText || ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            howToPurchaseCta: {
+                              ...((content as any).howToPurchaseCta || {}),
+                              whatsappButtonText: e.target.value,
+                            },
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs bg-white focus:border-black focus:ring-1 focus:ring-black outline-none font-bold text-zinc-900"
+                      />
+                    </div>
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="block text-xs font-semibold text-zinc-700">
+                          WhatsApp Link / URL
+                        </label>
+                        {content.howToPurchaseCta?.whatsappUrl && (
+                          <a
+                            href={content.howToPurchaseCta.whatsappUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] text-blue-600 hover:underline font-semibold"
+                          >
+                            <span>Test Link</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        )}
+                      </div>
+                      <input
+                        type="text"
+                        placeholder="https://wa.me/919579616908?text=..."
+                        value={content.howToPurchaseCta?.whatsappUrl || ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            howToPurchaseCta: {
+                              ...((content as any).howToPurchaseCta || {}),
+                              whatsappUrl: e.target.value,
+                            },
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs bg-white focus:border-black focus:ring-1 focus:ring-black outline-none font-mono text-zinc-800"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           )}
 
@@ -1936,6 +2092,590 @@ export default function AdminPage() {
                     ))}
                   </tbody>
                 </table>
+              </div>
+            </div>
+          )}
+
+          {/* SECTION: External Buttons Hub */}
+          {activeSection === "externalButtons" && (
+            <div className="space-y-6">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div>
+                  <h2 className="text-xl font-bold text-black tracking-tight flex items-center gap-2">
+                    <ExternalLink className="w-5 h-5 text-[#9B3A32]" />
+                    <span>External Buttons & Link Hub</span>
+                  </h2>
+                  <p className="text-xs text-zinc-400 mt-0.5">
+                    Feed custom links and change button names at your will for every button on the landing page that leads to an external destination.
+                  </p>
+                </div>
+                <button
+                  onClick={() => handleSaveAll()}
+                  disabled={isSaving}
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2.5 bg-black hover:bg-zinc-800 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer transition-all shrink-0"
+                >
+                  <Save className="w-3.5 h-3.5" />
+                  <span>{isSaving ? "Saving All Buttons..." : "Save All Button Changes"}</span>
+                </button>
+              </div>
+
+              {/* Notice Banner */}
+              <div className="p-3.5 bg-amber-50/80 border border-amber-200 rounded-[4px] flex items-start gap-2.5">
+                <AlertCircle className="w-4 h-4 text-amber-700 shrink-0 mt-0.5" />
+                <p className="text-xs text-amber-900 leading-relaxed font-medium">
+                  <strong>Live Synchronization:</strong> Changing button labels or links here directly updates the buttons across the landing page. Clicking <em>&quot;Test Link&quot;</em> lets you verify each destination URL before publishing.
+                </p>
+              </div>
+
+              {/* Grid of External Buttons */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+
+                {/* 1. Hero Section Primary CTA Button */}
+                <div className="border border-zinc-200 rounded-[4px] bg-white p-5 shadow-xs space-y-4 flex flex-col justify-between">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-black uppercase tracking-wider text-[#9B3A32] bg-[#fbeae8] px-2.5 py-0.5 rounded border border-[#f3c8c4]">
+                        1. Hero Section — Main CTA
+                      </span>
+                      <span className="text-[11px] text-zinc-400 font-medium">Desktop & Mobile Banner</span>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                        Button Name / Text
+                      </label>
+                      <input
+                        type="text"
+                        value={content.hero.ctaButtonText || "Start Test"}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            hero: { ...content.hero, ctaButtonText: e.target.value },
+                          })
+                        }
+                        placeholder="e.g. Start Test"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold text-zinc-900 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="block text-xs font-semibold text-zinc-700">
+                          Destination Link (URL)
+                        </label>
+                        {content.hero.targetUrl && (
+                          <a
+                            href={content.hero.targetUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] text-blue-600 hover:underline font-semibold"
+                          >
+                            <span>Test Link</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        )}
+                      </div>
+                      <input
+                        type="text"
+                        value={content.hero.targetUrl || ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            hero: { ...content.hero, targetUrl: e.target.value },
+                          })
+                        }
+                        placeholder="https://www.tcs9.in/..."
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-mono text-zinc-800 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Visual Preview */}
+                  <div className="pt-3 border-t border-zinc-100 flex items-center justify-between">
+                    <span className="text-[10px] text-zinc-400 font-bold uppercase">Button Preview:</span>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#9B3A32] text-white font-extrabold text-xs rounded-lg shadow-xs select-none">
+                      <span>{content.hero.ctaButtonText || "Start Test"}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* 2. Pricing Cards CTA Button (Pricing 1 & 2) */}
+                <div className="border border-zinc-200 rounded-[4px] bg-white p-5 shadow-xs space-y-4 flex flex-col justify-between">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-black uppercase tracking-wider text-[#9B3A32] bg-[#fbeae8] px-2.5 py-0.5 rounded border border-[#f3c8c4]">
+                        2. Pricing Section — Card CTA
+                      </span>
+                      <span className="text-[11px] text-zinc-400 font-medium">Pricing 1 & Pricing 2 Cards</span>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                        Button Name / Text
+                      </label>
+                      <input
+                        type="text"
+                        value={content.finalCta?.buttonText || "Start Test"}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, buttonText: e.target.value },
+                          })
+                        }
+                        placeholder="e.g. Start Test"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold text-zinc-900 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="block text-xs font-semibold text-zinc-700">
+                          Destination Link (URL)
+                        </label>
+                        {content.finalCta?.buttonUrl && (
+                          <a
+                            href={content.finalCta.buttonUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] text-blue-600 hover:underline font-semibold"
+                          >
+                            <span>Test Link</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        )}
+                      </div>
+                      <input
+                        type="text"
+                        value={content.finalCta?.buttonUrl || ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, buttonUrl: e.target.value },
+                          })
+                        }
+                        placeholder="https://www.tcs9.in/..."
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-mono text-zinc-800 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Visual Preview */}
+                  <div className="pt-3 border-t border-zinc-100 flex items-center justify-between">
+                    <span className="text-[10px] text-zinc-400 font-bold uppercase">Button Preview:</span>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#9B3A32] text-white font-extrabold text-xs rounded-lg shadow-xs select-none">
+                      <span>{content.finalCta?.buttonText || "Start Test"}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* 3. How to Buy — Primary CTA Button */}
+                <div className="border border-zinc-200 rounded-[4px] bg-white p-5 shadow-xs space-y-4 flex flex-col justify-between">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-black uppercase tracking-wider text-[#9B3A32] bg-[#fbeae8] px-2.5 py-0.5 rounded border border-[#f3c8c4]">
+                        3. How to Buy — Primary CTA
+                      </span>
+                      <span className="text-[11px] text-zinc-400 font-medium">Below 9:20 Step Slider</span>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                        Button Name / Text
+                      </label>
+                      <input
+                        type="text"
+                        value={content.howToPurchaseCta?.buttonText || "Start Test"}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            howToPurchaseCta: {
+                              ...((content as any).howToPurchaseCta || {}),
+                              buttonText: e.target.value,
+                            },
+                          })
+                        }
+                        placeholder="e.g. Start Test"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold text-zinc-900 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="block text-xs font-semibold text-zinc-700">
+                          Destination Link (URL)
+                        </label>
+                        {content.howToPurchaseCta?.buttonUrl && (
+                          <a
+                            href={content.howToPurchaseCta.buttonUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] text-blue-600 hover:underline font-semibold"
+                          >
+                            <span>Test Link</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        )}
+                      </div>
+                      <input
+                        type="text"
+                        value={content.howToPurchaseCta?.buttonUrl || ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            howToPurchaseCta: {
+                              ...((content as any).howToPurchaseCta || {}),
+                              buttonUrl: e.target.value,
+                            },
+                          })
+                        }
+                        placeholder="https://www.tcs9.in/..."
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-mono text-zinc-800 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Visual Preview */}
+                  <div className="pt-3 border-t border-zinc-100 flex items-center justify-between">
+                    <span className="text-[10px] text-zinc-400 font-bold uppercase">Button Preview:</span>
+                    <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#9B3A32] text-white font-extrabold text-xs rounded-xl shadow-xs select-none">
+                      <span>{content.howToPurchaseCta?.buttonText || "Start Test"}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </div>
+                  </div>
+                </div>
+
+                {/* 4. How to Buy — WhatsApp Support Button */}
+                <div className="border border-zinc-200 rounded-[4px] bg-white p-5 shadow-xs space-y-4 flex flex-col justify-between">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded border border-emerald-300">
+                        4. How to Buy — WhatsApp Support
+                      </span>
+                      <span className="text-[11px] text-zinc-400 font-medium">Bottom Support Action</span>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                        Button Name / Text
+                      </label>
+                      <input
+                        type="text"
+                        value={content.howToPurchaseCta?.whatsappButtonText || ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            howToPurchaseCta: {
+                              ...((content as any).howToPurchaseCta || {}),
+                              whatsappButtonText: e.target.value,
+                            },
+                          })
+                        }
+                        placeholder="e.g. Any Questions? / काही शंका आहेत? थेट व्हॉट्सॲपवर विचारा"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold text-zinc-900 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="block text-xs font-semibold text-zinc-700">
+                          WhatsApp Link / URL
+                        </label>
+                        {content.howToPurchaseCta?.whatsappUrl && (
+                          <a
+                            href={content.howToPurchaseCta.whatsappUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] text-blue-600 hover:underline font-semibold"
+                          >
+                            <span>Test Link</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        )}
+                      </div>
+                      <input
+                        type="text"
+                        value={content.howToPurchaseCta?.whatsappUrl || ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            howToPurchaseCta: {
+                              ...((content as any).howToPurchaseCta || {}),
+                              whatsappUrl: e.target.value,
+                            },
+                          })
+                        }
+                        placeholder="https://wa.me/919579616908?text=..."
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-mono text-zinc-800 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Visual Preview */}
+                  <div className="pt-3 border-t border-zinc-100 flex items-center justify-between">
+                    <span className="text-[10px] text-zinc-400 font-bold uppercase">Button Preview:</span>
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-[#25D366] text-white font-extrabold text-xs rounded-xl shadow-xs select-none max-w-[240px] truncate">
+                      <MessageCircle className="w-3.5 h-3.5 shrink-0 fill-white" />
+                      <span className="truncate">{content.howToPurchaseCta?.whatsappButtonText || "Any Questions? थेट व्हॉट्सॲपवर विचारा"}</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 5. Sticky Mobile Dock — Action CTA Button */}
+                <div className="border border-zinc-200 rounded-[4px] bg-white p-5 shadow-xs space-y-4 flex flex-col justify-between">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-black uppercase tracking-wider text-amber-900 bg-amber-100 px-2.5 py-0.5 rounded border border-amber-300">
+                        5. Sticky Mobile Dock — Action CTA
+                      </span>
+                      <span className="text-[11px] text-zinc-400 font-medium">Floating Mobile Bottom Dock</span>
+                    </div>
+
+                    <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                        Button Name / Text
+                      </label>
+                      <input
+                        type="text"
+                        value={content.stickyMobileBar?.buttonText || "सुरुवात करा"}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            stickyMobileBar: {
+                              ...((content as any).stickyMobileBar || {}),
+                              buttonText: e.target.value,
+                            },
+                          })
+                        }
+                        placeholder="e.g. सुरुवात करा or Start Test"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold text-zinc-900 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="block text-xs font-semibold text-zinc-700">
+                          Destination Link (URL)
+                        </label>
+                        {content.stickyMobileBar?.buttonUrl && (
+                          <a
+                            href={content.stickyMobileBar.buttonUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] text-blue-600 hover:underline font-semibold"
+                          >
+                            <span>Test Link</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        )}
+                      </div>
+                      <input
+                        type="text"
+                        value={content.stickyMobileBar?.buttonUrl || ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            stickyMobileBar: {
+                              ...((content as any).stickyMobileBar || {}),
+                              buttonUrl: e.target.value,
+                            },
+                          })
+                        }
+                        placeholder="https://www.tcs9.in/..."
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-mono text-zinc-800 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Visual Preview */}
+                  <div className="pt-3 border-t border-zinc-100 flex items-center justify-between">
+                    <span className="text-[10px] text-zinc-400 font-bold uppercase">Button Preview:</span>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-[#8b261e] text-white rounded-lg p-1">
+                      <span className="px-2.5 py-1 bg-white text-[#8b261e] text-xs font-black rounded flex items-center gap-1">
+                        <span>{content.stickyMobileBar?.buttonText || "सुरुवात करा"}</span>
+                        <ArrowRight className="w-3 h-3" />
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 6. Sticky Mobile Dock — WhatsApp Quick Button */}
+                <div className="border border-zinc-200 rounded-[4px] bg-white p-5 shadow-xs space-y-4 flex flex-col justify-between">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded border border-emerald-300">
+                        6. Sticky Mobile Dock — Quick WhatsApp
+                      </span>
+                      <span className="text-[11px] text-zinc-400 font-medium">Quick WhatsApp Icon</span>
+                    </div>
+
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="block text-xs font-semibold text-zinc-700">
+                          WhatsApp Link / URL
+                        </label>
+                        {content.stickyMobileBar?.whatsappUrl && (
+                          <a
+                            href={content.stickyMobileBar.whatsappUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] text-blue-600 hover:underline font-semibold"
+                          >
+                            <span>Test Link</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        )}
+                      </div>
+                      <input
+                        type="text"
+                        value={content.stickyMobileBar?.whatsappUrl || ""}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            stickyMobileBar: {
+                              ...((content as any).stickyMobileBar || {}),
+                              whatsappUrl: e.target.value,
+                            },
+                          })
+                        }
+                        placeholder="https://wa.me/919579616908?text=..."
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-mono text-zinc-800 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <p className="text-[11px] text-zinc-400">
+                      Tapping this icon on mobile instantly opens WhatsApp with the pre-filled message configured above.
+                    </p>
+                  </div>
+
+                  {/* Visual Preview */}
+                  <div className="pt-3 border-t border-zinc-100 flex items-center justify-between">
+                    <span className="text-[10px] text-zinc-400 font-bold uppercase">Button Preview:</span>
+                    <div className="p-2 rounded-lg bg-[#8b261e] inline-flex items-center justify-center">
+                      <div className="p-1.5 rounded bg-white/20 text-emerald-300">
+                        <MessageCircle className="w-4 h-4 fill-emerald-400 text-emerald-400" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* 7. Footer Contact Bar — WhatsApp Button */}
+                <div className="border border-zinc-200 rounded-[4px] bg-white p-5 shadow-xs space-y-4 md:col-span-2 flex flex-col justify-between">
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] font-black uppercase tracking-wider text-emerald-800 bg-emerald-100 px-2.5 py-0.5 rounded border border-emerald-300">
+                        7. Footer Contact Bar — WhatsApp Support
+                      </span>
+                      <span className="text-[11px] text-zinc-400 font-medium">Top White Strip in Footer</span>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                      <div>
+                        <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                          Button Name / Text
+                        </label>
+                        <input
+                          type="text"
+                          value={content.footer?.contactBar?.whatsappButtonText || "व्हॉट्सॲपवर संपर्क करा"}
+                          onChange={(e) =>
+                            setContent({
+                              ...content,
+                              footer: {
+                                ...content.footer,
+                                contactBar: {
+                                  ...content.footer.contactBar,
+                                  whatsappButtonText: e.target.value,
+                                },
+                              },
+                            })
+                          }
+                          placeholder="e.g. व्हॉट्सॲपवर संपर्क करा"
+                          className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold text-zinc-900 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                          WhatsApp Phone Number (with Country Code)
+                        </label>
+                        <input
+                          type="text"
+                          value={content.footer?.contactBar?.whatsappNumber || "919579616908"}
+                          onChange={(e) =>
+                            setContent({
+                              ...content,
+                              footer: {
+                                ...content.footer,
+                                contactBar: {
+                                  ...content.footer.contactBar,
+                                  whatsappNumber: e.target.value,
+                                },
+                              },
+                            })
+                          }
+                          placeholder="e.g. 919579616908"
+                          className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-mono text-zinc-800 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                          WhatsApp Pre-filled Message
+                        </label>
+                        <input
+                          type="text"
+                          value={content.footer?.contactBar?.whatsappMessage || ""}
+                          onChange={(e) =>
+                            setContent({
+                              ...content,
+                              footer: {
+                                ...content.footer,
+                                contactBar: {
+                                  ...content.footer.contactBar,
+                                  whatsappMessage: e.target.value,
+                                },
+                              },
+                            })
+                          }
+                          placeholder="e.g. Hello TCS9 MPSC Group C Test Series बद्दल माहिती हवी आहे"
+                          className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs text-zinc-800 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Visual Preview */}
+                  <div className="pt-3 border-t border-zinc-100 flex items-center justify-between">
+                    <span className="text-[10px] text-zinc-400 font-bold uppercase">Button Preview:</span>
+                    <a
+                      href={`https://wa.me/${content.footer?.contactBar?.whatsappNumber || "919579616908"}?text=${encodeURIComponent(content.footer?.contactBar?.whatsappMessage || "")}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs rounded-xl shadow-xs transition-colors"
+                    >
+                      <MessageCircle className="w-4 h-4 fill-white text-emerald-600" />
+                      <span>{content.footer?.contactBar?.whatsappButtonText || "व्हॉट्सॲपवर संपर्क करा"}</span>
+                      <ExternalLink className="w-3 h-3 opacity-70 ml-1" />
+                    </a>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Bottom Sticky Action Bar */}
+              <div className="p-4 bg-zinc-50 border border-zinc-200 rounded-[4px] flex items-center justify-between">
+                <span className="text-xs text-zinc-500 font-medium">
+                  Done adjusting buttons? Click save to push updates to the database and live site immediately.
+                </span>
+                <button
+                  onClick={() => handleSaveAll()}
+                  disabled={isSaving}
+                  className="px-6 py-2.5 bg-black hover:bg-zinc-800 text-white text-xs font-bold rounded-[4px] shadow-xs cursor-pointer transition-all flex items-center gap-2"
+                >
+                  <Save className="w-4 h-4" />
+                  <span>{isSaving ? "Saving All Buttons..." : "Save All Button Changes"}</span>
+                </button>
               </div>
             </div>
           )}
@@ -2057,19 +2797,50 @@ export default function AdminPage() {
 
                     <div>
                       <label className="block text-xs font-semibold text-zinc-700 mb-1">
-                        Backlink URL (Click Destination)
+                        Hero CTA Button Text (Button Name)
                       </label>
                       <input
                         type="text"
-                        placeholder="#pricing-section"
-                        value={content.hero.targetUrl || "#pricing-section"}
+                        placeholder="e.g. Start Test"
+                        value={content.hero.ctaButtonText || "Start Test"}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            hero: { ...content.hero, ctaButtonText: e.target.value },
+                          })
+                        }
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs bg-white focus:border-black focus:ring-1 focus:ring-black outline-none font-bold text-zinc-900"
+                      />
+                    </div>
+
+                    <div>
+                      <div className="flex items-center justify-between mb-1">
+                        <label className="block text-xs font-semibold text-zinc-700">
+                          CTA Button & Image Click Destination (Target URL)
+                        </label>
+                        {content.hero.targetUrl && (
+                          <a
+                            href={content.hero.targetUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-[11px] text-blue-600 hover:underline font-semibold"
+                          >
+                            <span>Test Link</span>
+                            <ExternalLink className="w-3 h-3" />
+                          </a>
+                        )}
+                      </div>
+                      <input
+                        type="text"
+                        placeholder="https://... or #pricing-section"
+                        value={content.hero.targetUrl || ""}
                         onChange={(e) =>
                           setContent({
                             ...content,
                             hero: { ...content.hero, targetUrl: e.target.value },
                           })
                         }
-                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs bg-white focus:border-black focus:ring-1 focus:ring-black outline-none font-medium"
+                        className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs bg-white focus:border-black focus:ring-1 focus:ring-black outline-none font-mono text-zinc-800"
                       />
                     </div>
 
@@ -3695,6 +4466,84 @@ export default function AdminPage() {
                         placeholder="e.g. 256-Bit SSL सुरक्षित • UPI / PhonePe / GPay"
                         className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
                       />
+                    </div>
+                  </div>
+
+                  {/* Subsection: Sticky Mobile Dock CTA & Quick WhatsApp */}
+                  <div className="mt-4 p-4 border border-zinc-200 rounded-[4px] bg-zinc-50/60 space-y-3">
+                    <div className="flex items-center justify-between pb-2 border-b border-zinc-200">
+                      <div>
+                        <h4 className="text-xs font-bold text-black flex items-center gap-1.5">
+                          <ExternalLink className="w-3.5 h-3.5 text-[#9B3A32]" />
+                          <span>Sticky Mobile Dock Controls (Mobile Floating Bar)</span>
+                        </h4>
+                        <p className="text-[11px] text-zinc-400">Controls the persistent bottom dock on mobile smartphones.</p>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                      <div>
+                        <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                          Sticky Button Name / Text
+                        </label>
+                        <input
+                          type="text"
+                          value={content.stickyMobileBar?.buttonText || "सुरुवात करा"}
+                          onChange={(e) =>
+                            setContent({
+                              ...content,
+                              stickyMobileBar: {
+                                ...((content as any).stickyMobileBar || {}),
+                                buttonText: e.target.value,
+                              },
+                            })
+                          }
+                          placeholder="e.g. सुरुवात करा"
+                          className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold text-zinc-900 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                          Sticky CTA Target Link (URL)
+                        </label>
+                        <input
+                          type="text"
+                          value={content.stickyMobileBar?.buttonUrl || ""}
+                          onChange={(e) =>
+                            setContent({
+                              ...content,
+                              stickyMobileBar: {
+                                ...((content as any).stickyMobileBar || {}),
+                                buttonUrl: e.target.value,
+                              },
+                            })
+                          }
+                          placeholder="https://www.tcs9.in/..."
+                          className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-mono text-zinc-800 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-xs font-semibold text-zinc-700 mb-1">
+                          Sticky WhatsApp Link (URL)
+                        </label>
+                        <input
+                          type="text"
+                          value={content.stickyMobileBar?.whatsappUrl || ""}
+                          onChange={(e) =>
+                            setContent({
+                              ...content,
+                              stickyMobileBar: {
+                                ...((content as any).stickyMobileBar || {}),
+                                whatsappUrl: e.target.value,
+                              },
+                            })
+                          }
+                          placeholder="https://wa.me/919579616908?text=..."
+                          className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-mono text-zinc-800 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>

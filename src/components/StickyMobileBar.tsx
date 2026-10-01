@@ -8,10 +8,16 @@ import siteData from "@/data/siteContent.json";
 
 export function StickyMobileBar({
   initialData,
+  stickyData,
 }: {
   initialData?: typeof siteData.finalCta;
+  stickyData?: typeof siteData.stickyMobileBar;
 } = {}) {
   const cta = (initialData || siteData.finalCta) as any;
+  const sticky = (stickyData || (siteData as any).stickyMobileBar || {}) as any;
+  const buttonText = sticky.buttonText || "सुरुवात करा";
+  const buttonUrl = sticky.buttonUrl || cta.buttonUrl || "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX";
+  const whatsappUrl = sticky.whatsappUrl || "https://wa.me/919579616908?text=Hello%20MPSC%20Group%20C%20Test%20Series%20बद्दल%20माहिती%20हवी%20आहे";
   const [scarcity, setScarcity] = useState(getScarcityData());
 
   useEffect(() => {
@@ -44,7 +50,7 @@ export function StickyMobileBar({
         {/* Action Buttons */}
         <div className="flex items-center gap-2">
           <a
-            href="https://wa.me/919579616908?text=Hello%20MPSC%20Group%20C%20Test%20Series%20बद्दल%20माहिती%20हवी%20आहे"
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="p-3 rounded-xl bg-white/10 text-emerald-300 border border-white/20 flex items-center justify-center hover:bg-white/20 transition-colors"
@@ -59,12 +65,12 @@ export function StickyMobileBar({
 
             {/* Inverted CTA Button with Simulated Click Motion */}
             <a
-              href={cta.buttonUrl || "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX"}
+              href={buttonUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="relative px-5 py-3 rounded-xl bg-white text-[#8b261e] active:scale-90 font-black text-sm shadow-lg flex items-center gap-1.5 shrink-0 hover:bg-slate-100 transition-all animate-tap-click cursor-pointer no-underline inline-flex"
             >
-              <span>सुरुवात करा</span>
+              <span>{buttonText}</span>
               <ArrowRight className="w-4 h-4 text-[#8b261e]" />
             </a>
           </div>

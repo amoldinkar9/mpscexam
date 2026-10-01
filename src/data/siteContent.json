@@ -3,7 +3,8 @@
     "desktopHeroImage": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80",
     "mobileHeroImage": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=900&q=80",
     "heroImageAlt": "MPSC Aspirant Student Preparing",
-    "targetUrl": "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX"
+    "targetUrl": "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX",
+    "ctaButtonText": "Start Test"
   },
   "testimonials": [
     {
@@ -73,7 +74,7 @@
     },
     {
       "step": "स्टेप 3",
-      "title": "Instant Test Series (Instant Access)",
+      "title": "झटपट ॲक्टिव्हेशन (Instant Access)",
       "desc": "पेमेंट होताच 1 सेकंदात टेस्ट्स अनलॉक होतील आणि लॉगिन माहिती मिळेल.",
       "iconName": "Smartphone",
       "color": "bg-blue-50 text-blue-700 border-blue-200",
@@ -480,58 +481,6 @@
       "अमर्यादित वेळा सराव & PDF डाऊनलोड"
     ]
   },
-  "footer": {
-    "contactBar": {
-      "heading": "काही अडचण किंवा प्रश्न असल्यास थेट बोला:",
-      "phone": "+91 95796 16908",
-      "timing": "(सकाळी 9 ते रात्री 9)",
-      "whatsappButtonText": "व्हॉट्सॲपवर संपर्क करा",
-      "whatsappNumber": "919579616908",
-      "whatsappMessage": "Hello TCS9 MPSC Group C Test Series बद्दल माहिती हवी आहे"
-    },
-    "brand": {
-      "name": "mpscexam",
-      "badge": "TCS9",
-      "description": "महाराष्ट्र लोकसेवा आयोगाच्या (MPSC) विविध स्पर्धा परीक्षांच्या तयारीसाठी दर्जेदार मॉक टेस्ट्स आणि अभ्यास साहित्याचा विश्वासू मंच.",
-      "supportEmail": "support@mpscexam.com"
-    },
-    "partnerLinks": {
-      "title": "आमचे इतर शैक्षणिक प्लॅटफॉर्म्स",
-      "links": [
-        {
-          "title": "TCS9.com — ऑनलाइन टेस्ट सिरीज प्लॅटफॉर्म",
-          "url": "https://tcs9.com"
-        },
-        {
-          "title": "chalughadamodi.in — दैनिक चालू घडामोडी",
-          "url": "https://chalughadamodi.in"
-        }
-      ]
-    },
-    "legalLinks": {
-      "title": "धोरणे व अटी",
-      "links": [
-        {
-          "title": "गोपनीयता धोरण (Privacy Policy)",
-          "url": "#"
-        },
-        {
-          "title": "नियम व अटी (Terms of Service)",
-          "url": "#"
-        },
-        {
-          "title": "रिफंड धोरण (Refund Policy)",
-          "url": "#"
-        },
-        {
-          "title": "आमच्याबद्दल (About Us)",
-          "url": "#"
-        }
-      ]
-    },
-    "copyright": "© 2026 mpscexam / TCS9. सर्व हक्क राखीव.",
-    "disclaimer": "*अस्वीकरण: ही एक खाजगी शैक्षणिक टेस्ट सिरीज असून तिचा महाराष्ट्र लोकसेवा आयोग (MPSC) शी कोणताही थेट किंवा अधिकृत संबंध नाही."
-  },
   "sections": [
     {
       "id": "hero",
@@ -583,13 +532,6 @@
       "enabled": true
     },
     {
-      "id": "pricing2",
-      "name": "Mid-Page CTA (Pricing)",
-      "nameMr": "किंमत व नोंदणी - २ (Pricing CTA)",
-      "description": "मध्यवर्ती ऑफर किंमत आणि नोंदणी बटण",
-      "enabled": true
-    },
-    {
       "id": "faqs",
       "name": "Frequently Asked Questions",
       "nameMr": "वारंवार विचारले जाणारे प्रश्न (FAQs)",
@@ -602,6 +544,76 @@
       "nameMr": "किंमत व अंतिम नोंदणी (Pricing)",
       "description": "ऑफर किंमत आणि नोंदणी बटण",
       "enabled": true
+    },
+    {
+      "id": "pricing2",
+      "name": "Mid-Page CTA (Pricing)",
+      "nameMr": "किंमत व नोंदणी - २ (Pricing CTA)",
+      "description": "मध्यवर्ती ऑफर किंमत आणि नोंदणी बटण",
+      "enabled": true
     }
-  ]
+  ],
+  "footer": {
+    "contactBar": {
+      "heading": "काही अडचण किंवा प्रश्न असल्यास थेट बोला:",
+      "phone": "+91 95796 16908",
+      "timing": "(सकाळी 9 ते रात्री 9)",
+      "whatsappButtonText": "Chat on Whatsapp",
+      "whatsappNumber": "919579616908",
+      "whatsappMessage": "हॅलो, मला MASTER25 MPSC गट-क पूर्व परीक्षा टेस्ट सिरीज बद्दल अधिक माहिती हवी आहे."
+    },
+    "brand": {
+      "name": "mpscexam",
+      "badge": "TCS9",
+      "description": "महाराष्ट्र लोकसेवा आयोगाच्या (MPSC) विविध स्पर्धा परीक्षांच्या तयारीसाठी दर्जेदार मॉक टेस्ट्स आणि अभ्यास साहित्याचा विश्वासू मंच.",
+      "supportEmail": "support@mpscexam.com"
+    },
+    "partnerLinks": {
+      "title": "आमचे इतर शैक्षणिक प्लॅटफॉर्म्स",
+      "links": [
+        {
+          "title": "TCS9.com — ऑनलाइन टेस्ट सिरीज प्लॅटफॉर्म",
+          "url": "https://tcs9.com"
+        },
+        {
+          "title": "chalughadamodi.in — दैनिक चालू घडामोडी",
+          "url": "https://chalughadamodi.in"
+        }
+      ]
+    },
+    "legalLinks": {
+      "title": "धोरणे व अटी",
+      "links": [
+        {
+          "title": "गोपनीयता धोरण (Privacy Policy)",
+          "url": "#"
+        },
+        {
+          "title": "नियम व अटी (Terms of Service)",
+          "url": "#"
+        },
+        {
+          "title": "रिफंड धोरण (Refund Policy)",
+          "url": "#"
+        },
+        {
+          "title": "आमच्याबद्दल (About Us)",
+          "url": "#"
+        }
+      ]
+    },
+    "copyright": "© 2026 mpscexam / TCS9. सर्व हक्क राखीव.",
+    "disclaimer": "*अस्वीकरण: ही एक खाजगी शैक्षणिक टेस्ट सिरीज असून तिचा महाराष्ट्र लोकसेवा आयोग (MPSC) शी कोणताही थेट किंवा अधिकृत संबंध नाही."
+  },
+  "howToPurchaseCta": {
+    "buttonText": "Start Test",
+    "buttonUrl": "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX",
+    "whatsappButtonText": "Any Questions? Chat on Whatsapp",
+    "whatsappUrl": "https://wa.me/919579616908?text=हॅलो%2C%20मला%20MASTER25%20MPSC%20गट-क%20पूर्व%20परीक्षा%20टेस्ट%20सिरीज%20बद्दल%20अधिक%20माहिती%20हवी%20आहे."
+  },
+  "stickyMobileBar": {
+    "buttonText": "Start Test",
+    "buttonUrl": "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX",
+    "whatsappUrl": "https://wa.me/919579616908?text=हॅलो%2C%20मला%20MASTER25%20MPSC%20गट-क%20पूर्व%20परीक्षा%20टेस्ट%20सिरीज%20बद्दल%20अधिक%20माहिती%20हवी%20आहे."
+  }
 }

@@ -11,12 +11,24 @@ const ICON_MAP: Record<string, any> = {
   PlayCircle,
 };
 
-export function HowToPurchase({ initialData }: { initialData?: typeof siteData.howToPurchase } = {}) {
+export function HowToPurchase({
+  initialData,
+  ctaData,
+}: {
+  initialData?: typeof siteData.howToPurchase;
+  ctaData?: typeof siteData.howToPurchaseCta;
+} = {}) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const stepsData = initialData || siteData.howToPurchase;
+  const cta = ctaData || (siteData as any).howToPurchaseCta || {
+    buttonText: "Start Test",
+    buttonUrl: "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX",
+    whatsappButtonText: "Any Questions? / काही शंका आहेत? थेट व्हॉट्सॲपवर विचारा",
+    whatsappUrl: "https://wa.me/919579616908?text=Hello%20MPSC%20Group%20C%20Test%20Series%20खरेदी%20करण्याबाबत%20काही%20शंका%20आहेत",
+  };
   const purchaseSteps = stepsData.map((step) => ({
     ...step,
     icon: ICON_MAP[step.iconName] || ShoppingCart,
@@ -202,12 +214,12 @@ export function HowToPurchase({ initialData }: { initialData?: typeof siteData.h
         {/* Primary CTA Block */}
         <div className="flex flex-col items-center justify-center pt-6 pb-2 space-y-3 text-center">
           <a
-            href={siteData.finalCta?.buttonUrl || "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX"}
+            href={cta.buttonUrl || siteData.finalCta?.buttonUrl || "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX"}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#9B3A32] hover:bg-[#822f28] active:bg-[#6b251f] text-white font-extrabold text-base sm:text-lg rounded-2xl shadow-lg shadow-[#9B3A32]/25 hover:shadow-xl hover:shadow-[#9B3A32]/30 transition-all transform hover:-translate-y-0.5 cursor-pointer no-underline"
           >
-            <span>Start Test</span>
+            <span>{cta.buttonText || "Start Test"}</span>
             <ArrowRight className="w-5 h-5" />
           </a>
           <div className="text-xs sm:text-sm text-slate-500 flex items-center justify-center gap-1.5 font-medium flex-wrap px-4">
@@ -219,13 +231,13 @@ export function HowToPurchase({ initialData }: { initialData?: typeof siteData.h
         {/* WhatsApp Theme Support Action Button Under How to Purchase */}
         <div className="flex justify-center pt-2">
           <a
-            href="https://wa.me/919579616908?text=Hello%20MPSC%20Group%20C%20Test%20Series%20खरेदी%20करण्याबाबत%20काही%20शंका%20आहेत"
+            href={cta.whatsappUrl || "https://wa.me/919579616908?text=Hello%20MPSC%20Group%20C%20Test%20Series%20खरेदी%20करण्याबाबत%20काही%20शंका%20आहेत"}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-[#25D366] hover:bg-[#20bd5a] active:bg-[#1caa51] text-white font-extrabold text-base sm:text-lg shadow-lg shadow-[#25D366]/30 hover:shadow-xl hover:shadow-[#25D366]/40 transition-all transform hover:-translate-y-0.5 cursor-pointer"
           >
             <MessageCircle className="w-6 h-6 fill-white text-[#25D366]" />
-            <span>Any Questions? / काही शंका आहेत? थेट व्हॉट्सॲपवर विचारा</span>
+            <span>{cta.whatsappButtonText || "Any Questions? / काही शंका आहेत? थेट व्हॉट्सॲपवर विचारा"}</span>
           </a>
         </div>
 

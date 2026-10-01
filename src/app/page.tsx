@@ -45,7 +45,13 @@ export default async function Home() {
       case "syllabus":
         return <SyllabusWeightage key="syllabus" initialData={content.syllabus} />;
       case "howToPurchase":
-        return <HowToPurchase key="howToPurchase" initialData={content.howToPurchase} />;
+        return (
+          <HowToPurchase
+            key="howToPurchase"
+            initialData={content.howToPurchase}
+            ctaData={(content as any).howToPurchaseCta}
+          />
+        );
       case "painPoints":
         return (
           <AspirantPainPoints
@@ -82,7 +88,7 @@ export default async function Home() {
       <Footer initialData={content.footer} />
 
       {/* Sticky Mobile Dock & Full-Width Animated Live Activity Toast */}
-      <StickyMobileBar initialData={content.finalCta} />
+      <StickyMobileBar initialData={content.finalCta} stickyData={(content as any).stickyMobileBar} />
       <LiveActivityToast />
     </main>
   );

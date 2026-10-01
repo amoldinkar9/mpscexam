@@ -596,3 +596,32 @@ flowchart TD
   - `src/app/admin/page.tsx`:
     - Added "CTA Button Direct Link (URL)" input in the Admin Panel under `Pricing & Final CTA` for instant dynamic updates to the affiliate link.
 
+### External Buttons & Link Hub (Manual Link & Name Feeding System)
+- **Requirement & Strategy:**
+  - Every button leading to an external link from the landing page must have its label (Button Name/Text) and target URL manually configurable in the Admin Panel.
+  - The admin can feed custom links (e.g. affiliate checkout, WhatsApp chat) and rename buttons at will.
+- **Architectural Implementation:**
+  - **Schema & Defaults (`src/data/siteContent.json` & `src/lib/contentStore.ts`):**
+    - `hero.ctaButtonText` ("Start Test") & `hero.targetUrl`.
+    - `finalCta.buttonText` ("Start Test") & `finalCta.buttonUrl`.
+    - `howToPurchaseCta`: `{ buttonText: "Start Test", buttonUrl: "...", whatsappButtonText: "Any Questions? / काही शंका आहेत? थेट व्हॉट्सॲपवर विचारा", whatsappUrl: "..." }`.
+    - `stickyMobileBar`: `{ buttonText: "सुरुवात करा", buttonUrl: "...", whatsappUrl: "..." }`.
+    - `footer.contactBar`: `{ whatsappButtonText: "व्हॉट्सॲपवर संपर्क करा", whatsappNumber: "...", whatsappMessage: "..." }`.
+    - `contentStore.ts`: `ensureSections` merges defaults for any missing button fields when loaded from DB.
+  - **Frontend Components Dynamic Rendering:**
+    - `HeroSection.tsx`: Dynamic `{heroData.ctaButtonText || "Start Test"}` with `href={heroData.targetUrl}`.
+    - `Pricing.tsx`: Dynamic `{cta.buttonText}` with `href={cta.buttonUrl}` across both pricing instances.
+    - `HowToPurchase.tsx`: Dynamic props `ctaData` with primary checkout button and dedicated WhatsApp query button.
+    - `StickyMobileBar.tsx`: Dynamic props `stickyData` with action button `{buttonText}` and WhatsApp quick button `{whatsappUrl}`.
+    - `src/app/page.tsx`: Passes `content.hero`, `content.finalCta`, `content.howToPurchaseCta`, and `content.stickyMobileBar` to respective components.
+  - **Admin Panel External Buttons Management (`src/app/admin/page.tsx`):**
+    - **Dedicated "External Buttons" Hub (`activeSection === "externalButtons"`):**
+      - Centralized command center in the admin sidebar managing all 7 external buttons simultaneously with live styled previews, destination URLs, test link buttons, and batch save.
+    - **In-Section Controls:**
+      - Hero tab: Added `CTA Button Text` alongside target URL.
+      - How to Buy tab: Added `Action Buttons & External Links (How to Buy)` card for both CTA button and WhatsApp button.
+      - Pricing tab: Added `Sticky Mobile Dock Controls` for the mobile bottom floating dock.
+  - **Database Persistence:**
+    - Synced SQLite database at `.wrangler/state/v3/d1/miniflare-D1DatabaseObject/*.sqlite` so changes persist seamlessly across restarts.
+
+

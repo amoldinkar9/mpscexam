@@ -45,6 +45,18 @@ function ensureSections(content: any): SiteContent {
       content.sections = [...content.sections, ...missingSections];
     }
   }
+
+  // Ensure dynamic button fields exist with defaults
+  if (content.hero && !content.hero.ctaButtonText) {
+    content.hero.ctaButtonText = (defaultData.hero as any).ctaButtonText || "Start Test";
+  }
+  if (!content.howToPurchaseCta) {
+    content.howToPurchaseCta = (defaultData as any).howToPurchaseCta;
+  }
+  if (!content.stickyMobileBar) {
+    content.stickyMobileBar = (defaultData as any).stickyMobileBar;
+  }
+
   return content as SiteContent;
 }
 

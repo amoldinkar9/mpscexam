@@ -4735,8 +4735,8 @@ export default function AdminPage() {
                           </div>
                         </div>
 
-                        {/* Inclusions checklist */}
-                        <div className="bg-white p-3 rounded-xl border border-[#f3c8c4] text-xs text-left grid grid-cols-1 sm:grid-cols-2 gap-2 text-[#1F2A5C]">
+                        {/* Inclusions checklist (Single-column vertical stack) */}
+                        <div className="bg-white p-3 rounded-xl border border-[#f3c8c4] text-xs text-left flex flex-col gap-2 text-[#1F2A5C]">
                           {(content.finalCta?.checklist || []).map((item, idx) => (
                             <div key={idx} className="flex items-center gap-1.5">
                               <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0" />

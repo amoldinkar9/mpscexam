@@ -72,10 +72,10 @@ export function Pricing({
               </div>
             </div>
 
-            {/* Inclusions checklist (2-column grid on tablet / sm+) */}
-            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#f3c8c4] text-xs sm:text-sm text-left grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3 text-[#1F2A5C]">
+            {/* Inclusions checklist (Single-column vertical stack - one down one) */}
+            <div className="bg-white p-4 sm:p-5 rounded-2xl border border-[#f3c8c4] text-xs sm:text-sm text-left flex flex-col gap-2.5 sm:gap-3 text-[#1F2A5C]">
               {(cta.checklist || []).map((item: string, idx: number) => (
-                <div key={idx} className="flex items-center gap-2">
+                <div key={idx} className="flex items-center gap-2.5">
                   <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
                   <span className="leading-snug">{item}</span>
                 </div>

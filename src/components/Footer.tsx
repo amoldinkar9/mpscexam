@@ -3,14 +3,22 @@ import defaultData from "@/data/siteContent.json";
 
 export function Footer({ initialData }: { initialData?: typeof defaultData.footer } = {}) {
   const footer = initialData || defaultData.footer;
-  const contact = footer?.contactBar || defaultData.footer.contactBar;
+  const defaultContact = defaultData.footer.contactBar;
+  const contact = {
+    heading: footer?.contactBar?.heading || defaultContact.heading || "काही अडचण किंवा प्रश्न असल्यास थेट बोला:",
+    phone: footer?.contactBar?.phone || defaultContact.phone || "+91 95796 16908",
+    timing: footer?.contactBar?.timing || defaultContact.timing || "(9.00 am to 5:00 pm)",
+    whatsappButtonText: footer?.contactBar?.whatsappButtonText || defaultContact.whatsappButtonText || "Chat on Whatsapp",
+    whatsappNumber: footer?.contactBar?.whatsappNumber || defaultContact.whatsappNumber || "919579616908",
+    whatsappMessage: footer?.contactBar?.whatsappMessage || defaultContact.whatsappMessage || "हॅलो, मला MASTER25 MPSC गट-क पूर्व परीक्षा टेस्ट सिरीज बद्दल अधिक माहिती हवी आहे.",
+  };
   const brand = footer?.brand || defaultData.footer.brand;
   const partnerLinks = footer?.partnerLinks || defaultData.footer.partnerLinks;
   const legalLinks = footer?.legalLinks || defaultData.footer.legalLinks;
   const copyright = footer?.copyright || defaultData.footer.copyright;
   const disclaimer = footer?.disclaimer || defaultData.footer.disclaimer;
 
-  const whatsappUrl = `https://wa.me/${contact.whatsappNumber || "919579616908"}?text=${encodeURIComponent(contact.whatsappMessage || "Hello TCS9 MPSC Group C Test Series बद्दल माहिती हवी आहे")}`;
+  const whatsappUrl = `https://wa.me/${contact.whatsappNumber}?text=${encodeURIComponent(contact.whatsappMessage)}`;
 
   return (
     <footer className="bg-[#1F2A5C] text-white">
@@ -25,9 +33,14 @@ export function Footer({ initialData }: { initialData?: typeof defaultData.foote
                 <Phone className="w-5 h-5" />
               </div>
               <div className="space-y-0.5">
-                <p className="text-xs sm:text-sm text-slate-500 font-medium">{contact.heading}</p>
+                <p className="text-xs sm:text-sm text-slate-500 font-medium">
+                  {contact.heading || "काही अडचण किंवा प्रश्न असल्यास थेट बोला:"}
+                </p>
                 <p className="text-base sm:text-lg font-extrabold text-[#1F2A5C] english-numerals">
-                  {contact.phone} <span className="font-medium text-sm text-slate-500">{contact.timing}</span>
+                  {contact.phone || "+91 95796 16908"}{" "}
+                  <span className="font-medium text-sm text-slate-500">
+                    {contact.timing || "(9.00 am to 5:00 pm)"}
+                  </span>
                 </p>
               </div>
             </div>

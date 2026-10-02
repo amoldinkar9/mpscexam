@@ -60,9 +60,9 @@
     "semantic_hash": "d54f6c579c79fb7e061791f5b1293e5a"
   },
   "memory.md": {
-    "mtime": 1790907771.8920786,
-    "seen": 1790907777.7835698,
-    "ast_hash": "e1e6057a50938ec3eaa08ee72d8eea33",
+    "mtime": 1790910025.9721258,
+    "seen": 1790910035.533077,
+    "ast_hash": "f6fde07ed4976a7ef39875838d27348e",
     "semantic_hash": ""
   },
   "routes.md": {
@@ -126,15 +126,15 @@
     "semantic_hash": ""
   },
   "src/components/HeroSection.tsx": {
-    "mtime": 1790860570.5023754,
-    "seen": 1790861022.273247,
-    "ast_hash": "c1ec6a8c012fbef2056090d38f777a91",
+    "mtime": 1790909885.2983606,
+    "seen": 1790910035.533053,
+    "ast_hash": "e10a1415dbaddd55388e1f780bdeecdd",
     "semantic_hash": ""
   },
   "src/components/HowItWorks.tsx": {
-    "mtime": 1790839269.5503767,
-    "seen": 1790841600.681001,
-    "ast_hash": "77363be9231c6aa74341072bb092956c",
+    "mtime": 1790909902.0129893,
+    "seen": 1790910035.5330539,
+    "ast_hash": "e6cd31fdde731f69161cdddd9ba13a62",
     "semantic_hash": ""
   },
   "src/components/OfferBreakdown.tsx": {
@@ -144,9 +144,9 @@
     "semantic_hash": "23c982290dc9af32818dd2289a116690"
   },
   "src/components/Pricing.tsx": {
-    "mtime": 1790909117.236175,
-    "seen": 1790909142.414592,
-    "ast_hash": "f7115fa0ad8f8c6ba65b0fcfd1b6f72c",
+    "mtime": 1790909878.064959,
+    "seen": 1790910035.533057,
+    "ast_hash": "69fb723bc1240fae37a7b629599c7a87",
     "semantic_hash": ""
   },
   "src/components/SampleProof.tsx": {
@@ -174,9 +174,9 @@
     "semantic_hash": ""
   },
   "src/components/UrgencyBanner.tsx": {
-    "mtime": 1789190948.7167125,
-    "seen": 1789191064.604822,
-    "ast_hash": "904ee0029ed4aa5537ee03525dd9045d",
+    "mtime": 1790910133.5923352,
+    "seen": 1790910154.183365,
+    "ast_hash": "2717286ab8644fcf2bec9c8888fd94dc",
     "semantic_hash": ""
   },
   "tsconfig.json": {
@@ -192,9 +192,9 @@
     "semantic_hash": "5c27369b226fcf2be8a6cfe52224e767"
   },
   "src/components/LiveActivityToast.tsx": {
-    "mtime": 1788448544.2703953,
-    "seen": 1788448573.2877061,
-    "ast_hash": "ad7770fae62edbd3cad9b04933f84063",
+    "mtime": 1790909912.3972852,
+    "seen": 1790910035.533055,
+    "ast_hash": "bf21419e3236a0eb44283e2960c9364e",
     "semantic_hash": ""
   },
   "src/data/studentsList.ts": {
@@ -210,9 +210,9 @@
     "semantic_hash": ""
   },
   "src/components/HowToPurchase.tsx": {
-    "mtime": 1790860837.5995374,
-    "seen": 1790861022.273249,
-    "ast_hash": "411362fda6cea6ea82b324d5b2f1fb1a",
+    "mtime": 1790909895.7516758,
+    "seen": 1790910035.533055,
+    "ast_hash": "08ac1fc55b203ece17d49c1f2dd459d7",
     "semantic_hash": ""
   },
   "vite.config.ts": {
@@ -228,9 +228,9 @@
     "semantic_hash": ""
   },
   "src/app/admin/page.tsx": {
-    "mtime": 1790909124.3706465,
-    "seen": 1790909142.414578,
-    "ast_hash": "eb2d775e63a5cfbe76ed6d7fc373b642",
+    "mtime": 1790916835.3980145,
+    "seen": 1790916869.60121,
+    "ast_hash": "42ebb548f3c93b5ee0e7589a1f1a37a4",
     "semantic_hash": ""
   },
   "src/app/api/admin/content/route.ts": {
@@ -240,15 +240,15 @@
     "semantic_hash": ""
   },
   "src/data/siteContent.json": {
-    "mtime": 1790862727.3661478,
-    "seen": 1790862787.5062442,
-    "ast_hash": "b55ed8e6130bf412c0be407691eb6e68",
+    "mtime": 1790916803.3639152,
+    "seen": 1790916869.601228,
+    "ast_hash": "67e5a5c5fee65883bd3188e675e293b0",
     "semantic_hash": ""
   },
   "src/lib/contentStore.ts": {
-    "mtime": 1790860558.7828224,
-    "seen": 1790861022.273258,
-    "ast_hash": "954665846407257d7b92a293459d07cb",
+    "mtime": 1790909923.4789546,
+    "seen": 1790910035.533063,
+    "ast_hash": "dc5af412bb80aa84286e2e53e0f032d0",
     "semantic_hash": ""
   },
   "src/middleware.ts": {
@@ -270,9 +270,9 @@
     "semantic_hash": ""
   },
   "src/lib/scarcity.ts": {
-    "mtime": 1788520746.9739873,
-    "seen": 1788520863.473354,
-    "ast_hash": "520a1494a24a393469b442de00d41c33",
+    "mtime": 1790916815.9484062,
+    "seen": 1790916869.601231,
+    "ast_hash": "817bc8d0b2a30f2320e4d8da072d623a",
     "semantic_hash": ""
   },
   "public/sample-airport.png": {

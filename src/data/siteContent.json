@@ -461,17 +461,17 @@
     "badgeText": "विशेष सवलत ऑफर",
     "headline": "परवडणाऱ्या दरात उत्कृष्ट दर्जाची तयारी",
     "subheadline": "एका पुस्तकाच्या किमतीपेक्षाही कमी दरात मिळवा 25 संपूर्ण टेस्ट्स आणि सविस्तर स्पष्टीकरणे.",
-    "scarcityTag": "पहिले 1000 विद्यार्थी विशेष सवलत",
+    "scarcityTag": "पहिले 500 विद्यार्थी विशेष सवलत",
     "packageName": "संपूर्ण 25 टेस्ट्स पॅकेज",
     "originalPrice": 499,
     "offerPrice": 199,
     "discountText": "60% थेट सवलत",
-    "bookedSeats": 889,
-    "totalSeats": 1000,
-    "remainingSeats": 111,
+    "bookedSeats": 442,
+    "totalSeats": 500,
+    "remainingSeats": 58,
     "buttonText": "Start Test",
     "buttonUrl": "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX",
-    "priceLockAlert": "*1000 सीट्स संपल्यानंतर मूळ किंमत ₹499 लागू होईल.",
+    "priceLockAlert": "*58 सीट्स संपल्यानंतर मूळ किंमत ₹499 लागू होईल.",
     "riskReversal": "<strong>100% समाधान किंवा सपोर्ट:</strong> कोणतीही तांत्रिक अडचण आल्यास व्हॉट्सॲप सपोर्टद्वारे त्वरित निराकरण केले जाईल.",
     "paymentSecurityText": "256-Bit SSL सुरक्षित • UPI / PhonePe / GPay",
     "checklist": [
@@ -558,9 +558,9 @@
       "heading": "काही अडचण किंवा प्रश्न असल्यास थेट बोला:",
       "phone": "+91 95796 16908",
       "timing": "(सकाळी 9 ते रात्री 9)",
-      "whatsappButtonText": "Chat on Whatsapp",
+      "whatsappButtonText": "व्हॉट्सॲपवर संपर्क करा",
       "whatsappNumber": "919579616908",
-      "whatsappMessage": "हॅलो, मला MASTER25 MPSC गट-क पूर्व परीक्षा टेस्ट सिरीज बद्दल अधिक माहिती हवी आहे."
+      "whatsappMessage": "Hello TCS9 MPSC Group C Test Series बद्दल माहिती हवी आहे"
     },
     "brand": {
       "name": "mpscexam",
@@ -608,12 +608,12 @@
   "howToPurchaseCta": {
     "buttonText": "Start Test",
     "buttonUrl": "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX",
-    "whatsappButtonText": "Any Questions? Chat on Whatsapp",
-    "whatsappUrl": "https://wa.me/919579616908?text=हॅलो%2C%20मला%20MASTER25%20MPSC%20गट-क%20पूर्व%20परीक्षा%20टेस्ट%20सिरीज%20बद्दल%20अधिक%20माहिती%20हवी%20आहे."
+    "whatsappButtonText": "Any Questions? / काही शंका आहेत? थेट व्हॉट्सॲपवर विचारा",
+    "whatsappUrl": "https://wa.me/919579616908?text=Hello%20MPSC%20Group%20C%20Test%20Series%20खरेदी%20करण्याबाबत%20काही%20शंका%20आहेत"
   },
   "stickyMobileBar": {
-    "buttonText": "Start Test",
+    "buttonText": "सुरुवात करा",
     "buttonUrl": "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX",
-    "whatsappUrl": "https://wa.me/919579616908?text=हॅलो%2C%20मला%20MASTER25%20MPSC%20गट-क%20पूर्व%20परीक्षा%20टेस्ट%20सिरीज%20बद्दल%20अधिक%20माहिती%20हवी%20आहे."
+    "whatsappUrl": "https://wa.me/919579616908?text=Hello%20MPSC%20Group%20C%20Test%20Series%20बद्दल%20माहिती%20हवी%20आहे"
   }
 }

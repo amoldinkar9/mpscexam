@@ -668,3 +668,12 @@ flowchart TD
     - Updated fallback defaults in admin preview and state (`bookedSeats: 889`, `remainingSeats: 111`, `totalSeats: 1000`).
     - `contentStore.ts`: Dynamic normalization inside `ensureSections` migrating legacy 500 values to 1000.
     - SQLite database row in `site_content` table committed with updated 1,000-seat schema.
+
+### Footer Contact Bar Resiliency & Operating Hours (`src/components/Footer.tsx`, `siteContent.json`, `contentStore.ts`)
+- **Problem:**
+  - The contact phone number, heading, and operating hours in the top white strip of the footer were appearing blank if `footer.contactBar` fields were empty or partially loaded from database/props, leaving only the telephone icon.
+- **Solution & Timing Update:**
+  - Updated operating hours from `(सकाळी 9 ते रात्री 9)` to `(9.00 am to 5:00 pm)`.
+  - Added strict property-level fallback guarantees across [`Footer.tsx`](file:///Users/amoldinkar9/Documents/mpscexam/src/components/Footer.tsx) (`heading`, `phone`, and `timing`) so text can never disappear.
+  - Added deep normalization in [`contentStore.ts`](file:///Users/amoldinkar9/Documents/mpscexam/src/lib/contentStore.ts) (`ensureSections`) to ensure `footer.contactBar` is always fully populated from defaults.
+  - Updated SQLite database record with `timing: "(9.00 am to 5:00 pm)"` and verified phone: `"+91 95796 16908"`.

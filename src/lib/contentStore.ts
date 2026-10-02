@@ -67,6 +67,27 @@ function ensureSections(content: any): SiteContent {
     }
   }
 
+  // Ensure footer and contactBar exist with full defaults
+  if (!content.footer) {
+    content.footer = defaultData.footer;
+  } else {
+    const defContact = defaultData.footer.contactBar;
+    content.footer = {
+      ...defaultData.footer,
+      ...content.footer,
+      contactBar: {
+        ...defContact,
+        ...(content.footer.contactBar || {}),
+        heading: content.footer.contactBar?.heading || defContact.heading,
+        phone: content.footer.contactBar?.phone || defContact.phone,
+        timing: content.footer.contactBar?.timing || defContact.timing,
+        whatsappButtonText: content.footer.contactBar?.whatsappButtonText || defContact.whatsappButtonText,
+        whatsappNumber: content.footer.contactBar?.whatsappNumber || defContact.whatsappNumber,
+        whatsappMessage: content.footer.contactBar?.whatsappMessage || defContact.whatsappMessage,
+      },
+    };
+  }
+
   return content as SiteContent;
 }
 

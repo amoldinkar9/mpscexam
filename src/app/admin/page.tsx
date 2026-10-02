@@ -4361,7 +4361,7 @@ export default function AdminPage() {
                       <label className="block text-xs font-semibold text-zinc-700 mb-1">Booked Seats Count</label>
                       <input
                         type="number"
-                        value={content.finalCta?.bookedSeats ?? 889}
+                        value={content.finalCta?.bookedSeats ?? 562}
                         onChange={(e) =>
                           setContent({
                             ...content,
@@ -4376,7 +4376,7 @@ export default function AdminPage() {
                       <label className="block text-xs font-semibold text-zinc-700 mb-1">Remaining Seats Count</label>
                       <input
                         type="number"
-                        value={content.finalCta?.remainingSeats ?? 111}
+                        value={content.finalCta?.remainingSeats ?? 438}
                         onChange={(e) =>
                           setContent({
                             ...content,
@@ -4745,7 +4745,7 @@ export default function AdminPage() {
                           )}
                           <div className="pt-1.5">
                             <span className="inline-block text-[10px] font-bold bg-[#fbeae8] text-[#9B3A32] px-3 py-0.5 rounded-full border border-[#f3c8c4]">
-                              🔥 {content.finalCta?.bookedSeats ?? 889} सीट्स बुक झाल्या • केवळ {content.finalCta?.remainingSeats ?? 111} शिल्लक
+                              🔥 {content.finalCta?.bookedSeats ?? 562} सीट्स बुक झाल्या • केवळ {content.finalCta?.remainingSeats ?? 438} शिल्लक
                             </span>
                           </div>
                         </div>
@@ -4853,7 +4853,7 @@ export default function AdminPage() {
                       <label className="block text-xs font-semibold text-zinc-700 mb-1">Support Phone Number</label>
                       <input
                         type="text"
-                        value={content.footer?.contactBar?.phone ?? ""}
+                        value={content.footer?.contactBar?.phone || "+91 95796 16908"}
                         onChange={(e) =>
                           setContent({
                             ...content,
@@ -4872,7 +4872,7 @@ export default function AdminPage() {
                       <label className="block text-xs font-semibold text-zinc-700 mb-1">Operating Hours / Timing</label>
                       <input
                         type="text"
-                        value={content.footer?.contactBar?.timing ?? ""}
+                        value={content.footer?.contactBar?.timing || "(9.00 am to 5:00 pm)"}
                         onChange={(e) =>
                           setContent({
                             ...content,
@@ -4882,7 +4882,7 @@ export default function AdminPage() {
                             },
                           })
                         }
-                        placeholder="e.g. (सकाळी 9 ते रात्री 9)"
+                        placeholder="e.g. (9.00 am to 5:00 pm)"
                         className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium text-zinc-600 bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
                       />
                     </div>
@@ -5444,7 +5444,7 @@ export default function AdminPage() {
                           <p className="text-sm font-extrabold text-[#1F2A5C]">
                             {content.footer?.contactBar?.phone || "+91 95796 16908"}{" "}
                             <span className="font-medium text-xs text-slate-500">
-                              {content.footer?.contactBar?.timing || "(सकाळी 9 ते रात्री 9)"}
+                              {content.footer?.contactBar?.timing || "(9.00 am to 5:00 pm)"}
                             </span>
                           </p>
                         </div>

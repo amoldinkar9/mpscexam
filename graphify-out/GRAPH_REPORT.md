@@ -1,7 +1,7 @@
 # Graph Report - mpscexam  (2026-10-02)
 
 ## Corpus Check
-- 51 files · ~97,613 words
+- 51 files · ~97,756 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2c01327b`
+- Built from commit: `0ed3f431`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -55,12 +55,12 @@
 ## Surprising Connections (you probably didn't know these)
 - `Structural Layer Dependencies` --semantically_similar_to--> `mpscexam System Architecture`  [INFERRED] [semantically similar]
   dependency-graph.md → architecture.md
+- `QuestionEditorPage` --conceptually_related_to--> `QUESTION Entity`  [INFERRED]
+  routes.md → database-map.md
 - `Next.js Agent Rules Notice` --semantically_similar_to--> `mpscexam Project Overview`  [INFERRED] [semantically similar]
   AGENTS.md → memory.md
 - `README Getting Started (create-next-app)` --semantically_similar_to--> `mpscexam Project Overview`  [INFERRED] [semantically similar]
   README.md → memory.md
-- `QuestionEditorPage` --conceptually_related_to--> `QUESTION Entity`  [INFERRED]
-  routes.md → database-map.md
 - `Graphify Knowledge Graph` --conceptually_related_to--> `mpscexam File Dependency Graph`  [INFERRED]
   .agents/rules/graphify.md → dependency-graph.md
 

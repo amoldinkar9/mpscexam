@@ -677,3 +677,20 @@ flowchart TD
   - Added strict property-level fallback guarantees across [`Footer.tsx`](file:///Users/amoldinkar9/Documents/mpscexam/src/components/Footer.tsx) (`heading`, `phone`, and `timing`) so text can never disappear.
   - Added deep normalization in [`contentStore.ts`](file:///Users/amoldinkar9/Documents/mpscexam/src/lib/contentStore.ts) (`ensureSections`) to ensure `footer.contactBar` is always fully populated from defaults.
   - Updated SQLite database record with `timing: "(9.00 am to 5:00 pm)"` and verified phone: `"+91 95796 16908"`.
+
+### Footer Brand Circular White Logo Integration (`src/components/Footer.tsx`, `public/logo.png`, `siteContent.json`, `src/app/admin/page.tsx`)
+- **Requirement:**
+  - Replace the text-based logo badge (`TCS9`) in the footer with the official emblem/logo featuring the Ashoka Lion Capitol, Vidhan Bhavan dome, open book, and Maharashtra map outline within a circular container with a white background.
+- **Architectural Implementation Across Connected Layers:**
+  - **Asset Location:** Uploaded PNG stored directly in `public/logo.png`.
+  - **Public Footer Rendering (`src/components/Footer.tsx`):**
+    - Embedded `brand.logoUrl || "/logo.png"` within a circular white container: `w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white flex items-center justify-center p-1 shadow-sm shrink-0 overflow-hidden`.
+    - Placed directly adjacent to the brand title `mpscexam`.
+  - **Schema & Defaults (`src/data/siteContent.json`):**
+    - Added `"logoUrl": "/logo.png"` to `footer.brand`.
+  - **Cloudflare D1 / SQLite Database Synchronization:**
+    - Updated `site_content` row using `json_set(data, '$.footer.brand.logoUrl', '/logo.png')` so database state seamlessly reflects the logo path.
+  - **Admin Panel & Preview (`src/app/admin/page.tsx`):**
+    - Added "Brand Logo Image URL" input in the Footer Brand settings.
+    - Updated the real-time footer preview to mirror the circular white logo container.
+

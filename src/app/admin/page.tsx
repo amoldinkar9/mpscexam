@@ -4976,20 +4976,20 @@ export default function AdminPage() {
                     </div>
 
                     <div>
-                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Badge Label (Logo Badge)</label>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Brand Logo Image URL</label>
                       <input
                         type="text"
-                        value={content.footer?.brand?.badge ?? "TCS9"}
+                        value={content.footer?.brand?.logoUrl ?? "/logo.png"}
                         onChange={(e) =>
                           setContent({
                             ...content,
                             footer: {
                               ...content.footer,
-                              brand: { ...content.footer?.brand, badge: e.target.value },
+                              brand: { ...content.footer?.brand, logoUrl: e.target.value },
                             },
                           })
                         }
-                        placeholder="e.g. TCS9"
+                        placeholder="/logo.png"
                         className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-bold text-black bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
                       />
                     </div>
@@ -5462,10 +5462,12 @@ export default function AdminPage() {
                         {/* Brand */}
                         <div className="md:col-span-6 space-y-3">
                           <div className="flex items-center gap-2.5">
-                            <div className="w-7 h-7 rounded-full border border-white/30 bg-white/10 flex items-center justify-center">
-                              <span className="text-amber-400 font-black text-[10px]">
-                                {content.footer?.brand?.badge || "TCS9"}
-                              </span>
+                            <div className="w-7 h-7 rounded-full bg-white flex items-center justify-center p-0.5 shadow-xs shrink-0 overflow-hidden">
+                              <img
+                                src={content.footer?.brand?.logoUrl || "/logo.png"}
+                                alt={content.footer?.brand?.name || "mpscexam"}
+                                className="w-full h-full object-contain"
+                              />
                             </div>
                             <span className="text-lg font-extrabold tracking-tight text-white">
                               {content.footer?.brand?.name || "mpscexam"}

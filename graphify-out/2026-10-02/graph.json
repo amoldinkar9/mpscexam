@@ -588,7 +588,7 @@
       "file_type": "code",
       "norm_label": "getsitecontent()",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L77"
+      "source_location": "L98"
     },
     {
       "id": "src_lib_contentstore_savesitecontent",
@@ -600,7 +600,7 @@
       "file_type": "code",
       "norm_label": "savesitecontent()",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L120"
+      "source_location": "L141"
     },
     {
       "id": "src_app_api_admin_upload_route_delete",
@@ -2314,50 +2314,6 @@
       "source_location": "L21"
     },
     {
-      "id": "cloudflare_workers",
-      "label": "cloudflare:workers",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "upload/route.ts",
-      "confidence": "EXTRACTED",
-      "file_type": "code",
-      "norm_label": "cloudflare:workers",
-      "source_file": "cloudflare:workers"
-    },
-    {
-      "id": "fs",
-      "label": "fs",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "upload/route.ts",
-      "confidence": "EXTRACTED",
-      "file_type": "code",
-      "norm_label": "fs",
-      "source_file": "fs"
-    },
-    {
-      "id": "node_sqlite",
-      "label": "node:sqlite",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "upload/route.ts",
-      "confidence": "EXTRACTED",
-      "file_type": "code",
-      "norm_label": "node:sqlite",
-      "source_file": "node:sqlite"
-    },
-    {
-      "id": "path",
-      "label": "path",
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "upload/route.ts",
-      "confidence": "EXTRACTED",
-      "file_type": "code",
-      "norm_label": "path",
-      "source_file": "path"
-    },
-    {
       "id": "src_app_api_admin_upload_route",
       "label": "upload/route.ts",
       "_origin": "ast",
@@ -3017,21 +2973,6 @@
       "source_url": null
     },
     {
-      "id": "routes_question_editor_page",
-      "label": "QuestionEditorPage",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "questioneditorpage",
-      "source_file": "routes.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
       "id": "routes_route_protection_middleware_flow",
       "label": "Route Protection & Middleware Flow",
       "_origin": "semantic",
@@ -3527,6 +3468,21 @@
       "source_url": null
     },
     {
+      "id": "routes_question_editor_page",
+      "label": "QuestionEditorPage",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "questioneditorpage",
+      "source_file": "routes.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
       "id": "database_map_entity_map",
       "label": "mpscexam Database Entity Map",
       "_origin": "semantic",
@@ -3900,7 +3856,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L80",
+      "source_location": "L101",
       "weight": 1.0
     },
     {
@@ -3912,7 +3868,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L85",
+      "source_location": "L106",
       "weight": 1.0
     },
     {
@@ -3924,7 +3880,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L126",
+      "source_location": "L147",
       "weight": 1.0
     },
     {
@@ -6253,17 +6209,6 @@
     },
     {
       "source": "src_lib_contentstore",
-      "target": "src_lib_contentstore_savesitecontent",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/lib/contentStore.ts",
-      "source_location": "L120",
-      "weight": 1.0
-    },
-    {
-      "source": "src_lib_contentstore",
       "target": "src_lib_contentstore_sitecontent",
       "relation": "contains",
       "_origin": "ast",
@@ -6271,6 +6216,17 @@
       "confidence_score": 1.0,
       "source_file": "src/lib/contentStore.ts",
       "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "src_lib_contentstore",
+      "target": "src_lib_contentstore_savesitecontent",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/contentStore.ts",
+      "source_location": "L141",
       "weight": 1.0
     },
     {
@@ -6325,7 +6281,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L77",
+      "source_location": "L98",
       "weight": 1.0
     },
     {
@@ -6679,60 +6635,6 @@
       "source_file": "tsconfig.json",
       "source_location": "L9",
       "weight": 1.0
-    },
-    {
-      "source": "src_app_api_admin_content_route",
-      "target": "cloudflare_workers",
-      "relation": "dynamic_import",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/api/admin/content/route.ts"
-    },
-    {
-      "source": "src_app_api_admin_upload_route",
-      "target": "cloudflare_workers",
-      "relation": "dynamic_import",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/api/admin/upload/route.ts"
-    },
-    {
-      "source": "src_lib_db",
-      "target": "cloudflare_workers",
-      "relation": "dynamic_import",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/lib/db.ts"
-    },
-    {
-      "source": "src_lib_db",
-      "target": "fs",
-      "relation": "dynamic_import",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/lib/db.ts"
-    },
-    {
-      "source": "src_lib_db",
-      "target": "node_sqlite",
-      "relation": "dynamic_import",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/lib/db.ts"
-    },
-    {
-      "source": "src_lib_db",
-      "target": "path",
-      "relation": "dynamic_import",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/lib/db.ts"
     },
     {
       "source": "src_lib_db_d1databaselike",
@@ -7798,5 +7700,5 @@
       "source_file": "architecture.md"
     }
   ],
-  "built_at_commit": "0ed3f4319231cf87d558e8334aa342cce0001e86"
+  "built_at_commit": "1a86907381c28b9288c229861583823220cdb5aa"
 }

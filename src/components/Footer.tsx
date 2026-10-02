@@ -67,8 +67,12 @@ export function Footer({ initialData }: { initialData?: typeof defaultData.foote
           {/* Brand Col */}
           <div className="md:col-span-6 lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-full border border-white/30 bg-white/10 flex items-center justify-center">
-                <span className="text-amber-400 font-black text-xs">{brand.badge}</span>
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white flex items-center justify-center p-1 shadow-sm shrink-0 overflow-hidden">
+                <img
+                  src={brand.logoUrl || "/logo.png"}
+                  alt={brand.name || "mpscexam"}
+                  className="w-full h-full object-contain"
+                />
               </div>
               <span className="text-2xl font-extrabold tracking-tight text-white">{brand.name}</span>
             </div>

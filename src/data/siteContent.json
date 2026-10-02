@@ -565,6 +565,7 @@
     "brand": {
       "name": "mpscexam",
       "badge": "TCS9",
+      "logoUrl": "/logo.png",
       "description": "महाराष्ट्र लोकसेवा आयोगाच्या (MPSC) विविध स्पर्धा परीक्षांच्या तयारीसाठी दर्जेदार मॉक टेस्ट्स आणि अभ्यास साहित्याचा विश्वासू मंच.",
       "supportEmail": "support@mpscexam.com"
     },

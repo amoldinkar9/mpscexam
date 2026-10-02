@@ -80,7 +80,7 @@ export function UrgencyBanner() {
                 <span>₹199 ऑफर स्लॉट्स</span>
               </span>
               <span className="text-[#9B3A32] font-black english-numerals">
-                {scarcity.percent}% भरले ({scarcity.booked}/500)
+                {scarcity.booked} / {scarcity.total} बुक
               </span>
             </div>
             
@@ -93,7 +93,7 @@ export function UrgencyBanner() {
             </div>
             
             <div className="flex justify-between text-xs text-slate-700 font-semibold pt-0.5">
-              <span>पहिल्या 500 विद्यार्थ्यांसाठी</span>
+              <span>पहिल्या {scarcity.total} विद्यार्थ्यांसाठी</span>
               <span className="text-[#9B3A32] font-black animate-pulse">
                 केवळ {scarcity.remaining} सीट्स शिल्लक!
               </span>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { Zap, CheckCircle2, TrendingUp, X } from "lucide-react";
 import { STUDENT_NAMES, MAHARASHTRA_DISTRICTS } from "@/data/studentsList";
+import { getScarcityData } from "@/lib/scarcity";
 
 interface ActivityItem {
   id: number;
@@ -66,7 +67,8 @@ export function LiveActivityToast() {
           highlight: `अचूकता ${accuracy}%`
         };
       }
-      case 3:
+      case 3: {
+        const scarcity = getScarcityData();
         return {
           id,
           name: student,
@@ -74,8 +76,9 @@ export function LiveActivityToast() {
           action: "यांनी टेस्ट सिरीजमध्ये नावनोंदणी केली",
           timeAgo,
           type: "enrolled",
-          highlight: "शेवटच्या 58 सीट्स"
+          highlight: `शेवटच्या ${scarcity.remaining} सीट्स`
         };
+      }
       case 4:
       default: {
         const testNum = Math.floor(Math.random() * 15) + 1;

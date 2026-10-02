@@ -57,6 +57,16 @@ function ensureSections(content: any): SiteContent {
     content.stickyMobileBar = (defaultData as any).stickyMobileBar;
   }
 
+  // Ensure 1000 seats migration
+  if (content.finalCta) {
+    if (content.finalCta.totalSeats === 500) {
+      content.finalCta.totalSeats = 1000;
+    }
+    if (content.finalCta.scarcityTag === "पहिले 500 विद्यार्थी विशेष सवलत") {
+      content.finalCta.scarcityTag = "पहिले 1000 विद्यार्थी विशेष सवलत";
+    }
+  }
+
   return content as SiteContent;
 }
 

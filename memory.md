@@ -647,5 +647,24 @@ flowchart TD
     - **Interactive Pagination Dots:** Dot navigation at the bottom of the card displaying active question position and allowing instant jumps to any question.
     - **Radix UI Accessible Tabs:** Integrates `@radix-ui/react-tabs` (`Tabs.Root`, `Tabs.List`, `Tabs.Trigger`) for accessible keyboard navigation and ARIA attributes.
 
-
-
+### Dynamic Progressive 1,000-Seat Scarcity Engine Architecture (`src/lib/scarcity.ts`)
+- **Requirement & Strategy:**
+  - Expanded total launch seat cap from 500 to 1,000 aspirants for the ₹199 special rate.
+  - Automatically and gradually increases booked seats through October, reaching **991 booked seats** by **October 31, 2026** (leaving exactly 9 final seats).
+- **Architectural Implementation Across Connected Layers:**
+  - **Dynamic Engine (`src/lib/scarcity.ts`):**
+    - `total = 1000`
+    - `startDate = 2026-10-01T00:00:00+05:30` (starting booked baseline ~884, representing 88.4%)
+    - `endDate = 2026-10-31T23:59:59+05:30` (target end booked = 991, 99.1%)
+    - `exactBooked` and `progressRatio` smoothly track real-time progression.
+    - Clamped remaining seats: `Math.max(9, total - booked)`.
+  - **Public Landing Page Components:**
+    - `UrgencyBanner.tsx`: Updated to dynamic `{scarcity.total}` (`{scarcity.percent}% भरले ({scarcity.booked}/1000)` and `पहिल्या 1000 विद्यार्थ्यांसाठी`).
+    - `Pricing.tsx`: Scarcity tag default updated to `"पहिले 1000 विद्यार्थी विशेष सवलत"` and price lock alert footnote to `"*1000 सीट्स संपल्यानंतर मूळ किंमत ₹499 लागू होईल."`.
+    - `HeroSection.tsx`, `HowToPurchase.tsx`, `HowItWorks.tsx`: Updated highlight copy from 500 to 1,000 students (`पहिल्या 1000 विद्यार्थ्यांसाठी`).
+    - `LiveActivityToast.tsx`: Dynamic highlight badge connected to `getScarcityData().remaining` (`"शेवटच्या ${remaining} सीट्स"`).
+  - **Admin Panel & Persistence (`src/app/admin/page.tsx`, `src/lib/contentStore.ts`, Cloudflare D1 / SQLite):**
+    - Added dedicated "Total Seats (एकूण सीट्स)" input field alongside Booked Seats and Remaining Seats in the admin Pricing tab.
+    - Updated fallback defaults in admin preview and state (`bookedSeats: 889`, `remainingSeats: 111`, `totalSeats: 1000`).
+    - `contentStore.ts`: Dynamic normalization inside `ensureSections` migrating legacy 500 values to 1000.
+    - SQLite database row in `site_content` table committed with updated 1,000-seat schema.

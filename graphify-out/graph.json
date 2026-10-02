@@ -101,7 +101,7 @@
       "file_type": "code",
       "norm_label": "activityitem",
       "source_file": "src/components/LiveActivityToast.tsx",
-      "source_location": "L7"
+      "source_location": "L8"
     },
     {
       "id": "src_components_syllabusweightage_syllabusitem",
@@ -288,7 +288,7 @@
       "file_type": "code",
       "norm_label": "liveactivitytoast()",
       "source_file": "src/components/LiveActivityToast.tsx",
-      "source_location": "L17"
+      "source_location": "L18"
     },
     {
       "id": "src_components_pricing_pricing",
@@ -456,7 +456,7 @@
       "file_type": "code",
       "norm_label": "sidebarnavitem()",
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L6244"
+      "source_location": "L6259"
     },
     {
       "id": "src_components_admin_richtexteditor_richtexteditor",
@@ -588,7 +588,7 @@
       "file_type": "code",
       "norm_label": "getsitecontent()",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L67"
+      "source_location": "L77"
     },
     {
       "id": "src_lib_contentstore_savesitecontent",
@@ -600,7 +600,7 @@
       "file_type": "code",
       "norm_label": "savesitecontent()",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L110"
+      "source_location": "L120"
     },
     {
       "id": "src_app_api_admin_upload_route_delete",
@@ -2867,126 +2867,6 @@
       "source_url": null
     },
     {
-      "id": "database_map_category",
-      "label": "CATEGORY Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "category entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_question",
-      "label": "QUESTION Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "question entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_subject",
-      "label": "SUBJECT Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "subject entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_test_attempt",
-      "label": "TEST_ATTEMPT Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "test_attempt entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_test_question_mapping",
-      "label": "TEST_QUESTION_MAPPING Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "test_question_mapping entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_test_series",
-      "label": "TEST_SERIES Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "test_series entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_user",
-      "label": "USER Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "user entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_user_answer",
-      "label": "USER_ANSWER Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "user_answer entity",
-      "source_file": "database-map.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
       "id": "dependency_graph_auth_middleware_rbac_guard",
       "label": "AuthMiddleware & RBAC Guard",
       "_origin": "semantic",
@@ -3043,6 +2923,51 @@
       "file_type": "concept",
       "norm_label": "structural layer dependencies",
       "source_file": "dependency-graph.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "memory_authentication_flow",
+      "label": "Authentication Flow",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "authentication flow",
+      "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "memory_authservice",
+      "label": "AuthService",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "authservice",
+      "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "memory_user_entity",
+      "label": "User Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "user entity",
+      "source_file": "memory.md",
       "source_location": null,
       "source_url": null
     },
@@ -3107,6 +3032,21 @@
       "source_url": null
     },
     {
+      "id": "routes_route_protection_middleware_flow",
+      "label": "Route Protection & Middleware Flow",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "route protection & middleware flow",
+      "source_file": "routes.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
       "id": "routes_test_result_page",
       "label": "TestResultPage",
       "_origin": "semantic",
@@ -3148,21 +3088,6 @@
       "file_type": "document",
       "norm_label": "mpscexam system architecture",
       "source_file": "architecture.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "database_map_entity_map",
-      "label": "mpscexam Database Entity Map",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "document",
-      "norm_label": "mpscexam database entity map",
-      "source_file": "database-map.md",
       "source_location": null,
       "source_url": null
     },
@@ -3482,6 +3407,141 @@
       "source_url": null
     },
     {
+      "id": "database_map_category",
+      "label": "CATEGORY Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "category entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_question",
+      "label": "QUESTION Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "question entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_subject",
+      "label": "SUBJECT Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "subject entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_test_attempt",
+      "label": "TEST_ATTEMPT Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "test_attempt entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_test_question_mapping",
+      "label": "TEST_QUESTION_MAPPING Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "test_question_mapping entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_test_series",
+      "label": "TEST_SERIES Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "test_series entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_user",
+      "label": "USER Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "user entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_user_answer",
+      "label": "USER_ANSWER Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "user_answer entity",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "database_map_entity_map",
+      "label": "mpscexam Database Entity Map",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 26,
+      "community_name": "QUESTION Entity",
+      "contributor": null,
+      "file_type": "document",
+      "norm_label": "mpscexam database entity map",
+      "source_file": "database-map.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
       "id": "memory_analyticsservice",
       "label": "AnalyticsService",
       "_origin": "semantic",
@@ -3492,36 +3552,6 @@
       "contributor": null,
       "file_type": "concept",
       "norm_label": "analyticsservice",
-      "source_file": "memory.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "memory_authentication_flow",
-      "label": "Authentication Flow",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 9,
-      "community_name": "TestAttempt Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "authentication flow",
-      "source_file": "memory.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "memory_authservice",
-      "label": "AuthService",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 9,
-      "community_name": "TestAttempt Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "authservice",
       "source_file": "memory.md",
       "source_location": null,
       "source_url": null
@@ -3617,21 +3647,6 @@
       "source_url": null
     },
     {
-      "id": "memory_user_entity",
-      "label": "User Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 9,
-      "community_name": "TestAttempt Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "user entity",
-      "source_file": "memory.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
       "id": "memory_useranswer_entity",
       "label": "UserAnswer Entity",
       "_origin": "semantic",
@@ -3643,21 +3658,6 @@
       "file_type": "concept",
       "norm_label": "useranswer entity",
       "source_file": "memory.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "routes_route_protection_middleware_flow",
-      "label": "Route Protection & Middleware Flow",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 9,
-      "community_name": "TestAttempt Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "route protection & middleware flow",
-      "source_file": "routes.md",
       "source_location": null,
       "source_url": null
     }
@@ -3832,6 +3832,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_liveactivitytoast_liveactivitytoast",
+      "target": "src_lib_scarcity_getscarcitydata",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/components/LiveActivityToast.tsx",
+      "source_location": "L71",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_pricing_pricing",
       "target": "src_lib_scarcity_getscarcitydata",
       "relation": "calls",
@@ -3888,7 +3900,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L70",
+      "source_location": "L80",
       "weight": 1.0
     },
     {
@@ -3900,7 +3912,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L75",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -3912,7 +3924,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L116",
+      "source_location": "L126",
       "weight": 1.0
     },
     {
@@ -4756,6 +4768,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_components_liveactivitytoast",
+      "target": "src_lib_scarcity_getscarcitydata",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/LiveActivityToast.tsx",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
       "source": "src_components_pricing",
       "target": "src_lib_scarcity_getscarcitydata",
       "relation": "imports",
@@ -5053,6 +5077,18 @@
       "context": "import",
       "source_file": "src/components/LiveActivityToast.tsx",
       "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_components_liveactivitytoast",
+      "target": "src_lib_scarcity",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/components/LiveActivityToast.tsx",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -5717,7 +5753,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/admin/page.tsx",
-      "source_location": "L6244",
+      "source_location": "L6259",
       "weight": 1.0
     },
     {
@@ -6080,7 +6116,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/LiveActivityToast.tsx",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -6091,7 +6127,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/components/LiveActivityToast.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0
     },
     {
@@ -6223,7 +6259,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L110",
+      "source_location": "L120",
       "weight": 1.0
     },
     {
@@ -6289,7 +6325,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L67",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -7762,5 +7798,5 @@
       "source_file": "architecture.md"
     }
   ],
-  "built_at_commit": "14d4e5e1aeff2c8cd784409a34840fa6ede8b25f"
+  "built_at_commit": "2c01327baedeb6c0f11fdd77bd843898b363a149"
 }

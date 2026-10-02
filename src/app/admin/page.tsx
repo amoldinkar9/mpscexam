@@ -4343,10 +4343,25 @@ export default function AdminPage() {
                     </div>
 
                     <div>
+                      <label className="block text-xs font-semibold text-zinc-700 mb-1">Total Seats (एकूण सीट्स)</label>
+                      <input
+                        type="number"
+                        value={content.finalCta?.totalSeats ?? 1000}
+                        onChange={(e) =>
+                          setContent({
+                            ...content,
+                            finalCta: { ...content.finalCta, totalSeats: Number(e.target.value) },
+                          })
+                        }
+                        className="w-full px-3 py-1.5 border border-zinc-300 rounded-[4px] text-xs font-bold bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
+                      />
+                    </div>
+
+                    <div>
                       <label className="block text-xs font-semibold text-zinc-700 mb-1">Booked Seats Count</label>
                       <input
                         type="number"
-                        value={content.finalCta?.bookedSeats ?? 442}
+                        value={content.finalCta?.bookedSeats ?? 889}
                         onChange={(e) =>
                           setContent({
                             ...content,
@@ -4361,7 +4376,7 @@ export default function AdminPage() {
                       <label className="block text-xs font-semibold text-zinc-700 mb-1">Remaining Seats Count</label>
                       <input
                         type="number"
-                        value={content.finalCta?.remainingSeats ?? 58}
+                        value={content.finalCta?.remainingSeats ?? 111}
                         onChange={(e) =>
                           setContent({
                             ...content,
@@ -4409,7 +4424,7 @@ export default function AdminPage() {
                             finalCta: { ...content.finalCta, priceLockAlert: e.target.value },
                           })
                         }
-                        placeholder="e.g. *58 सीट्स संपल्यानंतर मूळ किंमत ₹499 लागू होईल."
+                        placeholder="e.g. *1000 सीट्स संपल्यानंतर मूळ किंमत ₹499 लागू होईल."
                         className="w-full px-3 py-2 border border-zinc-300 rounded-[4px] text-xs font-medium bg-white focus:border-black focus:ring-1 focus:ring-black outline-none"
                       />
                     </div>
@@ -4730,7 +4745,7 @@ export default function AdminPage() {
                           )}
                           <div className="pt-1.5">
                             <span className="inline-block text-[10px] font-bold bg-[#fbeae8] text-[#9B3A32] px-3 py-0.5 rounded-full border border-[#f3c8c4]">
-                              🔥 {content.finalCta?.bookedSeats ?? 442} सीट्स बुक झाल्या • केवळ {content.finalCta?.remainingSeats ?? 58} शिल्लक
+                              🔥 {content.finalCta?.bookedSeats ?? 889} सीट्स बुक झाल्या • केवळ {content.finalCta?.remainingSeats ?? 111} शिल्लक
                             </span>
                           </div>
                         </div>
@@ -4756,7 +4771,7 @@ export default function AdminPage() {
 
                         {/* Footnote */}
                         <p className="text-[10px] text-slate-500 font-medium">
-                          {content.finalCta?.priceLockAlert || "*58 सीट्स संपल्यानंतर मूळ किंमत ₹499 लागू होईल."}
+                          {content.finalCta?.priceLockAlert || "*1000 सीट्स संपल्यानंतर मूळ किंमत ₹499 लागू होईल."}
                         </p>
 
                         {/* Risk Reversal */}

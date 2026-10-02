@@ -1,16 +1,16 @@
 # Graph Report - mpscexam  (2026-10-02)
 
 ## Corpus Check
-- 51 files · ~97,259 words
+- 51 files · ~97,613 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 293 nodes · 356 edges · 26 communities (16 shown, 7 thin omitted)
+- 293 nodes · 359 edges · 27 communities (17 shown, 7 thin omitted)
 - Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 33 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `14d4e5e1`
+- Built from commit: `2c01327b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -38,13 +38,14 @@
 - admin/layout.tsx
 - middleware.ts
 - seed-d1.mjs
+- QUESTION Entity
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 16 edges
 2. `scripts` - 9 edges
 3. `getDb()` - 9 edges
-4. `getSiteContent()` - 7 edges
-5. `getScarcityData()` - 7 edges
+4. `getScarcityData()` - 9 edges
+5. `getSiteContent()` - 7 edges
 6. `include` - 7 edges
 7. `mpscexam Route Map` - 7 edges
 8. `mpscexam System Architecture` - 6 edges
@@ -58,10 +59,10 @@
   AGENTS.md → memory.md
 - `README Getting Started (create-next-app)` --semantically_similar_to--> `mpscexam Project Overview`  [INFERRED] [semantically similar]
   README.md → memory.md
+- `QuestionEditorPage` --conceptually_related_to--> `QUESTION Entity`  [INFERRED]
+  routes.md → database-map.md
 - `Graphify Knowledge Graph` --conceptually_related_to--> `mpscexam File Dependency Graph`  [INFERRED]
   .agents/rules/graphify.md → dependency-graph.md
-- `AuthMiddleware & RBAC Guard` --conceptually_related_to--> `Route Protection & Middleware Flow`  [INFERRED]
-  dependency-graph.md → routes.md
 
 ## Import Cycles
 - None detected.
@@ -73,15 +74,15 @@
 - **Exam Test Runner Component Hierarchy** — memory_examcontainer, memory_questionpalette, memory_questioncard, memory_examcontrols [EXTRACTED 1.00]
 - **Exam Endpoint Protection** — dependency_graph_auth_middleware_rbac_guard, architecture_rbac, routes_route_protection_middleware_flow, architecture_answer_shielding [INFERRED 0.75]
 
-## Communities (26 total, 7 thin omitted)
+## Communities (27 total, 7 thin omitted)
 
 ### Community 0 - "app/page.tsx"
 Cohesion: 0.08
 Nodes (22): dynamic, revalidate, AspirantPainPoints(), CutoffContrastData, FAQ(), Footer(), Header(), HeroSection() (+14 more)
 
 ### Community 1 - "mpscexam Route Map"
-Cohesion: 0.06
-Nodes (45): Graphify Knowledge Graph, Graphify Workflow, mpscexam API Inventory, Authentication Endpoints, POST /api/tests/:id/start, POST /api/tests/:id/submit, Question Bank & PYQ Endpoints, Test Series & Exam Runner Endpoints (+37 more)
+Cohesion: 0.07
+Nodes (40): Graphify Knowledge Graph, Graphify Workflow, mpscexam API Inventory, Authentication Endpoints, POST /api/tests/:id/start, POST /api/tests/:id/submit, Question Bank & PYQ Endpoints, Test Series & Exam Runner Endpoints (+32 more)
 
 ### Community 2 - "devDependencies"
 Cohesion: 0.06
@@ -108,8 +109,8 @@ Cohesion: 0.14
 Nodes (13): name, private, scripts, build, build:vinext, deploy:vinext, dev, dev:vinext (+5 more)
 
 ### Community 9 - "TestAttempt Entity"
-Cohesion: 0.20
-Nodes (12): AnalyticsService, Authentication Flow, AuthService, Question Entity, QuestionBankService, Test Attempt & Grading Flow, TestAttempt Entity, TestEngineService (+4 more)
+Cohesion: 0.32
+Nodes (8): AnalyticsService, Question Entity, QuestionBankService, Test Attempt & Grading Flow, TestAttempt Entity, TestEngineService, TestSeries Entity, UserAnswer Entity
 
 ### Community 10 - "Next.js Agent Rules Notice"
 Cohesion: 0.40
@@ -139,6 +140,10 @@ Nodes (9): AdminPage(), getInitialHtmlForQuestion(), NAV_ITEMS, SiteContent, COL
 Cohesion: 0.40
 Nodes (4): content, escaped, jsonPath, sqlFile
 
+### Community 26 - "QUESTION Entity"
+Cohesion: 0.31
+Nodes (9): CATEGORY Entity, mpscexam Database Entity Map, QUESTION Entity, SUBJECT Entity, TEST_ATTEMPT Entity, TEST_QUESTION_MAPPING Entity, TEST_SERIES Entity, USER Entity (+1 more)
+
 ## Knowledge Gaps
 - **114 isolated node(s):** `eslintConfig`, `nextConfig`, `name`, `version`, `private` (+109 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 134 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
@@ -154,9 +159,9 @@ _Questions this graph is uniquely positioned to answer:_
 - **What connects `eslintConfig`, `nextConfig`, `name` to the rest of the system?**
   _114 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `app/page.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.07948717948717948 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
 - **Should `mpscexam Route Map` be split into smaller, more focused modules?**
-  _Cohesion score 0.06363636363636363 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06794871794871794 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected._
 - **Should `compilerOptions` be split into smaller, more focused modules?**

@@ -49,7 +49,7 @@ export function Pricing({
 
           {/* Scarcity Tag */}
           <div className="absolute -top-4 inset-x-0 mx-auto w-fit bg-amber-400 text-[#78350f] text-xs font-black px-4 py-1.5 rounded-full shadow-md uppercase tracking-wider z-10 border-2 border-white">
-            {cta.scarcityTag || "पहिले 500 विद्यार्थी विशेष सवलत"}
+            {cta.scarcityTag || "पहिले 1000 विद्यार्थी विशेष सवलत"}
           </div>
 
           <div className="bg-gradient-to-b from-white to-[#fbf4f3] rounded-3xl p-6 sm:p-8 md:p-9 lg:p-10 border-2 border-[#9B3A32] shadow-2xl text-center space-y-6">
@@ -95,7 +95,7 @@ export function Pricing({
 
             {/* Price Lock Alert */}
             <p className="text-[11px] text-slate-500 font-medium">
-              {cta.priceLockAlert || "*58 सीट्स संपल्यानंतर मूळ किंमत ₹499 लागू होईल."}
+              {cta.priceLockAlert || "*1000 सीट्स संपल्यानंतर मूळ किंमत ₹499 लागू होईल."}
             </p>
 
             {/* Risk-Reversal Callout */}

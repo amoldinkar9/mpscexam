@@ -150,9 +150,9 @@
     "semantic_hash": ""
   },
   "src/components/SampleProof.tsx": {
-    "mtime": 1790908341.3204362,
-    "seen": 1790908360.1746728,
-    "ast_hash": "b92e9a56dfdeb4744136761fd4f0694a",
+    "mtime": 1790908248.4462688,
+    "seen": 1790908275.637413,
+    "ast_hash": "909fbcfcf954f24702b93a8630a551d7",
     "semantic_hash": ""
   },
   "src/components/SocialProof.tsx": {

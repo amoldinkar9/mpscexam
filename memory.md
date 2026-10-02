@@ -624,4 +624,28 @@ flowchart TD
   - **Database Persistence:**
     - Synced SQLite database at `.wrangler/state/v3/d1/miniflare-D1DatabaseObject/*.sqlite` so changes persist seamlessly across restarts.
 
+### 5-Second Automatic Question Sliding & Responsive Pause/Mobile Controls (`SampleProof.tsx`)
+- **Requirement & Problem:**
+  - Aspirants inspecting sample questions and explanations on `SampleProof` needed an automated slideshow so every question auto-slides sequentially without forcing them to manually hunt and click through 8+ subject tabs.
+  - Furthermore, users needed the ability to pause the auto-slide upon hover (desktop), plus intuitive pause and navigation options tailored specifically for mobile touch devices.
+- **Architectural Implementation Across Connected Layers:**
+  - **Auto-Slide Timer & Progress Indicator:**
+    - Built with a 5000ms (5-second) sliding interval with 50ms smooth tick updates.
+    - Features a real-time progress bar along the top edge of the card dynamically tracking the 0% to 100% countdown.
+    - When 5 seconds elapse, advances to the next question in `subjectKeys` (looping back to index 0 after the last question) with smooth CSS slide transition (`animate-slide-right` / `animate-slide-left`).
+    - Automatically synchronizes and horizontally scrolls the active subject pill tab into view via `container.scrollTo` without triggering page-level vertical scroll jumping.
+  - **Desktop Hover Pause:**
+    - Hovering (`onMouseEnter`) over the question card, progress bar, interactive options, or subject tabs freezes the 5-second timer immediately.
+    - Mouse departure (`onMouseLeave`) smoothly resumes the timer.
+    - Progress bar turns amber and displays live feedback badge: `"होव्हर केले — थांबवले"`.
+  - **Mobile Controls & Interaction Options:**
+    - **1-Click Play / Pause Toggle Button:** Dedicated accessible button in the card controls ribbon allowing mobile and desktop users to toggle auto-slide on or off at will ("थांबवा" vs "सुरू करा").
+    - **Touch Swipe Gestures:** Natural horizontal touch swipe handling (`onTouchStart`, `onTouchEnd`) with 40px threshold; swiping left advances to the next question, swiping right navigates to the previous question.
+    - **Touch Hold Protection:** While the user is actively touching or scrolling inside the question card, sliding is paused to prevent unexpected movement.
+    - **Option Tap to Read:** Tapping any option to check answers automatically pauses auto-slide (`pausedReason = "option"`) with a badge `"वाचनासाठी थांबवले"` so aspirants can study detailed explanations without time pressure.
+    - **Manual Arrow Navigation:** Discrete Previous (`<`) and Next (`>`) buttons in the controls bar for rapid single-tap navigation.
+    - **Interactive Pagination Dots:** Dot navigation at the bottom of the card displaying active question position and allowing instant jumps to any question.
+    - **Radix UI Accessible Tabs:** Integrates `@radix-ui/react-tabs` (`Tabs.Root`, `Tabs.List`, `Tabs.Trigger`) for accessible keyboard navigation and ARIA attributes.
+
+
 

@@ -225,3 +225,35 @@ table.rte-table tbody tr:hover {
   background-color: #eff6ff !important;
 }
 
+/* Question Slide Animations */
+@keyframes questionSlideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes questionSlideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-right {
+  animation: questionSlideRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-left {
+  animation: questionSlideLeft 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+

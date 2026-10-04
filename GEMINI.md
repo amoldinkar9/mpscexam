@@ -1,6 +1,6 @@
 # Project Instructions & Directives: mpscexam
 
-This is **mpscexam** (Amol Dinkar)'s site/project.
+This is the **mpscexam** official examination preparation platform and site.
 
 ## Directives
 

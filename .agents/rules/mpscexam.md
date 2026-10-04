@@ -5,7 +5,7 @@ description: Core project rules, brand identity, styling guidelines, and memory 
 
 ## Project Guidelines & Core Rules
 
-This is **mpscexam** (Amol Dinkar)'s site/project.
+This is the **mpscexam** official examination preparation platform and site.
 
 ### Core Directives:
 1. **Brand Identity:** Always keep the brand name as `mpscexam`.

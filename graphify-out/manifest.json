@@ -6,10 +6,10 @@
     "semantic_hash": "f1e53ecc9194573d3c28fc116c743a2e"
   },
   ".agents/rules/mpscexam.md": {
-    "mtime": 1788184277.78103,
-    "seen": 1788326744.463756,
-    "ast_hash": "71f8c0499d84aa38eb416b430b0c40df",
-    "semantic_hash": "71f8c0499d84aa38eb416b430b0c40df"
+    "mtime": 1791124812.9068754,
+    "seen": 1791125210.11526,
+    "ast_hash": "eddcab3cd2dcfa22e550270fb0a8e1f3",
+    "semantic_hash": ""
   },
   ".agents/workflows/graphify.md": {
     "mtime": 1788184277.7814434,
@@ -24,10 +24,10 @@
     "semantic_hash": "01e8142356e15c3404e0d84c48187cd0"
   },
   "GEMINI.md": {
-    "mtime": 1788184277.782077,
-    "seen": 1788326744.4637592,
-    "ast_hash": "7c3293bd626001e7e977f5d6d9735ccd",
-    "semantic_hash": "7c3293bd626001e7e977f5d6d9735ccd"
+    "mtime": 1791124806.8501446,
+    "seen": 1791125210.115263,
+    "ast_hash": "374fdd5b20d929bff8fee6a4a93fa539",
+    "semantic_hash": ""
   },
   "README.md": {
     "mtime": 1788289379.1246827,
@@ -60,9 +60,9 @@
     "semantic_hash": "d54f6c579c79fb7e061791f5b1293e5a"
   },
   "memory.md": {
-    "mtime": 1790940897.7614107,
-    "seen": 1790940909.293737,
-    "ast_hash": "4a0756178dbb5a6963b96b13dad0b6b2",
+    "mtime": 1791125202.1544242,
+    "seen": 1791125210.115268,
+    "ast_hash": "e63e57e62358c84b97b1c0f368c59156",
     "semantic_hash": ""
   },
   "routes.md": {
@@ -96,15 +96,15 @@
     "semantic_hash": "239f3ebf717465dc636818a1a619398d"
   },
   "src/app/layout.tsx": {
-    "mtime": 1788612725.5998583,
-    "seen": 1788618057.0036612,
-    "ast_hash": "276bf50c8e1b967a6f788cb7d1cde86f",
+    "mtime": 1791125083.1193378,
+    "seen": 1791125210.115235,
+    "ast_hash": "8073ce44f35777a38a3ac9eb9ba2b93a",
     "semantic_hash": ""
   },
   "src/app/page.tsx": {
-    "mtime": 1790860630.9395082,
-    "seen": 1790861022.273244,
-    "ast_hash": "7e46cc5d47843564f89eaf73f10603a0",
+    "mtime": 1791125052.9253016,
+    "seen": 1791125210.115236,
+    "ast_hash": "dc7da9eb4224927c79b126dc31ce0926",
     "semantic_hash": ""
   },
   "src/components/AspirantPainPoints.tsx": {
@@ -228,9 +228,9 @@
     "semantic_hash": ""
   },
   "src/app/admin/page.tsx": {
-    "mtime": 1790940855.9163973,
-    "seen": 1790940909.293706,
-    "ast_hash": "56ace06356cbd06ed2ebe89c1a4442f5",
+    "mtime": 1791124825.838758,
+    "seen": 1791125210.115231,
+    "ast_hash": "f8c010c024197e931185c9ed61037398",
     "semantic_hash": ""
   },
   "src/app/api/admin/content/route.ts": {
@@ -339,6 +339,42 @@
     "mtime": 1790940738.4717114,
     "seen": 1790940909.293741,
     "ast_hash": "2a3994ea51c651979aede3101fb35cda",
+    "semantic_hash": ""
+  },
+  "src/app/[slug]/page.tsx": {
+    "mtime": 1791125166.7242484,
+    "seen": 1791125210.115229,
+    "ast_hash": "04e9d89c53ce0b694cfc79443326c5d3",
+    "semantic_hash": ""
+  },
+  "src/app/robots.ts": {
+    "mtime": 1791125070.0896409,
+    "seen": 1791125210.115236,
+    "ast_hash": "f5f5970c75a46405c6d3469938393071",
+    "semantic_hash": ""
+  },
+  "src/app/sitemap.ts": {
+    "mtime": 1791125061.1591766,
+    "seen": 1791125210.1152372,
+    "ast_hash": "2e922e571c19849f88795728457e68e6",
+    "semantic_hash": ""
+  },
+  "src/components/LandingPageChassis.tsx": {
+    "mtime": 1791125122.9475698,
+    "seen": 1791125210.115243,
+    "ast_hash": "eb30b4774fa050d6517248d89f0901ad",
+    "semantic_hash": ""
+  },
+  "src/components/SeoSchema.tsx": {
+    "mtime": 1791125105.7057104,
+    "seen": 1791125210.115247,
+    "ast_hash": "d30e8d00467bd02c684295f24a39e5c4",
+    "semantic_hash": ""
+  },
+  "src/lib/pseo.ts": {
+    "mtime": 1791125017.0860043,
+    "seen": 1791125210.115255,
+    "ast_hash": "6726524685ffaa8d3d0cff93cde3fb78",
     "semantic_hash": ""
   }
 }

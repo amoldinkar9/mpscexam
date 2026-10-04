@@ -55,12 +55,61 @@ const samaDevanagari = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "MPSC Group C Test Series",
-  description: "MPSC Group C पूर्व परीक्षा 2026 साठी परिपूर्ण टेस्ट सिरीज. 15 फुल-लेंथ + 10 चालू घडामोडी टेस्ट्स.",
+  metadataBase: new URL("https://mpscexam.in"),
+  title: {
+    default: "mpscexam | MPSC Group C Test Series 2026-2027 — tcs9 MASTER25",
+    template: "%s | mpscexam",
+  },
+  description:
+    "MPSC Group C पूर्व परीक्षा २०२६-२०२७ साठी अधिकृत टेस्ट सिरीज. tcs9 MASTER25 सह २५ फुल-लेंथ सराव पेपर्स, २५००+ संकल्पना आणि अचूक -०.२५ निगेटिव्ह मार्किंग विश्लेषण.",
+  keywords: [
+    "mpsc group c test series 199 rupees",
+    "mpsc group c test series MASTER25",
+    "tcs9 master25",
+    "mpsc 25 full length tests",
+    "mpsc 2500 concepts",
+    "mpsc exam date 2026",
+    "mpsc group c exam postponed to 3 january 2027",
+    "एमपीएससी गट क पूर्व परीक्षा टेस्ट सिरीज",
+    "एमपीएससी टेस्ट सिरीज १९९ रुपये",
+    "mpsc clerk typist test series",
+    "mpsc tax assistant test series",
+    "best affordable mpsc test series",
+    "mpscexam",
+  ],
+  authors: [{ name: "mpscexam" }],
+  creator: "mpscexam",
+  publisher: "mpscexam",
   icons: {
     icon: "/favicon.png",
     shortcut: "/favicon.png",
     apple: "/favicon.png",
+  },
+  alternates: {
+    canonical: "https://mpscexam.in",
+  },
+  openGraph: {
+    title: "mpscexam | MPSC Group C Test Series — tcs9 MASTER25",
+    description:
+      "MPSC Group C पूर्व परीक्षा २०२६-२०२७ साठी अधिकृत टेस्ट सिरीज. २५ फुल-लेंथ सराव पेपर्स, २५००+ संकल्पना आणि अचूक -०.२५ निगेटिव्ह मार्किंग.",
+    url: "https://mpscexam.in",
+    siteName: "mpscexam",
+    locale: "mr_IN",
+    type: "website",
+    images: [
+      {
+        url: "/logo.png",
+        width: 512,
+        height: 512,
+        alt: "mpscexam Official Platform Logo",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "mpscexam | MPSC Group C Test Series — tcs9 MASTER25",
+    description: "२५ फुल-लेंथ सराव पेपर्स व २५००+ संकल्पना. अचूक -०.२५ निगेटिव्ह मार्किंगसह सराव करा.",
+    images: ["/logo.png"],
   },
 };
 

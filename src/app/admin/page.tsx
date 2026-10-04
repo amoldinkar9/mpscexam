@@ -5671,7 +5671,7 @@ export default function AdminPage() {
                       type="text"
                       value={testimonialForm.name}
                       onChange={(e) => setTestimonialForm({ ...testimonialForm, name: e.target.value })}
-                      placeholder="e.g. Amol Shinde"
+                      placeholder="e.g. Rahul Shinde"
                       className="w-full px-3.5 py-2 border border-zinc-300 rounded-[4px] text-xs bg-white focus:border-amber-500 focus:ring-1 focus:ring-amber-500 outline-none"
                       required
                     />

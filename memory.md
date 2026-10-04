@@ -580,7 +580,7 @@ flowchart TD
 
 ### CTA Buttons Affiliate Checkout Linking Architecture
 - **Requirement & Strategy:**
-  - High-intent visitors clicking CTA buttons across the landing page need direct, seamless routing to the TCS9 Super 25 test series bundle checkout URL with affiliate attribution:
+  - High-intent visitors clicking CTA buttons across the landing page need direct, seamless routing to the TCS9 MASTER25 test series bundle checkout URL with affiliate attribution:
     `https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX`
 - **Architectural Implementation Across Connected Layers:**
   - `src/data/siteContent.json`:
@@ -693,4 +693,26 @@ flowchart TD
   - **Admin Panel & Preview (`src/app/admin/page.tsx`):**
     - Added "Brand Logo Image URL" input in the Footer Brand settings.
     - Updated the real-time footer preview to mirror the circular white logo container.
+
+### Programmatic SEO (pSEO), GEO, AEO & AIO Unified Chassis Architecture
+- **Requirement & Strategy:**
+  - Scale organic and AI engine rankings across 1,500+ MPSC exam keywords (36 Maharashtra districts, ₹199 package searches, AEO eligibility questions, newsjacking hubs for 3 Jan 2027 postponement, subject/topic MCQs).
+  - Strict Brand Requirement: Zero occurrence of personal names (platform entity is strictly `mpscexam`). Product name is strictly `tcs9 MASTER25` (price: ₹199).
+  - Strict Chassis Requirement: The main landing page layout remains identical across all backlinks and URL paths.
+- **Architectural Implementation Across Connected Layers:**
+  - `src/lib/pseo.ts`: Programmatic dataset and slug resolver covering:
+    - 36 Maharashtra Districts (`/mpsc-test-series-pune`, `/mpsc-test-series-nashik`, etc.).
+    - High-intent commercial packages (`/mpsc-group-c-test-series-199`, `/master25-mpsc`, etc.).
+    - AEO question intent hubs (`/can-12th-pass-apply-for-mpsc-group-c`, `/how-to-avoid-negative-marking-in-mpsc-group-c`, etc.).
+    - Newsjacking pages (`/mpsc-group-c-exam-postponed-to-3-january-2027`, `/mpsc-group-c-hall-ticket-2026`, etc.).
+    - Topic-wise MCQ modules (`/mpsc-polity-73rd-74th-amendment-mcq`, `/mpsc-economics-gst-rbi-mcq`, etc.).
+  - `src/components/LandingPageChassis.tsx`: Unified master chassis rendering the high-converting conversion page with a keyword-tailored contextual intent banner and dynamic FAQs.
+  - `src/components/SeoSchema.tsx`: Structured data component injecting JSON-LD schemas:
+    - `EducationalOrganization` (`mpscexam`, no personal name).
+    - `Product` & `Offer` for `tcs9 MASTER25` (₹199, valid until 2027-01-03).
+    - `Course` schema for MPSC Group C Master Preparation.
+    - `FAQPage` rich snippet schema.
+  - `src/app/[slug]/page.tsx`: Dynamic catch-all App Router page pre-rendering all slugs with targeted `<title>`, `<meta>`, canonical links, and OpenGraph/Twitter tags.
+  - `src/app/sitemap.ts`: Dynamic XML sitemap publishing all programmatic URLs to search engines.
+  - `src/app/robots.ts`: Crawler rules granting access to Googlebot, Bingbot, GPTBot, PerplexityBot, ClaudeBot, and Google-Extended while shielding `/admin`.
 

@@ -118,7 +118,12 @@ export function Footer({ initialData }: { initialData?: typeof defaultData.foote
             <ul className="space-y-2.5 md:space-y-0 md:flex md:flex-wrap md:gap-x-6 md:gap-y-2 lg:block lg:space-y-2.5 text-xs sm:text-sm text-slate-300">
               {(legalLinks.links || []).map((link, idx) => (
                 <li key={idx}>
-                  <a href={link.url} className="hover:text-white transition-colors">
+                  <a
+                    href={link.url}
+                    target={link.url.endsWith(".xml") ? "_blank" : undefined}
+                    rel={link.url.endsWith(".xml") ? "noopener noreferrer" : undefined}
+                    className="hover:text-white transition-colors"
+                  >
                     {link.title}
                   </a>
                 </li>

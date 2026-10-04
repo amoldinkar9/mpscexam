@@ -26,5 +26,6 @@
   "24": "middleware.ts",
   "25": "seed-d1.mjs",
   "26": "[slug]/page.tsx",
-  "27": "robots.ts"
+  "27": "robots.ts",
+  "28": "generate-sitemap.mjs"
 }

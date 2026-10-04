@@ -486,7 +486,7 @@
       "file_type": "code",
       "norm_label": "rootlayout()",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L116"
+      "source_location": "L119"
     },
     {
       "id": "src_components_howitworks_howitworks",
@@ -595,18 +595,6 @@
       "norm_label": "home()",
       "source_file": "src/app/page.tsx",
       "source_location": "L6"
-    },
-    {
-      "id": "src_app_sitemap_sitemap",
-      "label": "sitemap()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "[slug]/page.tsx",
-      "file_type": "code",
-      "norm_label": "sitemap()",
-      "source_file": "src/app/sitemap.ts",
-      "source_location": "L4"
     },
     {
       "id": "src_app_slug_page_generatemetadata",
@@ -774,7 +762,7 @@
       "file_type": "code",
       "norm_label": "getsitecontent()",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L98"
+      "source_location": "L111"
     },
     {
       "id": "src_lib_contentstore_savesitecontent",
@@ -786,7 +774,7 @@
       "file_type": "code",
       "norm_label": "savesitecontent()",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L141"
+      "source_location": "L154"
     },
     {
       "id": "src_app_api_admin_upload_route_delete",
@@ -1331,7 +1319,7 @@
       "file_type": "code",
       "norm_label": "devdependencies",
       "source_file": "package.json",
-      "source_location": "L30"
+      "source_location": "L31"
     },
     {
       "id": "package_devdependencies_cloudflare_vite_plugin",
@@ -1342,7 +1330,7 @@
       "file_type": "code",
       "norm_label": "@cloudflare/vite-plugin",
       "source_file": "package.json",
-      "source_location": "L31"
+      "source_location": "L32"
     },
     {
       "id": "package_devdependencies_eslint",
@@ -1353,7 +1341,7 @@
       "file_type": "code",
       "norm_label": "eslint",
       "source_file": "package.json",
-      "source_location": "L39"
+      "source_location": "L40"
     },
     {
       "id": "package_devdependencies_eslint_config_next",
@@ -1364,7 +1352,7 @@
       "file_type": "code",
       "norm_label": "eslint-config-next",
       "source_file": "package.json",
-      "source_location": "L40"
+      "source_location": "L41"
     },
     {
       "id": "package_devdependencies_postcss",
@@ -1375,7 +1363,7 @@
       "file_type": "code",
       "norm_label": "postcss",
       "source_file": "package.json",
-      "source_location": "L41"
+      "source_location": "L42"
     },
     {
       "id": "package_devdependencies_tailwindcss",
@@ -1386,7 +1374,7 @@
       "file_type": "code",
       "norm_label": "tailwindcss",
       "source_file": "package.json",
-      "source_location": "L42"
+      "source_location": "L43"
     },
     {
       "id": "package_devdependencies_tailwindcss_postcss",
@@ -1397,7 +1385,7 @@
       "file_type": "code",
       "norm_label": "@tailwindcss/postcss",
       "source_file": "package.json",
-      "source_location": "L32"
+      "source_location": "L33"
     },
     {
       "id": "package_devdependencies_types_katex",
@@ -1408,7 +1396,7 @@
       "file_type": "code",
       "norm_label": "@types/katex",
       "source_file": "package.json",
-      "source_location": "L33"
+      "source_location": "L34"
     },
     {
       "id": "package_devdependencies_types_node",
@@ -1419,7 +1407,7 @@
       "file_type": "code",
       "norm_label": "@types/node",
       "source_file": "package.json",
-      "source_location": "L34"
+      "source_location": "L35"
     },
     {
       "id": "package_devdependencies_types_react",
@@ -1430,7 +1418,7 @@
       "file_type": "code",
       "norm_label": "@types/react",
       "source_file": "package.json",
-      "source_location": "L35"
+      "source_location": "L36"
     },
     {
       "id": "package_devdependencies_types_react_dom",
@@ -1441,7 +1429,7 @@
       "file_type": "code",
       "norm_label": "@types/react-dom",
       "source_file": "package.json",
-      "source_location": "L36"
+      "source_location": "L37"
     },
     {
       "id": "package_devdependencies_typescript",
@@ -1452,7 +1440,7 @@
       "file_type": "code",
       "norm_label": "typescript",
       "source_file": "package.json",
-      "source_location": "L43"
+      "source_location": "L44"
     },
     {
       "id": "package_devdependencies_vite",
@@ -1463,7 +1451,7 @@
       "file_type": "code",
       "norm_label": "vite",
       "source_file": "package.json",
-      "source_location": "L44"
+      "source_location": "L45"
     },
     {
       "id": "package_devdependencies_vitejs_plugin_react",
@@ -1474,7 +1462,7 @@
       "file_type": "code",
       "norm_label": "@vitejs/plugin-react",
       "source_file": "package.json",
-      "source_location": "L37"
+      "source_location": "L38"
     },
     {
       "id": "package_devdependencies_vitejs_plugin_rsc",
@@ -1485,7 +1473,7 @@
       "file_type": "code",
       "norm_label": "@vitejs/plugin-rsc",
       "source_file": "package.json",
-      "source_location": "L38"
+      "source_location": "L39"
     },
     {
       "id": "package_devdependencies_wrangler",
@@ -1496,7 +1484,7 @@
       "file_type": "code",
       "norm_label": "wrangler",
       "source_file": "package.json",
-      "source_location": "L45"
+      "source_location": "L46"
     },
     {
       "id": "cloudflare_vite_plugin",
@@ -1507,7 +1495,7 @@
       "file_type": "concept",
       "norm_label": "@cloudflare/vite-plugin",
       "source_file": "package.json",
-      "source_location": "L31"
+      "source_location": "L32"
     },
     {
       "id": "eslint",
@@ -1518,7 +1506,7 @@
       "file_type": "concept",
       "norm_label": "eslint",
       "source_file": "package.json",
-      "source_location": "L39"
+      "source_location": "L40"
     },
     {
       "id": "eslint_config_next",
@@ -1529,7 +1517,7 @@
       "file_type": "concept",
       "norm_label": "eslint-config-next",
       "source_file": "package.json",
-      "source_location": "L40"
+      "source_location": "L41"
     },
     {
       "id": "postcss",
@@ -1540,7 +1528,7 @@
       "file_type": "concept",
       "norm_label": "postcss",
       "source_file": "package.json",
-      "source_location": "L41"
+      "source_location": "L42"
     },
     {
       "id": "tailwindcss",
@@ -1551,7 +1539,7 @@
       "file_type": "concept",
       "norm_label": "tailwindcss",
       "source_file": "package.json",
-      "source_location": "L42"
+      "source_location": "L43"
     },
     {
       "id": "tailwindcss_postcss",
@@ -1562,7 +1550,7 @@
       "file_type": "concept",
       "norm_label": "@tailwindcss/postcss",
       "source_file": "package.json",
-      "source_location": "L32"
+      "source_location": "L33"
     },
     {
       "id": "types_katex",
@@ -1573,7 +1561,7 @@
       "file_type": "concept",
       "norm_label": "@types/katex",
       "source_file": "package.json",
-      "source_location": "L33"
+      "source_location": "L34"
     },
     {
       "id": "types_node",
@@ -1584,7 +1572,7 @@
       "file_type": "concept",
       "norm_label": "@types/node",
       "source_file": "package.json",
-      "source_location": "L34"
+      "source_location": "L35"
     },
     {
       "id": "types_react",
@@ -1595,7 +1583,7 @@
       "file_type": "concept",
       "norm_label": "@types/react",
       "source_file": "package.json",
-      "source_location": "L35"
+      "source_location": "L36"
     },
     {
       "id": "types_react_dom",
@@ -1606,7 +1594,7 @@
       "file_type": "concept",
       "norm_label": "@types/react-dom",
       "source_file": "package.json",
-      "source_location": "L36"
+      "source_location": "L37"
     },
     {
       "id": "typescript",
@@ -1617,7 +1605,7 @@
       "file_type": "concept",
       "norm_label": "typescript",
       "source_file": "package.json",
-      "source_location": "L43"
+      "source_location": "L44"
     },
     {
       "id": "vite",
@@ -1628,7 +1616,7 @@
       "file_type": "concept",
       "norm_label": "vite",
       "source_file": "package.json",
-      "source_location": "L44"
+      "source_location": "L45"
     },
     {
       "id": "vitejs_plugin_react",
@@ -1639,7 +1627,7 @@
       "file_type": "concept",
       "norm_label": "@vitejs/plugin-react",
       "source_file": "package.json",
-      "source_location": "L37"
+      "source_location": "L38"
     },
     {
       "id": "vitejs_plugin_rsc",
@@ -1650,7 +1638,7 @@
       "file_type": "concept",
       "norm_label": "@vitejs/plugin-rsc",
       "source_file": "package.json",
-      "source_location": "L38"
+      "source_location": "L39"
     },
     {
       "id": "wrangler",
@@ -1661,7 +1649,7 @@
       "file_type": "concept",
       "norm_label": "wrangler",
       "source_file": "package.json",
-      "source_location": "L45"
+      "source_location": "L46"
     },
     {
       "id": "src_components_howitworks",
@@ -1884,17 +1872,6 @@
       "source_location": "L4"
     },
     {
-      "id": "src_app_sitemap",
-      "label": "sitemap.ts",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "[slug]/page.tsx",
-      "file_type": "code",
-      "norm_label": "sitemap.ts",
-      "source_file": "src/app/sitemap.ts",
-      "source_location": "L1"
-    },
-    {
       "id": "src_app_slug_page",
       "label": "[slug]/page.tsx",
       "_origin": "ast",
@@ -1992,6 +1969,138 @@
       "norm_label": "robots.ts",
       "source_file": "src/app/robots.ts",
       "source_location": "L1"
+    },
+    {
+      "id": "scripts_generate_sitemap",
+      "label": "generate-sitemap.mjs",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "generate-sitemap.mjs",
+      "file_type": "code",
+      "norm_label": "generate-sitemap.mjs",
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L1"
+    },
+    {
+      "id": "scripts_generate_sitemap_aeo_question_slugs",
+      "label": "AEO_QUESTION_SLUGS",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "generate-sitemap.mjs",
+      "file_type": "code",
+      "norm_label": "aeo_question_slugs",
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L37"
+    },
+    {
+      "id": "scripts_generate_sitemap_commercial_slugs",
+      "label": "COMMERCIAL_SLUGS",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "generate-sitemap.mjs",
+      "file_type": "code",
+      "norm_label": "commercial_slugs",
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L23"
+    },
+    {
+      "id": "scripts_generate_sitemap_dirname",
+      "label": "__dirname",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "generate-sitemap.mjs",
+      "file_type": "code",
+      "norm_label": "__dirname",
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L6"
+    },
+    {
+      "id": "scripts_generate_sitemap_districts",
+      "label": "DISTRICTS",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "generate-sitemap.mjs",
+      "file_type": "code",
+      "norm_label": "districts",
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L13"
+    },
+    {
+      "id": "scripts_generate_sitemap_filename",
+      "label": "__filename",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "generate-sitemap.mjs",
+      "file_type": "code",
+      "norm_label": "__filename",
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L5"
+    },
+    {
+      "id": "scripts_generate_sitemap_marathi_slugs",
+      "label": "MARATHI_SLUGS",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "generate-sitemap.mjs",
+      "file_type": "code",
+      "norm_label": "marathi_slugs",
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L81"
+    },
+    {
+      "id": "scripts_generate_sitemap_news_slugs",
+      "label": "NEWS_SLUGS",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "generate-sitemap.mjs",
+      "file_type": "code",
+      "norm_label": "news_slugs",
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L55"
+    },
+    {
+      "id": "scripts_generate_sitemap_rootdir",
+      "label": "rootDir",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "generate-sitemap.mjs",
+      "file_type": "code",
+      "norm_label": "rootdir",
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L7"
+    },
+    {
+      "id": "scripts_generate_sitemap_targetpath",
+      "label": "targetPath",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "generate-sitemap.mjs",
+      "file_type": "code",
+      "norm_label": "targetpath",
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L149"
+    },
+    {
+      "id": "scripts_generate_sitemap_topic_slugs",
+      "label": "TOPIC_SLUGS",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "generate-sitemap.mjs",
+      "file_type": "code",
+      "norm_label": "topic_slugs",
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L65"
+    },
+    {
+      "id": "scripts_generate_sitemap_urls",
+      "label": "urls",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "generate-sitemap.mjs",
+      "file_type": "code",
+      "norm_label": "urls",
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L90"
     },
     {
       "id": "tsconfig",
@@ -2343,7 +2452,7 @@
       "file_type": "code",
       "norm_label": "dependencies",
       "source_file": "package.json",
-      "source_location": "L15"
+      "source_location": "L16"
     },
     {
       "id": "package_dependencies_katex",
@@ -2354,7 +2463,7 @@
       "file_type": "code",
       "norm_label": "katex",
       "source_file": "package.json",
-      "source_location": "L22"
+      "source_location": "L23"
     },
     {
       "id": "package_dependencies_lucide_react",
@@ -2365,7 +2474,7 @@
       "file_type": "code",
       "norm_label": "lucide-react",
       "source_file": "package.json",
-      "source_location": "L23"
+      "source_location": "L24"
     },
     {
       "id": "package_dependencies_next",
@@ -2376,7 +2485,7 @@
       "file_type": "code",
       "norm_label": "next",
       "source_file": "package.json",
-      "source_location": "L24"
+      "source_location": "L25"
     },
     {
       "id": "package_dependencies_radix_ui_react_accordion",
@@ -2387,7 +2496,7 @@
       "file_type": "code",
       "norm_label": "@radix-ui/react-accordion",
       "source_file": "package.json",
-      "source_location": "L16"
+      "source_location": "L17"
     },
     {
       "id": "package_dependencies_radix_ui_react_dialog",
@@ -2398,7 +2507,7 @@
       "file_type": "code",
       "norm_label": "@radix-ui/react-dialog",
       "source_file": "package.json",
-      "source_location": "L17"
+      "source_location": "L18"
     },
     {
       "id": "package_dependencies_radix_ui_react_switch",
@@ -2409,7 +2518,7 @@
       "file_type": "code",
       "norm_label": "@radix-ui/react-switch",
       "source_file": "package.json",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "package_dependencies_radix_ui_react_tabs",
@@ -2420,7 +2529,7 @@
       "file_type": "code",
       "norm_label": "@radix-ui/react-tabs",
       "source_file": "package.json",
-      "source_location": "L19"
+      "source_location": "L20"
     },
     {
       "id": "package_dependencies_radix_ui_themes",
@@ -2431,7 +2540,7 @@
       "file_type": "code",
       "norm_label": "@radix-ui/themes",
       "source_file": "package.json",
-      "source_location": "L20"
+      "source_location": "L21"
     },
     {
       "id": "package_dependencies_react",
@@ -2442,7 +2551,7 @@
       "file_type": "code",
       "norm_label": "react",
       "source_file": "package.json",
-      "source_location": "L25"
+      "source_location": "L26"
     },
     {
       "id": "package_dependencies_react_dom",
@@ -2453,7 +2562,7 @@
       "file_type": "code",
       "norm_label": "react-dom",
       "source_file": "package.json",
-      "source_location": "L26"
+      "source_location": "L27"
     },
     {
       "id": "package_dependencies_react_server_dom_webpack",
@@ -2464,7 +2573,7 @@
       "file_type": "code",
       "norm_label": "react-server-dom-webpack",
       "source_file": "package.json",
-      "source_location": "L27"
+      "source_location": "L28"
     },
     {
       "id": "package_dependencies_vinext",
@@ -2475,7 +2584,7 @@
       "file_type": "code",
       "norm_label": "vinext",
       "source_file": "package.json",
-      "source_location": "L28"
+      "source_location": "L29"
     },
     {
       "id": "package_dependencies_vinext_cloudflare",
@@ -2486,7 +2595,7 @@
       "file_type": "code",
       "norm_label": "@vinext/cloudflare",
       "source_file": "package.json",
-      "source_location": "L21"
+      "source_location": "L22"
     },
     {
       "id": "katex",
@@ -2497,7 +2606,7 @@
       "file_type": "concept",
       "norm_label": "katex",
       "source_file": "package.json",
-      "source_location": "L22"
+      "source_location": "L23"
     },
     {
       "id": "lucide_react",
@@ -2508,7 +2617,7 @@
       "file_type": "concept",
       "norm_label": "lucide-react",
       "source_file": "package.json",
-      "source_location": "L23"
+      "source_location": "L24"
     },
     {
       "id": "next",
@@ -2519,7 +2628,7 @@
       "file_type": "concept",
       "norm_label": "next",
       "source_file": "package.json",
-      "source_location": "L24"
+      "source_location": "L25"
     },
     {
       "id": "radix_ui_react_accordion",
@@ -2530,7 +2639,7 @@
       "file_type": "concept",
       "norm_label": "@radix-ui/react-accordion",
       "source_file": "package.json",
-      "source_location": "L16"
+      "source_location": "L17"
     },
     {
       "id": "radix_ui_react_dialog",
@@ -2541,7 +2650,7 @@
       "file_type": "concept",
       "norm_label": "@radix-ui/react-dialog",
       "source_file": "package.json",
-      "source_location": "L17"
+      "source_location": "L18"
     },
     {
       "id": "radix_ui_react_switch",
@@ -2552,7 +2661,7 @@
       "file_type": "concept",
       "norm_label": "@radix-ui/react-switch",
       "source_file": "package.json",
-      "source_location": "L18"
+      "source_location": "L19"
     },
     {
       "id": "radix_ui_react_tabs",
@@ -2563,7 +2672,7 @@
       "file_type": "concept",
       "norm_label": "@radix-ui/react-tabs",
       "source_file": "package.json",
-      "source_location": "L19"
+      "source_location": "L20"
     },
     {
       "id": "radix_ui_themes",
@@ -2574,7 +2683,7 @@
       "file_type": "concept",
       "norm_label": "@radix-ui/themes",
       "source_file": "package.json",
-      "source_location": "L20"
+      "source_location": "L21"
     },
     {
       "id": "react",
@@ -2585,7 +2694,7 @@
       "file_type": "concept",
       "norm_label": "react",
       "source_file": "package.json",
-      "source_location": "L25"
+      "source_location": "L26"
     },
     {
       "id": "react_dom",
@@ -2596,7 +2705,7 @@
       "file_type": "concept",
       "norm_label": "react-dom",
       "source_file": "package.json",
-      "source_location": "L26"
+      "source_location": "L27"
     },
     {
       "id": "react_server_dom_webpack",
@@ -2607,7 +2716,7 @@
       "file_type": "concept",
       "norm_label": "react-server-dom-webpack",
       "source_file": "package.json",
-      "source_location": "L27"
+      "source_location": "L28"
     },
     {
       "id": "vinext",
@@ -2618,7 +2727,7 @@
       "file_type": "concept",
       "norm_label": "vinext",
       "source_file": "package.json",
-      "source_location": "L28"
+      "source_location": "L29"
     },
     {
       "id": "vinext_cloudflare",
@@ -2629,7 +2738,7 @@
       "file_type": "concept",
       "norm_label": "@vinext/cloudflare",
       "source_file": "package.json",
-      "source_location": "L21"
+      "source_location": "L22"
     },
     {
       "id": "cloudflare_workers",
@@ -2783,7 +2892,7 @@
       "file_type": "code",
       "norm_label": "build",
       "source_file": "package.json",
-      "source_location": "L7"
+      "source_location": "L8"
     },
     {
       "id": "package_scripts_build_vinext",
@@ -2794,7 +2903,7 @@
       "file_type": "code",
       "norm_label": "build:vinext",
       "source_file": "package.json",
-      "source_location": "L11"
+      "source_location": "L12"
     },
     {
       "id": "package_scripts_deploy_vinext",
@@ -2805,7 +2914,7 @@
       "file_type": "code",
       "norm_label": "deploy:vinext",
       "source_file": "package.json",
-      "source_location": "L13"
+      "source_location": "L14"
     },
     {
       "id": "package_scripts_dev",
@@ -2827,7 +2936,18 @@
       "file_type": "code",
       "norm_label": "dev:vinext",
       "source_file": "package.json",
-      "source_location": "L10"
+      "source_location": "L11"
+    },
+    {
+      "id": "package_scripts_generate_sitemap",
+      "label": "generate:sitemap",
+      "_origin": "ast",
+      "community": 8,
+      "community_name": "scripts",
+      "file_type": "code",
+      "norm_label": "generate:sitemap",
+      "source_file": "package.json",
+      "source_location": "L7"
     },
     {
       "id": "package_scripts_lint",
@@ -2838,7 +2958,7 @@
       "file_type": "code",
       "norm_label": "lint",
       "source_file": "package.json",
-      "source_location": "L9"
+      "source_location": "L10"
     },
     {
       "id": "package_scripts_start",
@@ -2849,7 +2969,7 @@
       "file_type": "code",
       "norm_label": "start",
       "source_file": "package.json",
-      "source_location": "L8"
+      "source_location": "L9"
     },
     {
       "id": "package_scripts_start_vinext",
@@ -2860,7 +2980,7 @@
       "file_type": "code",
       "norm_label": "start:vinext",
       "source_file": "package.json",
-      "source_location": "L12"
+      "source_location": "L13"
     },
     {
       "id": "package_type",
@@ -2871,7 +2991,7 @@
       "file_type": "code",
       "norm_label": "type",
       "source_file": "package.json",
-      "source_location": "L47"
+      "source_location": "L48"
     },
     {
       "id": "package_version",
@@ -3365,51 +3485,6 @@
       "source_url": null
     },
     {
-      "id": "memory_authentication_flow",
-      "label": "Authentication Flow",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "authentication flow",
-      "source_file": "memory.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "memory_authservice",
-      "label": "AuthService",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "authservice",
-      "source_file": "memory.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "memory_user_entity",
-      "label": "User Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 1,
-      "community_name": "mpscexam Route Map",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "user entity",
-      "source_file": "memory.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
       "id": "routes_admin_dashboard_page",
       "label": "AdminDashboardPage",
       "_origin": "semantic",
@@ -3875,6 +3950,36 @@
       "source_url": null
     },
     {
+      "id": "memory_authentication_flow",
+      "label": "Authentication Flow",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 9,
+      "community_name": "TestAttempt Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "authentication flow",
+      "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "memory_authservice",
+      "label": "AuthService",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 9,
+      "community_name": "TestAttempt Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "authservice",
+      "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
       "id": "memory_question_entity",
       "label": "Question Entity",
       "_origin": "semantic",
@@ -3960,6 +4065,21 @@
       "contributor": null,
       "file_type": "concept",
       "norm_label": "testseries entity",
+      "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "memory_user_entity",
+      "label": "User Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 9,
+      "community_name": "TestAttempt Entity",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "user entity",
       "source_file": "memory.md",
       "source_location": null,
       "source_url": null
@@ -4138,18 +4258,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_app_sitemap_sitemap",
-      "target": "src_lib_pseo_getallpseoslugs",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/app/sitemap.ts",
-      "source_location": "L6",
-      "weight": 1.0
-    },
-    {
       "source": "src_app_slug_page_generatemetadata",
       "target": "src_lib_pseo_getpseodata",
       "relation": "calls",
@@ -4266,7 +4374,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L101",
+      "source_location": "L114",
       "weight": 1.0
     },
     {
@@ -4278,7 +4386,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L106",
+      "source_location": "L119",
       "weight": 1.0
     },
     {
@@ -4290,7 +4398,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L147",
+      "source_location": "L160",
       "weight": 1.0
     },
     {
@@ -4506,7 +4614,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -4518,7 +4626,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -4530,7 +4638,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -4542,7 +4650,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -4554,7 +4662,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -4566,7 +4674,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -4578,7 +4686,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -4590,7 +4698,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -4602,7 +4710,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -4614,7 +4722,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -4626,7 +4734,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -4638,7 +4746,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -4650,7 +4758,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -4662,7 +4770,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -4674,7 +4782,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L39",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -4686,7 +4794,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L40",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -4698,7 +4806,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L41",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -4710,7 +4818,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L42",
+      "source_location": "L43",
       "weight": 1.0
     },
     {
@@ -4722,7 +4830,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -4734,7 +4842,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -4746,7 +4854,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -4758,7 +4866,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -4770,7 +4878,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -4782,7 +4890,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L43",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -4794,7 +4902,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L44",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -4806,7 +4914,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -4818,7 +4926,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -4830,7 +4938,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -4951,18 +5059,6 @@
       "context": "import",
       "source_file": "src/app/page.tsx",
       "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_sitemap",
-      "target": "src_lib_pseo_getallpseoslugs",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/app/sitemap.ts",
-      "source_location": "L2",
       "weight": 1.0
     },
     {
@@ -5350,18 +5446,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_app_sitemap",
-      "target": "src_lib_pseo",
-      "relation": "imports_from",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/app/sitemap.ts",
-      "source_location": "L2",
-      "weight": 1.0
-    },
-    {
       "source": "src_app_slug_page",
       "target": "src_lib_pseo",
       "relation": "imports_from",
@@ -5679,7 +5763,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -5712,7 +5796,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -5734,7 +5818,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L47",
+      "source_location": "L48",
       "weight": 1.0
     },
     {
@@ -5756,7 +5840,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -5767,7 +5851,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L17",
+      "source_location": "L18",
       "weight": 1.0
     },
     {
@@ -5778,7 +5862,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L18",
+      "source_location": "L19",
       "weight": 1.0
     },
     {
@@ -5789,7 +5873,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -5800,7 +5884,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -5811,7 +5895,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "weight": 1.0
     },
     {
@@ -5822,7 +5906,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -5833,7 +5917,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -5844,7 +5928,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -5855,7 +5939,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -5866,7 +5950,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "weight": 1.0
     },
     {
@@ -5877,7 +5961,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -5888,7 +5972,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "weight": 1.0
     },
     {
@@ -5899,7 +5983,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "weight": 1.0
     },
     {
@@ -5910,7 +5994,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -5921,7 +6005,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -5932,7 +6016,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L35",
       "weight": 1.0
     },
     {
@@ -5943,7 +6027,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L36",
       "weight": 1.0
     },
     {
@@ -5954,7 +6038,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L36",
+      "source_location": "L37",
       "weight": 1.0
     },
     {
@@ -5965,7 +6049,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L37",
+      "source_location": "L38",
       "weight": 1.0
     },
     {
@@ -5976,7 +6060,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L38",
+      "source_location": "L39",
       "weight": 1.0
     },
     {
@@ -5987,7 +6071,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L39",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -5998,7 +6082,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L40",
+      "source_location": "L41",
       "weight": 1.0
     },
     {
@@ -6009,7 +6093,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L41",
+      "source_location": "L42",
       "weight": 1.0
     },
     {
@@ -6020,7 +6104,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L42",
+      "source_location": "L43",
       "weight": 1.0
     },
     {
@@ -6031,7 +6115,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L43",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -6042,7 +6126,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L44",
+      "source_location": "L45",
       "weight": 1.0
     },
     {
@@ -6053,12 +6137,12 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L45",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
       "source": "package_scripts",
-      "target": "package_scripts_dev_vinext",
+      "target": "package_scripts_lint",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6069,7 +6153,7 @@
     },
     {
       "source": "package_scripts",
-      "target": "package_scripts_build_vinext",
+      "target": "package_scripts_dev_vinext",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6080,7 +6164,7 @@
     },
     {
       "source": "package_scripts",
-      "target": "package_scripts_start_vinext",
+      "target": "package_scripts_build_vinext",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6091,13 +6175,24 @@
     },
     {
       "source": "package_scripts",
-      "target": "package_scripts_deploy_vinext",
+      "target": "package_scripts_start_vinext",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
       "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "package_scripts",
+      "target": "package_scripts_deploy_vinext",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L14",
       "weight": 1.0
     },
     {
@@ -6113,7 +6208,7 @@
     },
     {
       "source": "package_scripts",
-      "target": "package_scripts_build",
+      "target": "package_scripts_generate_sitemap",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6124,7 +6219,7 @@
     },
     {
       "source": "package_scripts",
-      "target": "package_scripts_start",
+      "target": "package_scripts_build",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6135,7 +6230,7 @@
     },
     {
       "source": "package_scripts",
-      "target": "package_scripts_lint",
+      "target": "package_scripts_start",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6153,6 +6248,127 @@
       "confidence_score": 1.0,
       "source_file": "postcss.config.mjs",
       "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_districts",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L13",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_targetpath",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L149",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_commercial_slugs",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L23",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_aeo_question_slugs",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L37",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_filename",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_news_slugs",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L55",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_dirname",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_topic_slugs",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L65",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_rootdir",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_marathi_slugs",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_urls",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L90",
       "weight": 1.0
     },
     {
@@ -6372,7 +6588,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/layout.tsx",
-      "source_location": "L116",
+      "source_location": "L119",
       "weight": 1.0
     },
     {
@@ -6450,17 +6666,6 @@
       "confidence_score": 1.0,
       "source_file": "src/app/robots.ts",
       "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_sitemap",
-      "target": "src_app_sitemap_sitemap",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/app/sitemap.ts",
-      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -6894,6 +7099,17 @@
     },
     {
       "source": "src_lib_contentstore",
+      "target": "src_lib_contentstore_getsitecontent",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/contentStore.ts",
+      "source_location": "L111",
+      "weight": 1.0
+    },
+    {
+      "source": "src_lib_contentstore",
       "target": "src_lib_contentstore_sitecontent",
       "relation": "contains",
       "_origin": "ast",
@@ -6911,7 +7127,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/contentStore.ts",
-      "source_location": "L141",
+      "source_location": "L154",
       "weight": 1.0
     },
     {
@@ -6956,17 +7172,6 @@
       "confidence_score": 1.0,
       "source_file": "src/lib/contentStore.ts",
       "source_location": "L5",
-      "weight": 1.0
-    },
-    {
-      "source": "src_lib_contentstore",
-      "target": "src_lib_contentstore_getsitecontent",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/lib/contentStore.ts",
-      "source_location": "L98",
       "weight": 1.0
     },
     {
@@ -8527,5 +8732,5 @@
       "source_file": "architecture.md"
     }
   ],
-  "built_at_commit": "e7cf85e64336f279150502b09a0deaa1f7d04d87"
+  "built_at_commit": "27a2a57427b8e5efaefb422b8b7997b3641d52f8"
 }

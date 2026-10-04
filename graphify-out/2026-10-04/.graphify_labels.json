@@ -1,5 +1,5 @@
 {
-  "0": "app/page.tsx",
+  "0": "LandingPageChassis.tsx",
   "1": "mpscexam Route Map",
   "2": "devDependencies",
   "3": "compilerOptions",
@@ -25,5 +25,7 @@
   "23": "admin/layout.tsx",
   "24": "middleware.ts",
   "25": "seed-d1.mjs",
-  "26": "QUESTION Entity"
+  "26": "[slug]/page.tsx",
+  "27": "robots.ts",
+  "28": "generate-sitemap.mjs"
 }

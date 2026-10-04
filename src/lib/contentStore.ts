@@ -86,6 +86,19 @@ function ensureSections(content: any): SiteContent {
         whatsappMessage: content.footer.contactBar?.whatsappMessage || defContact.whatsappMessage,
       },
     };
+
+    // Ensure legalLinks includes Sitemap XML link
+    if (content.footer.legalLinks && Array.isArray(content.footer.legalLinks.links)) {
+      const hasSitemap = content.footer.legalLinks.links.some(
+        (l: any) => l.url === "/sitemap.xml" || l.title?.includes("साइटमॅप")
+      );
+      if (!hasSitemap) {
+        content.footer.legalLinks.links.push({
+          title: "साइटमॅप (Sitemap)",
+          url: "/sitemap.xml",
+        });
+      }
+    }
   }
 
   return content as SiteContent;

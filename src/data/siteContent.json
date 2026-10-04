@@ -600,6 +600,10 @@
         {
           "title": "आमच्याबद्दल (About Us)",
           "url": "#"
+        },
+        {
+          "title": "साइटमॅप (Sitemap)",
+          "url": "/sitemap.xml"
         }
       ]
     },

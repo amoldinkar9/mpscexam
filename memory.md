@@ -713,6 +713,9 @@ flowchart TD
     - `Course` schema for MPSC Group C Master Preparation.
     - `FAQPage` rich snippet schema.
   - `src/app/[slug]/page.tsx`: Dynamic catch-all App Router page pre-rendering all slugs with targeted `<title>`, `<meta>`, canonical links, and OpenGraph/Twitter tags.
-  - `src/app/sitemap.ts`: Dynamic XML sitemap publishing all programmatic URLs to search engines.
-  - `src/app/robots.ts`: Crawler rules granting access to Googlebot, Bingbot, GPTBot, PerplexityBot, ClaudeBot, and Google-Extended while shielding `/admin`.
+  - `public/sitemap.xml` & `scripts/generate-sitemap.mjs`: Automated XML sitemap generation indexing all 86 URLs with priority tiers (1.0, 0.95, 0.90, 0.85, 0.80) and change frequencies. Wired directly into `npm run build` (`package.json`).
+  - `next.config.ts`: Configured with 308 permanent redirect from `/sitemap` to `/sitemap.xml`.
+  - `src/app/layout.tsx`: Declares `<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />` and `metadata.alternates.types["application/xml"]`.
+  - `src/components/Footer.tsx`: Renders accessible, visible footer link `साइटमॅप (Sitemap)` linking to `/sitemap.xml` opening in a new tab.
+  - `src/app/robots.ts`: Crawler rules granting access to Googlebot, Bingbot, GPTBot, PerplexityBot, ClaudeBot, and Google-Extended while shielding `/admin` and declaring `Sitemap: https://mpscexam.in/sitemap.xml`.
 

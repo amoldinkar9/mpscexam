@@ -87,6 +87,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: "https://mpscexam.in",
+    types: {
+      "application/xml": "https://mpscexam.in/sitemap.xml",
+    },
   },
   openGraph: {
     title: "mpscexam | MPSC Group C Test Series — tcs9 MASTER25",
@@ -124,6 +127,7 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.png" type="image/png" />
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
+        <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
       </head>
       <body className="bg-[#fafbfc] text-[#1f2a5c] antialiased">
         {children}

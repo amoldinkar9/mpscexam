@@ -9,6 +9,17 @@ const rootDir = path.resolve(__dirname, '..');
 const BASE_URL = 'https://mpscexam.in';
 const today = new Date().toISOString().split('T')[0];
 
+// Load full programmatic SEO keywords dictionary
+const keywordsJsonPath = path.join(rootDir, 'src', 'data', 'seoKeywords.json');
+let seoKeywords = {};
+if (fs.existsSync(keywordsJsonPath)) {
+  try {
+    seoKeywords = JSON.parse(fs.readFileSync(keywordsJsonPath, 'utf8'));
+  } catch (err) {
+    console.warn('Warning reading seoKeywords.json:', err);
+  }
+}
+
 // All 36 Districts of Maharashtra
 const DISTRICTS = [
   'pune', 'mumbai', 'nashik', 'chhatrapati-sambhajinagar', 'kolhapur', 'nagpur',
@@ -87,51 +98,62 @@ const MARATHI_SLUGS = [
   'mpsc-kar-sahayak-bharti-2026'
 ];
 
-const urls = [
-  {
-    loc: BASE_URL,
+const seen = new Set();
+const urls = [];
+
+function addUrl(loc, priority = '1.0', changefreq = 'daily') {
+  const norm = loc.toLowerCase().trim();
+  if (seen.has(norm)) return;
+  seen.add(norm);
+  urls.push({
+    loc,
     lastmod: today,
     changefreq: 'daily',
     priority: '1.0'
-  },
-  ...COMMERCIAL_SLUGS.map((slug) => ({
-    loc: `${BASE_URL}/${slug}`,
-    lastmod: today,
-    changefreq: 'daily',
-    priority: '0.95'
-  })),
-  ...NEWS_SLUGS.map((slug) => ({
-    loc: `${BASE_URL}/${slug}`,
-    lastmod: today,
-    changefreq: 'hourly',
-    priority: '0.90'
-  })),
-  ...AEO_QUESTION_SLUGS.map((slug) => ({
-    loc: `${BASE_URL}/${slug}`,
-    lastmod: today,
-    changefreq: 'weekly',
-    priority: '0.85'
-  })),
-  ...DISTRICTS.map((district) => ({
-    loc: `${BASE_URL}/mpsc-test-series-${district}`,
-    lastmod: today,
-    changefreq: 'weekly',
-    priority: '0.80'
-  })),
-  ...TOPIC_SLUGS.map((slug) => ({
-    loc: `${BASE_URL}/${slug}`,
-    lastmod: today,
-    changefreq: 'weekly',
-    priority: '0.80'
-  })),
-  ...MARATHI_SLUGS.map((slug) => ({
-    loc: `${BASE_URL}/${slug}`,
-    lastmod: today,
-    changefreq: 'weekly',
-    priority: '0.80'
-  }))
-];
+  });
+}
 
+// 1. Homepage & HTML Sitemap Hub
+addUrl(BASE_URL, '1.0', 'daily');
+addUrl(`${BASE_URL}/sitemap`, '1.0', 'daily');
+
+// 2. High-Intent Commercial Packages
+for (const slug of COMMERCIAL_SLUGS) {
+  addUrl(`${BASE_URL}/${slug}`, '1.0', 'daily');
+}
+
+// 3. News Jacking & Time-Sensitive Hubs
+for (const slug of NEWS_SLUGS) {
+  addUrl(`${BASE_URL}/${slug}`, '1.0', 'daily');
+}
+
+// 4. AEO Question Hubs
+for (const slug of AEO_QUESTION_SLUGS) {
+  addUrl(`${BASE_URL}/${slug}`, '1.0', 'daily');
+}
+
+// 5. 36 Maharashtra Districts
+for (const d of DISTRICTS) {
+  addUrl(`${BASE_URL}/mpsc-test-series-${d}`, '1.0', 'daily');
+}
+
+// 6. Topics & Vernacular Hubs
+for (const slug of TOPIC_SLUGS) {
+  addUrl(`${BASE_URL}/${slug}`, '1.0', 'daily');
+}
+for (const slug of MARATHI_SLUGS) {
+  addUrl(`${BASE_URL}/${slug}`, '1.0', 'daily');
+}
+
+// 7. All 4,470+ Programmatic Keywords from User List
+for (const [slug, rawKw] of Object.entries(seoKeywords)) {
+  const normSlug = slug.toLowerCase().trim();
+  if (seen.has(`${BASE_URL}/${normSlug}`)) continue;
+
+  addUrl(`${BASE_URL}/${normSlug}`, '1.0', 'daily');
+}
+
+// Build XML conforming strictly to sitemaps.org protocol
 let xml = `<?xml version="1.0" encoding="UTF-8"?>\n`;
 xml += `<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n`;
 

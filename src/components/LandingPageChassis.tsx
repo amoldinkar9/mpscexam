@@ -121,23 +121,26 @@ export default async function LandingPageChassis({
       {/* 1. Sticky Header with Logos & 3 Jan 2027 Live Countdown Timer */}
       <Header />
 
-      {/* 2. Optional Contextual SEO/AEO Intent Banner for Targeted Keywords & Backlinks */}
+      {/* Dynamic Main Body Sections (Reorderable & Toggleable via Admin Panel) */}
+      {sections.filter((s) => s.enabled !== false).map((s) => renderSection(s.id))}
+
+      {/* Contextual SEO / Topic Guide Hub (Positioned Above Footer for Clean Top Visual Flow) */}
       {contextBanner && (
-        <section className="bg-gradient-to-r from-[#8b261e] via-[#6d1b14] to-[#450a0a] text-white py-5 px-4 sm:px-6 border-b border-amber-500/30 shadow-md">
-          <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            <div className="text-center md:text-left space-y-1.5 flex-1 min-w-0">
-              <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold bg-amber-400/20 text-amber-300 border border-amber-400/30">
+        <section className="bg-gradient-to-br from-[#1F2A5C] via-[#283573] to-[#161f44] text-white py-12 px-4 sm:px-6 lg:px-8 border-t border-slate-700/60 shadow-inner">
+          <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+            <div className="text-center md:text-left space-y-2.5 flex-1 min-w-0">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-amber-400/20 text-amber-300 border border-amber-400/30">
                 <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse" />
                 {contextBanner.badge}
               </span>
-              <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight leading-tight text-white">
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-extrabold tracking-tight leading-tight text-white">
                 {contextBanner.heading}
-              </h1>
-              <p className="text-xs sm:text-sm text-zinc-200 font-medium">
+              </h2>
+              <p className="text-xs sm:text-sm text-slate-200 font-medium leading-relaxed max-w-3xl">
                 {contextBanner.subheading}
               </p>
               {contextBanner.callout && (
-                <p className="text-xs text-amber-200/90 italic font-semibold">
+                <p className="text-xs text-amber-300 font-semibold pt-1">
                   📌 {contextBanner.callout}
                 </p>
               )}
@@ -145,10 +148,13 @@ export default async function LandingPageChassis({
 
             <div className="shrink-0 flex items-center gap-3">
               <a
-                href={content.finalCta?.buttonUrl || "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX"}
+                href={
+                  content.finalCta?.buttonUrl ||
+                  "https://www.tcs9.in/mr/test-series/mpsc-group-c-combined-examination/bundle/super25-19?affiliateId=IRENRX"
+                }
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center px-4 py-2.5 rounded-md text-xs sm:text-sm font-black bg-amber-400 hover:bg-amber-300 text-zinc-950 shadow-md transition-all active:scale-95"
+                className="inline-flex items-center justify-center px-6 py-3.5 rounded-xl text-sm font-black bg-amber-400 hover:bg-amber-300 text-zinc-950 shadow-md hover:shadow-lg transition-all active:scale-95"
               >
                 नोंदणी करा (₹१९९) →
               </a>
@@ -156,9 +162,6 @@ export default async function LandingPageChassis({
           </div>
         </section>
       )}
-
-      {/* Dynamic Main Body Sections (Reorderable & Toggleable via Admin Panel) */}
-      {sections.filter((s) => s.enabled !== false).map((s) => renderSection(s.id))}
 
       {/* Footer */}
       <Footer initialData={content.footer} />

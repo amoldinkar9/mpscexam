@@ -201,7 +201,7 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "[slug]/page.tsx",
+      "community_name": "pseo.ts",
       "file_type": "code",
       "norm_label": "props",
       "source_file": "src/app/[slug]/page.tsx",
@@ -214,11 +214,11 @@
       "_callable_class": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "[slug]/page.tsx",
+      "community_name": "pseo.ts",
       "file_type": "code",
       "norm_label": "pseopagedata",
       "source_file": "src/lib/pseo.ts",
-      "source_location": "L1"
+      "source_location": "L9"
     },
     {
       "id": "src_lib_contentstore_sectionconfig",
@@ -271,6 +271,18 @@
       "norm_label": "storedimagemetadata",
       "source_file": "src/lib/imageStore.ts",
       "source_location": "L5"
+    },
+    {
+      "id": "src_app_page_home",
+      "label": "Home()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LandingPageChassis.tsx",
+      "file_type": "code",
+      "norm_label": "home()",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L6"
     },
     {
       "id": "src_components_aspirantpainpoints_aspirantpainpoints",
@@ -355,6 +367,18 @@
       "norm_label": "howtopurchase()",
       "source_file": "src/components/HowToPurchase.tsx",
       "source_location": "L14"
+    },
+    {
+      "id": "src_components_landingpagechassis_landingpagechassis",
+      "label": "LandingPageChassis()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LandingPageChassis.tsx",
+      "file_type": "code",
+      "norm_label": "landingpagechassis()",
+      "source_file": "src/components/LandingPageChassis.tsx",
+      "source_location": "L34"
     },
     {
       "id": "src_components_liveactivitytoast_liveactivitytoast",
@@ -585,24 +609,12 @@
       "source_location": "L4"
     },
     {
-      "id": "src_app_page_home",
-      "label": "Home()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "[slug]/page.tsx",
-      "file_type": "code",
-      "norm_label": "home()",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L6"
-    },
-    {
       "id": "src_app_slug_page_generatemetadata",
       "label": "generateMetadata()",
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "[slug]/page.tsx",
+      "community_name": "pseo.ts",
       "file_type": "code",
       "norm_label": "generatemetadata()",
       "source_file": "src/app/[slug]/page.tsx",
@@ -614,7 +626,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "[slug]/page.tsx",
+      "community_name": "pseo.ts",
       "file_type": "code",
       "norm_label": "generatestaticparams()",
       "source_file": "src/app/[slug]/page.tsx",
@@ -626,23 +638,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "[slug]/page.tsx",
+      "community_name": "pseo.ts",
       "file_type": "code",
       "norm_label": "pseoslugpage()",
       "source_file": "src/app/[slug]/page.tsx",
       "source_location": "L54"
     },
     {
-      "id": "src_components_landingpagechassis_landingpagechassis",
-      "label": "LandingPageChassis()",
+      "id": "src_lib_pseo_capitalizewords",
+      "label": "capitalizeWords()",
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "[slug]/page.tsx",
+      "community_name": "pseo.ts",
       "file_type": "code",
-      "norm_label": "landingpagechassis()",
-      "source_file": "src/components/LandingPageChassis.tsx",
-      "source_location": "L34"
+      "norm_label": "capitalizewords()",
+      "source_file": "src/lib/pseo.ts",
+      "source_location": "L5"
     },
     {
       "id": "src_lib_pseo_getallpseoslugs",
@@ -650,11 +662,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "[slug]/page.tsx",
+      "community_name": "pseo.ts",
       "file_type": "code",
       "norm_label": "getallpseoslugs()",
       "source_file": "src/lib/pseo.ts",
-      "source_location": "L439"
+      "source_location": "L624"
     },
     {
       "id": "src_lib_pseo_getpseodata",
@@ -662,11 +674,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 26,
-      "community_name": "[slug]/page.tsx",
+      "community_name": "pseo.ts",
       "file_type": "code",
       "norm_label": "getpseodata()",
       "source_file": "src/lib/pseo.ts",
-      "source_location": "L297"
+      "source_location": "L305"
+    },
+    {
+      "id": "src_lib_pseo_resolvekeywordpseodata",
+      "label": "resolveKeywordPseoData()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 26,
+      "community_name": "pseo.ts",
+      "file_type": "code",
+      "norm_label": "resolvekeywordpseodata()",
+      "source_file": "src/lib/pseo.ts",
+      "source_location": "L481"
     },
     {
       "id": "src_app_robots_robots",
@@ -679,6 +703,18 @@
       "norm_label": "robots()",
       "source_file": "src/app/robots.ts",
       "source_location": "L3"
+    },
+    {
+      "id": "scripts_generate_sitemap_addurl",
+      "label": "addUrl()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "generate-sitemap.mjs",
+      "file_type": "code",
+      "norm_label": "addurl()",
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L104"
     },
     {
       "id": "src_app_api_admin_content_route_get",
@@ -931,6 +967,39 @@
       "norm_label": "offerbreakdown()",
       "source_file": "src/components/OfferBreakdown.tsx",
       "source_location": "L19"
+    },
+    {
+      "id": "src_app_page",
+      "label": "app/page.tsx",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LandingPageChassis.tsx",
+      "file_type": "code",
+      "norm_label": "app/page.tsx",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_app_page_dynamic",
+      "label": "dynamic",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LandingPageChassis.tsx",
+      "file_type": "code",
+      "norm_label": "dynamic",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L3"
+    },
+    {
+      "id": "src_app_page_revalidate",
+      "label": "revalidate",
+      "_origin": "ast",
+      "community": 0,
+      "community_name": "LandingPageChassis.tsx",
+      "file_type": "code",
+      "norm_label": "revalidate",
+      "source_file": "src/app/page.tsx",
+      "source_location": "L4"
     },
     {
       "id": "src_components_aspirantpainpoints",
@@ -1839,44 +1908,11 @@
       "source_location": "L13"
     },
     {
-      "id": "src_app_page",
-      "label": "app/page.tsx",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "[slug]/page.tsx",
-      "file_type": "code",
-      "norm_label": "app/page.tsx",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_app_page_dynamic",
-      "label": "dynamic",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "[slug]/page.tsx",
-      "file_type": "code",
-      "norm_label": "dynamic",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L3"
-    },
-    {
-      "id": "src_app_page_revalidate",
-      "label": "revalidate",
-      "_origin": "ast",
-      "community": 26,
-      "community_name": "[slug]/page.tsx",
-      "file_type": "code",
-      "norm_label": "revalidate",
-      "source_file": "src/app/page.tsx",
-      "source_location": "L4"
-    },
-    {
       "id": "src_app_slug_page",
       "label": "[slug]/page.tsx",
       "_origin": "ast",
       "community": 26,
-      "community_name": "[slug]/page.tsx",
+      "community_name": "pseo.ts",
       "file_type": "code",
       "norm_label": "[slug]/page.tsx",
       "source_file": "src/app/[slug]/page.tsx",
@@ -1887,7 +1923,7 @@
       "label": "dynamic",
       "_origin": "ast",
       "community": 26,
-      "community_name": "[slug]/page.tsx",
+      "community_name": "pseo.ts",
       "file_type": "code",
       "norm_label": "dynamic",
       "source_file": "src/app/[slug]/page.tsx",
@@ -1898,7 +1934,7 @@
       "label": "pseo.ts",
       "_origin": "ast",
       "community": 26,
-      "community_name": "[slug]/page.tsx",
+      "community_name": "pseo.ts",
       "file_type": "code",
       "norm_label": "pseo.ts",
       "source_file": "src/lib/pseo.ts",
@@ -1909,55 +1945,66 @@
       "label": "COMMERCIAL_PACKAGES",
       "_origin": "ast",
       "community": 26,
-      "community_name": "[slug]/page.tsx",
+      "community_name": "pseo.ts",
       "file_type": "code",
       "norm_label": "commercial_packages",
       "source_file": "src/lib/pseo.ts",
-      "source_location": "L62"
+      "source_location": "L70"
     },
     {
       "id": "src_lib_pseo_intent_questions",
       "label": "INTENT_QUESTIONS",
       "_origin": "ast",
       "community": 26,
-      "community_name": "[slug]/page.tsx",
+      "community_name": "pseo.ts",
       "file_type": "code",
       "norm_label": "intent_questions",
       "source_file": "src/lib/pseo.ts",
-      "source_location": "L132"
+      "source_location": "L140"
     },
     {
       "id": "src_lib_pseo_maharashtra_districts",
       "label": "MAHARASHTRA_DISTRICTS",
       "_origin": "ast",
       "community": 26,
-      "community_name": "[slug]/page.tsx",
+      "community_name": "pseo.ts",
       "file_type": "code",
       "norm_label": "maharashtra_districts",
       "source_file": "src/lib/pseo.ts",
-      "source_location": "L21"
+      "source_location": "L29"
     },
     {
       "id": "src_lib_pseo_news_jacking_hubs",
       "label": "NEWS_JACKING_HUBS",
       "_origin": "ast",
       "community": 26,
-      "community_name": "[slug]/page.tsx",
+      "community_name": "pseo.ts",
       "file_type": "code",
       "norm_label": "news_jacking_hubs",
       "source_file": "src/lib/pseo.ts",
-      "source_location": "L212"
+      "source_location": "L220"
+    },
+    {
+      "id": "src_lib_pseo_seo_keywords",
+      "label": "SEO_KEYWORDS",
+      "_origin": "ast",
+      "community": 26,
+      "community_name": "pseo.ts",
+      "file_type": "code",
+      "norm_label": "seo_keywords",
+      "source_file": "src/lib/pseo.ts",
+      "source_location": "L3"
     },
     {
       "id": "src_lib_pseo_topic_pages",
       "label": "TOPIC_PAGES",
       "_origin": "ast",
       "community": 26,
-      "community_name": "[slug]/page.tsx",
+      "community_name": "pseo.ts",
       "file_type": "code",
       "norm_label": "topic_pages",
       "source_file": "src/lib/pseo.ts",
-      "source_location": "L260"
+      "source_location": "L268"
     },
     {
       "id": "src_app_robots",
@@ -1990,7 +2037,7 @@
       "file_type": "code",
       "norm_label": "aeo_question_slugs",
       "source_file": "scripts/generate-sitemap.mjs",
-      "source_location": "L37"
+      "source_location": "L48"
     },
     {
       "id": "scripts_generate_sitemap_commercial_slugs",
@@ -2001,7 +2048,7 @@
       "file_type": "code",
       "norm_label": "commercial_slugs",
       "source_file": "scripts/generate-sitemap.mjs",
-      "source_location": "L23"
+      "source_location": "L34"
     },
     {
       "id": "scripts_generate_sitemap_dirname",
@@ -2023,7 +2070,7 @@
       "file_type": "code",
       "norm_label": "districts",
       "source_file": "scripts/generate-sitemap.mjs",
-      "source_location": "L13"
+      "source_location": "L24"
     },
     {
       "id": "scripts_generate_sitemap_filename",
@@ -2037,6 +2084,17 @@
       "source_location": "L5"
     },
     {
+      "id": "scripts_generate_sitemap_keywordsjsonpath",
+      "label": "keywordsJsonPath",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "generate-sitemap.mjs",
+      "file_type": "code",
+      "norm_label": "keywordsjsonpath",
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L13"
+    },
+    {
       "id": "scripts_generate_sitemap_marathi_slugs",
       "label": "MARATHI_SLUGS",
       "_origin": "ast",
@@ -2045,7 +2103,7 @@
       "file_type": "code",
       "norm_label": "marathi_slugs",
       "source_file": "scripts/generate-sitemap.mjs",
-      "source_location": "L81"
+      "source_location": "L92"
     },
     {
       "id": "scripts_generate_sitemap_news_slugs",
@@ -2056,7 +2114,7 @@
       "file_type": "code",
       "norm_label": "news_slugs",
       "source_file": "scripts/generate-sitemap.mjs",
-      "source_location": "L55"
+      "source_location": "L66"
     },
     {
       "id": "scripts_generate_sitemap_rootdir",
@@ -2070,6 +2128,28 @@
       "source_location": "L7"
     },
     {
+      "id": "scripts_generate_sitemap_seen",
+      "label": "seen",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "generate-sitemap.mjs",
+      "file_type": "code",
+      "norm_label": "seen",
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L101"
+    },
+    {
+      "id": "scripts_generate_sitemap_seokeywords",
+      "label": "seoKeywords",
+      "_origin": "ast",
+      "community": 28,
+      "community_name": "generate-sitemap.mjs",
+      "file_type": "code",
+      "norm_label": "seokeywords",
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L14"
+    },
+    {
       "id": "scripts_generate_sitemap_targetpath",
       "label": "targetPath",
       "_origin": "ast",
@@ -2078,7 +2158,7 @@
       "file_type": "code",
       "norm_label": "targetpath",
       "source_file": "scripts/generate-sitemap.mjs",
-      "source_location": "L149"
+      "source_location": "L171"
     },
     {
       "id": "scripts_generate_sitemap_topic_slugs",
@@ -2089,7 +2169,7 @@
       "file_type": "code",
       "norm_label": "topic_slugs",
       "source_file": "scripts/generate-sitemap.mjs",
-      "source_location": "L65"
+      "source_location": "L76"
     },
     {
       "id": "scripts_generate_sitemap_urls",
@@ -2100,7 +2180,7 @@
       "file_type": "code",
       "norm_label": "urls",
       "source_file": "scripts/generate-sitemap.mjs",
-      "source_location": "L90"
+      "source_location": "L102"
     },
     {
       "id": "tsconfig",
@@ -3485,6 +3565,51 @@
       "source_url": null
     },
     {
+      "id": "memory_authentication_flow",
+      "label": "Authentication Flow",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "authentication flow",
+      "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "memory_authservice",
+      "label": "AuthService",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "authservice",
+      "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "memory_user_entity",
+      "label": "User Entity",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "user entity",
+      "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
       "id": "routes_admin_dashboard_page",
       "label": "AdminDashboardPage",
       "_origin": "semantic",
@@ -3950,36 +4075,6 @@
       "source_url": null
     },
     {
-      "id": "memory_authentication_flow",
-      "label": "Authentication Flow",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 9,
-      "community_name": "TestAttempt Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "authentication flow",
-      "source_file": "memory.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "memory_authservice",
-      "label": "AuthService",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 9,
-      "community_name": "TestAttempt Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "authservice",
-      "source_file": "memory.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
       "id": "memory_question_entity",
       "label": "Question Entity",
       "_origin": "semantic",
@@ -4065,21 +4160,6 @@
       "contributor": null,
       "file_type": "concept",
       "norm_label": "testseries entity",
-      "source_file": "memory.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "memory_user_entity",
-      "label": "User Entity",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 9,
-      "community_name": "TestAttempt Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "user entity",
       "source_file": "memory.md",
       "source_location": null,
       "source_url": null
@@ -4471,6 +4551,30 @@
       "context": "call",
       "source_file": "src/lib/imageStore.ts",
       "source_location": "L43",
+      "weight": 1.0
+    },
+    {
+      "source": "src_lib_pseo_getpseodata",
+      "target": "src_lib_pseo_resolvekeywordpseodata",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/lib/pseo.ts",
+      "source_location": "L475",
+      "weight": 1.0
+    },
+    {
+      "source": "src_lib_pseo_resolvekeywordpseodata",
+      "target": "src_lib_pseo_capitalizewords",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "src/lib/pseo.ts",
+      "source_location": "L485",
       "weight": 1.0
     },
     {
@@ -6252,7 +6356,40 @@
     },
     {
       "source": "scripts_generate_sitemap",
-      "target": "scripts_generate_sitemap_districts",
+      "target": "scripts_generate_sitemap_seen",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L101",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_urls",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L102",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_addurl",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L104",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_keywordsjsonpath",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -6263,13 +6400,35 @@
     },
     {
       "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_seokeywords",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L14",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
       "target": "scripts_generate_sitemap_targetpath",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/generate-sitemap.mjs",
-      "source_location": "L149",
+      "source_location": "L171",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_districts",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -6280,7 +6439,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/generate-sitemap.mjs",
-      "source_location": "L23",
+      "source_location": "L34",
       "weight": 1.0
     },
     {
@@ -6291,7 +6450,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/generate-sitemap.mjs",
-      "source_location": "L37",
+      "source_location": "L48",
       "weight": 1.0
     },
     {
@@ -6307,17 +6466,6 @@
     },
     {
       "source": "scripts_generate_sitemap",
-      "target": "scripts_generate_sitemap_news_slugs",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/generate-sitemap.mjs",
-      "source_location": "L55",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_generate_sitemap",
       "target": "scripts_generate_sitemap_dirname",
       "relation": "contains",
       "_origin": "ast",
@@ -6329,13 +6477,13 @@
     },
     {
       "source": "scripts_generate_sitemap",
-      "target": "scripts_generate_sitemap_topic_slugs",
+      "target": "scripts_generate_sitemap_news_slugs",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/generate-sitemap.mjs",
-      "source_location": "L65",
+      "source_location": "L66",
       "weight": 1.0
     },
     {
@@ -6351,24 +6499,24 @@
     },
     {
       "source": "scripts_generate_sitemap",
+      "target": "scripts_generate_sitemap_topic_slugs",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "scripts/generate-sitemap.mjs",
+      "source_location": "L76",
+      "weight": 1.0
+    },
+    {
+      "source": "scripts_generate_sitemap",
       "target": "scripts_generate_sitemap_marathi_slugs",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "scripts/generate-sitemap.mjs",
-      "source_location": "L81",
-      "weight": 1.0
-    },
-    {
-      "source": "scripts_generate_sitemap",
-      "target": "scripts_generate_sitemap_urls",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "scripts/generate-sitemap.mjs",
-      "source_location": "L90",
+      "source_location": "L92",
       "weight": 1.0
     },
     {
@@ -7264,35 +7412,13 @@
     },
     {
       "source": "src_lib_pseo",
-      "target": "src_lib_pseo_pseopagedata",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/lib/pseo.ts",
-      "source_location": "L1",
-      "weight": 1.0
-    },
-    {
-      "source": "src_lib_pseo",
       "target": "src_lib_pseo_intent_questions",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/pseo.ts",
-      "source_location": "L132",
-      "weight": 1.0
-    },
-    {
-      "source": "src_lib_pseo",
-      "target": "src_lib_pseo_maharashtra_districts",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/lib/pseo.ts",
-      "source_location": "L21",
+      "source_location": "L140",
       "weight": 1.0
     },
     {
@@ -7303,7 +7429,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/pseo.ts",
-      "source_location": "L212",
+      "source_location": "L220",
       "weight": 1.0
     },
     {
@@ -7314,7 +7440,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/pseo.ts",
-      "source_location": "L260",
+      "source_location": "L268",
+      "weight": 1.0
+    },
+    {
+      "source": "src_lib_pseo",
+      "target": "src_lib_pseo_maharashtra_districts",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/pseo.ts",
+      "source_location": "L29",
+      "weight": 1.0
+    },
+    {
+      "source": "src_lib_pseo",
+      "target": "src_lib_pseo_seo_keywords",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/pseo.ts",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -7325,7 +7473,29 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/pseo.ts",
-      "source_location": "L297",
+      "source_location": "L305",
+      "weight": 1.0
+    },
+    {
+      "source": "src_lib_pseo",
+      "target": "src_lib_pseo_resolvekeywordpseodata",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/pseo.ts",
+      "source_location": "L481",
+      "weight": 1.0
+    },
+    {
+      "source": "src_lib_pseo",
+      "target": "src_lib_pseo_capitalizewords",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/pseo.ts",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -7336,7 +7506,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/pseo.ts",
-      "source_location": "L439",
+      "source_location": "L624",
       "weight": 1.0
     },
     {
@@ -7347,7 +7517,18 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/lib/pseo.ts",
-      "source_location": "L62",
+      "source_location": "L70",
+      "weight": 1.0
+    },
+    {
+      "source": "src_lib_pseo",
+      "target": "src_lib_pseo_pseopagedata",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/lib/pseo.ts",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -8732,5 +8913,5 @@
       "source_file": "architecture.md"
     }
   ],
-  "built_at_commit": "27a2a57427b8e5efaefb422b8b7997b3641d52f8"
+  "built_at_commit": "a95ff5b2c76fc4a355a343a9515c24cd7e92f96a"
 }

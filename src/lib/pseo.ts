@@ -1,3 +1,11 @@
+import seoKeywordsJson from "@/data/seoKeywords.json";
+
+const SEO_KEYWORDS: Record<string, string> = seoKeywordsJson as Record<string, string>;
+
+function capitalizeWords(str: string): string {
+  return str.replace(/\b\w/g, (l) => l.toUpperCase());
+}
+
 export interface PseoPageData {
   slug: string;
   title: string;
@@ -432,7 +440,184 @@ export async function getPseoData(slug: string): Promise<PseoPageData | null> {
     };
   }
 
+  // Check Sitemap directory hub
+  if (slug === "sitemap" || slug === "topics" || slug === "directory") {
+    return {
+      slug,
+      title: "अधिकृत साइटमॅप व संपूर्ण डायरेक्टरी",
+      description: "MPSC गट क पूर्व परीक्षा २०२६-२०२७ तयारीसाठी सर्व ३६ जिल्हे, टेस्ट सिरीज पॅकेजेस, चालू घडामोडी आणि वारंवार विचारले जाणारे प्रश्न.",
+      keywords: ["mpscexam sitemap", "mpsc topics", "mpsc directory", "tcs9 master25"],
+      primaryKeyword: "mpscexam sitemap",
+      category: "package",
+      contextBanner: {
+        badge: "अधिकृत साइटमॅप व इंडेक्स",
+        heading: "mpscexam संपूर्ण साइटमॅप व लिंक्स डायरेक्टरी",
+        subheading: "महाराष्ट्रातील सर्व ३६ जिल्हे, परीक्षा वेळापत्रक, टेस्ट सिरीज पॅकेजेस आणि महत्त्वाच्या विषयांची संपूर्ण डायरेक्टरी.",
+        callout: "⚡ सर्च इंजिन व बॉट्ससाठी एक्सएमएल साइटमॅप: /sitemap.xml",
+      },
+      faqs: [
+        {
+          question: "साइटमॅपचा उपयोग काय आहे?",
+          answer: "साइटमॅपद्वारे विद्यार्थी व सर्च इंजिन्सना परीक्षेच्या सर्व घटकांची, जिल्ह्यांची व टेस्ट सिरीजची थेट लिंक एकाच ठिकाणी मिळते.",
+        },
+        {
+          question: "टेस्ट सिरीजमध्ये काय काय समाविष्ट आहे?",
+          answer: "tcs9 MASTER25 मध्ये २५ फुल-लेंथ सराव पेपर्स, २५००+ संकल्पना आणि अचूक -०.२५ निगेटिव्ह मार्किंग विश्लेषण उपलब्ध आहे.",
+        },
+      ],
+    };
+  }
+
+  // Check Dynamic SEO Keywords Database
+  const cleanSlug = slug.toLowerCase().trim().replace(/_/g, "-");
+  const rawKw = SEO_KEYWORDS[cleanSlug];
+  if (rawKw) {
+    return resolveKeywordPseoData(cleanSlug, rawKw);
+  }
+
   return null;
+}
+
+export function resolveKeywordPseoData(slug: string, rawKw: string): PseoPageData {
+  const kwLower = rawKw.toLowerCase();
+  let category: PseoPageData["category"] = "package";
+  let badge = "MPSC २०२६-२०२७ सराव";
+  const displayKw = capitalizeWords(rawKw.replace(/-/g, " "));
+  let heading = `${displayKw} २०२६-२०२७`;
+  let subheading = `${rawKw} साठी अधिकृत मार्गदर्शन, २५००+ सराव संकल्पना आणि tcs9 MASTER25 सराव टेस्ट सिरीज.`;
+  const callout = "⚡ ३ जानेवारी २०२७ परीक्षेसाठी २५ फुल-लेंथ टेस्ट सिरीज उपलब्ध (केवळ ₹१९९).";
+  const faqs: Array<{ question: string; answer: string }> = [
+    {
+      question: `${rawKw} साठी सर्वोत्तम तयारी कशी करावी?`,
+      answer: "परीक्षेच्या अधिकृत अभ्यासक्रमानुसार दररोज ३-४ तास संदर्भ पुस्तकांचे वाचन आणि आठवड्यातून किमान २ फुल-लेंथ सराव पेपर्स अचूक -०.२५ निगेटिव्ह मार्किंगसह सोडवणे सर्वोत्तम ठरते.",
+    },
+    {
+      question: "MPSC गट क परीक्षेची नवीन तारीख काय आहे?",
+      answer: "MPSC गट क संयुक्त पूर्व परीक्षा आता ३ जानेवारी २०२७ रोजी सकाळी १०:३० ते ११:३० या वेळेत होणार आहे.",
+    },
+    {
+      question: "tcs9 MASTER25 टेस्ट सिरीज कशी जॉईन करावी?",
+      answer: "वेबसाईटवरील 'Start Test' बटणावर क्लिक करून ₹१९९ मध्ये तत्काळ २५ फुल-लेंथ पेपर्स व सोल्यूशन्स अनलॉक करू शकता.",
+    },
+  ];
+
+  if (
+    kwLower.includes("eligibility") ||
+    kwLower.includes("criteria") ||
+    kwLower.includes("age") ||
+    kwLower.includes("qualification") ||
+    kwLower.includes("पात्रता") ||
+    kwLower.includes("वयोमर्यादा")
+  ) {
+    category = "aeo-question";
+    badge = "पात्रता व निकष २०२६";
+    heading = `${displayKw} — पात्रता व निकष`;
+    subheading = "आवश्यक शैक्षणिक अर्हता, टाइपिंग प्रमाणपत्र, वयोमर्यादा आणि २५ फुल-लेंथ सराव पेपर्ससह परिपूर्ण तयारी.";
+    faqs.unshift({
+      question: `${rawKw} बाबत महत्त्वाची पात्रता कोणती?`,
+      answer: "पदाच्या सेवाप्रवेश नियमांनुसार मान्यताप्राप्त विद्यापीठाची पदवी आणि संबंधित पदासाठी आवश्यक टाइपिंग प्रमाणपत्र विहित मुदतीत उत्तीर्ण असणे आवश्यक आहे.",
+    });
+  } else if (
+    kwLower.includes("answer key") ||
+    kwLower.includes("result") ||
+    kwLower.includes("cut off") ||
+    kwLower.includes("cutoff") ||
+    kwLower.includes("निकाल") ||
+    kwLower.includes("उत्तरतालिका")
+  ) {
+    category = "news";
+    badge = "निकाल व उत्तरतालिका अपडेट";
+    heading = `${displayKw} — विश्लेषण व कट-ऑफ`;
+    subheading = "संभाव्य कट-ऑफ, गुणांचे विश्लेषण आणि पुढील टप्प्यासाठी २५००+ प्रश्नांचा सखोल सराव.";
+    faqs.unshift({
+      question: `${rawKw} निकाल व गुण कसे मोजावेत?`,
+      answer: "परीक्षेचे निकाल व अधिकृत उत्तरतालिका MPSC च्या अधिकृत संकेतस्थळावर प्रसिद्ध होतात. विद्यार्थ्यांनी अचूक -०.२५ निगेटिव्ह मार्किंग वजा करून आपले अंतिम गुण मोजावेत.",
+    });
+  } else if (
+    kwLower.includes("hall ticket") ||
+    kwLower.includes("admit card") ||
+    kwLower.includes("exam date") ||
+    kwLower.includes("notification") ||
+    kwLower.includes("recruitment") ||
+    kwLower.includes("प्रवेशपत्र") ||
+    kwLower.includes("वेळापत्रक") ||
+    kwLower.includes("जाहिरात") ||
+    kwLower.includes("भरती")
+  ) {
+    category = "news";
+    badge = "अधिकृत जाहिरात व वेळापत्रक";
+    heading = `${displayKw} — अधिकृत अपडेट`;
+    subheading = "परीक्षेचे सुधारित वेळापत्रक (३ जानेवारी २०२७), अर्ज प्रक्रिया आणि २५ फुल-लेंथ पेपर्ससह वेळेचे व्यवस्थापन.";
+    faqs.unshift({
+      question: `${rawKw} बद्दल महत्त्वाची अपडेट काय आहे?`,
+      answer: "MPSC संयुक्त पूर्व परीक्षा आता ३ जानेवारी २०२७ रोजी होणार आहे. उमेदवारांनी वेळेचे योग्य नियोजन करून नियमित सराव टेस्ट सोडवण्यावर भर द्यावा.",
+    });
+  } else if (
+    kwLower.includes("test series") ||
+    kwLower.includes("mock") ||
+    kwLower.includes("test") ||
+    kwLower.includes("paper") ||
+    kwLower.includes("mcq") ||
+    kwLower.includes("question") ||
+    kwLower.includes("सराव") ||
+    kwLower.includes("प्रश्न")
+  ) {
+    category = "package";
+    badge = "tcs9 MASTER25 टेस्ट सिरीज (₹१९९)";
+    heading = `${displayKw} — २५ फुल-लेंथ पेपर्स`;
+    subheading = "MPSC पॅटर्ननुसार २५००+ सराव प्रश्न, २५ फुल-लेंथ पेपर्स आणि अचूक -०.२५ निगेटिव्ह मार्किंग विश्लेषण. केवळ ₹१९९ मध्ये.";
+    faqs.unshift({
+      question: "या टेस्ट सिरीजमध्ये काय काय समाविष्ट आहे?",
+      answer: "यामध्ये २५ फुल-लेंथ पेपर्स (१०० प्रश्न, १०० गुण, १ तास), २५००+ दर्जेदार प्रश्नांचे सखोल मराठी स्पष्टीकरण आणि राज्यव्यापी रँक अनालिसिस उपलब्ध आहे.",
+    });
+  } else if (
+    kwLower.includes("syllabus") ||
+    kwLower.includes("pattern") ||
+    kwLower.includes("अभ्यासक्रम")
+  ) {
+    category = "subject";
+    badge = "नवीन अभ्यासक्रम व पॅटर्न";
+    heading = `${displayKw} — १०० गुणांचे स्वरूप`;
+    subheading = "MPSC नवीन परीक्षा पद्धतीनुसार १०० गुणांचे स्वरूप आणि संपूर्ण अभ्यासक्रम कव्हर करणारी टेस्ट सिरीज.";
+    faqs.unshift({
+      question: `${rawKw} नुसार प्रमुख विषय कोणते आहेत?`,
+      answer: "इतिहास, भूगोल, राज्यशास्त्र, अर्थशास्त्र, सामान्य विज्ञान, चालू घडामोडी आणि अंकगणित व बुद्धिमत्ता हे ७ प्रमुख घटक १०० गुणांसाठी समाविष्ट आहेत.",
+    });
+  } else if (
+    kwLower.includes("notes") ||
+    kwLower.includes("book") ||
+    kwLower.includes("pdf") ||
+    kwLower.includes("material") ||
+    kwLower.includes("one liner")
+  ) {
+    category = "subject";
+    badge = "अभ्यास साहित्य व सराव";
+    heading = `${displayKw} — संदर्भ साहित्य व टेस्ट्स`;
+    subheading = "MPSC पूर्व परीक्षेसाठी अचूक संदर्भ साहित्य, महत्त्वाच्या संकल्पना आणि २५००+ प्रश्नांचा सखोल सराव.";
+    faqs.unshift({
+      question: `${rawKw} चा अभ्यास कसा करावा?`,
+      answer: "महत्त्वाच्या घटकांची रिव्हिजन नोट्स काढून नियमित पुनरावलोकन करावे आणि त्या घटकावर आधारित मॉक टेस्ट्स वेळेच्या मर्यादेत सोडवाव्यात.",
+    });
+  }
+
+  const title = `${displayKw} २०२६-२०२७`;
+  const description = `${rawKw} साठी परिपूर्ण मार्गदर्शन व tcs9 MASTER25 अधिकृत टेस्ट सिरीज. २५ फुल-लेंथ पेपर्स, २५००+ संकल्पना आणि अचूक -०.२५ निगेटिव्ह मार्किंग सराव.`;
+
+  return {
+    slug,
+    title,
+    description,
+    keywords: [rawKw, "mpscexam", "tcs9 master25", "mpsc group c 2026", "mpsc test series 199"],
+    primaryKeyword: rawKw,
+    category,
+    contextBanner: {
+      badge,
+      heading,
+      subheading,
+      callout,
+    },
+    faqs,
+  };
 }
 
 // Get all slugs for build-time static generation (SSG)
@@ -444,6 +629,7 @@ export async function getAllPseoSlugs(): Promise<string[]> {
   const topicSlugs = TOPIC_PAGES.map((t) => t.slug);
 
   return [
+    "sitemap",
     ...districtSlugs,
     ...packageSlugs,
     ...questionSlugs,

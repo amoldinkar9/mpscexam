@@ -706,15 +706,17 @@ flowchart TD
     - AEO question intent hubs (`/can-12th-pass-apply-for-mpsc-group-c`, `/how-to-avoid-negative-marking-in-mpsc-group-c`, etc.).
     - Newsjacking pages (`/mpsc-group-c-exam-postponed-to-3-january-2027`, `/mpsc-group-c-hall-ticket-2026`, etc.).
     - Topic-wise MCQ modules (`/mpsc-polity-73rd-74th-amendment-mcq`, `/mpsc-economics-gst-rbi-mcq`, etc.).
-  - `src/components/LandingPageChassis.tsx`: Unified master chassis rendering the high-converting conversion page with a keyword-tailored contextual intent banner and dynamic FAQs.
+  - `src/components/LandingPageChassis.tsx`: Unified master chassis rendering the high-converting conversion page with a keyword-tailored contextual intent guide hub positioned directly above the Footer, keeping the top Hero flow completely clean, pristine, and unobstructed.
   - `src/components/SeoSchema.tsx`: Structured data component injecting JSON-LD schemas:
     - `EducationalOrganization` (`mpscexam`, no personal name).
     - `Product` & `Offer` for `tcs9 MASTER25` (₹199, valid until 2027-01-03).
     - `Course` schema for MPSC Group C Master Preparation.
     - `FAQPage` rich snippet schema.
   - `src/app/[slug]/page.tsx`: Dynamic catch-all App Router page pre-rendering all slugs with targeted `<title>`, `<meta>`, canonical links, and OpenGraph/Twitter tags.
-  - `public/sitemap.xml` & `scripts/generate-sitemap.mjs`: Automated XML sitemap generation indexing all 86 URLs with priority tiers (1.0, 0.95, 0.90, 0.85, 0.80) and change frequencies. Wired directly into `npm run build` (`package.json`).
-  - `next.config.ts`: Configured with 308 permanent redirect from `/sitemap` to `/sitemap.xml`.
+  - `public/sitemap.xml` & `scripts/generate-sitemap.mjs`: Automated XML sitemap generation indexing all **4,494 unique URLs** (mapped from all 4,687 user-provided keywords across Maharashtra Group C, Clerk Typist, Tax Assistant, Rajyaseva, 36 districts, exam date postponement, syllabus, and PYQ topics) with **uniform maximum priority 1.0 and daily change frequency** across all entries. Wired directly into `npm run build` (`package.json`).
+  - `src/data/seoKeywords.json`: Central 4,472-entry keyword mapping linking kebab-case slugs to high-intent search queries.
+  - `src/lib/pseo.ts`: Features `resolveKeywordPseoData` which dynamically synthesizes tailored title tags, meta descriptions, contextual intent banners, and targeted FAQs for any of the 4,472 keywords while preserving the identical high-converting chassis layout (`LandingPageChassis.tsx`).
+  - `src/app/sitemap/page.tsx` & `/sitemap`: HTML Sitemap Directory page rendering the full platform index with direct linkage to `/sitemap.xml`.
   - `src/app/layout.tsx`: Declares `<link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />` and `metadata.alternates.types["application/xml"]`.
   - `src/components/Footer.tsx`: Renders accessible, visible footer link `साइटमॅप (Sitemap)` linking to `/sitemap.xml` opening in a new tab.
   - `src/app/robots.ts`: Crawler rules granting access to Googlebot, Bingbot, GPTBot, PerplexityBot, ClaudeBot, and Google-Extended while shielding `/admin` and declaring `Sitemap: https://mpscexam.in/sitemap.xml`.

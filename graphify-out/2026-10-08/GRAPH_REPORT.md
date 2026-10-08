@@ -1,16 +1,16 @@
-# Graph Report - mpscexam  (2026-10-05)
+# Graph Report - mpscexam  (2026-10-08)
 
 ## Corpus Check
-- 58 files · ~156,683 words
+- 58 files · ~196,296 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 334 nodes · 406 edges · 28 communities (17 shown, 7 thin omitted)
+- 334 nodes · 405 edges · 28 communities (17 shown, 7 thin omitted)
 - Extraction: 92% EXTRACTED · 8% INFERRED · 0% AMBIGUOUS · INFERRED: 33 edges (avg confidence: 0.8)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `39eebc31`
+- Built from commit: `8d55c218`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -82,7 +82,7 @@ Nodes (28): dynamic, revalidate, AspirantPainPoints(), CutoffContrastData, FAQ()
 
 ### Community 1 - "mpscexam Route Map"
 Cohesion: 0.06
-Nodes (45): Graphify Knowledge Graph, Graphify Workflow, mpscexam API Inventory, Authentication Endpoints, POST /api/tests/:id/start, POST /api/tests/:id/submit, Question Bank & PYQ Endpoints, Test Series & Exam Runner Endpoints (+37 more)
+Nodes (47): Graphify Knowledge Graph, Graphify Workflow, mpscexam API Inventory, Authentication Endpoints, POST /api/tests/:id/start, POST /api/tests/:id/submit, Question Bank & PYQ Endpoints, Test Series & Exam Runner Endpoints (+39 more)
 
 ### Community 2 - "devDependencies"
 Cohesion: 0.06
@@ -105,8 +105,8 @@ Cohesion: 0.13
 Nodes (14): name, private, scripts, build, build:vinext, deploy:vinext, dev, dev:vinext (+6 more)
 
 ### Community 9 - "TestAttempt Entity"
-Cohesion: 0.20
-Nodes (12): AnalyticsService, Authentication Flow, AuthService, Question Entity, QuestionBankService, Test Attempt & Grading Flow, TestAttempt Entity, TestEngineService (+4 more)
+Cohesion: 0.24
+Nodes (10): AnalyticsService, AuthService, Question Entity, QuestionBankService, Test Attempt & Grading Flow, TestAttempt Entity, TestEngineService, TestSeries Entity (+2 more)
 
 ### Community 10 - "Next.js Agent Rules Notice"
 Cohesion: 0.40
@@ -145,7 +145,7 @@ Cohesion: 0.12
 Nodes (14): AEO_QUESTION_SLUGS, COMMERCIAL_SLUGS, __dirname, DISTRICTS, __filename, keywordsJsonPath, MARATHI_SLUGS, NEWS_SLUGS (+6 more)
 
 ## Knowledge Gaps
-- **142 isolated node(s):** `nextConfig`, `__filename`, `__dirname`, `rootDir`, `keywordsJsonPath` (+137 more)
+- **142 isolated node(s):** `Props`, `dynamic`, `googleSans`, `samaDevanagari`, `metadata` (+137 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 163 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **7 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -156,12 +156,12 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.030) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `dependencies` to `scripts`?**
   _High betweenness centrality (0.027) - this node is a cross-community bridge._
-- **What connects `nextConfig`, `__filename`, `__dirname` to the rest of the system?**
+- **What connects `Props`, `dynamic`, `googleSans` to the rest of the system?**
   _142 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `LandingPageChassis.tsx` be split into smaller, more focused modules?**
   _Cohesion score 0.06462585034013606 - nodes in this community are weakly interconnected._
 - **Should `mpscexam Route Map` be split into smaller, more focused modules?**
-  _Cohesion score 0.06363636363636363 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06105457909343201 - nodes in this community are weakly interconnected._
 - **Should `devDependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected._
 - **Should `compilerOptions` be split into smaller, more focused modules?**

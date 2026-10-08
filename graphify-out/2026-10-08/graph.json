@@ -510,7 +510,7 @@
       "file_type": "code",
       "norm_label": "rootlayout()",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L119"
+      "source_location": "L121"
     },
     {
       "id": "src_components_howitworks_howitworks",
@@ -3521,6 +3521,21 @@
       "source_url": null
     },
     {
+      "id": "memory_authentication_flow",
+      "label": "Authentication Flow",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "authentication flow",
+      "source_file": "memory.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
       "id": "routes_admin_dashboard_page",
       "label": "AdminDashboardPage",
       "_origin": "semantic",
@@ -3576,6 +3591,21 @@
       "contributor": null,
       "file_type": "concept",
       "norm_label": "questioneditorpage",
+      "source_file": "routes.md",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "routes_route_protection_middleware_flow",
+      "label": "Route Protection & Middleware Flow",
+      "_origin": "semantic",
+      "author": null,
+      "captured_at": null,
+      "community": 1,
+      "community_name": "mpscexam Route Map",
+      "contributor": null,
+      "file_type": "concept",
+      "norm_label": "route protection & middleware flow",
       "source_file": "routes.md",
       "source_location": null,
       "source_url": null
@@ -3971,21 +4001,6 @@
       "source_url": null
     },
     {
-      "id": "memory_authentication_flow",
-      "label": "Authentication Flow",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 9,
-      "community_name": "TestAttempt Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "authentication flow",
-      "source_file": "memory.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
       "id": "memory_authservice",
       "label": "AuthService",
       "_origin": "semantic",
@@ -4117,21 +4132,6 @@
       "file_type": "concept",
       "norm_label": "useranswer entity",
       "source_file": "memory.md",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "routes_route_protection_middleware_flow",
-      "label": "Route Protection & Middleware Flow",
-      "_origin": "semantic",
-      "author": null,
-      "captured_at": null,
-      "community": 9,
-      "community_name": "TestAttempt Entity",
-      "contributor": null,
-      "file_type": "concept",
-      "norm_label": "route protection & middleware flow",
-      "source_file": "routes.md",
       "source_location": null,
       "source_url": null
     }
@@ -5143,18 +5143,6 @@
       "context": "import",
       "source_file": "src/app/[slug]/page.tsx",
       "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_app_slug_page",
-      "target": "src_components_landingpagechassis_landingpagechassis",
-      "relation": "imports",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "import",
-      "source_file": "src/app/[slug]/page.tsx",
-      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -6692,7 +6680,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/layout.tsx",
-      "source_location": "L119",
+      "source_location": "L121",
       "weight": 1.0
     },
     {
@@ -8815,5 +8803,5 @@
       "source_file": "architecture.md"
     }
   ],
-  "built_at_commit": "39eebc31b5b7befdd91147d5e76d0b56cb8f72f1"
+  "built_at_commit": "8d55c21849a7052d7dc5603ea09d018f40fcf443"
 }

@@ -738,4 +738,11 @@ flowchart TD
   - **Structured Data (`src/components/SeoSchema.tsx`):**
     - Updated `productSchema.image` to `https://mpscexam.in/og-image.jpg` for Google rich snippets.
 
+### Meta Pixel (Facebook Pixel) Tracking Architecture
+- **Pixel ID:** `1195844026055398`
+- **Location:** Injected inside `<head>` just before `</head>` in root layout [`src/app/layout.tsx`](file:///Users/amoldinkar9/Documents/mpscexam/src/app/layout.tsx).
+- **Coverage:** Runs universally on every page rendered under `mpscexam.in` (`/`, `/[slug]`, `/sitemap`, `/admin`).
+- **Standard Events Tracked:** Fires `fbq('init', '1195844026055398')` and `fbq('track', 'PageView')` automatically upon page load, along with `<noscript>` tracking pixel fallback.
+
+
 

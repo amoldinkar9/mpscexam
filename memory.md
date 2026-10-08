@@ -721,3 +721,21 @@ flowchart TD
   - `src/components/Footer.tsx`: Renders accessible, visible footer link `साइटमॅप (Sitemap)` linking to `/sitemap.xml` opening in a new tab.
   - `src/app/robots.ts`: Crawler rules granting access to Googlebot, Bingbot, GPTBot, PerplexityBot, ClaudeBot, and Google-Extended while shielding `/admin` and declaring `Sitemap: https://mpscexam.in/sitemap.xml`.
 
+### Social Sharing & Open Graph Banner Preview Architecture (`og:image` & `twitter:image`)
+- **Requirement & Strategy:**
+  - When the website URL (`https://mpscexam.in` or any pSEO slug) is shared on WhatsApp, Facebook, Twitter/X, LinkedIn, Telegram, iMessage, etc., the official high-resolution `tcs9 MASTER25 MPSC गट-क पूर्व परीक्षा - टेस्ट सिरीज` banner must load as the rich link preview card.
+- **Architectural Implementation Across Connected Layers:**
+  - **Banner Files:**
+    - `public/og-image.jpg`: 1672x941 crisp 16:9 banner directly accessible statically at `https://mpscexam.in/og-image.jpg`.
+    - `src/app/opengraph-image.jpg`: Native Next.js App Router file-based metadata convention automatically generating Open Graph tags with dimensions and content hashing.
+    - `src/app/twitter-image.jpg`: Native Next.js App Router file-based metadata convention generating Twitter Card image tags (`summary_large_image`).
+  - **Metadata Configuration (`src/app/layout.tsx`):**
+    - Updated `metadata.openGraph.images` to point to `https://mpscexam.in/og-image.jpg` with explicit `secureUrl`, `width: 1672`, `height: 941`, and Marathi descriptive `alt`.
+    - Updated `metadata.twitter.images` to `["https://mpscexam.in/og-image.jpg"]` with `summary_large_image`.
+    - Injected explicit `<meta property="og:image" ...>` and `<meta name="twitter:image" ...>` tags inside `<head>` in `RootLayout` for instant parsing by crawler bots that do not execute JavaScript (e.g. WhatsApp's `facebookexternalhit` and Telegram bot).
+  - **Dynamic Programmatic SEO Pages (`src/app/[slug]/page.tsx`):**
+    - Synchronized `generateMetadata` so all 4,494 dynamic slugs inherit the `og-image.jpg` preview card.
+  - **Structured Data (`src/components/SeoSchema.tsx`):**
+    - Updated `productSchema.image` to `https://mpscexam.in/og-image.jpg` for Google rich snippets.
+
+

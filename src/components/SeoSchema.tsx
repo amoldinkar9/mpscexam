@@ -48,7 +48,7 @@ export function SeoSchema({
     "@id": "https://mpscexam.in/#tcs9-master25",
     name: "tcs9 MASTER25 MPSC Group C Test Series 2026-2027",
     alternateName: "MPSC Group C 25 Full Length Mock Tests",
-    image: "https://mpscexam.in/logo.png",
+    image: "https://mpscexam.in/og-image.jpg",
     description:
       "Comprehensive 25 Full Length Test Series covering 2,500+ core syllabus concepts for MPSC Group C Combined Exam with official -0.25 negative marking evaluation and bilingual Marathi & English explanations.",
     brand: {

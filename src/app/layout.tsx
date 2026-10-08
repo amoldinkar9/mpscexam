@@ -101,10 +101,12 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/logo.png",
-        width: 512,
-        height: 512,
-        alt: "mpscexam Official Platform Logo",
+        url: "https://mpscexam.in/og-image.jpg",
+        secureUrl: "https://mpscexam.in/og-image.jpg",
+        width: 1672,
+        height: 941,
+        alt: "mpscexam | tcs9 MASTER25 MPSC गट-क पूर्व परीक्षा टेस्ट सिरीज",
+        type: "image/jpeg",
       },
     ],
   },
@@ -112,7 +114,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "mpscexam | MPSC Group C Test Series — tcs9 MASTER25",
     description: "२५ फुल-लेंथ सराव पेपर्स व २५००+ संकल्पना. अचूक -०.२५ निगेटिव्ह मार्किंगसह सराव करा.",
-    images: ["/logo.png"],
+    images: ["https://mpscexam.in/og-image.jpg"],
   },
 };
 
@@ -128,6 +130,15 @@ export default function RootLayout({
         <link rel="shortcut icon" href="/favicon.png" type="image/png" />
         <link rel="apple-touch-icon" href="/favicon.png" />
         <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+        {/* WhatsApp & Social Media Open Graph explicit tags */}
+        <meta property="og:image" content="https://mpscexam.in/og-image.jpg" />
+        <meta property="og:image:secure_url" content="https://mpscexam.in/og-image.jpg" />
+        <meta property="og:image:type" content="image/jpeg" />
+        <meta property="og:image:width" content="1672" />
+        <meta property="og:image:height" content="941" />
+        <meta property="og:image:alt" content="mpscexam | tcs9 MASTER25 MPSC गट-क पूर्व परीक्षा टेस्ट सिरीज" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://mpscexam.in/og-image.jpg" />
       </head>
       <body className="bg-[#fafbfc] text-[#1f2a5c] antialiased">
         {children}

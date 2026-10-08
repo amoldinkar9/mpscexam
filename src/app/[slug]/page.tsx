@@ -35,10 +35,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "website",
       images: [
         {
-          url: "https://mpscexam.in/logo.png",
-          width: 512,
-          height: 512,
-          alt: "mpscexam Official Exam Platform",
+          url: "https://mpscexam.in/og-image.jpg",
+          width: 1672,
+          height: 941,
+          alt: "mpscexam | tcs9 MASTER25 MPSC गट-क पूर्व परीक्षा टेस्ट सिरीज",
         },
       ],
     },
@@ -46,7 +46,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       card: "summary_large_image",
       title: data.title,
       description: data.description,
-      images: ["https://mpscexam.in/logo.png"],
+      images: ["https://mpscexam.in/og-image.jpg"],
     },
   };
 }

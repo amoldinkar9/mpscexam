@@ -510,7 +510,7 @@
       "file_type": "code",
       "norm_label": "rootlayout()",
       "source_file": "src/app/layout.tsx",
-      "source_location": "L119"
+      "source_location": "L121"
     },
     {
       "id": "src_components_howitworks_howitworks",
@@ -6736,7 +6736,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/app/layout.tsx",
-      "source_location": "L119",
+      "source_location": "L121",
       "weight": 1.0
     },
     {
@@ -8913,5 +8913,5 @@
       "source_file": "architecture.md"
     }
   ],
-  "built_at_commit": "a95ff5b2c76fc4a355a343a9515c24cd7e92f96a"
+  "built_at_commit": "39eebc31b5b7befdd91147d5e76d0b56cb8f72f1"
 }

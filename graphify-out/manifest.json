@@ -60,9 +60,9 @@
     "semantic_hash": "d54f6c579c79fb7e061791f5b1293e5a"
   },
   "memory.md": {
-    "mtime": 1791172199.2118971,
-    "seen": 1791172205.8553631,
-    "ast_hash": "10ddfdf9d2944798c19fc910dd7da9f9",
+    "mtime": 1791444793.9892037,
+    "seen": 1791444809.444028,
+    "ast_hash": "dcbdd63638866b4cd138ab48a908e28e",
     "semantic_hash": ""
   },
   "routes.md": {
@@ -96,9 +96,9 @@
     "semantic_hash": "239f3ebf717465dc636818a1a619398d"
   },
   "src/app/layout.tsx": {
-    "mtime": 1791125955.2981627,
-    "seen": 1791126019.7728581,
-    "ast_hash": "4ee9aa68013924ef63fcba20e3183f38",
+    "mtime": 1791444698.372777,
+    "seen": 1791444809.4439979,
+    "ast_hash": "fe16a55437f1cd3320147ca159400aec",
     "semantic_hash": ""
   },
   "src/app/page.tsx": {
@@ -342,9 +342,9 @@
     "semantic_hash": ""
   },
   "src/app/[slug]/page.tsx": {
-    "mtime": 1791125166.7242484,
-    "seen": 1791125210.115229,
-    "ast_hash": "04e9d89c53ce0b694cfc79443326c5d3",
+    "mtime": 1791444719.4903958,
+    "seen": 1791444809.443993,
+    "ast_hash": "32d768ef993cc574698ba2404e38d1f5",
     "semantic_hash": ""
   },
   "src/app/robots.ts": {
@@ -360,9 +360,9 @@
     "semantic_hash": ""
   },
   "src/components/SeoSchema.tsx": {
-    "mtime": 1791125105.7057104,
-    "seen": 1791125210.115247,
-    "ast_hash": "d30e8d00467bd02c684295f24a39e5c4",
+    "mtime": 1791444731.9021351,
+    "seen": 1791444809.444009,
+    "ast_hash": "625b22569cce480e12d93794bc221822",
     "semantic_hash": ""
   },
   "src/lib/pseo.ts": {
@@ -381,6 +381,24 @@
     "mtime": 1791171449.6480408,
     "seen": 1791171643.157162,
     "ast_hash": "3791393bb64e24173443e4027381a77e",
+    "semantic_hash": ""
+  },
+  "public/og-image.jpg": {
+    "mtime": 1791444605.6873217,
+    "seen": 1791444809.444032,
+    "ast_hash": "969c871b39446da038f6097f4130592a",
+    "semantic_hash": ""
+  },
+  "src/app/opengraph-image.jpg": {
+    "mtime": 1791444605.691388,
+    "seen": 1791444809.444035,
+    "ast_hash": "969c871b39446da038f6097f4130592a",
+    "semantic_hash": ""
+  },
+  "src/app/twitter-image.jpg": {
+    "mtime": 1791444605.6959171,
+    "seen": 1791444809.444035,
+    "ast_hash": "969c871b39446da038f6097f4130592a",
     "semantic_hash": ""
   }
 }
